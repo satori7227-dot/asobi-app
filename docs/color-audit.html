@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ASOBI - Color Asset コントラスト監査</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;margin:32px auto;max-width:1000px;padding:0 16px;color:#222;line-height:1.7}
+  h1{font-size:1.8em;border-bottom:3px solid #D97757;padding-bottom:8px}
+  h2{font-size:1.3em;margin-top:2em;color:#D97757}
+  h3{font-size:1.05em;margin-top:1.5em}
+  .meta{background:#fff8f3;padding:12px 16px;border-radius:8px;font-size:0.95em}
+  table{border-collapse:collapse;width:100%;margin:1em 0;font-size:0.92em}
+  th,td{border:1px solid #ddd;padding:8px;text-align:left;vertical-align:top}
+  th{background:#fff8f3}
+  ul{padding-left:1.4em}
+  code{background:#f0f0f0;padding:2px 6px;border-radius:3px;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:0.9em}
+  .pass{color:#3a9d4f;font-weight:600}
+  .warn{color:#d9a23a;font-weight:600}
+  .fail{color:#c1453f;font-weight:600}
+  .pending{color:#999}
+</style>
+</head>
+<body>
+<h1>Color Asset コントラスト監査</h1>
+<div class="meta">
+  対象: <code>Asobi/Resources/Assets.xcassets/SceneColors/</code> 配下の 13 シーン色 + Launch/Accent 色。<br>
+  目的: ダークモードで accent 色とテキストのコントラスト比が <strong>WCAG AA (4.5:1)</strong> を満たすか確認、
+  シーンアイコンが読みにくくなる箇所を特定する。
+</div>
+
+<h2>監査ガイドライン</h2>
+<ul>
+  <li><strong>テキスト × 背景</strong>: 通常テキストは 4.5:1 以上、巨大文字（18pt 太字 / 24pt 以上）は 3:1 以上。</li>
+  <li><strong>UI 要素 × 背景</strong>: ボタン枠線・アイコンなど非テキストは 3:1 以上。</li>
+  <li><strong>Accent 色 × Card 背景</strong>: ScenePicker のシーンカードは accent 色塗りなので、白テキスト/黒テキストの両方で AA 達成を確認。</li>
+</ul>
+
+<h2>監査対象</h2>
+<table>
+  <thead>
+    <tr><th>名前</th><th>用途</th><th>Light Hex</th><th>Dark Hex</th><th>Light 確認</th><th>Dark 確認</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>AccentColor</td><td>強調色</td><td>#4F6BAC</td><td>#82 9AD4</td><td class="pass">PASS 白 5.20</td><td class="pass">PASS 黒 7.52</td></tr>
+    <tr><td>LaunchBackground</td><td>Launch Screen 背景</td><td>#F4F1F6</td><td>#161517</td><td class="pass">PASS 黒 18.76</td><td class="pass">PASS 白 18.22</td></tr>
+    <tr><td>SceneColors/Drinking</td><td>飲み会</td><td>#C26B6B</td><td>#E8888A</td><td class="pass">PASS 黒 5.62</td><td class="pass">PASS 黒 8.32</td></tr>
+    <tr><td>SceneColors/Travel</td><td>旅行</td><td>#4F7CAC</td><td>#7DA8D8</td><td class="pass">PASS 黒 4.81</td><td class="pass">PASS 黒 8.47</td></tr>
+    <tr><td>SceneColors/Penalty</td><td>罰ゲーム決め</td><td>#7A6FBF</td><td>#A299E0</td><td class="pass">PASS 黒 4.85</td><td class="pass">PASS 黒 8.17</td></tr>
+    <tr><td>SceneColors/Family</td><td>家族・親戚</td><td>#4F9B7D</td><td>#7AC9A5</td><td class="pass">PASS 黒 6.32</td><td class="pass">PASS 黒 10.72</td></tr>
+    <tr><td>SceneColors/Couple</td><td>カップル・2人</td><td>#D88BBC</td><td>#F0A8D4</td><td class="pass">PASS 黒 8.34</td><td class="pass">PASS 黒 11.26</td></tr>
+    <tr><td>SceneColors/Outdoor</td><td>キャンプ・BBQ</td><td>#C68B4F</td><td>#E8B180</td><td class="pass">PASS 黒 7.20</td><td class="pass">PASS 黒 11.03</td></tr>
+    <tr><td>SceneColors/Remote</td><td>リモート飲み</td><td>#5E8BA7</td><td>#8AB4CE</td><td class="pass">PASS 黒 5.73</td><td class="pass">PASS 黒 9.50</td></tr>
+    <tr><td>SceneColors/Konkatsu</td><td>婚活・お見合い</td><td>#E8A4C4</td><td>#F3BED8</td><td class="pass">PASS 黒 10.54</td><td class="pass">PASS 黒 13.17</td></tr>
+    <tr><td>SceneColors/Shukatsu</td><td>新人歓迎・研修</td><td>#6B7C92</td><td>#9AAABE</td><td class="pass">PASS 黒 4.92</td><td class="pass">PASS 黒 8.87</td></tr>
+    <tr><td>SceneColors/Dosokai</td><td>同窓会</td><td>#D4A845</td><td>#EECB73</td><td class="pass">PASS 黒 9.49</td><td class="pass">PASS 黒 13.42</td></tr>
+    <tr><td>SceneColors/Sobetsukai</td><td>送別会</td><td>#A088C0</td><td>#C6B4E1</td><td class="pass">PASS 黒 6.77</td><td class="pass">PASS 黒 11.02</td></tr>
+    <tr><td>SceneColors/Kids</td><td>子供パーティー</td><td>#4FB575</td><td>#7DD89E</td><td class="pass">PASS 黒 8.20</td><td class="pass">PASS 黒 12.19</td></tr>
+    <tr><td>SceneColors/Offkai</td><td>オフ会・初対面</td><td>#4DBAB3</td><td>#7CD9D4</td><td class="pass">PASS 黒 8.98</td><td class="pass">PASS 黒 12.73</td></tr>
+  </tbody>
+</table>
+
+<h2>確認手順</h2>
+<ol>
+  <li>Xcode で <code>Asobi/Resources/Assets.xcassets/SceneColors/&lt;Name&gt;.colorset</code> を開く</li>
+  <li>Inspector で Light / Dark の Hex 値を読み取り、上表に転記</li>
+  <li><a href="https://webaim.org/resources/contrastchecker/">WebAIM Contrast Checker</a> で
+    <ul>
+      <li>背景 = 確認対象色 / テキスト = 白（#FFFFFF） / レベル AA Large 3:1 以上か？</li>
+      <li>背景 = 確認対象色 / テキスト = 黒（#000000） / レベル AA Large 3:1 以上か？</li>
+    </ul>
+  </li>
+  <li>結果欄に <span class="pass">PASS</span> / <span class="warn">WARN</span> / <span class="fail">FAIL</span> を記入</li>
+  <li>FAIL があった色は SceneColors/&lt;Name&gt;.colorset の Dark 値だけ調整（Light はブランド優先で原則変えない）</li>
+</ol>
+
+<h2>Simulator での目視確認</h2>
+<ul>
+  <li>Simulator → Features → Toggle Appearance（または Settings → Developer → Dark Appearance）でダークモード切替</li>
+  <li>ScenePicker のシーンカードを順番にスクロールし、accent と「シーン名」テキストの読みやすさを確認</li>
+  <li>Accessibility Inspector → Color &amp; Contrast でも数値化可能（macOS のみ）</li>
+</ul>
+
+<h2>関連</h2>
+<ul>
+  <li><a href="release-checklist.html">リリースチェックリスト</a> の Phase 3 Accessibility Audit と併せて実施</li>
+  <li><a href="manual-tests.html">手動テスト記録</a> T3（多言語 UI 切替）と同時に dark mode も確認可能</li>
+</ul>
+
+<h2>進捗ログ</h2>
+<table>
+  <thead><tr><th>日付</th><th>担当</th><th>結果</th><th>修正した色</th></tr></thead>
+  <tbody>
+    <tr><td>2026-06-22</td><td>scripts/colorset-contrast.py</td><td class="pass">全15色 light/dark すべて AA Large (3:1) PASS（最小 4.81 = Travel light）</td><td>AccentColor に dark バリアント追加（dark で黒テキスト 7.52）</td></tr>
+  </tbody>
+</table>
+
+</body>
+</html>

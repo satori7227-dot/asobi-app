@@ -1,0 +1,41 @@
+disabled_rules:
+  - trailing_whitespace
+  - todo
+  - line_length
+  - function_body_length
+  - type_body_length
+  - file_length
+
+opt_in_rules:
+  - empty_count
+  - empty_string
+  - first_where
+  - last_where
+  - sorted_first_last
+  - unused_import
+  - unused_declaration
+  - convenience_type
+  - redundant_nil_coalescing
+  - vertical_whitespace_closing_braces
+
+included:
+  - Asobi
+  - AsobiTests
+
+excluded:
+  - build
+  - Asobi.xcodeproj
+  - Asobi/Data
+  - fastlane
+
+force_cast: warning
+force_try: warning
+
+identifier_name:
+  min_length: 2
+  excluded:
+    - id
+    - x
+    - y
+
+reporter: "xcode"

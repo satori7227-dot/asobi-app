@@ -1,0 +1,8 @@
+// ASOBI バージョン情報
+// MARKETING_VERSION は SemVer で手動更新（リリース時に bump）。
+// CURRENT_PROJECT_VERSION はビルド時に scripts/bump-build-number.sh が
+// git rev-list HEAD --count の値で上書きする想定。
+// project.yml の settings.base から `xcconfig: Version.xcconfig` で読み込み可能。
+
+MARKETING_VERSION = 1.0.0
+CURRENT_PROJECT_VERSION = 1

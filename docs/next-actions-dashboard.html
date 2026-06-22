@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ASOBI 次の一手ダッシュボード（6 角度統合）</title>
+<style>
+  :root{--brand:#D97757;--bg:#fff8f3;--ink:#222;--muted:#777;--ok:#3a9d4f;--warn:#d9a23a;--cool:#3a72d9}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;margin:0;padding:0;color:var(--ink);line-height:1.6;background:#fafafa}
+  header{background:var(--brand);color:#fff;padding:36px 24px}
+  header h1{margin:0;font-size:1.9em}
+  header p{margin:8px 0 0;font-size:1.05em;opacity:0.95}
+  .container{max-width:1240px;margin:0 auto;padding:24px 16px 80px}
+  .meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:24px 0}
+  .meta-card{background:#fff;border-radius:10px;padding:14px 18px;border-left:5px solid var(--brand);box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+  .meta-card .num{font-size:1.6em;font-weight:700;color:var(--brand)}
+  .meta-card .lbl{font-size:0.88em;color:var(--muted)}
+  h2.angle{font-size:1.4em;margin-top:2.5em;padding-bottom:8px;border-bottom:3px solid var(--brand)}
+  .summary{background:var(--bg);padding:14px 18px;border-radius:8px;font-size:0.95em;margin:12px 0 20px}
+  .items{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px;margin:14px 0}
+  .item{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.06);border-top:4px solid var(--muted)}
+  .item.MUST{border-top-color:#e25c5c}
+  .item.SHOULD{border-top-color:var(--brand)}
+  .item.COULD{border-top-color:var(--cool)}
+  .item h3{margin:0 0 8px;font-size:1.05em}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 10px}
+  .tag{font-size:0.72em;padding:2px 7px;border-radius:10px;background:#eee;color:#333}
+  .tag.MUST{background:#fde7e7;color:#a13d3d}
+  .tag.SHOULD{background:#ffe6d6;color:#a55a30}
+  .tag.COULD{background:#dde8fb;color:#365fa4}
+  .tag.S{background:#e2f0e3;color:#2b6c38}
+  .tag.M{background:#fff3cf;color:#7a5b1c}
+  .tag.L{background:#f3d6d6;color:#883333}
+  .item .what{font-size:0.9em;margin:4px 0}
+  .item .why{font-size:0.86em;color:var(--muted);margin:4px 0 8px;font-style:italic}
+  details.steps{margin-top:8px;font-size:0.85em}
+  details.steps summary{cursor:pointer;font-weight:600;color:var(--brand)}
+  details.steps ul{margin:6px 0 0;padding-left:20px}
+  .risk{font-size:0.8em;color:#a13d3d;margin-top:8px;background:#fff0f0;padding:6px 8px;border-radius:4px}
+  .roadmap{background:#fff;border-radius:10px;padding:14px 18px;margin:14px 0;border-left:5px solid var(--cool)}
+  .roadmap ul{margin:8px 0 0;padding-left:20px;font-size:0.92em}
+  .legend{margin:14px 0;font-size:0.85em;color:var(--muted)}
+  .legend span{margin-right:14px}
+  .nav{position:sticky;top:0;background:rgba(255,255,255,0.96);backdrop-filter:blur(8px);padding:10px 0;margin:0 -16px 18px;border-bottom:1px solid #eee;z-index:10}
+  .nav a{display:inline-block;padding:6px 12px;margin:0 4px;border-radius:18px;background:var(--bg);color:var(--brand);text-decoration:none;font-size:0.88em;font-weight:600}
+  .nav a:hover{background:var(--brand);color:#fff}
+  .top-rec{background:linear-gradient(135deg,#fff8f3 0%,#ffe9d6 100%);border-radius:12px;padding:20px;margin:24px 0;border:1px solid #f0d8c0}
+  .top-rec h2{margin-top:0;color:var(--brand)}
+  .top-rec ol{font-size:0.95em;padding-left:22px}
+  .top-rec li{margin:6px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>ASOBI 次の一手ダッシュボード</h1>
+  <p>1191 ゲーム DB 完成後の棚卸し / 6 角度 × 100+ 打ち手 / 2026-06-21</p>
+</header>
+<div class="container">
+
+<nav class="nav">
+  <a href="#topreco">推奨ロードマップ</a>
+  <a href="#distribute">配布・公開</a>
+  <a href="#revenue">収益化</a>
+  <a href="#acquisition">ユーザー獲得</a>
+  <a href="#features">機能拡張</a>
+  <a href="#quality">品質・運用</a>
+  <a href="#global">海外展開</a>
+</nav>
+
+<div class="meta-grid">
+  <div class="meta-card"><div class="num">1191</div><div class="lbl">ゲーム総数</div></div>
+  <div class="meta-card"><div class="num">13</div><div class="lbl">対応シーン</div></div>
+  <div class="meta-card"><div class="num">6</div><div class="lbl">調査角度</div></div>
+  <div class="meta-card"><div class="num">100+</div><div class="lbl">具体的な打ち手</div></div>
+  <div class="meta-card"><div class="num">¥0</div><div class="lbl">維持コスト基準</div></div>
+</div>
+
+<div class="legend">
+  <span><span class="tag MUST">MUST</span> 必須</span>
+  <span><span class="tag SHOULD">SHOULD</span> 推奨</span>
+  <span><span class="tag COULD">COULD</span> 余裕があれば</span>
+  <span><span class="tag S">S</span> 1日以内</span>
+  <span><span class="tag M">M</span> 1週間</span>
+  <span><span class="tag L">L</span> 1ヶ月+</span>
+</div>
+
+<div class="top-rec" id="topreco">
+  <h2>🎯 横断推奨：最初の30日でやる10件</h2>
+  <ol>
+    <li><strong>Apple Developer Program 個人登録</strong>（本名・本人カード厳守 / 年¥15,800） — 全打ち手の土台</li>
+    <li><strong>Agreements + Japan Tax Forms + 本人名義口座</strong>登録 — 未提出で20%源泉徴収の落とし穴</li>
+    <li><strong>Small Business Program 申請</strong> — 手数料 30% → 15% を恒久確保（無料・即時）</li>
+    <li><strong>Privacy Manifest + ITSAppUsesNonExemptEncryption</strong> 同梱 — <em>済</em></li>
+    <li><strong>ASO キーワード / スクショ 1-2枚目確定</strong> — 「全シーン横断1191」を1秒で伝える1枚目</li>
+    <li><strong>Strings Catalog (.xcstrings) 化</strong> — UI のみ ja/en 多言語対応の素地</li>
+    <li><strong>Featuring Nomination 提出</strong> — 投稿コスト極小・選定爆発力大</li>
+    <li><strong>X 匿名アカウント開設 + Build in Public 開始</strong> — 顔出しなしテキスト運用</li>
+    <li><strong>note リリース記録 + シーン別記事 5本</strong> — ストック型流入の起点</li>
+    <li><strong>TestFlight Public Link → r/TestFlight 投稿</strong> — 完全テキストでテスター10-30名</li>
+  </ol>
+</div>
+
+<!-- 配布・公開 -->
+<h2 class="angle" id="distribute">📤 配布・公開</h2>
+<div class="summary">
+TestFlight 配布前・Apple Developer 未契約の現状から App Store 公開まで <strong>約4-6週間</strong>。最大の落とし穴は (a) 個人登録時の本名一致、(b) Japan Tax Forms 未提出で売上20%源泉徴収、(c) ガイドライン4.2/4.3（パーティーゲーム飽和カテゴリで「単なる飲み会ゲーム」扱いされた瞬間リジェクト）の3点。<strong>1191ゲームの物量は4.2回避の最大の武器</strong>なので、申請メタデータで前面に出す。
+</div>
+<div class="items">
+  <div class="item MUST"><h3>Apple Developer Program 個人登録</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">¥15,800/年</span></div><div class="what">本名・本人カード厳守、2FA 有効化、家族カード/法人カード不可。</div><div class="why">未契約だと TestFlight も App Store も一切動かない。</div></div>
+  <div class="item MUST"><h3>Agreements・Tax・Banking 3点埋め</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">Japan Tax Forms 提出、本人名義銀行口座登録。</div><div class="why">未提出だと売上20%が日本政府に強制源泉徴収される。</div></div>
+  <div class="item MUST"><h3>App Privacy = Data Not Collected 申告</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">「収集データなし」ラベル獲得、PrivacyInfo.xcprivacy も空構成で同梱。</div><div class="why">分析SDK追加で申告と矛盾するとリジェクト。<strong>ASOBI は実装済</strong>。</div></div>
+  <div class="item MUST"><h3>ガイドライン4.2/4.3 対策のメタデータ作文</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">説明文冒頭3行で「1191ゲーム・シーン別・オフライン」を明示。drinking のキーワード偏重を避ける。</div><div class="why">4.2/4.3 は飽和カテゴリで頻発リジェクト理由。物量がユーティリティ性の証拠。</div></div>
+  <div class="item MUST"><h3>Age Rating 12+ で確定</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">「Infrequent/Mild Alcohol」を選択して12+。Made for Kids は絶対選ばない。</div><div class="why">17+ にすると広告配信制限が厳しくなる。4+ は Metadata Rejected。</div></div>
+  <div class="item MUST"><h3>TestFlight 内部テスト（自分1人）で実機検証</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">Xcode Archive → Distribute → 即時 TestFlight 配信。Apple 審査なし。</div><div class="why">実機での Launch Screen・アイコン・クラッシュを確認する最速ループ。</div></div>
+  <div class="item SHOULD"><h3>TestFlight 外部テスト Public Link</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">r/TestFlight・Discord の iOS Beta 系で10-100人募集。</div><div class="why">完全テキスト運用と整合。Beta App Review 通過後は最大10000人。</div></div>
+  <div class="item MUST"><h3>スクリーンショット 6.9インチ × 6.5インチ</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">6.9インチ提出で他サイズ自動縮小。最初3枚で「シーン選択→提案→1191種DB」のストーリー。</div><div class="why">検索結果 CTR は最初の2-3枚で決まる。</div></div>
+  <div class="item SHOULD"><h3>Promotional Text 月次差し替え</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">170字。本体アップデートなし即時反映の唯一の枠。</div><div class="why">季節文脈・新ゲーム告知の唯一の発信窓口。</div></div>
+  <div class="item SHOULD"><h3>Phased Release（7日かけて1→100%）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">クラッシュ率急上昇時に Pause（最大30日保留）。</div><div class="why">個人開発の深夜事故安全弁。</div></div>
+  <div class="item SHOULD"><h3>Resolution Center 応答テンプレ整備</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">想定リジェクト4種（4.2/4.3/2.1/5.1.1）の英文応答を事前準備。<strong>済</strong>: docs/resolution-center-templates.html</div><div class="why">初回リジェクトの7割はテンプレで覆る。24h以内が勝負。</div></div>
+  <div class="item COULD"><h3>fastlane + ASC API Key</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag M">M</span></div><div class="what">TestFlight アップロード・メタデータ更新を CLI 自動化。<strong>雛形済</strong>: fastlane/Fastfile</div><div class="why">セッション切れストレスゼロ、テキスト運用と相性◎。</div></div>
+</div>
+<div class="roadmap">
+  <strong>ロードマップ</strong>
+  <ul>
+    <li><strong>Week1</strong>: Apple Developer 登録 → Tax/Banking → Bundle ID 確定</li>
+    <li><strong>Week2</strong>: TestFlight 内部テスト + スクショ撮影 + App Privacy 申告</li>
+    <li><strong>Week3</strong>: 外部 Public Link 発行 + Beta App Review + テスター募集</li>
+    <li><strong>Month1</strong>: メタデータ完成 → 申請 → Phased Release</li>
+    <li><strong>Month3</strong>: Promotional Text 月次運用定着 / fastlane CI 自動化 / IAP 検討開始</li>
+  </ul>
+</div>
+
+<!-- 収益化 -->
+<h2 class="angle" id="revenue">💰 収益化</h2>
+<div class="summary">
+本命は <strong>「無料配布 → ソフトペイウォール型サブスク + Tip Jar」</strong>。Small Business Program で15%手数料、VAVA 同等の年¥1,100 / 月¥120 + 買切¥1,800の3ティア。広告は12+維持と利用シーンに合わないため初期は導入しない。B2B（結婚相談所・社員旅行代理店）は書面営業のみで 6ヶ月以降のサイドチャネル。現実線は <strong>DAU 1,000・有料化率 1.5-2.5%・ARPPU ¥110/月 で月¥3-15万</strong>。
+</div>
+<div class="items">
+  <div class="item MUST"><h3>Small Business Program へ即時登録</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">手数料15%</span></div><div class="what">App Store Connect → Agreements で申請、年売上100万USD未満で15%適用。</div><div class="why">公開前に必須。粗利2倍の差。</div></div>
+  <div class="item MUST"><h3>ベース無料＋月20本制限ソフトペイウォール</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">全1191ゲーム閲覧可、月20本まで実プレイ、超過時 PaywallView。<strong>雛形済</strong>: PlayCountStore.swift</div><div class="why">パーティーゲームは「場で見せる」瞬間が口コミ起点。無料量を確保しないと布教されない。</div></div>
+  <div class="item MUST"><h3>サブスク3ティア（月¥120 / 年¥1,100 / 買切¥1,800）</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">VAVA水準で心理抵抗を消す。年プランをデフォルト選択。</div><div class="why">買切¥1,800は LTV 確定で実は最高粗利。</div></div>
+  <div class="item MUST"><h3>7日間無料トライアル（年プラン限定）</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">月プランには付けない（年プラン誘導の弱体化を防ぐ）。</div><div class="why">5-9日トライアル44-45%変換が業界最頻。</div></div>
+  <div class="item SHOULD"><h3>Tip Jar（消費型IAP 3階層）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">¥120/¥600/¥1,200 を「開発者を応援」画面に。<strong>雛形済</strong>: TipJarView.swift</div><div class="why">個人開発っぽさを逆手に取る。再購入可。</div></div>
+  <div class="item MUST"><h3>リワード広告は採用しない</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">12ヶ月は AdMob/Unity Ads 入れない。</div><div class="why">12+維持・家族で囲む場・Privacy Label 維持・サブスク侵食回避。</div></div>
+  <div class="item SHOULD"><h3>季節プロモ + Offer Code 月100枚</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">クリスマス/年末年始/GW/お盆に年プラン50%オフ。</div><div class="why">声顔出しNG下で唯一プッシュできる発信物。</div></div>
+  <div class="item SHOULD"><h3>Family Sharing 対応</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">サブスク・買切とも Family Sharing 有効。</div><div class="why">「家族で使える¥1,100」訴求で変換率 1.2-1.5倍。</div></div>
+  <div class="item SHOULD"><h3>Win-Back Offer + 解約理由収集</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">解約直前 30% オフ年プラン、解約30日以内に Win-Back。</div><div class="why">解約率20%→15%で年LTV 1.3倍。</div></div>
+  <div class="item COULD"><h3>Custom B2B App (ABM)</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag L">L</span></div><div class="what">結婚相談所・社員旅行代理店向けライセンス販売。</div><div class="why">1社100ライセンス×¥800/年で年¥8万/社、5社で年¥40万。</div></div>
+  <div class="item COULD"><h3>結婚相談所への書面のみリード戦略</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag M">M</span></div><div class="what">IBJ加盟店一覧から info@ で1日10通×3ヶ月。</div><div class="why">電話/IG中心の業界、返信率1-3%想定。</div></div>
+</div>
+<div class="roadmap">
+  <strong>ロードマップ</strong>
+  <ul>
+    <li><strong>Phase1（公開～3ヶ月）</strong>: Small Business Program / Family Sharing / ソフトペイウォール / 3ティア / 7日トライアル / Tip Jar / ASO最適化。<em>広告SDKは入れない</em>。目標 DAU500・有料変換1.5%</li>
+    <li><strong>Phase2（3-6ヶ月）</strong>: Win-Back / 季節Promo / ATT pre-prompt / Discord開設 / 結婚相談所書面営業 / Custom B2B App ビルド。目標月売上¥5-10万</li>
+    <li><strong>Phase3（6-12ヶ月）</strong>: Custom B2B 配信開始 / 社員旅行代理店2-3社 / テーマパック非消費型IAP / 広告導入の是非判断。目標月売上¥15-30万・B2B 1-3社</li>
+  </ul>
+</div>
+
+<!-- ユーザー獲得 -->
+<h2 class="angle" id="acquisition">📣 ユーザー獲得</h2>
+<div class="summary">
+書面のみ・¥0開始の制約下では、<strong>ASO 最適化 + X匿名 + note + Product Hunt + PR TIMES 無料枠 + サークル幹事・幹事代行業者への書面アウトリーチ + TikTok/YouTube 縦動画クリエイターへの素材提供型連携</strong>が現実線。レビュー獲得 UX とリファラル/招待コードは維持装置として並走。月100-500DL レベルまでは¥0で到達可能。
+</div>
+<div class="items">
+  <div class="item MUST"><h3>ASOキーワード設計（タイトル・サブ・100文字キーワード）</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">月50-200DL</span></div><div class="what">「パーティーゲーム」「罰ゲーム」「合コン」「同窓会」「アイスブレイク」「結婚式二次会」「忘年会」を重複なく分散。</div><div class="why">iOS は タイトル>サブタイトル>キーワード 順で重み付け。</div></div>
+  <div class="item MUST"><h3>スクショ 1-2 枚目のコピー設計（OCR 兼用）</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span><span class="tag">CVR+30-80%</span></div><div class="what">1枚目「シーンで選ぶだけ。1191ゲームから自動セレクト」、2枚目「合コン・飲み会・同窓会・新年会・車内・旅行 全部入り」。</div><div class="why">検索結果に先頭2枚が直接出る。OCR でキーワード加点もある。</div></div>
+  <div class="item MUST"><h3>X 匿名アカウント開設 + Build in Public 運用</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span><span class="tag">月30-150DL</span></div><div class="what">個人ブランド名、テキスト＋アプリスクショのみ。朝1+夜1+週末DL数。</div><div class="why">個人開発者の最高流通プラットフォーム。1000フォロワーで初期DL転換。</div></div>
+  <div class="item MUST"><h3>note で リリース記録 + シーン別活用記事連載</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span><span class="tag">月20-80DL</span></div><div class="what">「合コン幹事の罰ゲーム10選」等シーン別の集客記事。Markdown 記法は外す（feedback_no_markdown_in_publications）。</div><div class="why">noteはSEO強くストック型流入になる。</div></div>
+  <div class="item SHOULD"><h3>Product Hunt 英語ローンチ（30日準備）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span><span class="tag">200-1000DL</span></div><div class="what">Tue-Thu 日本時間17:01（PT 0:01）ローンチ。タグライン60文字、画像5-8枚。</div><div class="why">海外DL同時引き込み、App Store ランキング押し上げ。</div></div>
+  <div class="item SHOULD"><h3>App Store Featuring Nomination 提出</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span><span class="tag">Featured時1日1000-10000DL</span></div><div class="what">App Store Connect → Featuring nominations フォーム。ローンチ3-8週間前。</div><div class="why">投稿コスト極小・選定爆発力。</div></div>
+  <div class="item MUST"><h3>アプリ内レビュー獲得フロー実装</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">SKStoreReviewController を (1)初回起動7日後 (2)起動3回以上 (3)ゲーム5本消化後 に発火。</div><div class="why">4.0以上維持が Featured と CVR の前提。</div></div>
+  <div class="item SHOULD"><h3>招待コード/シェア機能（バイラルループ）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">「このシーンセットを友達に送る」ボタン → Universal Link。双方プレミアム1週間。</div><div class="why">バイラル係数0.3でも長期で複利。</div></div>
+  <div class="item SHOULD"><h3>TikTok/YouTube 縦動画クリエイターへ素材提供</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span><span class="tag">ヒット時1動画500-5000DL</span></div><div class="what">罰ゲーム/合コン系のフォロワー1-10万に書面DM、無料コード・少額報酬。</div><div class="why">自分は顔出し不可、他者経由なら問題なし。</div></div>
+  <div class="item SHOULD"><h3>PR TIMES 無料スタートアップチャレンジ</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">月1回無料配信。AppBank等への転載狙い。</div><div class="why">テキスト中心リリースで顔出し不要。</div></div>
+  <div class="item COULD"><h3>幹事代行・婚活運営・社員旅行会社への書面アウトリーチ</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag M">M</span></div><div class="what">楽幹事/幹事屋/PARTY☆PARTY/JTB B-Pa等に「現場で使えるアイスブレイクツール」提案。</div><div class="why">B2B2C で継続流入。</div></div>
+  <div class="item COULD"><h3>大学サークル幹事への書面案内（4月/9月新歓）</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag M">M</span><span class="tag">1サークル20-50DL</span></div><div class="what">Twitter検索で「#春から○○大」抽出、DM/メールで30秒紹介画像添付。</div><div class="why">新歓は「初対面×アイスブレイク必要×幹事困る」三重苦。</div></div>
+  <div class="item SHOULD"><h3>ロングテール特化LP（シーン別）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">GitHub Pages に /scenes/ 配下 5-10枚のシーン特化LP。</div><div class="why">SEO「罰ゲーム アプリ」「合コン ゲーム」ロングテールから直接 App Store。</div></div>
+  <div class="item SHOULD"><h3>Product Page Optimization A/Bテスト</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">アイコン・1枚目スクショ・プレビュー動画の3要素 × 各3パターン × 90日。</div><div class="why">Apple 公式無料 A/B、勝者反映で CVR+5-25%。</div></div>
+</div>
+
+<!-- 機能拡張 -->
+<h2 class="angle" id="features">⚙️ 機能拡張</h2>
+<div class="summary">
+バックエンド非保有・1人実装・API 後回しの制約下では、<strong>「iOS プラットフォーム機能の徹底活用」</strong>が最高ROI。iOS 26 の AppIntents / WidgetKit / Live Activities / Liquid Glass は全てローカルで動作可能で、ASOBI の差別化軸と相性◎。次の半年は (1) 摩擦削減（Quick Action・Widget・Siri）(2) 共有導線（ShareLink+ImageRenderer カード）(3) 既存資産深掘り（コレクション・履歴・プリセット）に絞る。UGC・スコアボード・Watch は v2 以降に遅延。
+</div>
+<div class="items">
+  <div class="item MUST"><h3>複合フィルタ＆絞り込みクエリビルダー</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">道具なし／人数／時間／テンション／シーン の AND 条件絞り込み + Active Chips。</div><div class="why">1191ゲームは「見つからない」問題の温床。</div></div>
+  <div class="item MUST"><h3>コレクション（お気に入りグループ化）</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">「家飲み定番」「社内研修向け」等ユーザー命名コレクション。SwiftData。</div><div class="why">Widget・Siri・Share の起点として使い回せる土台。</div></div>
+  <div class="item MUST"><h3>プレイ履歴 + 「さっきと違うやつ」ボタン</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">直近N ゲーム除外して再抽選。履歴タブ（24時間/今週）。</div><div class="why">「今出たやつが場に合わない」時の救済導線。</div></div>
+  <div class="item MUST"><h3>ShareLink + ImageRenderer のシェアカード</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">ゲーム詳細から正方形カード画像生成 → iMessage/LINE/X/AirDrop。</div><div class="why">バックエンド・認証なしで成長ループを作る唯一の現実解。</div></div>
+  <div class="item SHOULD"><h3>Universal Link / Deep Link</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">asobi://game/{id} と https URL 両方でゲーム詳細直接起動。</div><div class="why">シェア・Widget・Siri の最終出口を一本化。</div></div>
+  <div class="item SHOULD"><h3>ホーム長押し Quick Actions</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">「ランダム1つ」「最近のシーン」「お気に入りからシャッフル」3項目。</div><div class="why">S 工数で UX 体感が1段上がる典型。</div></div>
+  <div class="item SHOULD"><h3>ランダムゲーム Widget</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">small/medium/large 3サイズ、iOS 26 interactive で in-place 更新。</div><div class="why">アプリを開かずに価値提供できる稀ケース。</div></div>
+  <div class="item SHOULD"><h3>AppIntents / Siri</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">「ASOBI で飲み会ゲーム提案して」AppShortcuts 登録。</div><div class="why">手が塞がる利用シーンと相性最良。Hermes Agent への橋頭堡。</div></div>
+  <div class="item SHOULD"><h3>Live Activities / Dynamic Island タイマー</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">時間制限ゲーム開始時 Live Activity。</div><div class="why">ゲーム中はアプリを閉じてプレイすることが多い。</div></div>
+  <div class="item SHOULD"><h3>シナリオプリセット（「忘年会セット」5連発）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">忘年会・新人歓迎・カップル・子ども会・社内研修等のキュレーション済プレイリスト。</div><div class="why">選択疲労の根本解決、シーン横断の強みを束ねる。</div></div>
+  <div class="item SHOULD"><h3>iPad 最適化（NavigationSplitView）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">左=シーン／中=一覧／右=詳細 の3カラム。</div><div class="why">会場で iPad を回して見せる用途と相性◎。</div></div>
+  <div class="item COULD"><h3>シーズナルテーマ（季節UI着せ替え）</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag S">S</span></div><div class="what">12月=クリスマス、3月=花見等で配色自動変化。</div><div class="why">更新頻度低い個人開発に「生きてる感」を出す。</div></div>
+  <div class="item MUST"><h3>オフライン動作の明示</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">オンボーディング3画面で「機内モードでもOK」訴求。ASO キーワードに「オフライン」追加。</div><div class="why">差別化軸の言語化が ASO・レビューに効く。</div></div>
+</div>
+
+<!-- 品質 -->
+<h2 class="angle" id="quality">🛡️ 品質・運用深化</h2>
+<div class="summary">
+MVP 動作確認済の段階で、次は <strong>「出して落ちない／落ちたら気づける／改善できる」運用基盤</strong>。Privacy Manifest（2024-05 必須）と Xcode 26/iOS 26 SDK 強制（2026-04）がコンプライアンス最上位。1人保守前提で TelemetryDeck（無料）・Xcode Cloud（25h/月込み）・OSLog で揃える。1191ゲーム JSON は lazy load + 索引化で起動時間・RAM を同時改善できる打ち手。
+</div>
+<div class="items">
+  <div class="item MUST"><h3>Privacy Manifest (PrivacyInfo.xcprivacy)</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">@AppStorage 用 UserDefaults Required Reason (CA92.1) を宣言。<strong>済</strong>: PrivacyInfo.xcprivacy</div><div class="why">2024-05-01 から審査必須。</div></div>
+  <div class="item MUST"><h3>OSLog 構造化ログ + Apple Console クラッシュ受信</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">os.Logger をカテゴリ別（propose/filter/purchase/data/feedback/lifecycle）。<strong>済</strong>: AsobiLogger.swift</div><div class="why">無料・プライバシー影響ゼロ・Manifest 追加不要。</div></div>
+  <div class="item SHOULD"><h3>TelemetryDeck で匿名イベント計測</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">起動・提案・シーン切替・課金画面到達など8イベント。</div><div class="why">ATT 不要・PII ゼロ・無料・Manifest フレンドリー。</div></div>
+  <div class="item MUST"><h3>1191ゲーム JSON を index + lazy decode 化</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">起動時は軽量 index、詳細は lazy decode。</div><div class="why">1191件 eager load だと cold start &gt;500ms の可能性。</div></div>
+  <div class="item MUST"><h3>Propose / Filter / PurchaseStore のテスト拡充</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag M">M</span></div><div class="what">確率分布が壊れても気づきにくい silent failure（Rule 12）。seed 固定 RNG。</div><div class="why">JSON リファクタの safety net。</div></div>
+  <div class="item SHOULD"><h3>SwiftLint + SwiftFormat（pre-commit）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">Mint 経由バージョン固定、pre-commit hook。<strong>雛形済</strong>: .swiftlint.yml</div><div class="why">1人保守でスタイル議論はゼロ価値。</div></div>
+  <div class="item SHOULD"><h3>Accessibility Audit (VoiceOver+DT+Reduce Motion)</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">Inspector の Audit を全画面で実行、Dynamic Type XXXL でレイアウト破綻チェック。</div><div class="why">WCAG 2.2 AA / EAA 対応で将来リスク低減。</div></div>
+  <div class="item SHOULD"><h3>State Restoration / クラッシュ復旧 UX</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span></div><div class="what">@SceneStorage で現在の scene/人数/履歴を保存。</div><div class="why">パーティ中にクラッシュで「最初から」は致命。</div></div>
+  <div class="item SHOULD"><h3>マイグレーション戦略（AppStorageKeys + schemaVersion）</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">永続化キー集約 + 起動時 migrate。<strong>済</strong>: AppStorageKeys.swift + PersistenceMigrator</div><div class="why">data loss が一番怖い。</div></div>
+  <div class="item SHOULD"><h3>SemVer + Build Number 自動採番</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">git rev-list HEAD --count で自動。<strong>済</strong>: Version.xcconfig + scripts/bump-build-number.sh</div><div class="why">手動更新は事故源。</div></div>
+  <div class="item COULD"><h3>Xcode Cloud（無料25h）で CI</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag M">M</span></div><div class="what">PR 時 build+test、main merge で TestFlight 自動配信。</div><div class="why">Apple Developer Program に込みで25h無料、GUI設定。</div></div>
+  <div class="item MUST"><h3>Required Reason API 棚卸し</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span></div><div class="what">@AppStorage/FileManager/Date を grep で抽出、reason code を docs に表で残す。</div><div class="why">Manifest 宣言の根拠を後で説明できる必要がある。</div></div>
+</div>
+
+<!-- 海外 -->
+<h2 class="angle" id="global">🌐 海外展開・多言語化</h2>
+<div class="summary">
+1191ゲームのうち80件が英語圏由来＝英語版は機械翻訳ゼロで「逆輸入」可能、最短ROI。Strings Catalog で UI だけ先に出し、DB 翻訳は段階投入。優先順位は <strong>EN → KR → TW/HK繁体字 → DE/FR/ES → PT-BR</strong>。中国本土は ICP備案で個人開発者単独不可のため後回し。App Store Connect Metadata Localization 38言語はキーワード+サブタイトルのみ先行で実質コストゼロの ASO 拡張。
+</div>
+<div class="items">
+  <div class="item MUST"><h3>Strings Catalog (.xcstrings) でUI英語化</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">EN</span></div><div class="what">UI 文字列のみ ja/en、DB(1191件)は別フェーズ。</div><div class="why">DB翻訳前に市場反応を見られる。1日仕事。</div></div>
+  <div class="item MUST"><h3>海外80件の英語逆輸入</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">EN</span></div><div class="what">米/英/独/中南米/韓/中/北欧/メキシコ由来80件を英語原典に復元、残り1111件は和文タブで温存。</div><div class="why">80件で「英語で遊べる」状態。100%機械翻訳より少数完訳がレビュー良い。</div></div>
+  <div class="item MUST"><h3>App Store Connect Metadata Localization 38言語</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">Global</span></div><div class="what">10言語の Name/Subtitle/Keywords を機械翻訳で先行投入。</div><div class="why">アプリ翻訳より遥かに低コストで ASO 面積倍増。</div></div>
+  <div class="item SHOULD"><h3>韓国（KR）ローカライズ</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span><span class="tag">KR</span></div><div class="what">소주（ソジュ）文化＋会食文化、3-6-9/병뚜껑 等 DB活用。</div><div class="why">日本の隣接文化圏で翻訳コスト低・市場4位。</div></div>
+  <div class="item SHOULD"><h3>繁体字（zh-Hant）で TW/HK/MO 同時カバー</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span><span class="tag">TW/HK</span></div><div class="what">中国本土を避けつつ華僑圏に届く。Apple Developer 個人加入のまま出せる。</div><div class="why">ICP備案不要、iOS率高い。</div></div>
+  <div class="item SHOULD"><h3>米国バチェロレット市場へB2B書面営業</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag M">M</span><span class="tag">US</span></div><div class="what">米国バチェロレット業界年商$11B。Etsy出店トップ100へ書面DM。</div><div class="why">声顔出しなしブランドと相性◎。</div></div>
+  <div class="item MUST"><h3>GDPR 最低限対応</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">EU</span></div><div class="what">「データ収集ゼロ」設計で代理人不要を維持。</div><div class="why">広告SDK追加した瞬間 EU代理人（年€数百）必要化。</div></div>
+  <div class="item COULD"><h3>中国本土は3年目以降に延期（ICP壁）</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag L">L</span><span class="tag">CN</span></div><div class="what">個人単独不可、現地パートナー経由で年¥数十万。</div><div class="why">繁体字で台湾・華僑圏を取った上で収益実績ベース判断。</div></div>
+  <div class="item SHOULD"><h3>DeepL+Claude ハイブリッド翻訳ワークフロー</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">UI短文=DeepL、ゲームルール長文=Claude Sonnet、ネイティブ校正は Upwork時給制。</div><div class="why">1言語$10-50に収まる。</div></div>
+  <div class="item COULD"><h3>欧州3言語（DE/FR/ES）投入</h3><div class="tags"><span class="tag COULD">COULD</span><span class="tag M">M</span><span class="tag">EU</span></div><div class="what">DeepL最強領域、GDPR対応済なら参入可能。</div><div class="why">ES-MX を ES-ES より優先（中南米人口大）。</div></div>
+  <div class="item MUST"><h3>文化フィット監査（差別・宗教・年齢配慮）</h3><div class="tags"><span class="tag MUST">MUST</span><span class="tag S">S</span><span class="tag">Global</span></div><div class="what">1191件 × 6文化軸（性別固定/飲酒/接触/宗教/民族/年齢）を Claude でスコアリング。</div><div class="why">1件の文化炎上は致命的。region_blocklist で起動時フィルタ。</div></div>
+  <div class="item SHOULD"><h3>Indie Hackers / r/iOSProgramming 露出</h3><div class="tags"><span class="tag SHOULD">SHOULD</span><span class="tag S">S</span></div><div class="what">「1191-game party app as Japanese solo dev」ストーリーで書面投稿。</div><div class="why">ボイス不要・書面完結・技術ストーリーが個人開発者共感。</div></div>
+</div>
+
+<div class="roadmap">
+  <strong>🌍 海外展開ロードマップ</strong>
+  <ul>
+    <li><strong>JP公開後3ヶ月（～2026-09）</strong>: Strings Catalog・UI英語化・80ゲーム英語復元・10言語メタデータ・GDPR最小・US/UK投入・Indie Hackers/Show HN</li>
+    <li><strong>6ヶ月（～2026-12）</strong>: KRフル・zh-Hant投入・米国バチェロレットB2B・fastlane スクショ自動化</li>
+    <li><strong>1年（～2027-06）</strong>: DE/FR/ES/PT-BR追加・BtoB（語学学校）にライセンス提案・ASOBI Family版（印刷カード生成）</li>
+    <li><strong>2年（～2028-06）</strong>: 中国本土再評価・東南アジア展開・iPad/Vision Pro対応・ASOBI for Business 切り出し検討</li>
+  </ul>
+</div>
+
+<hr style="margin:48px 0;border:none;border-top:1px solid #ddd">
+
+<h2 class="angle">📚 関連ドキュメント</h2>
+<ul>
+  <li><a href="resolution-center-templates.html">App Store リジェクト応答テンプレ（4種＋Board）</a></li>
+  <li><a href="release-checklist.html">リリースチェックリスト（Phase 0-8）</a></li>
+  <li><a href="launch-prep-2026-06-19.html">公開準備ガイド</a></li>
+  <li><a href="monetization-research-2026-06-19.html">先行調査（収益化 106-agent ディープリサーチ）</a></li>
+  <li><a href="subscription-spec-2026-06-19.html">サブスクリプション仕様</a></li>
+  <li><a href="privacy-policy.html">プライバシーポリシー</a></li>
+  <li><a href="../fastlane/README.md">fastlane 雛形</a></li>
+</ul>
+
+<p style="color:var(--muted);font-size:0.88em;margin-top:48px">
+ASOBI 個人開発 / 2026-06-21 22:30 JST 時点 / 1191ゲーム・13シーン搭載済 / iPhone 17 Simulator ビルド成功確認
+</p>
+
+</div>
+</body>
+</html>

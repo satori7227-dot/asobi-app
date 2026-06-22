@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ASOBI Resolution Center 応答テンプレ</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;margin:32px auto;max-width:920px;padding:0 16px;color:#222;line-height:1.7}
+  h1{font-size:1.8em;border-bottom:3px solid #D97757;padding-bottom:8px}
+  h2{font-size:1.3em;margin-top:2em;color:#D97757}
+  h3{font-size:1.05em;margin-top:1.5em}
+  .meta{background:#fff8f3;padding:12px 16px;border-radius:8px;font-size:0.95em}
+  .tpl{background:#f5f5f5;padding:16px;border-left:4px solid #D97757;border-radius:4px;white-space:pre-wrap;font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:0.92em}
+  table{border-collapse:collapse;width:100%;margin:1em 0}
+  th,td{border:1px solid #ddd;padding:8px;text-align:left}
+  th{background:#fff8f3}
+  .note{background:#fffce0;padding:10px 14px;border-radius:6px;font-size:0.92em;border:1px solid #f0e2a0}
+  ul{padding-left:1.5em}
+</style>
+</head>
+<body>
+<h1>ASOBI Resolution Center 応答テンプレ</h1>
+<div class="meta">
+  作成 2026-06-21 / 想定リジェクト4種（4.2, 4.3, 2.1, 5.1.1）に対する英文応答テンプレ。
+  通知から <strong>24 時間以内に Resolution Center で返信</strong>することで審査キュー後方への押し戻しを防ぐ。
+  返信後も覆らない場合のみ App Review Board へエスカレ（5-7 営業日）。
+</div>
+
+<h2>0. 共通の前置き（任意で冒頭に添える）</h2>
+<div class="tpl">Hello App Review Team,
+
+Thank you for the careful review of ASOBI. I would like to address the points raised in the resolution center.
+
+</div>
+
+<h2>1. Guideline 4.2 Minimum Functionality 対応</h2>
+<h3>想定される指摘</h3>
+<p>「単なる飲み会ゲームの寄せ集めでユーティリティとしての価値が不足」「Web ページや書籍で代替できる」など。</p>
+<h3>応答テンプレ（English）</h3>
+<div class="tpl">Regarding Guideline 4.2 (Minimum Functionality):
+
+ASOBI is not a static list of games. It is a context-aware proposal engine over a curated database of 1,191 mini-games tagged by 13 distinct social scenes (drinking parties, weddings, family gatherings, classroom reunions, virtual meetings, etc.) and additional axes (group size, time available, tension level, item availability).
+
+Key utility points beyond a static list:
+- Scene + group size + duration filtering produces a tailored 3-game suggestion in under 2 seconds, which is not possible with a generic search.
+- Local-only data: the entire database is bundled, works fully offline at events with poor connectivity.
+- Shuffle-bag based no-repeat logic prevents the same game being proposed twice in one session.
+- 13 specialized scenes (e.g. konkatsu/matchmaking, sobetsukai/farewell parties) reflect Japanese social rituals that have no equivalent in existing English-only party game apps.
+
+I have attached screenshots highlighting the proposal-engine UI (Scene → Context → 3 candidates → detail view). I would be happy to provide additional details if helpful.
+
+</div>
+<div class="note">物量（1,191件）と「シーン横断×状況入力で3件提案」のエンジン性を前面に出す。Web ページや書籍では同等体験が出ない理由を必ず1つ添える。</div>
+
+<h2>2. Guideline 4.3 Spam / Duplicate 対応</h2>
+<h3>想定される指摘</h3>
+<p>「既存のパーティーゲームアプリと類似」「テンプレ的ゲーム集アプリの繰り返し」</p>
+<h3>応答テンプレ（English）</h3>
+<div class="tpl">Regarding Guideline 4.3 (Spam):
+
+ASOBI is differentiated from existing party game apps in two structural ways:
+
+(1) Cross-scene coverage. Competing apps in the Japanese App Store (VAVA Game, Dokoparty, Penalty, etc.) each specialize in a single scene (drinking only, in-car only, etc.). ASOBI is the first app to span 13 social scenes in a single interface with shared filtering and shared favorites.
+
+(2) Scale and curation. The database of 1,191 games was assembled from original research including senior care, school festivals, hobby communities (anime, idol, fishing, photography, etc.), seasonal events (hanami, obon, otsukimi), and international party traditions (Korean, German, Latin, Nordic). 150 of these games are paper-and-pen / instant zero-prop games that work in waiting rooms, hospital lobbies, and quiet places. No competing app covers this breadth.
+
+The app is not a reskin or a duplicate. It is a single-developer, original work. I have attached the App Store description that articulates this positioning.
+
+Thank you for reconsidering.
+
+</div>
+
+<h2>3. Guideline 2.1 Information Needed 対応</h2>
+<h3>想定される指摘</h3>
+<p>「機能を実際に確認できなかった」「IAP のテストアカウント情報が不足」「クラッシュ／不具合再現」</p>
+<h3>応答テンプレ（English）</h3>
+<div class="tpl">Regarding Guideline 2.1 (Information Needed):
+
+Thank you for the request. Please find below the information needed to reproduce and review:
+
+- Demo account: not required. ASOBI does not have any user account or login screen. All features are available immediately after launch.
+- Network: not required. The entire game database is bundled locally. Airplane mode is supported.
+- In-app purchases: this initial release ships with IAP disabled (Constants.premiumEnabled = false). No purchase flow is reachable. The PurchaseStore code remains in the binary as a placeholder for a planned future version, and is gated behind a feature flag that is off at runtime.
+- Steps to reproduce the main flow: 1) Launch → 2) Tap any scene (e.g. "drinking") → 3) Enter player count and tension → 4) Get 3 game proposals → 5) Tap any to open the detail view.
+
+If a specific screen or feature failed to load on the test device, please share a screenshot or a video reference and I will respond within 24 hours.
+
+</div>
+<div class="note">IAP 無効化の事実（premiumEnabled=false）と「アカウント不要」を必ず明記。レビュアが再現できない案件は具体的な5ステップを添える。</div>
+
+<h2>4. Guideline 5.1.1 Data Collection / Privacy 対応</h2>
+<h3>想定される指摘</h3>
+<p>「Privacy Policy が見つからない／不一致」「App Privacy Label と実態が異なる」「Privacy Manifest が不足」</p>
+<h3>応答テンプレ（English）</h3>
+<div class="tpl">Regarding Guideline 5.1.1 (Privacy):
+
+ASOBI collects no user data. The App Privacy Label is set to "Data Not Collected" and this matches the runtime behavior:
+
+- No analytics SDK, no advertising SDK, no crash reporter, no third-party network call.
+- All persistence uses local UserDefaults (favorites, feedback, onboarding flag). No data leaves the device.
+- The Privacy Manifest (PrivacyInfo.xcprivacy) declares NSPrivacyTracking=false, NSPrivacyCollectedDataTypes=empty, and a single NSPrivacyAccessedAPIType entry for NSPrivacyAccessedAPICategoryUserDefaults with reason CA92.1 (access info from same app).
+- Privacy Policy URL: [GitHub Pages URL を貼る]
+- Support URL: [問い合わせフォーム URL を貼る]
+
+Both URLs are publicly reachable and match the App Privacy Label. The feedback form sends an optional message via Discord Webhook only when the user taps "send" on the suggestion form; no data is collected without explicit user action.
+
+Please let me know if any additional detail is needed.
+
+</div>
+
+<h2>5. 万一覆らない場合：App Review Board へのエスカレ（年1回までを目安）</h2>
+<div class="tpl">Subject: Request for App Review Board reconsideration — ASOBI
+
+Hello,
+
+I have reviewed the rejection feedback dated [DATE] for ASOBI (build [BUILD_NUMBER]) and respectfully request a re-review by the App Review Board.
+
+The previous response in the Resolution Center thread [LINK or TIMESTAMP] addressed the following points: [SUMMARIZE 2-3 KEY POINTS].
+
+I believe the rejection may have been based on a misunderstanding of [SPECIFIC POINT], and would appreciate a second look. I have not modified the binary or the metadata since the last submission and am not asking for a guideline exception, only a reconsideration of the original interpretation.
+
+Thank you for your time.
+
+Best regards,
+Idogawa Satori
+</div>
+
+<h2>運用メモ</h2>
+<ul>
+  <li>返信は24時間以内、感情的な反論は禁止。事実と差分のみ。</li>
+  <li>Resolution Center で覆らなければ、Bug report URL（feedbackassistant.apple.com）で別経路から確認も検討。</li>
+  <li>テンプレを使ったらこのファイル末尾に「使った日 / リジェクト番号 / 結果」を追記して学習を積む。</li>
+</ul>
+
+<h2>使用ログ</h2>
+<table>
+  <thead>
+    <tr><th>日付</th><th>テンプレ</th><th>リジェクト番号</th><th>結果</th><th>気づき</th></tr>
+  </thead>
+  <tbody>
+    <tr><td colspan="5" style="text-align:center;color:#999">まだ使用記録なし</td></tr>
+  </tbody>
+</table>
+
+</body>
+</html>

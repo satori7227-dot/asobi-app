@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ASOBI リリースチェックリスト</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;margin:32px auto;max-width:960px;padding:0 16px;color:#222;line-height:1.7}
+  h1{font-size:1.8em;border-bottom:3px solid #D97757;padding-bottom:8px}
+  h2{font-size:1.3em;margin-top:2em;color:#D97757}
+  h3{font-size:1.05em;margin-top:1.5em}
+  .meta{background:#fff8f3;padding:12px 16px;border-radius:8px;font-size:0.95em}
+  .phase{background:#fafafa;padding:14px 18px;border-radius:10px;margin:1em 0;border-left:5px solid #D97757}
+  details{margin:0.5em 0}
+  summary{cursor:pointer;font-weight:600;padding:6px 0}
+  ul{padding-left:1.4em}
+  li{margin:0.25em 0}
+  code{background:#f0f0f0;padding:2px 6px;border-radius:3px;font-size:0.9em;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+  .baseline{background:#fffce0;padding:10px 14px;border-radius:6px;font-size:0.92em;border:1px solid #f0e2a0}
+  .check{font-size:0.95em}
+  table{border-collapse:collapse;width:100%;margin:1em 0}
+  th,td{border:1px solid #ddd;padding:8px;text-align:left;font-size:0.92em}
+  th{background:#fff8f3}
+</style>
+</head>
+<body>
+<h1>ASOBI リリースチェックリスト</h1>
+<div class="meta">
+  作成 2026-06-21 / TestFlight・App Store リリース毎に <strong>頭から順に消化</strong>する。
+  飛ばしてリリースした項目は次バージョンで必ずやる。
+  Rule 12（失敗は声を出す）: スキップした項目は明記する。
+</div>
+
+<h2>Phase 0. 前提（プロジェクトに1度だけ）</h2>
+<div class="phase">
+  <details open><summary class="check">完了済タスク（参考）</summary>
+  <ul>
+    <li>✅ <code>PrivacyInfo.xcprivacy</code> を target に同梱（CA92.1 / Data Not Collected）</li>
+    <li>✅ <code>Info.plist</code> に <code>ITSAppUsesNonExemptEncryption = false</code></li>
+    <li>✅ <code>AppStorageKeys</code> enum で永続化キー集約・<code>PersistenceMigrator</code> で schemaVersion 管理</li>
+    <li>✅ <code>AsobiLogger</code>（OSLog）6カテゴリ導入</li>
+    <li>✅ <code>PlayCountStore</code>（月20本ソフトペイウォール・初期は flag off）</li>
+    <li>✅ <code>TipJarView</code> 雛形（StoreKit2 接続は Apple Developer 契約後）</li>
+    <li>✅ <code>.swiftlint.yml</code> 最小ルール</li>
+    <li>✅ <code>Version.xcconfig</code> + <code>scripts/bump-build-number.sh</code></li>
+    <li>✅ <code>fastlane/Fastfile</code> 雛形（bump / test / beta / release）</li>
+    <li>✅ <code>docs/resolution-center-templates.html</code></li>
+  </ul>
+  </details>
+</div>
+
+<h2>Phase 1. コード変更後（毎回）</h2>
+<div class="phase">
+  <ul class="check">
+    <li>☐ <code>xcodebuild -project Asobi.xcodeproj -scheme Asobi -destination 'platform=iOS Simulator,name=iPhone 17' build</code> 成功</li>
+    <li>☐ <code>fastlane test</code>（XCUnitTest 緑）</li>
+    <li>☐ <code>swiftlint</code> エラー0（warning は許容、要因は <code>// swiftlint:disable</code> で明示）</li>
+    <li>☐ <code>git status</code> でコミット忘れ確認</li>
+  </ul>
+</div>
+
+<h2>Phase 2. Instruments 計測（リリース前 / 月次）</h2>
+<div class="phase">
+  <p class="check">実機 iPhone（Release ビルド）で必ず実施。Simulator は数値が信頼できない。</p>
+  <table>
+    <thead><tr><th>テンプレ</th><th>シナリオ</th><th>ゲート</th></tr></thead>
+    <tbody>
+      <tr><td>App Launch</td><td>cold start → ScenePicker 表示</td><td>&lt; 400ms（実機 A18）</td></tr>
+      <tr><td>Time Profiler</td><td>13シーン × 連続シャッフル20回</td><td>main thread 60FPS 維持</td></tr>
+      <tr><td>Allocations</td><td>5分間スワイプ・シャッフル操作</td><td>peak RAM &lt; 80MB</td></tr>
+      <tr><td>Hangs</td><td>初回起動 → 提案 → 詳細</td><td>Hang 0件（&gt;100ms）</td></tr>
+    </tbody>
+  </table>
+  <div class="baseline">
+    <strong>baseline 記録欄</strong>（バージョンごとに更新）<br>
+    v1.0.0: cold start = ___ms / peak RAM = ___MB / Hang = ___件
+  </div>
+</div>
+
+<h2>Phase 3. Accessibility Audit（リリース前）</h2>
+<div class="phase">
+  <ul class="check">
+    <li>☐ Accessibility Inspector の Audit を全画面で実行 → 残課題ゼロ</li>
+    <li>☐ VoiceOver で「シーン選択 → 提案 → 詳細 → お気に入り」の主要動線を音声のみで完走</li>
+    <li>☐ Dynamic Type を AccessibilityXXXL に設定 → レイアウト破綻なし</li>
+    <li>☐ Reduce Motion ON でアニメ短縮 / Reduce Transparency ON で背景塗りつぶし</li>
+    <li>☐ Smart Invert ON で色反転崩れチェック</li>
+  </ul>
+</div>
+
+<h2>Phase 4. App Store Connect メタデータ（変更時）</h2>
+<div class="phase">
+  <ul class="check">
+    <li>☐ Privacy Policy URL がリンク切れでない（GitHub Pages）</li>
+    <li>☐ Support URL が応答可能</li>
+    <li>☐ App Privacy = Data Not Collected と実態が一致</li>
+    <li>☐ Age Rating 12+ 維持</li>
+    <li>☐ スクリーンショット（iPhone 16/17 Pro Max + 6.5"）最新</li>
+    <li>☐ Promotional Text（無審査・即時反映）= 季節キャンペーン更新</li>
+    <li>☐ What's New = 日本語＋英語（後者は省略可）</li>
+  </ul>
+</div>
+
+<h2>Phase 5. TestFlight 配信</h2>
+<div class="phase">
+  <ul class="check">
+    <li>☐ <code>fastlane bump</code> で CURRENT_PROJECT_VERSION 更新</li>
+    <li>☐ <code>fastlane beta</code> 成功 → App Store Connect 反映確認（5-10分）</li>
+    <li>☐ 内部テスター（自分）で実機検証：起動 / 1191件読込 / シャッフル / お気に入り / 意見箱</li>
+    <li>☐ Beta App Review（外部テスター追加時は初回 24h 程度）</li>
+    <li>☐ Public Link 経由なら r/TestFlight / r/iOSBeta に投稿（顔出しなしテキストのみ）</li>
+  </ul>
+</div>
+
+<h2>Phase 6. App Store 申請</h2>
+<div class="phase">
+  <ul class="check">
+    <li>☐ Phased Release ON（1日ごとに 1→2→5→10→20→50→100%）</li>
+    <li>☐ Submit for Review（手動。初回は自動 release ではなく Manual Release 推奨）</li>
+    <li>☐ Resolution Center 開きっぱなしで通知監視（24h 以内応答）</li>
+  </ul>
+</div>
+
+<h2>Phase 7. リリース後（24時間 / 1週間 / 1ヶ月）</h2>
+<div class="phase">
+  <h3>24時間以内</h3>
+  <ul class="check">
+    <li>☐ App Store Connect Analytics でクラッシュ率確認</li>
+    <li>☐ Phased Release のロールアウト率を毎朝記録</li>
+    <li>☐ X / note で告知投稿（feedback_publish_includes_announcement 準拠）</li>
+  </ul>
+  <h3>1週間以内</h3>
+  <ul class="check">
+    <li>☐ レビュー★4.0 以上維持確認</li>
+    <li>☐ Discord 意見箱の新規投稿全件目視</li>
+    <li>☐ DL数・有料変換率を <code>docs/metrics-log.md</code> に追記</li>
+  </ul>
+  <h3>1ヶ月以内</h3>
+  <ul class="check">
+    <li>☐ Promotional Text 月次差し替え（季節文脈）</li>
+    <li>☐ Featuring Nomination を次バージョン分で提出</li>
+    <li>☐ Product Page Optimization の A/B テスト勝者反映</li>
+  </ul>
+</div>
+
+<h2>Phase 8. リリース後の振り返り（必須）</h2>
+<div class="phase">
+  <p>毎リリース後、以下を <code>docs/release-log/YYYY-MM-DD-vX.Y.Z.md</code> に残す（Rule 10 + Rule 13）。</p>
+  <ul class="check">
+    <li>やったこと（コード変更・メタデータ変更）</li>
+    <li>判断に迷った点（採用した選択肢と棄却理由）</li>
+    <li>仕様外で決めた点（Implementation Notes）</li>
+    <li>次回への申し送り</li>
+  </ul>
+</div>
+
+<h2>緊急時：Phased Release 中の致命バグ発見</h2>
+<div class="phase">
+  <ul class="check">
+    <li>☐ App Store Connect → Version → Phased Release → <strong>Pause</strong>（最大 30 日まで保留可）</li>
+    <li>☐ Hotfix ブランチで修正 → <code>fastlane beta</code> 即座に流す</li>
+    <li>☐ App Store Connect で「Expedited Review」リクエスト（年数回まで使える）</li>
+    <li>☐ ユーザーには What's New 欄で透明な変更点を明示</li>
+  </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASOBI 収益化戦略レポート — 2026-06-19</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --line: #e2e2dc;
+    --card: #ffffff;
+    --accent: #D97757;
+    --accent-soft: rgba(217,119,87,0.10);
+    --green: #2a7d4f;
+    --red:   #b3261e;
+    --blue:  #4F7CAC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161617;
+      --fg: #ececec;
+      --muted: #a0a0a4;
+      --line: #2c2c2e;
+      --card: #1f1f20;
+      --accent: #E89B7A;
+      --accent-soft: rgba(232,155,122,0.14);
+      --green: #6dd394;
+      --red:   #ff6f60;
+      --blue:  #7AA9DD;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  h1 {
+    font-size: 32px;
+    margin: 0 0 4px;
+  }
+  h2 {
+    font-size: 22px;
+    margin-top: 56px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
+  }
+  h3 {
+    font-size: 17px;
+    margin-top: 28px;
+    color: var(--accent);
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+  .summary {
+    background: var(--accent-soft);
+    border-left: 5px solid var(--accent);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary strong { color: var(--accent); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    background: var(--card);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--muted);
+  }
+  td.num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+  td.tag-y { color: var(--green); font-weight: 700; }
+  td.tag-n { color: var(--red);   font-weight: 700; }
+  td.tag-m { color: var(--muted); font-weight: 700; }
+  .recommend {
+    background: var(--card);
+    border: 2px solid var(--accent);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin: 28px 0;
+  }
+  .recommend h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 18px;
+  }
+  .stage {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 12px 0;
+    position: relative;
+    padding-left: 64px;
+  }
+  .stage .badge {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    text-align: center;
+    line-height: 36px;
+    font-weight: 800;
+  }
+  .stage h4 { margin: 0 0 6px; font-size: 16px; }
+  .stage .meta-row { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .risk {
+    background: var(--card);
+    border-left: 4px solid var(--red);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    margin: 8px 0;
+    font-size: 14px;
+  }
+  .risk .head { font-weight: 700; color: var(--red); font-size: 13px; }
+  .caveat {
+    background: rgba(127,127,127,0.08);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--accent-soft);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  a { color: var(--accent); }
+  .source-row {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: ui-monospace, monospace;
+    word-break: break-all;
+  }
+  .confidence {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  .confidence.high { background: rgba(42,125,79,0.18); color: var(--green); }
+  .confidence.medium { background: rgba(196,123,22,0.18); color: #c47b16; }
+  .confidence.low { background: rgba(127,127,127,0.18); color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ASOBI 収益化戦略レポート</h1>
+<div class="meta">2026-06-19 ・ deep-research（106 agents・480 ツール呼び出し・19分） ・ 対象：日本市場 iOS パーティーゲーム提案アプリ</div>
+
+<div class="summary">
+  <strong>結論：</strong>「<b>Penalty 型コンテンツパック買い切り IAP（¥120〜¥360）</b>」を主軸、「<b>VAVA 型プレミアムサブスク（月¥120／年¥1,100）</b>」を上乗せ、「<b>法人ライセンス（年¥30,000〜¥80,000）</b>」を別線で営業——の<b>三層構成</b>が最適。広告は<b>リワード型のみ・能動文脈限定</b>、強制視聴インタースティシャルは採用しない。<br><br>
+  <strong>損益分岐：</strong>実質 Apple Developer 年¥12,980 のみ（IAP約108件×¥120 or 約36件×¥360で回収）。<br>
+  <strong>初年度月収レンジ：</strong>¥0〜¥30,000（保守）。法人受注1件で +¥30K-80K MRR。<br>
+  <strong>方針整合：</strong>井戸川さん memory <code>feedback_zero_cost_start</code>（無料縛りで始める）と完全整合の段階移行プラン。
+</div>
+
+<h2>1. 競合料金マップ（一次ソース確定）</h2>
+
+<table>
+<thead>
+<tr><th>アプリ</th><th>モデル</th><th>料金</th><th>広告</th><th>主力ティア</th></tr>
+</thead>
+<tbody>
+<tr><td><b>VAVAゲーム</b></td><td>無料DL + サブスク</td><td>月¥120 / 年¥1,100</td><td class="tag-m">無料版あり</td><td>年額（割引率24%）</td></tr>
+<tr><td><b>Penalty</b></td><td>無料DL + 非消費型IAP</td><td>$0.99〜$2.99 ×4パック</td><td class="tag-n">なし</td><td>オールインワン $2.99</td></tr>
+<tr><td><b>Jackbox</b></td><td>無料DL + 非消費型IAP</td><td>¥300 ×5パック + 広告除去¥300</td><td class="tag-m">無料版あり</td><td>個別パック ¥300均一</td></tr>
+<tr><td><b>どこパ</b></td><td>無料DL（評価4.6・36K件超）</td><td>—</td><td class="tag-m">—</td><td>日本ボード1位</td></tr>
+</tbody>
+</table>
+
+<p>競合は <b>全社「無料DL＋IAP」モデルに収束</b>、価格レンジは <code>¥120 月額〜¥1,100 年額</code> / <code>¥300 個別〜$2.99 オールイン</code> という狭い帯。<span class="confidence high">High</span></p>
+<div class="source-row">出典: apps.apple.com/jp/app/vava・apps.apple.com/us/app/penalty・apps.apple.com/jp/app/the-jackbox</div>
+
+<h3>どこパ＝シェア上限のベンチマーク</h3>
+<p>日本ボードカテゴリ無料1位、評価4.6/36,000件超。iOS の評価:DL比1-3%から逆算で <b>約100-300万DL推定</b>。横断型ASOBIが目指せるDL規模感の上限を示す。シーン特化のどこパが取れているシェアの一部を「全シーン1本化」需要に転換するのが ASOBI の戦略軸。<span class="confidence high">High</span></p>
+
+<h2>2. Apple 手数料の現状（2025-12-17 以降）</h2>
+
+<p>iOS 26.2 で日本 MSCA 対応が施行され、Apple Tax は<b>大幅に低下</b>しています：</p>
+
+<table>
+<thead>
+<tr><th>区分</th><th>従来</th><th>2025-12-17〜（日本）</th></tr>
+</thead>
+<tbody>
+<tr><td>Small Business Program（年Proceeds $1M以下）</td><td class="num">15%</td><td class="num"><b>10%</b></td></tr>
+<tr><td>サブスク 2 年目以降</td><td class="num">15%</td><td class="num"><b>10%</b></td></tr>
+<tr><td>デジタル財標準</td><td class="num">30%</td><td class="num"><b>21%</b></td></tr>
+</tbody>
+</table>
+
+<p>ASOBI は個人開発・年間Proceeds $1M以下確実で <b>SBP 完全適格</b>。<b>買い切りIAPもサブスクも実質 10% 手数料</b> で運用可能。サブスク2年目以降一律 10% の構造的継続インセンティブも大きい。<span class="confidence high">High</span></p>
+<div class="source-row">出典: apple.com/newsroom/2025/12/apple-announces-changes-to-ios-in-japan・developer.apple.com/app-store/small-business-program</div>
+
+<h2>3. 収益化モデル5択 比較表</h2>
+
+<table>
+<thead>
+<tr><th>モデル</th><th>初期負荷</th><th>ASOBI 適合性</th><th>主リスク</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td><b>① 完全無料+広告</b></td>
+  <td class="tag-y">低</td>
+  <td class="tag-m">△ リワードのみ採用すれば良</td>
+  <td>強制視聴70%嫌悪・パーティー体験毀損</td>
+</tr>
+<tr>
+  <td><b>② フリーミアム+IAP（買い切り）</b></td>
+  <td class="tag-y">低</td>
+  <td class="tag-y">◎ Penalty 型と1:1で写像可</td>
+  <td>新規パック追加の継続コンテンツ調達</td>
+</tr>
+<tr>
+  <td><b>③ 買い切り</b></td>
+  <td class="tag-y">低</td>
+  <td class="tag-n">× DL初速ブロック・パーティーアプリ非合致</td>
+  <td>無料DL文化と逆行・レビュー集まらない</td>
+</tr>
+<tr>
+  <td><b>④ サブスク（月/年）</b></td>
+  <td class="tag-m">中</td>
+  <td class="tag-y">○ VAVA型と整合・2年目10%で粗利89%</td>
+  <td>解約率・継続コンテンツ供給</td>
+</tr>
+<tr>
+  <td><b>⑤ 法人ライセンス</b></td>
+  <td class="tag-n">高</td>
+  <td class="tag-y">◎ チーム研修・居酒屋業務で高 ARPU</td>
+  <td>B2B 営業サイクル 3-6 ヶ月</td>
+</tr>
+</tbody>
+</table>
+
+<p><b>結論：</b>②と④を組み合わせ、⑤を別線で。①は②④の補助（リワード文脈）のみで採用、③は不採用。</p>
+
+<h2>4. 広告実装の体験設計</h2>
+
+<p>日本のゲーム・マンガアプリユーザー調査（n=673・アドウェイズ2023）：</p>
+
+<table>
+<thead>
+<tr><th>広告タイプ</th><th>好意</th><th>嫌悪</th><th>ASOBIでの採否</th></tr>
+</thead>
+<tbody>
+<tr><td>強制視聴インタースティシャル</td><td class="num">—</td><td class="num">約 <b>70%</b></td><td class="tag-n">不採用</td></tr>
+<tr><td>バナー</td><td class="num">—</td><td class="num">—</td><td class="tag-n">不採用（画面狭く効果薄）</td></tr>
+<tr><td>リワード（能動視聴）</td><td class="num">約 <b>50%</b></td><td class="num">—</td><td class="tag-y">採用：能動文脈限定</td></tr>
+</tbody>
+</table>
+
+<h3>ASOBI でのリワード広告の文脈案</h3>
+<ul>
+  <li><b>お題ガチャ追加抽選</b>：「もう1つお題を引く」→ 30 秒視聴で 1 回追加</li>
+  <li><b>王様くじブースト</b>：「もう一度配り直す」→ リワード視聴で 1 回</li>
+  <li><b>ツール Unlock 1回</b>：プレミアムツール（v2 のヘルメスエージェント API 呼び出し）を 1 回視聴で開放</li>
+  <li><b>シーン候補ブースト</b>：「3件→5件に増やす」→ 視聴で 1 セッション分</li>
+</ul>
+
+<p><span class="confidence high">High</span>（票決 2-1：1票はサンプル時間経過への懸念、ただし方向性は確定）</p>
+<div class="source-row">出典: ad-virtua.com/column/gameapp-ads-media-selection-2026</div>
+
+<h2>5. 法人/業務市場の実勢価格</h2>
+
+<table>
+<thead>
+<tr><th>形態</th><th>提供例</th><th>価格帯</th><th>ASOBI 換算案</th></tr>
+</thead>
+<tbody>
+<tr><td>1人単価</td><td>リスキル / ANA研修</td><td class="num">¥5,500〜¥51,700/人</td><td class="num">¥1,500〜¥3,000/人</td></tr>
+<tr><td>パッケージ</td><td>リスキル / バヅクリ</td><td class="num">¥249,000〜¥1,650,000</td><td class="num">¥30,000〜¥80,000/年</td></tr>
+<tr><td>サブスク</td><td>Schoo</td><td class="num">¥1,650/ID/月（最低20ID + 初期費¥110,000）</td><td class="num">¥500/月/ID or 店舗ライセンス¥3,000-5,000/月</td></tr>
+</tbody>
+</table>
+
+<p><span class="confidence medium">Medium</span> Liskul 1社依存（二次ソース）の限界あり。実価格は受注時に WTP（支払意思額）調査必要。</p>
+<div class="source-row">出典: liskul.com/team-building-training-comparison-153766</div>
+
+<h2>6. 推奨案：三層構成＋段階移行</h2>
+
+<div class="recommend">
+<h3>推奨案：B2C 二段（買い切りIAP + サブスク） ＋ B2B 別線（法人ライセンス）</h3>
+
+<div class="stage">
+  <div class="badge">1</div>
+  <h4>Phase α（今〜3ヶ月）: 無料配布 + リワード広告のみ</h4>
+  <div class="meta-row">Apple Developer 契約 ¥12,980 / 損益分岐の唯一の費用</div>
+  <ul>
+    <li>App Store 公開、完全無料</li>
+    <li>リワード広告のみ（お題ガチャ追加・王様くじブースト等の能動文脈）</li>
+    <li>DL / レビュー / フィードバック蓄積に注力</li>
+    <li><b>目標：</b>1,000 DL / 評価 4.5+ / 意見箱投稿 50件以上</li>
+  </ul>
+</div>
+
+<div class="stage">
+  <div class="badge">2</div>
+  <h4>Phase β（3〜6ヶ月）: Penalty 型 IAP 導入</h4>
+  <div class="meta-row">SBP適用で実効手数料 10% / 粗利 90%</div>
+  <ul>
+    <li><b>シーン拡張パック</b>：¥120/シーン（追加シーン1つ：例「合コン」「子供と」「電車待ち」）</li>
+    <li><b>テーマ別お題パック</b>：¥120/パック（季節限定・大人向け・カップル深掘り 等）</li>
+    <li><b>オールインワン</b>：¥360（全パック永続解放）</li>
+    <li><b>損益分岐：</b>¥120 × 108件 or ¥360 × 36件 = Apple Developer 年費回収</li>
+  </ul>
+</div>
+
+<div class="stage">
+  <div class="badge">3</div>
+  <h4>Phase γ（6〜12ヶ月）: プレミアムサブスク追加</h4>
+  <div class="meta-row">2年目以降は実効手数料 10%（粗利 90%）</div>
+  <ul>
+    <li><b>月額¥120 / 年額¥1,100</b>（VAVA型に揃える）</li>
+    <li>サブスクで提供する価値：全 IAP コンテンツ + 広告非表示 + ヘルメス AI 提案（v2）+ お気に入り無制限</li>
+    <li>解約率高い見込み（パーティーアプリ特性）→ 年額誘導を主導線に</li>
+  </ul>
+</div>
+
+<div class="stage">
+  <div class="badge">4</div>
+  <h4>Phase δ（並行 / 6ヶ月〜）: 法人ライセンス別線</h4>
+  <div class="meta-row">B2B 営業サイクル 3-6 ヶ月（長い）</div>
+  <ul>
+    <li><b>年間サイトライセンス</b>：¥30,000〜¥80,000（社員数無制限・全機能解放）</li>
+    <li><b>店舗ライセンス</b>：¥3,000〜¥5,000/月/店舗（居酒屋・ホテル・バー）</li>
+    <li>営業チャネル：人事研修担当・チームビルディング会社・居酒屋チェーン本部</li>
+    <li>1 件受注で +¥30K-80K MRR / 5 件受注で MRR ¥150K-400K</li>
+  </ul>
+</div>
+</div>
+
+<h2>7. 初年度月収レンジ（保守試算）</h2>
+
+<table>
+<thead>
+<tr><th>シナリオ</th><th>DL</th><th>課金率</th><th>ARPU</th><th>月収レンジ（10%手数料後）</th></tr>
+</thead>
+<tbody>
+<tr><td>悲観</td><td class="num">1,000</td><td class="num">1%</td><td class="num">¥360</td><td class="num">¥3,240/月</td></tr>
+<tr><td>標準</td><td class="num">10,000</td><td class="num">2%</td><td class="num">¥360</td><td class="num">¥64,800/月</td></tr>
+<tr><td>標準+サブスク</td><td class="num">10,000</td><td class="num">5%</td><td class="num">¥900</td><td class="num">¥405,000/月</td></tr>
+<tr><td>標準+法人1社</td><td class="num">10,000</td><td class="num">2%</td><td class="num">¥360 + 法人</td><td class="num">¥64,800 + ¥30K-80K/月</td></tr>
+<tr><td>強気（どこパ並み）</td><td class="num">300,000</td><td class="num">3%</td><td class="num">¥600</td><td class="num">¥4.86M/月</td></tr>
+</tbody>
+</table>
+
+<p><span class="confidence low">Low</span> 課金率・ARPU の確定数値が refuted されており、業界一般値からの類推。<b>初年度は ¥0〜数万円の現実的レンジ</b>、法人受注が入ると一段跳ねる構造。</p>
+
+<h2>8. リスクと緩和策</h2>
+
+<div class="risk">
+  <div class="head">① どこパの堀（評価4.6・36K件超）</div>
+  <div>緩和：シーン横断性をLPで物語化（「1本で7シーン」）。家族・カップル・リモートの3シーンはどこパが弱い領域（パーティー特化のため）。</div>
+</div>
+
+<div class="risk">
+  <div class="head">② 横断型ゆえの「どのシーンも70点」希薄化</div>
+  <div>緩和：シーン別パック販売で「家族版なら100点」を訴求。Phase β の IAP がそのまま緩和策。</div>
+</div>
+
+<div class="risk">
+  <div class="head">③ Apple 審査で罰ゲーム / 王様くじが成人向けレーティング化</div>
+  <div>緩和：罰ゲーム / 王様くじを「アダルト版」として別パック分離、本体は 4+ レーティング維持。Phase β の IAP 設計に組込み。</div>
+</div>
+
+<div class="risk">
+  <div class="head">④ B2B 営業サイクル 3-6 ヶ月（個人開発でカバー困難）</div>
+  <div>緩和：TakiTaki 既存顧客（飲食店・宿泊）への抱き合わせ提案で営業コスト圧縮 ……だが井戸川さん memory <code>feedback_no_company_names</code> 違反になるため、<b>抱き合わせは不可</b>。代替：チームビルディング会社のWebサイトに掲載依頼、Schoo 等への提案。</div>
+</div>
+
+<h2>9. 重要な不確実性</h2>
+
+<div class="caveat">① 日本パーティーゲームの<b>課金率・ARPU・AdMob eCPM の確定数値が refuted</b>。月収レンジは業界一般値からの類推。</div>
+<div class="caveat">② どこパ・VAVA の実DL数は<b>非公開</b>、評価件数からの逆算で誤差大。</div>
+<div class="caveat">③ iOS 26.2 / MSCA 新ティアは2025-12-17発表・施行直後で、運用ルールがまだ確定していない。</div>
+<div class="caveat">④ チームビルディング研修価格は Liskul 1社（二次ソース）依存で、現場 WTP は未調査。</div>
+<div class="caveat">⑤ Penalty・Jackbox の広告有無は「App Store表記に広告除去IAPがない＝広告なし」推定、実機検証ではない。</div>
+
+<h2>10. 今日決めるべきこと（3 つ）</h2>
+
+<ol>
+  <li><b>Phase α 開始 ＝ Apple Developer 契約（¥12,980/年）</b>を今月中に着手するか？　TestFlight 配布開始まで 2 週間程度。</li>
+  <li><b>App Store 公開時の本体無料化を確定</b>するか？　Phase β の IAP は後付けで実装可能、まず DL/レビュー優先。</li>
+  <li><b>法人ライセンスの仕様初稿</b>を作るか？　B2B 営業サイクル 3-6 ヶ月なので、Phase δ を始めるなら今から仕込み。</li>
+</ol>
+
+<p style="margin-top: 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px;">
+  Generated by Claude deep-research workflow ・ 106 agents ・ 480 tool uses ・ 19 min<br>
+  本レポートはスナップショット。Apple iOS 26.2 新ティアの運用ルール、競合のキャンペーン、市場 WTP は時間とともに変動する。半年後の見直し推奨。
+</p>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+default_platform(:ios)
+
+# App Store Connect API Key を環境変数で受け取る。
+# 1Password 等から取り出してから fastlane を叩く想定:
+#   export ASC_KEY_ID=XXXXXXXXXX
+#   export ASC_ISSUER_ID=YYYYYYYY-YYYY-...
+#   export ASC_KEY_FILEPATH=$HOME/secure/AuthKey_XXXXXXXXXX.p8
+def load_api_key
+  return nil unless ENV["ASC_KEY_ID"]
+  app_store_connect_api_key(
+    key_id: ENV["ASC_KEY_ID"],
+    issuer_id: ENV["ASC_ISSUER_ID"],
+    key_filepath: ENV["ASC_KEY_FILEPATH"],
+    duration: 1200,
+    in_house: false
+  )
+end
+
+platform :ios do
+  desc "ビルド番号を git コミット数で更新"
+  lane :bump do
+    sh("../scripts/bump-build-number.sh")
+  end
+
+  desc "TestFlight 配信（要 ASC API Key）"
+  lane :beta do
+    bump
+    api_key = load_api_key
+
+    build_app(
+      scheme: "Asobi",
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: "build/fastlane",
+      clean: true
+    )
+
+    upload_to_testflight(
+      api_key: api_key,
+      skip_waiting_for_build_processing: true,
+      skip_submission: true,
+      changelog: changelog_from_git_commits(
+        commits_count: 10,
+        pretty: "- %s",
+        merge_commit_filtering: "exclude_merges"
+      )
+    )
+  end
+
+  desc "App Store 申請（メタデータと最新ビルドを提出）"
+  lane :release do
+    api_key = load_api_key
+    deliver(
+      api_key: api_key,
+      submit_for_review: false,
+      automatic_release: false,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      skip_screenshots: true,
+      skip_metadata: false
+    )
+  end
+
+  desc "ユニットテストのみ実行（API Key 不要）"
+  lane :test do
+    run_tests(
+      scheme: "Asobi",
+      device: "iPhone 17"
+    )
+  end
+
+  desc "リリースノート初稿を git log から生成"
+  lane :notes do |options|
+    from = options[:from] || ""
+    to = options[:to] || "HEAD"
+    sh("../scripts/release-notes.sh #{from} #{to}")
+  end
+
+  desc "Localizable.xcstrings を lint（en 欠落/重複/日本語混入を検出）"
+  lane :lint do
+    sh("python3 ../scripts/xcstrings-lint.py --strict")
+  end
+end

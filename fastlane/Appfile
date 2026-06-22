@@ -1,0 +1,8 @@
+app_identifier "com.idogawa.Asobi"
+# Apple ID は ENV から取る（直書き禁止）。
+# 例: export FASTLANE_USER=satori7227@gmail.com
+apple_id ENV["FASTLANE_USER"]
+
+# Apple Developer Program 契約後、Team ID を埋める。
+# itc_team_id "XXXXXXXXXX"
+# team_id "YYYYYYYYYY"

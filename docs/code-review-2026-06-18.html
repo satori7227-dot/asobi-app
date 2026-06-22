@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>あそぶ？ コードレビュー — 2026-06-18</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --line: #e2e2dc;
+    --card: #ffffff;
+    --accent: #4F7CAC;
+    --crit: #b3261e;
+    --high: #c47b16;
+    --med:  #2a7d4f;
+    --low:  #6b6b70;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161617;
+      --fg: #ececec;
+      --muted: #a0a0a4;
+      --line: #2c2c2e;
+      --card: #1f1f20;
+      --accent: #7AA9DD;
+      --crit: #ff6f60;
+      --high: #f0b96b;
+      --med:  #6dd394;
+      --low:  #a0a0a4;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0; padding: 0;
+    line-height: 1.65;
+  }
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+  h1 { font-size: 32px; margin: 0 0 4px; }
+  h2 {
+    font-size: 22px; margin-top: 56px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--line);
+  }
+  h3 { font-size: 17px; margin-top: 28px; color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .summary {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .priority-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 12px; margin: 24px 0;
+  }
+  .priority-card {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 16px;
+  }
+  .priority-card .badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 3px 8px; border-radius: 6px; margin-bottom: 8px;
+    text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .crit  .badge { background: rgba(179,38,30,0.15); color: var(--crit); }
+  .high  .badge { background: rgba(196,123,22,0.15); color: var(--high); }
+  .med   .badge { background: rgba(42,125,79,0.15); color: var(--med); }
+  .low   .badge { background: rgba(107,107,112,0.15); color: var(--low); }
+  .priority-card .count {
+    font-size: 28px; font-weight: 800; margin: 4px 0;
+  }
+  .priority-card .label { font-size: 12px; color: var(--muted); }
+  .issue {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px 16px; margin: 10px 0;
+  }
+  .issue .head {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 4px;
+  }
+  .issue .tag {
+    font-size: 10px; font-weight: 700; padding: 2px 6px;
+    border-radius: 4px; text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .tag.crit { background: rgba(179,38,30,0.15); color: var(--crit); }
+  .tag.high { background: rgba(196,123,22,0.15); color: var(--high); }
+  .tag.med  { background: rgba(42,125,79,0.15); color: var(--med); }
+  .tag.low  { background: rgba(107,107,112,0.15); color: var(--low); }
+  .issue .title { font-weight: 600; font-size: 15px; }
+  .issue .body { font-size: 14px; color: var(--fg); margin-top: 6px; }
+  .issue .body code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    background: var(--bg); padding: 1px 5px; border-radius: 4px;
+    font-size: 13px;
+  }
+  .issue .file {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12px; color: var(--muted); margin-top: 6px;
+  }
+  ul.roadmap { list-style: none; padding: 0; }
+  ul.roadmap li {
+    padding: 12px 16px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 8px; margin: 8px 0; font-size: 14px;
+  }
+  ul.roadmap li .step {
+    font-weight: 700; color: var(--accent); margin-right: 8px;
+  }
+  table {
+    width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px;
+  }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { background: var(--card); font-weight: 600; }
+  .note {
+    font-size: 13px; color: var(--muted); font-style: italic; margin: 8px 0;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>あそぶ？ コードレビュー</h1>
+<div class="meta">2026-06-18 ・ レビュアー: Claude（Opus 4.7） ・ 対象: MVP v1 全体</div>
+
+<div class="summary">
+  <strong>総評：</strong> アーキテクチャと拡張性は良好（SwiftUI標準・@Observable・JSONベース・xcodegen自走）。ただし
+  <b>App Store 公開ブロッカーが複数</b>、<b>メモリリーク2件</b>、<b>アクセシビリティ未対応</b>、
+  <b>ゲームDB品質バラツキ</b> がある。MVP として「身内 TestFlight 配布」までは十分動くが、
+  公開審査・万人公開には 3 段階の磨き込みが必要。総改善ポイント <b>43 件</b> を以下に整理。
+</div>
+
+<div class="priority-grid">
+  <div class="priority-card crit"><div class="badge">Critical</div><div class="count">7</div><div class="label">公開ブロッカー・データ破損リスク</div></div>
+  <div class="priority-card high"><div class="badge">High</div><div class="count">12</div><div class="label">UX大きく改善・潜在バグ</div></div>
+  <div class="priority-card med"><div class="badge">Medium</div><div class="count">16</div><div class="label">保守性・将来拡張</div></div>
+  <div class="priority-card low"><div class="badge">Low</div><div class="count">8</div><div class="label">Nice to have</div></div>
+</div>
+
+<h2>🔴 Critical（公開前に必須）</h2>
+
+<div class="issue crit">
+  <div class="head"><span class="tag crit">Critical</span><span class="title">アプリアイコン未作成</span></div>
+  <div class="body">Xcode 標準のグレーアイコンのまま。App Store 提出時に必須。1024×1024 + 各サイズ要準備。</div>
+  <div class="file">Asobi/Resources/Assets.xcassets/AppIcon.appiconset/</div>
+</div>
+
+<div class="issue crit">
+  <div class="head"><span class="tag crit">Critical</span><span class="title">Launch Screen 空</span></div>
+  <div class="body">project.yml で <code>UILaunchScreen: { UIColorName: "" }</code> 設定のため、起動時に真っ白。
+  最低限アプリ名 or ロゴ表示が望ましい。</div>
+  <div class="file">project.yml:18</div>
+</div>
+
+<div class="issue crit">
+  <div class="head"><span class="tag crit">Critical</span><span class="title">プライバシーポリシー・利用規約 未作成</span></div>
+  <div class="body">意見箱でユーザーがテキスト送信する以上、App Store 審査ではポリシー URL 必須。
+  ホスティング先未定（GitHub Pages or 独自ドメインで、本アプリ単独で公開）。</div>
+</div>
+
+<div class="issue crit">
+  <div class="head"><span class="tag crit">Critical</span><span class="title">RoulettePickerView の Timer リーク</span></div>
+  <div class="body"><code>Timer.scheduledTimer</code> を <code>spin()</code> で作るが、画面離脱時に invalidate されない。
+  ユーザーが回している途中で sheet を閉じるとタイマーが残り続け、最終的に死んだ View に対して
+  <code>winner = names.randomElement()</code> を呼ぶ（クラッシュは無いが計算リソース浪費）。</div>
+  <div class="file">Asobi/Views/RoulettePickerView.swift:99</div>
+</div>
+
+<div class="issue crit">
+  <div class="head"><span class="tag crit">Critical</span><span class="title">TimerView の Timer リーク（部分対応のみ）</span></div>
+  <div class="body"><code>.onDisappear { timer?.invalidate() }</code> はあるが、Sheet 内で push される View が増えた場合に
+  onDisappear が呼ばれないシナリオあり。<code>NSTimer</code> → <code>Task</code> + <code>Task.sleep</code>
+  方式に移行推奨。</div>
+  <div class="file">Asobi/Views/TimerView.swift:100</div>
+</div>
+
+<div class="issue crit">
+  <div class="head"><span class="tag crit">Critical</span><span class="title">games.json 読み込み失敗時のサイレント失敗</span></div>
+  <div class="body"><code>repo.loadError</code> が UI に表示されない。失敗時はアプリが起動するが
+  全画面で 0 ヒット状態になり、ユーザーは原因が分からず詰む。
+  少なくとも ScenePickerView でエラーバナー表示すべき。</div>
+  <div class="file">Asobi/Services/GameRepository.swift:15</div>
+</div>
+
+<div class="issue crit">
+  <div class="head"><span class="tag crit">Critical</span><span class="title">mailto: 失敗時の救済なし</span></div>
+  <div class="body">iPhone に Apple Mail が設定されていない（Gmail アプリのみ等）と
+  <code>openURL</code> が無音失敗。ユーザーは送信ボタン押しても何も起きず混乱。
+  Mail フォールバックとしてクリップボードコピー or 直接 Gmail URL スキーム対応推奨。</div>
+  <div class="file">Asobi/Views/SuggestionFormView.swift:78</div>
+</div>
+
+<h2>🟠 High（早めに対応）</h2>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">Dynamic Type 未対応</span></div>
+  <div class="body">至る所で <code>.font(.system(size: 48, weight: .heavy))</code> 等の固定サイズ。
+  視覚障害者・高齢者向けの文字サイズ拡大が効かない。
+  <code>.font(.largeTitle.weight(.heavy))</code> 等のセマンティックスタイルに置換すべき。</div>
+  <div class="file">ScenePickerView/ContextInputView/GameDetailView 多数</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">VoiceOver ラベル不足</span></div>
+  <div class="body">シーンカード・ツールカード・お気に入りボタン等にラベルなし。
+  画像アイコンのみのボタンは VoiceOver で「ボタン」としか読まれない。
+  <code>.accessibilityLabel(...)</code> 追加が必要（全画面）。</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">ダークモード対応の不完全さ</span></div>
+  <div class="body">Scene の色（<code>accentHex: "#4F7CAC"</code> 等）が固定 Hex。
+  ライトモード前提の彩度設定で、ダークモードだと飽和して読みにくい。
+  カラーアセット化 or <code>.environment(\\.colorScheme)</code> 分岐推奨。</div>
+  <div class="file">Asobi/Models/Scene.swift:10-16</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">ContextInput 戻り時の状態破棄</span></div>
+  <div class="body">提案画面から戻ると ContextInputView の入力（人数・テンション）が初期値に戻る。
+  「シャッフルしたら全然違うので入力やり直したい」が頻発するが、毎回 4人/medium/short からリセット。
+  <code>@SceneStorage</code> or 親で State 保持して child に Binding 渡すべき。</div>
+  <div class="file">Asobi/Views/ContextInputView.swift:6</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">trailing-closure 内の弱参照欠如</span></div>
+  <div class="body"><code>Timer.scheduledTimer { _ in winner = ... }</code> 等で
+  <code>self</code> をキャプチャしているが、@Observable クラスなのでクロージャ持つ間は解放されない。
+  Sheet を頻繁に開閉するとインスタンスが残る可能性。<code>[weak self]</code> パターン or
+  Timer 廃止が望ましい。</div>
+  <div class="file">RoulettePickerView/TimerView</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">ゲームDB の派生名重複</span></div>
+  <div class="body">「ジェスチャーゲーム家族版」「NGワード旅行版」「イントロクイズ家族版」など、
+  名前変更しただけで内容ほぼ同じ派生がある。意見箱で 👎 が溜まる前に内部整理推奨。
+  20の質問 / 5秒ルール / 神経衰弱 / お絵描きしりとり は family/couple/travel 等に重複登録あり。</div>
+  <div class="file">Asobi/Data/games.json</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">スプラッシュ画面・初期チュートリアル不在</span></div>
+  <div class="body">初回起動時に「ツール」「お気に入り」「意見箱」の場所と意味が分からない。
+  ツールアイコンが die.face.5.fill だけだと「サイコロ？」と誤解される（実は全 6 ツールのハブ）。
+  オンボーディング 3 画面 or 初回 hint オーバーレイ推奨。</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">scenes 再分類の機械的すぎる割当</span></div>
+  <div class="body">全 travel ゲームに outdoor を機械追加した結果、「車内ゲーム」がキャンプ候補に出る。
+  「ナンバープレートゲーム」がキャンプで出ると違和感。
+  シーン別の精緻な手動見直しが必要（30件×6シーン = 180件の確認、または LLM 1パス）。</div>
+  <div class="file">Asobi/Data/games.json</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">CardDrawView の状態管理に SwiftUI 警告</span></div>
+  <div class="body"><code>@State private var deck: [Card] = Card.fullDeck.shuffled()</code>
+  は宣言時シャッフルだが、SwiftUI は body 再評価で初期化呼ばないので問題ないが、
+  Preview や Reset で挙動が予想しにくい。<code>init</code> で生成する方が明示的。</div>
+  <div class="file">Asobi/Views/CardDrawView.swift:5</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">PromptGachaView のお題重複</span></div>
+  <div class="body">「次のお題」を連打すると同じお題が連続で出ることがある（特に大喜利・36の質問など件数少ないカテゴリ）。
+  直近 N 件を除外する shuffle bag パターンが望ましい。</div>
+  <div class="file">Asobi/Services/PromptRepository.swift:30</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">タイマー音・通知なし</span></div>
+  <div class="body">TimerView が 0:00 に到達しても無音・無振動。
+  ゲーム中アプリを見ていなくても気づける必要がある。
+  <code>AudioServicesPlaySystemSound</code> or local notification 推奨。</div>
+  <div class="file">Asobi/Views/TimerView.swift:103</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">タップ領域 44pt 未満</span></div>
+  <div class="body">RoulettePicker の「-」ボタン、GameDetailView の「アプリで対応」バッジ等、
+  Apple HIG 推奨の 44×44 pt を下回るタップ領域あり。指の太い人が押せない。</div>
+</div>
+
+<div class="issue high">
+  <div class="head"><span class="tag high">High</span><span class="title">テストファイル 0 件</span></div>
+  <div class="body">Unit Test/UI Test 一切無し。
+  Game.matches、GameRepository.propose、FeedbackStore の永続化等の
+  ロジックは Unit Test 適性が高い。テスト 0 のまま機能追加続けるとリグレッション必至。</div>
+</div>
+
+<h2>🟢 Medium（保守性・将来拡張）</h2>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">マジックナンバー直書き</span></div>
+  <div class="body">プレイヤー人数の上下限（2〜10）、サイコロ個数（1〜6）、ルーレット最低人数（2）など
+  ハードコード。<code>Constants.swift</code> に集約すると保守性向上。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">DispatchQueue.main.asyncAfter の利用</span></div>
+  <div class="body">ProposalView.refresh / CoinFlipView.flip で <code>asyncAfter(deadline: .now() + 0.6)</code> 等。
+  Swift Concurrency への置換推奨（<code>Task { try? await Task.sleep(...) }</code>）。</div>
+  <div class="file">ProposalView.swift:72, CoinFlipView.swift:64</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">Localizable.strings 未作成</span></div>
+  <div class="body">全 UI 文字列が日本語ハードコード。
+  英語版 App Store 申請する時点で localization 全書き直し。
+  今のうちに <code>String(localized:)</code> パターンに移行が安価。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">UserDefaults キーが各クラスに散在</span></div>
+  <div class="body"><code>"asobi.feedback.v1"</code> 等の文字列が直書き。
+  enum or DefaultsKey 構造体に集約推奨。</div>
+  <div class="file">FeedbackStore.swift:27</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">シーン7枚は縦リスト疲れ</span></div>
+  <div class="body">トップ画面で 7 シーンが縦リスト。スクロール必須で「リモート飲み」は折り畳まれる。
+  2×4 グリッドにすれば一画面に収まる。</div>
+  <div class="file">ScenePickerView.swift</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">tension の値域固定（calm/medium/high）</span></div>
+  <div class="body">将来「お酒入った時」「子供向け穏やか」など新軸を入れたくなった時、
+  string raw value enum だと拡張しづらい。OptionSet 化 or 構造体化検討。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">ProposalView「もう一度シャッフル」のみ</span></div>
+  <div class="body">条件変更したい時、戻るボタンで戻って再入力。
+  「条件を変える」「シーンに戻る」ショートカット欲しい。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">FavoritesView でシーン情報を失う</span></div>
+  <div class="body"><code>game.scenes.first { ... } ?? GameScene.initial[0]</code>
+  でその場しのぎ。お気に入り保存時のシーン context を別途記録すべき。</div>
+  <div class="file">FavoritesView.swift:50</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">空状態の説明不足</span></div>
+  <div class="body">ContentUnavailableView の本文が短く、何をすれば次に進めるかが弱い。
+  「条件を緩めるとヒットしやすい」など示唆が欲しい。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">items が紙コップ・風船等の物理道具と「お題リスト」を同じリストに入れている</span></div>
+  <div class="body">表示・フィルタロジックで「アプリ提供」と「物理」を分離できているが、
+  データ的には混在。<code>items: { physical: [], appProvided: [] }</code> のような分離が綺麗。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">duration の 3 段階が粗い</span></div>
+  <div class="body">short/medium/long の 3 段階。「3分以内」「10分以内」のような実時間軸の方が
+  ユーザーには直感的。整数の秒数フィールドにする選択肢あり。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">King ゲームくじの「タップ&長押し」の意図不明</span></div>
+  <div class="body">「ボタンをタップ」と「長押し」両方で表示するが、片方だけで十分。
+  HIG 的にはタップで開示が標準。長押しは別アクション（コピー等）に予約すべき。</div>
+  <div class="file">KingGameDistributorView.swift:147</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">prompts.json のスキーマが手動メンテ前提</span></div>
+  <div class="body">カテゴリ追加時に Models/Prompt.swift と PromptRepository.swift も同時更新が必要。
+  「PromptCollection」を辞書ベース（<code>[String: [String]]</code>）にすれば追加が JSON だけで完結。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">エラーハンドリングの一貫性なし</span></div>
+  <div class="body"><code>try? JSONDecoder().decode</code> を多用。失敗時に黙って <code>nil</code> や空配列。
+  デバッグ難。<code>Logger</code> 経由でエラーを記録すべき。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">ナビバーアイコンの意味不明</span></div>
+  <div class="body">左⭐（お気に入り）、右🎲💡（ツール／意見箱）。
+  サイコロアイコン＝「ツール全般」を直感できない。
+  「wand.and.stars」（魔法の杖）や「hammer.fill」（道具箱）等の代替案検討。</div>
+</div>
+
+<div class="issue med">
+  <div class="head"><span class="tag med">Medium</span><span class="title">アプリ名「あそぶ？」の登録可能性未確認</span></div>
+  <div class="body">App Store 申請時に同名アプリ存在チェック必要。<code>?</code> 記号は審査で
+  たまに難癖つく。「あそぼ」「アソビ」など案も持っておく。</div>
+</div>
+
+<h2>⚪ Low（Nice to have）</h2>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">アニメーション fade のチラつき</span></div>
+  <div class="body">ProposalView の refresh で <code>visible=false</code> → 0.05s 後 <code>visible=true</code>。
+  時々 1 フレームで再描画されて瞬きが見える。</div>
+</div>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">シーンカード長押し未活用</span></div>
+  <div class="body">長押しで何も起きない。「シーンをお気に入りに固定」「シーン別の統計を見る」等の余地あり。</div>
+</div>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">背景色の単調さ</span></div>
+  <div class="body">トップが白一色。シーン選択時にうっすらシーンカラーで彩る等の演出余地あり。</div>
+</div>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">タイマープリセット少なめ</span></div>
+  <div class="body">5/10/30/60/180/300 秒のみ。カスタム秒数入力 UI が無い。</div>
+</div>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">トランプの背面表示なし</span></div>
+  <div class="body">山札を視覚的に表示しない（残り枚数テキストのみ）。
+  山札カードの裏面アイコンがあると体感的に「カード引いてる」感が出る。</div>
+</div>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">お気に入り並べ替えなし</span></div>
+  <div class="body">FavoritesView は <code>repo.games.filter</code> の順（JSON 並び順）。
+  お気に入り追加日時順 or 名前順の切替欲しい。</div>
+</div>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">フィードバック理由収集なし</span></div>
+  <div class="body">👎 だけ記録するが、却下理由を任意で書ける欄が無い。
+  PDCA に活かしにくい。</div>
+</div>
+
+<div class="issue low">
+  <div class="head"><span class="tag low">Low</span><span class="title">Haptics 未活用</span></div>
+  <div class="body">⭐お気に入りトグル・サイコロ振り・コイントスで <code>UIImpactFeedbackGenerator</code>
+  追加するとぐっと触感が増す。</div>
+</div>
+
+<h2>📐 推奨ロードマップ</h2>
+
+<ul class="roadmap">
+  <li><span class="step">Phase 1（今週中・公開前必須）</span> アプリアイコン作成、Launch Screen 整備、プライバシーポリシー作成、Timer リーク修正、JSON 読み込みエラー UI、mailto: フォールバック</li>
+  <li><span class="step">Phase 2（来週・UX強化）</span> Dynamic Type 対応、VoiceOver ラベル追加、初回オンボーディング、戻り時の入力保持、お題重複防止</li>
+  <li><span class="step">Phase 3（来月・品質磨き）</span> ゲームDB 整理（派生統合・scenes 精緻化）、Unit Test 整備、ダークモード調整、Haptics 追加、タイマー音</li>
+  <li><span class="step">Phase 4（公開後）</span> ローカライズ準備、お気に入りソート、Phase 2 ヘルメスエージェント、Supabase 移行</li>
+</ul>
+
+<h2>👀 良かったところ</h2>
+
+<ul class="roadmap">
+  <li><span class="step">◎</span> SwiftUI 標準 API のみで構築、外部依存 0（メンテ安心）</li>
+  <li><span class="step">◎</span> @Observable + Environment で状態管理が綺麗（Repository/Store/Prompt の3層）</li>
+  <li><span class="step">◎</span> games.json と prompts.json だけでコンテンツ拡張可能（PDCA 高速）</li>
+  <li><span class="step">◎</span> xcodegen ベースで .xcodeproj をコミット不要（チーム開発時もコンフリクト 0）</li>
+  <li><span class="step">◎</span> matchedGeometryEffect / symbolEffect / phaseAnimator を効果的に活用</li>
+  <li><span class="step">◎</span> ツールセット 7 種が独立した View で疎結合（追加・修正が局所的）</li>
+  <li><span class="step">◎</span> ゲーム × ツール × お題の三層構造で「アプリだけで遊べる」体験を実現</li>
+</ul>
+
+<div class="note">
+  本レビューは MVP v1 時点のスナップショット。今後の意見箱フィードバックや実機テストで
+  優先順位は動く。Phase 1 だけ Yes/No を決めれば、Phase 2 以降は逐次実装で十分。
+</div>
+
+</div>
+</body>
+</html>

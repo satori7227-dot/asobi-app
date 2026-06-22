@@ -1,0 +1,69 @@
+name: Asobi
+options:
+  bundleIdPrefix: com.idogawa
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: ja
+  createIntermediateGroups: true
+fileGroups:
+  - Asobi/Resources/Localizable.xcstrings
+targets:
+  Asobi:
+    type: application
+    platform: iOS
+    sources:
+      - path: Asobi
+        excludes:
+          - "**/.DS_Store"
+    info:
+      path: Asobi/Info.plist
+      properties:
+        UILaunchScreen:
+          UIColorName: "LaunchBackground"
+        CFBundleDisplayName: ASOBI
+        ITSAppUsesNonExemptEncryption: false
+        CFBundleURLTypes:
+          - CFBundleURLName: com.idogawa.Asobi
+            CFBundleURLSchemes:
+              - asobi
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.idogawa.Asobi
+        SWIFT_VERSION: "5.0"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: NO
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+      configs:
+        Debug:
+          CODE_SIGNING_REQUIRED: NO
+          CODE_SIGNING_ALLOWED: NO
+          CODE_SIGN_IDENTITY: ""
+        Release:
+          CODE_SIGN_STYLE: Automatic
+          DEVELOPMENT_TEAM: ""
+  AsobiTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: AsobiTests
+      - path: Asobi/Data/games.json
+        buildPhase: resources
+      - path: Asobi/Data/prompts.json
+        buildPhase: resources
+    dependencies:
+      - target: Asobi
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.idogawa.AsobiTests
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO

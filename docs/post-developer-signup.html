@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ASOBI - Apple Developer 契約直後にやること</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;margin:32px auto;max-width:960px;padding:0 16px;color:#222;line-height:1.7}
+  h1{font-size:1.8em;border-bottom:3px solid #D97757;padding-bottom:8px}
+  h2{font-size:1.3em;margin-top:2em;color:#D97757}
+  h3{font-size:1.05em;margin-top:1.5em}
+  .meta{background:#fff8f3;padding:12px 16px;border-radius:8px;font-size:0.95em}
+  .step{background:#fafafa;padding:14px 18px;border-radius:10px;margin:0.6em 0;border-left:5px solid var(--c, #ccc)}
+  .step.must{--c:#e25c5c}
+  .step.should{--c:#d9a23a}
+  .step.could{--c:#3a72d9}
+  code{background:#f0f0f0;padding:2px 6px;border-radius:3px;font-size:0.92em;font-family:ui-monospace,"SF Mono",Menlo,monospace}
+  ul{padding-left:1.4em}
+  ol{padding-left:1.4em}
+  .badge{display:inline-block;font-size:0.75em;padding:2px 8px;border-radius:10px;background:#fde7e7;color:#a13d3d;margin-right:6px}
+  .badge.should{background:#ffe6d6;color:#a55a30}
+  .badge.could{background:#dde8fb;color:#365fa4}
+  .badge.time{background:#e2f0e3;color:#2b6c38}
+</style>
+</head>
+<body>
+<h1>Apple Developer 契約直後にやること</h1>
+<div class="meta">
+  契約日: ______（記入）／ 想定所要: <strong>初日 2-3 時間 + その後 1 週間</strong>。<br>
+  これは <a href="next-actions-dashboard.html">next-actions-dashboard</a> の「配布・公開」角度を「契約済」状態の前提で具体化した手順書。
+</div>
+
+<h2>0. 即日（契約完了の通知が来たら）</h2>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">15分</span>2要素認証と本人情報の確認</h3>
+  <ul>
+    <li><a href="https://appleid.apple.com">appleid.apple.com</a> で 2FA が信頼デバイスベースで有効か確認</li>
+    <li>姓名が戸籍漢字 or ローマ字に統一されているか（ニックネーム/屋号は審査落ち）</li>
+  </ul>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">20分</span>App Store Connect Agreements / Tax / Banking</h3>
+  <ol>
+    <li><a href="https://appstoreconnect.apple.com">App Store Connect</a> → Business → Agreements</li>
+    <li>Free Apps Agreement 自動同意確認、Paid Apps Agreement に署名</li>
+    <li>Tax タブで <strong>Japan Tax Forms</strong> 提出（未提出だと売上 20% 強制源泉徴収）</li>
+    <li>Banking タブで <strong>本人名義</strong> 銀行口座を登録（屋号口座・法人口座 NG）</li>
+  </ol>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">5分</span>Small Business Program 申請</h3>
+  <ul>
+    <li>App Store Connect → Agreements → "Apply" Small Business Program</li>
+    <li>新規開発者は自動適格、翌月から手数料 30% → <strong>15%</strong> に</li>
+  </ul>
+</div>
+
+<h2>1. 初週（コード公開準備）</h2>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">10分</span>Bundle ID 確定とアプリレコード作成</h3>
+  <ul>
+    <li>Certificates → Identifiers → App IDs で <code>com.idogawa.Asobi</code> を Explicit 登録</li>
+    <li>App Store Connect → My Apps → + → 新規アプリ作成</li>
+    <li>Primary Language: Japanese (Japan)、SKU は <code>asobi-001</code> など決定（後変更不可）</li>
+  </ul>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">30分</span>fastlane の API Key を設定</h3>
+  <ol>
+    <li>App Store Connect → Users and Access → Keys → + で <strong>App Manager</strong> 権限の API Key 発行</li>
+    <li>.p8 ファイルをダウンロード（<strong>再ダウンロード不可</strong>、1Password 等に即保管）</li>
+    <li>環境変数を <code>~/.config/asobi/.envrc</code> 等に設定（git 管理外）:
+      <pre><code>export FASTLANE_USER=satori7227@gmail.com
+export ASC_KEY_ID=XXXXXXXXXX
+export ASC_ISSUER_ID=YYYYYYYY-...
+export ASC_KEY_FILEPATH=$HOME/secure/AuthKey_XXXXXXXXXX.p8</code></pre>
+    </li>
+    <li>確認: <code>fastlane test</code> が通れば API 接続 OK</li>
+  </ol>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">30分</span>project.yml に DEVELOPMENT_TEAM を入れる</h3>
+  <ul>
+    <li>Apple Developer → Membership ページから Team ID をコピー</li>
+    <li><code>project.yml</code> の <code>settings.configs.Release.DEVELOPMENT_TEAM</code> に貼る</li>
+    <li><code>xcodegen generate</code> で反映</li>
+  </ul>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">1時間</span>初回 TestFlight 配信</h3>
+  <ol>
+    <li><code>fastlane bump</code>（ビルド番号自動採番）</li>
+    <li><code>fastlane beta</code>（Archive → TestFlight 自動アップロード）</li>
+    <li>App Store Connect → TestFlight → Internal Testing にビルド反映確認（5-10分）</li>
+    <li>iPhone の TestFlight アプリで実機検証</li>
+  </ol>
+</div>
+
+<h2>2. 申請準備（2 週目）</h2>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">2時間</span>App Privacy ラベル登録</h3>
+  <ul>
+    <li>App Store Connect → App Privacy → Get Started</li>
+    <li><strong>Data Not Collected</strong> を選択（ASOBI は実装上これが正解）</li>
+    <li>Privacy Manifest (<code>Asobi/PrivacyInfo.xcprivacy</code>) と申告が一致していることを確認</li>
+  </ul>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">30分</span>Age Rating + メタデータ</h3>
+  <ul>
+    <li>Age Rating アンケート: 「Infrequent/Mild Alcohol」「Infrequent/Mild Mature」を選んで 12+ に</li>
+    <li>App Subtitle / Promotional Text / Description / Keywords を入力（<a href="launch-prep-2026-06-19.html">launch-prep ガイド</a>参照）</li>
+    <li>Privacy Policy URL: GitHub Pages の URL</li>
+    <li>Support URL: 意見箱用ページ or Notion 公開ページ</li>
+  </ul>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">1時間</span>スクリーンショット撮影</h3>
+  <ul>
+    <li>iPhone 16 Pro Max (6.9インチ) + iPhone Plus サイズ (6.5インチ) 各 3-10 枚</li>
+    <li>1枚目「シーンで選ぶ・1191ゲーム・オフライン」、2枚目「全シーン横断」、3枚目以降は具体例</li>
+    <li>Simulator から Cmd+S で取得 → サイズ違反になりやすいので Simulator サイズに従う</li>
+  </ul>
+</div>
+
+<h2>3. IAP 解禁（任意・利益が出始めたら）</h2>
+
+<div class="step should">
+  <h3><span class="badge should">SHOULD</span><span class="badge time">2時間</span>サブスク 3 ティア + Tip Jar 3 ティア登録</h3>
+  <ul>
+    <li>App Store Connect → 自分のアプリ → In-App Purchases & Subscriptions</li>
+    <li>サブスク: <code>asobi.sub.month</code> ¥120/月 / <code>asobi.sub.year</code> ¥1,100/年</li>
+    <li>買切: <code>asobi.allin</code> ¥1,800</li>
+    <li>Tip Jar 消費型: <code>com.idogawa.Asobi.tip.small / medium / large</code> ¥120/¥600/¥1,200</li>
+    <li>登録後、<code>Constants.swift</code> の <code>premiumEnabled / tipJarEnabled / softPaywallEnabled</code> を順次 true に</li>
+  </ul>
+</div>
+
+<div class="step should">
+  <h3><span class="badge should">SHOULD</span><span class="badge time">30分</span>Family Sharing と 7日無料トライアル設定</h3>
+  <ul>
+    <li>各サブスク/買切で Family Sharing を ON</li>
+    <li>年プランに Introductory Offer「Free Trial 7 days」を設定</li>
+  </ul>
+</div>
+
+<h2>4. リリース実行（準備整ったら）</h2>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">10分</span>Submit for Review</h3>
+  <ul>
+    <li>Phased Release for Automatic Updates を ON（1→2→5→10→20→50→100% を 7 日かけて）</li>
+    <li>初回は Manual Release 推奨（審査通過後に自分のタイミングで公開）</li>
+  </ul>
+</div>
+
+<div class="step must">
+  <h3><span class="badge">MUST</span><span class="badge time">24h</span>Resolution Center 監視</h3>
+  <ul>
+    <li>リジェクト通知が来たら <strong>24 時間以内</strong>に応答（<a href="resolution-center-templates.html">テンプレ参照</a>）</li>
+    <li>3 営業日以内に Apple から最終判定が来るのが通常</li>
+  </ul>
+</div>
+
+<h2>運用ロードマップ参照</h2>
+<ul>
+  <li><a href="next-actions-dashboard.html">6 角度の「次の一手」ダッシュボード</a></li>
+  <li><a href="release-checklist.html">リリースチェックリスト</a></li>
+  <li><a href="resolution-center-templates.html">リジェクト応答テンプレ</a></li>
+  <li><a href="manual-tests.html">手動テスト記録</a></li>
+  <li><a href="../fastlane/README.md">fastlane README</a></li>
+</ul>
+
+<h2>進捗ログ</h2>
+<table style="border-collapse:collapse;width:100%;margin-top:1em">
+  <thead><tr style="background:#fff8f3"><th style="border:1px solid #ddd;padding:6px;text-align:left">日付</th><th style="border:1px solid #ddd;padding:6px;text-align:left">ステップ</th><th style="border:1px solid #ddd;padding:6px;text-align:left">結果</th></tr></thead>
+  <tbody>
+    <tr><td colspan="3" style="border:1px solid #ddd;padding:6px;text-align:center;color:#999">まだ契約していないので未着手</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

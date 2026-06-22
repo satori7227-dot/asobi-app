@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASOBI 公開準備パッケージ — 2026-06-19</title>
+<style>
+  :root {
+    --bg: #fafaf7; --fg: #1c1c1e; --muted: #6b6b70; --line: #e2e2dc;
+    --card: #ffffff; --accent: #D97757; --accent-soft: rgba(217,119,87,0.10);
+    --green: #2a7d4f; --red: #b3261e; --gold: #c89846;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161617; --fg:#ececec; --muted:#a0a0a4; --line:#2c2c2e;
+            --card:#1f1f20; --accent:#E89B7A; --accent-soft:rgba(232,155,122,0.14);
+            --green:#6dd394; --red:#ff6f60; --gold:#E0BA70; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: var(--bg); color: var(--fg); margin: 0; line-height: 1.7; }
+  .container { max-width: 920px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  h2 { font-size: 22px; margin-top: 48px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+  h3 { font-size: 17px; margin-top: 24px; color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .hero { background: linear-gradient(135deg, var(--accent), var(--gold)); color: white; padding: 28px; border-radius: 16px; margin: 20px 0; }
+  .hero h2 { color: white; border: none; margin: 0; font-size: 26px; }
+  .hero p { margin: 8px 0 0; opacity: 0.95; }
+  .step {
+    background: var(--card); border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 12px 0;
+    position: relative; padding-left: 60px;
+  }
+  .step .num {
+    position: absolute; left: 14px; top: 16px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--accent); color: white;
+    text-align: center; line-height: 32px; font-weight: 800; font-size: 14px;
+  }
+  .step h4 { margin: 0 0 4px; font-size: 15px; }
+  .step .meta-row { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .draft {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 18px; margin: 14px 0;
+  }
+  .draft .label { font-size: 11px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 6px; }
+  .draft .body { font-family: -apple-system, "Hiragino Sans", sans-serif; white-space: pre-wrap; font-size: 14px; }
+  .draft .count { text-align: right; font-size: 11px; color: var(--muted); margin-top: 8px; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+  th { background: var(--card); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); }
+  td.y { color: var(--green); font-weight: 700; }
+  td.n { color: var(--red); font-weight: 700; }
+  td.m { color: var(--muted); }
+  code { font-family: ui-monospace, monospace; background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  .alert { background: rgba(196,123,22,0.12); border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 13px; }
+  .alert-red { background: rgba(179,38,30,0.10); border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 13px; }
+  ul { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .keyword-chip { display: inline-block; background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 4px; margin: 2px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ASOBI 公開準備パッケージ</h1>
+<div class="meta">2026-06-19 ・ Apple Developer 契約から TestFlight・App Store 申請まで完全ガイド</div>
+
+<div class="hero">
+  <h2>所要時間：実働 2〜3 時間（Apple 審査は別途 1-3 日）</h2>
+  <p>井戸川さんが今日から着手できるよう、コピペ可能な原稿・スクショ案・ステップを 1 つにまとめました。</p>
+</div>
+
+<h2>① 全体フロー（マイルストーン）</h2>
+
+<div class="step">
+  <div class="num">1</div>
+  <h4>Apple Developer Program 契約（¥12,980/年）</h4>
+  <div class="meta-row">所要 30 分 ・ クレジットカード + Apple ID + 本人確認</div>
+  <div>https://developer.apple.com/programs/jp/ → Enroll → 個人 (Individual) を選択。氏名英字表記・住所英字表記が必要。承認まで通常 24-48 時間。</div>
+</div>
+
+<div class="step">
+  <div class="num">2</div>
+  <h4>プライバシーポリシーを公開する</h4>
+  <div class="meta-row">所要 15 分 ・ GitHub アカウントが必要</div>
+  <div>本文書下部「⑤プライバシーポリシー公開手順」参照。GitHub Pages で無料公開、URL を App Store Connect に登録。</div>
+</div>
+
+<div class="step">
+  <div class="num">3</div>
+  <h4>App Store Connect でアプリ作成</h4>
+  <div class="meta-row">所要 15 分 ・ Apple Developer 契約承認後</div>
+  <div>https://appstoreconnect.apple.com/ → マイ App → + → 新規 App。本文書「②アプリメタデータ」をコピペ。</div>
+</div>
+
+<div class="step">
+  <div class="num">4</div>
+  <h4>Xcode で Signing 設定 → Archive → TestFlight アップロード</h4>
+  <div class="meta-row">所要 30 分 ・ Mac + Xcode + ASOBI プロジェクト</div>
+  <div>本文書「⑥Xcode 操作手順」参照。Team を選んで Archive、Distribute App → TestFlight。</div>
+</div>
+
+<div class="step">
+  <div class="num">5</div>
+  <h4>TestFlight で自分の iPhone に配信 → 動作確認</h4>
+  <div class="meta-row">所要 20 分 ・ iPhone に TestFlight アプリ</div>
+  <div>身内 25 人まで内部テスター招待可能。1-2 日触ってもらいフィードバック収集。</div>
+</div>
+
+<div class="step">
+  <div class="num">6</div>
+  <h4>App Store 審査提出</h4>
+  <div class="meta-row">所要 15 分 ・ 審査 1-3 日</div>
+  <div>App Store Connect → 配信準備 → 審査に提出。初回は厳格、リジェクト想定で 2-3 ラウンド見込む。</div>
+</div>
+
+<h2>② アプリメタデータ（コピペ用 draft）</h2>
+
+<h3>アプリ名</h3>
+<div class="draft"><div class="body">ASOBI（あそぶ？）</div></div>
+
+<h3>サブタイトル（30 字以内・App Store Connect の Subtitle 欄）</h3>
+<div class="draft"><div class="body">飲み会・旅行・家族と。256ゲームのナビ</div><div class="count">18字 / 30字</div></div>
+
+<h3>プロモーションテキスト（170 字以内・更新可能、審査不要）</h3>
+<div class="draft"><div class="body">🎉 256 ゲーム × 13 シーン
+集まる場面、旅行、家族の食卓、カップル、リモート通話まで、その場面で一番ハマる遊びを ASOBI が即提案。サイコロ・トランプ・お題・順番決めまで全部アプリで完結。手ぶらで盛り上がる。</div><div class="count">120 字 / 170 字</div></div>
+<div class="alert"><b>表現調整済み：</b>「飲み会」→「集まる場面」、「王様くじ」→「順番決め」で 12+ レーティング維持を狙う。</div>
+
+<h3>説明文（4000 字以内・推奨 1500-2000 字）</h3>
+<div class="draft"><div class="body">「明日の集まり、どんな遊びをすれば盛り上がる？」
+そんな迷いに、即答するアプリです。
+
+■ 場面を選ぶだけ。あとはアプリにお任せ
+
+会食、旅行、順番決め、家族の集まり、カップル、キャンプ、オンライン通話——
+13 シーンから 1 つ選ぶだけで、人数・テンション・所要時間・道具の有無に最適な
+遊びを 3 つ提案します。
+
+■ 256 のあそび × 215 のお題
+
+業界最大級のコンテンツ量。定番から「これ初めて聞いた」まで、あらゆる遊び方を網羅。
+全員参加型・健全な範囲で、シーンに合わせた選び方を心がけています。
+
+■ 道具はアプリの中に
+
+サイコロ・トランプ・コイン・ルーレット・タイマー・お題ガチャ・順番決め。
+全部アプリで動きます。「集まる前にトランプ買い忘れた」ということは、もうない。
+
+■ お気に入りで自分だけのゲーム集
+
+気に入ったあそびは⭐️ で保存。次の集まりですぐ呼び出せます。
+
+■ 場面別の使いどころ
+
+👥 集まる場面：山手線、ワードウルフ、たけのこニョッキ、サイコロトーク
+✈️ 旅行：ナンバープレートゲーム、しりとり拡張、観光地クイズ
+🎲 順番・指名決め：あみだくじ、指スマ、サイコロ
+👨‍👩‍👧 家族・親戚：百人一首かるた、坊主めくり、福笑い、フルーツバスケット
+💑 カップル・2 人：36 の質問、20 の質問、ハイ＆ロー
+🏕️ キャンプ・BBQ：星空クイズ、しりとり、たき火トーク
+💻 オンライン通話：GeoGuessr、Gartic Phone、Among Us、Codenames Online
+
+■ アイデア箱
+
+「こんなあそびが欲しい」を直接送信。開発者がすべての投稿を読み、追加に反映します。
+
+──
+
+「全シーン、1 アプリ完結」がコンセプト。
+場面ごとに別アプリを入れる必要はもうありません。
+人が集まる、その瞬間のために。</div><div class="count">約 780 字</div></div>
+<div class="alert"><b>表現調整済み：</b>「飲み会」→「会食 / 集まる場面」、「罰ゲーム決め」→「順番・指名決め」、「王様くじ」→「順番決め」、「飲み会専用」→「場面ごとに別」など、12+ レーティング維持と「全員参加型」明記を狙う。</div>
+
+<h3>キーワード（100 字以内・カンマ区切り）</h3>
+<div class="draft"><div class="body"><span class="keyword-chip">飲み会</span><span class="keyword-chip">パーティー</span><span class="keyword-chip">ゲーム</span><span class="keyword-chip">罰ゲーム</span><span class="keyword-chip">王様ゲーム</span><span class="keyword-chip">ワードウルフ</span><span class="keyword-chip">家族</span><span class="keyword-chip">カップル</span><span class="keyword-chip">旅行</span><span class="keyword-chip">サイコロ</span><span class="keyword-chip">ルーレット</span><span class="keyword-chip">合コン</span><span class="keyword-chip">同窓会</span><span class="keyword-chip">送別会</span></div><div class="count">飲み会,パーティー,ゲーム,罰ゲーム,王様ゲーム,ワードウルフ,家族,カップル,旅行,サイコロ,ルーレット,合コン,同窓会,送別会 — 70字</div></div>
+
+<h3>カテゴリ</h3>
+<table>
+<tr><th>区分</th><th>選択</th></tr>
+<tr><td>プライマリ</td><td>エンターテインメント</td></tr>
+<tr><td>セカンダリ</td><td>ライフスタイル</td></tr>
+</table>
+
+<h3>サポート URL（必須）</h3>
+<div class="draft"><div class="body">https://idogawasatori.github.io/asobi-app/support.html
+（または独自ドメイン）</div></div>
+<div class="alert">サポート URL も別途必要。簡易な「お問い合わせは Discord で」程度の HTML で OK。GitHub Pages に同梱可能。</div>
+
+<h3>マーケティング URL（任意）</h3>
+<div class="draft"><div class="body">https://idogawasatori.github.io/asobi-app/</div></div>
+
+<h2>③ レーティング自己評価</h2>
+
+<p>Apple App Store Connect で 25 項目に回答する仕様。ASOBI の正直回答：</p>
+
+<table>
+<thead><tr><th>項目</th><th>回答</th><th>理由</th></tr></thead>
+<tbody>
+<tr><td>暴力（漫画・空想）</td><td class="m">なし</td><td>罰ゲームに「殴る」等は含めず</td></tr>
+<tr><td>暴力（現実的）</td><td class="m">なし</td><td>同上</td></tr>
+<tr><td>性的描写</td><td class="m">なし</td><td>カップル本音パックも露骨な表現除外</td></tr>
+<tr><td>裸（暗示）</td><td class="m">なし</td><td>—</td></tr>
+<tr><td>不適切な言葉</td><td class="m">なし</td><td>—</td></tr>
+<tr><td>アルコール・タバコ・薬物への参照</td><td class="y" style="color:var(--gold)">頻繁／強い</td><td>飲み会シーンでお酒前提あり</td></tr>
+<tr><td>シミュレートされたギャンブル</td><td class="m">なし</td><td>ルーレットは無償・賞品なし</td></tr>
+<tr><td>ホラー／恐怖テーマ</td><td class="m">なし</td><td>—</td></tr>
+<tr><td>成熟／性的なテーマ</td><td class="m">なし</td><td>—</td></tr>
+<tr><td>制限なしの Web アクセス</td><td class="m">なし</td><td>WebView 内に閉じる</td></tr>
+<tr><td>ユーザー作成コンテンツ（UGC）</td><td class="y" style="color:var(--gold)">あり</td><td>意見箱の自由記述</td></tr>
+</tbody>
+</table>
+
+<p><strong>推定レーティング：12+ または 17+</strong></p>
+
+<div class="alert-red">
+<strong>⚠️ 注意：</strong>「アルコールへの参照（頻繁／強い）」を選ぶと <strong>17+ 確定</strong>。<br>
+回避案：<br>
+1. 飲み会シーンの説明を「集まりの場」に再表現 → 「中程度」に下げ → <strong>12+ 狙い</strong><br>
+2. または素直に 17+ 受容、ターゲットを 18 歳以上に集中
+</div>
+
+<p>井戸川さん判断ポイント：<strong>4+ や 9+ は不可能</strong>。12+ か 17+ かの 2 択。私の推奨は <strong>「12+ 狙い」で文言調整</strong>。「お酒の席タブー破り」パックは「大人の本音」と改名検討。</p>
+
+<h2>④ スクリーンショット計画</h2>
+
+<p>App Store には <strong>6.7インチ iPhone（Pro Max）</strong> 用スクショ 6 枚以上が必須。3-10 枚推奨。</p>
+
+<table>
+<thead><tr><th>#</th><th>画面</th><th>キャッチコピー</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>シーン選択（13個）</td><td>「全シーン、1 アプリ完結」</td></tr>
+<tr><td>2</td><td>状況入力（人数・テンション・道具）</td><td>「あなたの場面に最適な提案」</td></tr>
+<tr><td>3</td><td>提案画面（3 つのゲームカード）</td><td>「迷わず 3 つに絞ってお届け」</td></tr>
+<tr><td>4</td><td>ゲーム詳細（ルール + 使えるツール）</td><td>「道具はアプリの中で動きます」</td></tr>
+<tr><td>5</td><td>ツール（サイコロ振る）</td><td>「手ぶらで盛り上がる」</td></tr>
+<tr><td>6</td><td>お題ガチャ（ジェスチャー）</td><td>「お題も毎回新鮮」</td></tr>
+<tr><td>7</td><td>お気に入り一覧</td><td>「自分だけのゲーム集」</td></tr>
+<tr><td>8</td><td>意見箱（Discord 連動）</td><td>「アイデアは直接届く」</td></tr>
+</tbody>
+</table>
+
+<p>井戸川さんが Simulator で各画面を出し、ターミナルで <code>xcrun simctl io booted screenshot ~/Desktop/ss-N.png</code> を実行 → 8 枚撮影。私がキャッチコピー入りの加工版を Swift スクリプトで生成可能。</p>
+
+<h2>⑤ プライバシーポリシー公開手順</h2>
+
+<h3>GitHub Pages で無料公開</h3>
+
+<div class="step"><div class="num">1</div>
+<h4>GitHub アカウント作成（既存なら省略）</h4>
+<div>https://github.com/join</div>
+</div>
+
+<div class="step"><div class="num">2</div>
+<h4>新規リポジトリ「asobi-app-public」作成</h4>
+<div>Public・README 作成あり。<code>asobi-app-public</code> や <code>asobi</code> 等の名前で。</div>
+</div>
+
+<div class="step"><div class="num">3</div>
+<h4>privacy-policy.html をアップロード</h4>
+<div>Web UI で「Add file」→ Upload → <code>privacy-policy.html</code>（既存のもの）<br>
+コミット名「Add privacy policy」</div>
+</div>
+
+<div class="step"><div class="num">4</div>
+<h4>Settings → Pages → Source: main → Save</h4>
+<div>数分後に公開URL生成：<br>
+<code>https://idogawasatori.github.io/asobi-app-public/privacy-policy.html</code></div>
+</div>
+
+<div class="step"><div class="num">5</div>
+<h4>App Store Connect の Privacy Policy URL 欄に貼る</h4>
+</div>
+
+<h2>⑥ Xcode 操作手順（TestFlight アップロードまで）</h2>
+
+<div class="step"><div class="num">1</div>
+<h4>Xcode を開く・Asobi.xcodeproj を開く</h4>
+<div><code>open /Users/idogawasatori/Desktop/AppDev/asobi-app/Asobi.xcodeproj</code></div>
+</div>
+
+<div class="step"><div class="num">2</div>
+<h4>Signing & Capabilities タブで Team を選択</h4>
+<div>「Asobi」ターゲット → Signing & Capabilities → Team 欄に Apple Developer 契約済みの井戸川さんアカウントを選択。「Automatically manage signing」ON 推奨。</div>
+</div>
+
+<div class="step"><div class="num">3</div>
+<h4>実行ターゲットを「Any iOS Device (arm64)」に変更</h4>
+<div>Xcode 上部のシミュレータ選択を Any iOS Device に。</div>
+</div>
+
+<div class="step"><div class="num">4</div>
+<h4>メニューの Product → Archive</h4>
+<div>5-10 分かかる。Organizer 画面が自動で開く。</div>
+</div>
+
+<div class="step"><div class="num">5</div>
+<h4>Organizer で Distribute App → App Store Connect → Upload</h4>
+<div>5-15 分かかる。完了したら App Store Connect に自動アップロードされる。</div>
+</div>
+
+<div class="step"><div class="num">6</div>
+<h4>App Store Connect → TestFlight タブで処理待ち</h4>
+<div>処理に 15-30 分。終わったら「内部テスター」に自分の Apple ID を追加。</div>
+</div>
+
+<div class="step"><div class="num">7</div>
+<h4>iPhone に TestFlight アプリをインストール → ASOBI が見える</h4>
+<div>App Store で「TestFlight」検索 → インストール。Apple ID でログイン後、招待された ASOBI が表示。</div>
+</div>
+
+<h2>⑦-A プライバシーポリシー公開先のバックアップ案</h2>
+
+<p>GitHub Pages が万一間に合わない／使えない場合の代替：</p>
+
+<table>
+<thead><tr><th>サービス</th><th>時間</th><th>URL 形式</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td><b>GitHub Pages</b>（メイン）</td><td class="num">15分</td><td><code>https://&lt;user&gt;.github.io/&lt;repo&gt;/privacy-policy.html</code></td><td>無料・無制限</td></tr>
+<tr><td>Cloudflare Pages</td><td class="num">10分</td><td><code>https://&lt;project&gt;.pages.dev/privacy-policy</code></td><td>無料・国内速い</td></tr>
+<tr><td>Vercel</td><td class="num">10分</td><td><code>https://&lt;project&gt;.vercel.app/privacy-policy</code></td><td>無料・大量Hobbyプラン</td></tr>
+<tr><td>Netlify</td><td class="num">10分</td><td><code>https://&lt;project&gt;.netlify.app/privacy-policy.html</code></td><td>無料・カスタムドメイン可</td></tr>
+<tr><td>独自ドメイン（asobi-app.jp 等）</td><td class="num">数日</td><td><code>https://asobi-app.jp/privacy</code></td><td>年¥1,000-3,000・ブランド強化</td></tr>
+</tbody>
+</table>
+
+<div class="alert">
+<b>Cloudflare Pages の手順（GitHub Pages 不可なら推奨）：</b><br>
+1. https://pages.cloudflare.com/ にアクセス・GitHub 連携 or 直接アップロード<br>
+2. プロジェクト作成 → privacy-policy.html を upload<br>
+3. <code>asobi.pages.dev</code> 等の URL が即時発行<br>
+4. App Store Connect の Privacy Policy URL 欄に貼る
+</div>
+
+<h2>⑦-B 初回リリースで IAP を完全無効化する仕組み</h2>
+
+<p>StoreKit 未実装で IAP UI だけ動かすと App Store 審査で必ずリジェクト。<b>Feature Flag で初回は IAP を完全に隠す</b>仕組みを実装済み。</p>
+
+<div class="draft">
+<div class="label">Asobi/Services/Constants.swift（既に作成済み）</div>
+<div class="body">enum Constants {
+    /// プレミアム機能（IAP）の有効化フラグ
+    /// - false: 初回リリース時。全シーン・全お題が無料で開放、ロックUI 非表示
+    /// - true: Phase β 以降。プレミアムシーン・お題に課金ゲート、StoreKit 連動
+    static let premiumEnabled = <span style="color:var(--red); font-weight: 700;">false</span>
+}</div>
+</div>
+
+<p><strong>初回リリース時の動作（<code>premiumEnabled = false</code>）：</strong></p>
+<ul>
+  <li>全 13 シーンが無料で開放（婚活・就活・同窓会含む）</li>
+  <li>全 9 お題カテゴリが無料で開放（大人の本音・カップル本音含む）</li>
+  <li>「オールインパック ¥1,200」のCTA非表示</li>
+  <li>PurchaseSheetView のロックUI は完全に表示されない</li>
+</ul>
+
+<p><strong>Phase β で課金導入する時：</strong></p>
+<ol>
+  <li>App Store Connect で IAP プロダクト登録（com.idogawa.Asobi.scene.konkatsu 等）</li>
+  <li>StoreKit 2 で <code>Product.products(for:)</code> 実装</li>
+  <li><code>Constants.premiumEnabled = true</code> に変更</li>
+  <li>App Store 更新申請</li>
+</ol>
+
+<div class="alert">
+<b>審査時の重要メッセージ：</b>初回リリースは<b>完全無料アプリ</b>として申請。「IAP の説明や購入ボタンが見えない」状態で審査を通す。これでリジェクトリスクを 1 つ消せる。
+</div>
+
+<h2>⑦-C 罰ゲーム要素のリジェクト回避</h2>
+
+<p>App Store 説明文に以下の文言を入れて、「全員参加型・健全な範囲」を明示：</p>
+
+<div class="draft">
+<div class="label">説明文の補足（既に追加済み）</div>
+<div class="body">全員参加型・健全な範囲で、シーンに合わせた選び方を心がけています。</div>
+</div>
+
+<p><strong>追加的な配慮：</strong></p>
+<ul>
+  <li>「飲み会」→「会食 / 集まる場面」（アルコール強調を避ける）</li>
+  <li>「罰ゲーム決め」シーン名は維持（一般的すぎて変更すると混乱）、ただし説明文では「順番・指名決め」と表記</li>
+  <li>「王様くじ」ツール名は維持、説明文では「順番決め」と表記</li>
+  <li>過激なゲーム（物理的暴力・拘束等）は含まない（既に除外済み）</li>
+  <li>アルコール強要を罰ゲームの中核にしない（既に未掲載）</li>
+</ul>
+
+<h2>⑧ よくあるリジェクト理由と回避策</h2>
+
+<table>
+<thead><tr><th>原因</th><th>対策</th></tr></thead>
+<tbody>
+<tr><td>プライバシーポリシーURL が 404</td><td>GitHub Pages で公開直後は反映に数分かかる、確認後に提出</td></tr>
+<tr><td>UGC（意見箱）の通報機能不足</td><td>ASOBI は意見箱が「ユーザー → 開発者」の単方向（他ユーザー見えない）、UGC 要件回避</td></tr>
+<tr><td>レーティング不一致</td><td>アルコール参照の頻度を「中程度」に申告、12+ 維持</td></tr>
+<tr><td>StoreKit IAP 価格未設定</td><td>初回リリースは IAP 無効化、シンプルに無料アプリで申請が安全</td></tr>
+<tr><td>「他人を貶める可能性」</td><td>罰ゲーム要素を「全員参加型」と説明文に明記</td></tr>
+</tbody>
+</table>
+
+<h2>⑧ 今日着手すべき 3 つ</h2>
+
+<ol>
+  <li><strong>Apple Developer Program 申し込み</strong>（¥12,980 を払う、承認まで 24-48 時間）</li>
+  <li><strong>GitHub Pages で privacy-policy.html を公開</strong>（URL 確定）</li>
+  <li><strong>初回リリースのスクショ用に Simulator で全画面押さえる</strong>（8 枚）</li>
+</ol>
+
+<p>2 と 3 は Apple Developer 承認待ち時間に並行で進められる。明日には全部揃って TestFlight アップロード可能な状態に。</p>
+
+<p style="margin-top: 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px;">
+本ガイドは <code>~/Desktop/AppDev/asobi-app/docs/launch-prep-2026-06-19.html</code> に永続保存。<br>
+公開フェーズで不明点が出たら、対話に戻ってこのファイルパスを伝えてください。
+</p>
+
+</div>
+</body>
+</html>

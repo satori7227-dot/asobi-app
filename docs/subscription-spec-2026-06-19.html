@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASOBI プレミアムサブスク仕様 — Phase γ</title>
+<style>
+  :root {
+    --bg: #fafaf7;
+    --fg: #1c1c1e;
+    --muted: #6b6b70;
+    --line: #e2e2dc;
+    --card: #ffffff;
+    --accent: #D97757;
+    --accent-soft: rgba(217,119,87,0.10);
+    --gold: #c89846;
+    --gold-soft: rgba(200,152,70,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #161617; --fg: #ececec; --muted: #a0a0a4;
+      --line: #2c2c2e; --card: #1f1f20;
+      --accent: #E89B7A; --accent-soft: rgba(232,155,122,0.14);
+      --gold: #E0BA70; --gold-soft: rgba(224,186,112,0.15);
+    }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif; background: var(--bg); color: var(--fg); margin: 0; line-height: 1.7; }
+  .container { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  h2 { font-size: 22px; margin-top: 48px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+  h3 { font-size: 17px; margin-top: 24px; color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .hero { background: linear-gradient(135deg, var(--accent), var(--gold)); color: white; padding: 32px 28px; border-radius: 20px; margin: 24px 0; }
+  .hero h2 { color: white; border: none; margin: 0 0 8px; font-size: 28px; }
+  .hero p { margin: 0; opacity: 0.95; }
+  .price-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+  .price-card { background: var(--card); border: 2px solid var(--line); border-radius: 16px; padding: 20px; text-align: center; position: relative; }
+  .price-card.recommended { border-color: var(--accent); }
+  .price-card .badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 12px; }
+  .price-card .name { font-size: 15px; color: var(--muted); margin-bottom: 8px; }
+  .price-card .price { font-size: 36px; font-weight: 800; color: var(--accent); }
+  .price-card .unit { font-size: 13px; color: var(--muted); }
+  .price-card .save { color: var(--gold); font-size: 12px; font-weight: 700; margin-top: 6px; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--card); font-weight: 700; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; }
+  td.y { color: var(--gold); font-weight: 700; }
+  td.n { color: var(--muted); }
+  .feature { background: var(--card); border-left: 4px solid var(--accent); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 12px 0; }
+  .feature .head { font-weight: 700; font-size: 15px; color: var(--accent); margin-bottom: 4px; }
+  .alert { background: var(--gold-soft); border-radius: 12px; padding: 16px 20px; margin: 16px 0; font-size: 14px; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ASOBI プレミアムサブスク仕様</h1>
+<div class="meta">2026-06-19 ・ Phase γ（収益化フェーズ3）・ VAVAゲーム型サブスク準拠</div>
+
+<div class="hero">
+  <h2>ASOBI プレミアム</h2>
+  <p>すべてのシーン、すべてのお題、すべての先進機能を解放。<br>
+     家族と、恋人と、仲間と、上司と。場面を選ばず使いつづける人のためのプラン。</p>
+</div>
+
+<h2>1. 料金プラン</h2>
+
+<div class="price-cards">
+  <div class="price-card">
+    <div class="name">月額プラン</div>
+    <div class="price">¥120</div>
+    <div class="unit">/月</div>
+  </div>
+  <div class="price-card recommended">
+    <div class="badge">おすすめ</div>
+    <div class="name">年額プラン</div>
+    <div class="price">¥1,100</div>
+    <div class="unit">/年</div>
+    <div class="save">2ヶ月分お得（24%引）</div>
+  </div>
+  <div class="price-card">
+    <div class="name">買い切り<br>オールイン</div>
+    <div class="price">¥1,200</div>
+    <div class="unit">1回のみ</div>
+    <div class="save">永続所有（サブスクなし）</div>
+  </div>
+</div>
+
+<p>VAVAゲーム（月¥120／年¥1,100）と同価格に揃え、競合との比較でユーザーが迷わない設計。<b>買い切り¥1,200</b> は年額サブスクとほぼ同額にして「迷ったら買い切り」誘導が可能。</p>
+
+<h2>2. 提供価値（サブスク特典）</h2>
+
+<table>
+<thead>
+<tr><th>項目</th><th>無料</th><th>IAP買い切り</th><th>サブスク</th></tr>
+</thead>
+<tbody>
+<tr><td>無料シーン 7 種</td><td class="y">○</td><td class="y">○</td><td class="y">○</td></tr>
+<tr><td>無料お題カテゴリ 6 種</td><td class="y">○</td><td class="y">○</td><td class="y">○</td></tr>
+<tr><td>プレミアムシーン 6 種（婚活/就活/同窓会/送別会/子供/オフ会）</td><td class="n">×</td><td class="y">○ 個別購入¥120</td><td class="y">○ 全解放</td></tr>
+<tr><td>大人パック 3 種（深掘り/カップル本音/タブー破り）</td><td class="n">×</td><td class="y">○ 個別購入¥240</td><td class="y">○ 全解放</td></tr>
+<tr><td>リワード広告</td><td class="y">表示</td><td class="n">非表示</td><td class="n">非表示</td></tr>
+<tr><td>お気に入り数上限</td><td class="n">10件まで</td><td class="y">無制限</td><td class="y">無制限</td></tr>
+<tr><td><b>ヘルメスAI 提案</b>（Anthropic API）</td><td class="n">×</td><td class="n">×</td><td class="y">○ 月50回</td></tr>
+<tr><td>新規シーン・お題の追加</td><td class="n">×</td><td class="n">×</td><td class="y">○ 全自動解放</td></tr>
+<tr><td>提案カスタマイズ（人数規模・場所制約など）</td><td class="n">基本のみ</td><td class="y">○</td><td class="y">○</td></tr>
+<tr><td>意見箱の優先反映</td><td class="n">通常</td><td class="n">通常</td><td class="y">優先</td></tr>
+</tbody>
+</table>
+
+<h3>サブスク独自価値（買い切りでは得られない）</h3>
+
+<div class="feature">
+  <div class="head">🤖 ヘルメスAI 提案</div>
+  <div>Anthropic API ベース。「3人で30分・酒NG・新人歓迎会」など複雑な条件をテキスト入力すると、その場で最適ゲームを動的生成。月50回まで。買い切りでは付与されない、サブスクのキラー機能。</div>
+</div>
+
+<div class="feature">
+  <div class="head">🆕 継続的なコンテンツ追加</div>
+  <div>毎月 2-3 シーンや 30 お題を追加。サブスクなら自動解放、買い切りユーザーは別途追加購入が必要。</div>
+</div>
+
+<div class="feature">
+  <div class="head">⭐ お気に入り無制限・優先意見箱</div>
+  <div>無料は10件まで、サブスクは無制限。意見箱の要望もサブスクユーザー優先で対応・実装。</div>
+</div>
+
+<h2>3. Apple 手数料の経済性</h2>
+
+<table>
+<thead>
+<tr><th>区分</th><th>手数料</th><th>粗利</th><th>¥120 月額の取り分</th></tr>
+</thead>
+<tbody>
+<tr><td>サブスク1年目（日本 iOS 26.2）</td><td>21%</td><td>79%</td><td>¥94.8</td></tr>
+<tr><td><b>サブスク2年目以降</b>（日本 iOS 26.2）</td><td><b>10%</b></td><td><b>90%</b></td><td>¥108</td></tr>
+<tr><td>Small Business Program適格時の買い切り</td><td>10%</td><td>90%</td><td>¥1,080（¥1,200 オールイン）</td></tr>
+</tbody>
+</table>
+
+<p><b>サブスク2年目以降は粗利 90%</b>。継続ユーザー1人あたりの実質ARPUは年¥990（¥1,100 × 90%）に達する。<b>VAVAゲーム同額で粗利が10ポイント高い</b> のが Apple iOS 26.2 新ティアの恩恵。</p>
+
+<h2>4. 法人ライセンス（B2B 別線）</h2>
+
+<table>
+<thead>
+<tr><th>プラン</th><th>価格</th><th>対象</th><th>内容</th></tr>
+</thead>
+<tbody>
+<tr><td>店舗ライセンス</td><td>月¥3,000-5,000/店舗</td><td>居酒屋・カフェ・バー・ホテルラウンジ</td><td>店内QRから無料配布、来客は全機能を店内で利用可</td></tr>
+<tr><td>法人サイトライセンス</td><td>年¥30,000-80,000</td><td>研修会社・チームビルディング・人事</td><td>社員数無制限、全機能解放、利用統計レポート付</td></tr>
+<tr><td>研修パッケージ</td><td>1回¥50,000-150,000</td><td>イベント企画会社</td><td>イベント当日の運営サポート＋全機能アクセスQR</td></tr>
+</tbody>
+</table>
+
+<div class="alert">
+  <b>営業チャネル</b>：チームビルディング会社のWebサイトに掲載依頼、Schoo 等の研修プラットフォームへの提案、人事担当向けLPでセルフ流入、地域居酒屋オーナーへの DM 直営業。<br>
+  <b>営業サイクル</b>：B2B は 3-6 ヶ月。Phase α 開始後すぐに営業仕込み開始推奨。
+</div>
+
+<h2>5. サブスク導入の段階移行プラン</h2>
+
+<table>
+<thead>
+<tr><th>Phase</th><th>時期</th><th>サブスク状態</th></tr>
+</thead>
+<tbody>
+<tr><td>α</td><td>今〜3ヶ月</td><td>無料＋リワード広告のみ（サブスク未実装）</td></tr>
+<tr><td>β</td><td>3〜6ヶ月</td><td>IAP買い切り導入（Penalty型6シーンパック + 3大人パック）</td></tr>
+<tr><td><b>γ</b></td><td><b>6〜12ヶ月</b></td><td><b>サブスク追加（月¥120 / 年¥1,100）</b>＋ヘルメスAI実装</td></tr>
+<tr><td>δ</td><td>並行（6ヶ月〜）</td><td>法人ライセンス別線営業</td></tr>
+</tbody>
+</table>
+
+<h2>6. リスクと緩和</h2>
+
+<div class="feature">
+  <div class="head">サブスク疲れ・解約率高い</div>
+  <div>パーティーゲームは頻繁には使わないため、月額より<b>年額・買い切り誘導</b>を主導線に。月額は「お試し」位置付けで価値を理解してから年額へ。</div>
+</div>
+
+<div class="feature">
+  <div class="head">ヘルメスAI のコスト超過</div>
+  <div>月50回 制限で API コストを管理。Claude Haiku で1回 ¥0.3〜0.5 想定 → 50回 ¥15-25 × ユーザー数。サブスク粗利 ¥108/月から十分カバー。<br>memory <code>project_haruhi_api_billing</code> の知見：spend limit + ローテートでコスト上限管理。</div>
+</div>
+
+<div class="feature">
+  <div class="head">買い切り¥1,200 と年額¥1,100 の同水準</div>
+  <div>意図的に近い価格設定。買い切り「迷いユーザー受け皿」、年額「継続価値ユーザー（新規追加コンテンツ・AI機能ほしい層）」で棲み分け。差別化のため<b>サブスクにのみヘルメスAIと自動コンテンツ追加</b>を集中させる。</div>
+</div>
+
+<h2>7. StoreKit 実装の技術構成</h2>
+
+<ul>
+  <li><code>StoreKit 2</code>（iOS 15+ の最新版）を採用</li>
+  <li>サブスクは <code>Product.SubscriptionInfo</code> で月額・年額 1 グループとして登録</li>
+  <li><code>Transaction.currentEntitlements</code> をリッスンして購入状態リアルタイム反映</li>
+  <li>サーバー側 receipt 検証は v1 では省略（StoreKit 2 はクライアント側 JWS 検証で十分）、後で <code>App Store Server API</code> 連携</li>
+  <li>App Store Connect で <code>com.idogawa.Asobi.premium.monthly</code>, <code>.yearly</code>, <code>.allin</code> を登録</li>
+  <li>無料トライアル 7 日 を年額に付与（解約率を低減）</li>
+</ul>
+
+<h2>8. 今日決めるべき 3 つ</h2>
+
+<ol>
+  <li><b>サブスク導入 Phase</b>：今すぐ実装するか、Phase β 終了後（3-6ヶ月後）にするか？　仕様凍結だけ今日できる。</li>
+  <li><b>ヘルメスAI を有償機能の中核</b>にするか？　サブスク独自価値の柱になる一方、API コスト管理の負担が増える。</li>
+  <li><b>無料トライアル 7 日</b>を付けるか？　解約率低減には効くが、無料消費の損失リスクあり。</li>
+</ol>
+
+<p style="margin-top: 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px;">
+  本仕様は収益化レポート（monetization-research-2026-06-19.html）と整合。Phase γ 開始時に技術仕様を再確認推奨。<br>
+  Apple iOS 26.2 新ティアは 2025-12-17 発表のため、運用1年程度の実績で再見直し。
+</p>
+
+</div>
+</body>
+</html>

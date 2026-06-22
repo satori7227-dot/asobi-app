@@ -1,0 +1,41 @@
+# Xcode build artifacts
+build/
+DerivedData/
+*.xcarchive
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# xcodegen output (generated from project.yml — not committed)
+Asobi.xcodeproj/
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# fastlane secrets / output
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+fastlane/*.p8
+*.p8
+.envrc
+
+# vendored tools (re-downloadable)
+.tools/
+
+# Misc
+*.log
+tmp/

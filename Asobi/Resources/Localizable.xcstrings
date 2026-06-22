@@ -1,0 +1,930 @@
+{
+  "sourceLanguage" : "ja",
+  "version" : "1.0",
+  "strings" : {
+    "ASOBI" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "ASOBI" } },
+        "ja" : { "stringUnit" : { "state" : "translated", "value" : "ASOBI" } }
+      }
+    },
+    "飲み会" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Drinking Party" } }
+      }
+    },
+    "旅行" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Travel" } }
+      }
+    },
+    "罰ゲーム決め" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pick a Penalty" } }
+      }
+    },
+    "家族・親戚" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Family & Relatives" } }
+      }
+    },
+    "カップル・2人" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couple / Two Players" } }
+      }
+    },
+    "キャンプ・BBQ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Camping & BBQ" } }
+      }
+    },
+    "リモート飲み" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Remote Hangout" } }
+      }
+    },
+    "婚活・お見合い" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Matchmaking" } }
+      }
+    },
+    "新人歓迎・研修" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Welcoming & Training" } }
+      }
+    },
+    "同窓会" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Class Reunion" } }
+      }
+    },
+    "送別会" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Farewell Party" } }
+      }
+    },
+    "子供パーティー" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Kids' Party" } }
+      }
+    },
+    "オフ会・初対面" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Meetup / Icebreaker" } }
+      }
+    },
+    "落ち着き" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Calm" } }
+      }
+    },
+    "ふつう" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Medium" } }
+      }
+    },
+    "盛り上がり" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "High Energy" } }
+      }
+    },
+    "5分未満" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Under 5 min" } }
+      }
+    },
+    "5〜15分" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "5–15 min" } }
+      }
+    },
+    "15分以上" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "15 min or more" } }
+      }
+    },
+    "手ぶら" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Empty-handed" } }
+      }
+    },
+    " シーン" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : " scene" } }
+      }
+    },
+    " シーン（プレミアム）" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : " scene (premium)" } }
+      }
+    },
+    "タップしてこのシーンに合うゲームを探します" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap to find games for this scene" } }
+      }
+    },
+    "プレミアムパック ¥120 で開放できます" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock with the ¥120 premium pack" } }
+      }
+    },
+    "games.json が見つかりません（Target Membership を確認）" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "games.json not found (check Target Membership)" } }
+      }
+    },
+    "ゲームデータの読み込みに失敗しました" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Failed to load game data" } }
+      }
+    },
+    "お題データが見つかりません" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prompt data not found" } }
+      }
+    },
+    "お題データの読み込みに失敗しました" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Failed to load prompt data" } }
+      }
+    },
+    "シーンに合うゲームを" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Games That Fit the Scene" } }
+      }
+    },
+    "飲み会・旅行・キャンプ・カップル・リモート飲み……\nどの場面でもアプリが3つ提案します。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Drinking parties, trips, camping, couples, remote hangouts...\nThe app suggests three games for any occasion." } }
+      }
+    },
+    "道具はアプリで" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tools Built In" } }
+      }
+    },
+    "サイコロ・トランプ・コイン・ルーレット・タイマー・お題ガチャ・王様くじ。\n手ぶらでも遊べます。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dice, cards, coin, roulette, timer, prompt gacha, king's game.\nYou can play empty-handed." } }
+      }
+    },
+    "あなたの一票が育てる" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Grown by Your Votes" } }
+      }
+    },
+    "👍👎で精度が上がり、アイデア箱で新しいゲームを追加。\n使うほど自分に合う提案に。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "👍👎 sharpen the suggestions; the idea box adds new games.\nIt fits you better the more you use it." } }
+      }
+    },
+    "次へ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
+      }
+    },
+    "はじめる" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Get Started" } }
+      }
+    },
+    "%lld 人" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld people" } }
+      }
+    },
+    "%lld 件" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld items" } }
+      }
+    },
+    "%lld〜%lld人" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld–%lld players" } }
+      }
+    },
+    "残り %lld / 52 枚" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld / 52 cards left" } }
+      }
+    },
+    "%lld 個" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld dice" } }
+      }
+    },
+    "合計: %lld" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Total: %lld" } }
+      }
+    },
+    "%lld 人目" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Player %lld" } }
+      }
+    },
+    "%lld 人目に渡す" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pass to Player %lld" } }
+      }
+    },
+    "1人だけ王様、他は1〜%lld番が配られます" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "One king is drawn; everyone else receives numbers 1 to %lld" } }
+      }
+    },
+    "条件変更" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Filters" } }
+      }
+    },
+    "現在の絞り込み条件" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Current filters" } }
+      }
+    },
+    "絞り込み条件を変更" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit filters" } }
+      }
+    },
+    "お気に入りから外す" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Remove from Favorites" } }
+      }
+    },
+    "外す" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Remove" } }
+      }
+    },
+    "コレクション" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Collections" } }
+      }
+    },
+    "コレクション一覧を開く" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open collections" } }
+      }
+    },
+    "コレクションがありません" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No collections yet" } }
+      }
+    },
+    "「家飲み定番」「同窓会向け」など、用途別にお気に入りを束ねられます" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Bundle favorites by use case — e.g. \"Home Drinking Staples\" or \"Reunion Set\"" } }
+      }
+    },
+    "このコレクションは空です" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "This collection is empty" } }
+      }
+    },
+    "ゲーム詳細から「コレクションに追加」でここに集まります" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add games from \"Add to Collection\" on the game detail screen" } }
+      }
+    },
+    "コレクションに追加" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add to Collection" } }
+      }
+    },
+    "既存のコレクション" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Existing collections" } }
+      }
+    },
+    "最近使った" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Recently used" } }
+      }
+    },
+    "すべて" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "All" } }
+      }
+    },
+    "無名コレクション" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Untitled Collection" } }
+      }
+    },
+    "新規作成して追加" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Create new and add" } }
+      }
+    },
+    "追加" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add" } }
+      }
+    },
+    "完了" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Done" } }
+      }
+    },
+    "新規" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New" } }
+      }
+    },
+    "新しいコレクション" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New Collection" } }
+      }
+    },
+    "作成" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Create" } }
+      }
+    },
+    "キャンセル" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } }
+      }
+    },
+    "名前を変更" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Rename" } }
+      }
+    },
+    "削除" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete" } }
+      }
+    },
+    "名前" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Name" } }
+      }
+    },
+    "保存" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } }
+      }
+    },
+    "例：家飲み定番" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "e.g. Home Drinking Staples" } }
+      }
+    },
+    "お気に入りはまだありません" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No favorites yet" } }
+      }
+    },
+    "新ゲーム要望" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New Game Request" } }
+      }
+    },
+    "不具合報告" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Bug Report" } }
+      }
+    },
+    "質問" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Question" } }
+      }
+    },
+    "その他" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Other" } }
+      }
+    },
+    "シーン" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scene" } }
+      }
+    },
+    "送信する" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Send" } }
+      }
+    },
+    "送信中..." : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sending..." } }
+      }
+    },
+    "もう一度送る" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Send Again" } }
+      }
+    },
+    "メールで送る" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Send via Mail" } }
+      }
+    },
+    "次の人へ渡す" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pass to Next" } }
+      }
+    },
+    "全員に配り終わった" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "All Dealt" } }
+      }
+    },
+    "番" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Number" } }
+      }
+    },
+    "おまかせで3つ出す" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Quick Pick 3" } }
+      }
+    },
+    "手ぶらでおまかせ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Quick Pick (Empty-handed)" } }
+      }
+    },
+    "共有" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Share" } }
+      }
+    },
+    "人数" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Players" } }
+      }
+    },
+    "テンション" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Energy" } }
+      }
+    },
+    "所要時間" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Duration" } }
+      }
+    },
+    "持ち物" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Items" } }
+      }
+    },
+    "ありOK" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Items OK" } }
+      }
+    },
+    "スキップ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Skip" } }
+      }
+    },
+    "設定" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } }
+      }
+    },
+    "設定を開く" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open settings" } }
+      }
+    },
+    "その他のメニュー" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "More menu" } }
+      }
+    },
+    "ASOBI について" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "About ASOBI" } }
+      }
+    },
+    "あなたの記録" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your Stats" } }
+      }
+    },
+    "これまでに遊んだ数" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Games Played" } }
+      }
+    },
+    "バージョン" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Version" } }
+      }
+    },
+    "対応言語" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Languages" } }
+      }
+    },
+    "リンク" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Links" } }
+      }
+    },
+    "プライバシーポリシー" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Privacy Policy" } }
+      }
+    },
+    "意見・要望を送る" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Send Feedback" } }
+      }
+    },
+    "応援" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Support" } }
+      }
+    },
+    "自分で指定: %lld 秒" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Custom: %lld sec" } }
+      }
+    },
+    "ASOBI は個人開発の iOS アプリです。コードの大半とゲーム DB のキュレーションは1人で行っています。意見箱からのフィードバックが何より励みになります。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "ASOBI is an indie iOS app. Most of the code and the curation of the game database are done by one developer. Feedback through the idea box is what keeps it going." } }
+      }
+    },
+    "ゲームを探す" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Find a Game" } }
+      }
+    },
+    "お気に入り" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Favorites" } }
+      }
+    },
+    "お気に入り一覧を開く" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open favorites" } }
+      }
+    },
+    "アイデア箱" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Idea Box" } }
+      }
+    },
+    "アイデア箱を開く" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open idea box" } }
+      }
+    },
+    "アイデアを送る" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Send Idea" } }
+      }
+    },
+    "こんなゲームが欲しい" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Game I'd Like" } }
+      }
+    },
+    "ツール" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tools" } }
+      }
+    },
+    "ツールセットを開く" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Open tool set" } }
+      }
+    },
+    "ゲーム詳細" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Game Detail" } }
+      }
+    },
+    "ゲーム詳細画面の星ボタンで追加できます" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add favorites with the star button on the game detail screen" } }
+      }
+    },
+    "もう一度シャッフル" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Shuffle Again" } }
+      }
+    },
+    "もう一度配る" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Deal Again" } }
+      }
+    },
+    "最初から" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "From the Start" } }
+      }
+    },
+    "リセット" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reset" } }
+      }
+    },
+    "閉じる" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Close" } }
+      }
+    },
+    "あとで" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Later" } }
+      }
+    },
+    "条件を変えて、もう一度試してみてください" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Try again with different conditions" } }
+      }
+    },
+    "どんな場面ですか？" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "What's the scene?" } }
+      }
+    },
+    "人数を選んでください" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose the number of players" } }
+      }
+    },
+    "どっち？" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Which?" } }
+      }
+    },
+    "どのシーンでも" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Any scene" } }
+      }
+    },
+    "関連シーン" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Related scenes" } }
+      }
+    },
+    "種類" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Type" } }
+      }
+    },
+    "種類を選んで、内容を教えてください。送信ボタンで開発者に直接届きます。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pick a type and tell us about it. The send button delivers it directly to the developer." } }
+      }
+    },
+    "例：3人で短時間で盛り上がれる罰ゲーム決めゲーム" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Example: A quick game for 3 to decide who takes the penalty" } }
+      }
+    },
+    "送信しました！" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Sent!" } }
+      }
+    },
+    "送信に失敗しました" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Failed to send" } }
+      }
+    },
+    "ネットワーク接続を確認して、もう一度お試しください。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Check your network connection and try again." } }
+      }
+    },
+    "ご意見は開発者に直接届きました。今後のアップデートに反映していきます。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your feedback reached the developer directly. We'll reflect it in future updates." } }
+      }
+    },
+    "データ読み込みエラー" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Data Loading Error" } }
+      }
+    },
+    "サイコロ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dice" } }
+      }
+    },
+    "トランプ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cards" } }
+      }
+    },
+    "コイン" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Coin" } }
+      }
+    },
+    "タイマー" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Timer" } }
+      }
+    },
+    "ルーレット" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Roulette" } }
+      }
+    },
+    "お題" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Prompt" } }
+      }
+    },
+    "ワードウルフ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Word Wolf" } }
+      }
+    },
+    "ワードウルフお題" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Word Wolf Prompt" } }
+      }
+    },
+    "王様くじ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "King's Game" } }
+      }
+    },
+    "王様！" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "King!" } }
+      }
+    },
+    "王様が指令を出してください" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "King, please issue your command" } }
+      }
+    },
+    "配り始める" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Start Dealing" } }
+      }
+    },
+    "配布完了！" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "All dealt!" } }
+      }
+    },
+    "受け取った（本人）" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Received (me)" } }
+      }
+    },
+    "他の人に見られないように、本人だけがタップしてください" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Only the recipient taps — keep it private" } }
+      }
+    },
+    "長押しで自分の番号を表示" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Long-press to reveal your number" } }
+      }
+    },
+    "タップ&長押しで表示" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap & hold to reveal" } }
+      }
+    },
+    "1枚引く" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Draw 1" } }
+      }
+    },
+    "「振る」を押してください" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tap \"Roll\" to begin" } }
+      }
+    },
+    "多数派" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Majority" } }
+      }
+    },
+    "ウルフ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Wolf" } }
+      }
+    },
+    "名前を2件以上追加してください" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Add at least 2 names" } }
+      }
+    },
+    "コンテンツパック" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Content Pack" } }
+      }
+    },
+    "オールインパック ¥1,200" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "All-In Pack ¥1,200" } }
+      }
+    },
+    "全シーン・全お題が永続解放" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock every scene and prompt forever" } }
+      }
+    },
+    "買い切り・以降ずっと使える" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "One-time purchase, yours to keep" } }
+      }
+    },
+    "購入する（開発中：仮解放）" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Purchase (in development — temporary unlock)" } }
+      }
+    },
+    "20問の特別お題が解放されます" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock 20 special prompts" } }
+      }
+    },
+    "¥240 でパック解放" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unlock pack for ¥240" } }
+      }
+    },
+    "※ App Store 公開時に StoreKit で本物の決済に置き換えます。現状はテスト用の解放ボタンです。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Note: This becomes real StoreKit payments at launch. Currently it's a test unlock button." } }
+      }
+    },
+    "※ サイコロ・トランプ・コイン等はアプリで対応するため「手ぶら」でも候補に出ます" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dice, cards, and coins are handled inside the app, so \"empty-handed\" still works" } }
+      }
+    },
+    "Tip Jar" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tip Jar" } }
+      }
+    },
+    "ASOBI を応援する" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Support ASOBI" } }
+      }
+    },
+    "開発を応援する" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Support Development" } }
+      }
+    },
+    "いただいたチップは新シーンや新お題の調査・追加に使わせていただきます。サブスクとは別枠で、何度でも送れます。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Tips go to researching and adding new scenes and prompts. Separate from any subscription — send any time, any number of times." } }
+      }
+    },
+    "Apple ID の決済から課金されます。サブスク契約とは別枠の単発支払いです。" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Charged via your Apple ID. One-time payment, separate from any subscription." } }
+      }
+    },
+    "どういたしまして" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "You're welcome" } }
+      }
+    },
+    "コーヒー1杯" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A cup of coffee" } }
+      }
+    },
+    "ケーキセット" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cake set" } }
+      }
+    },
+    "ちょっといいランチ" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A nice lunch" } }
+      }
+    },
+    "開発の眠気覚ましに" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "For staying awake while coding" } }
+      }
+    },
+    "更新のごほうびに" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "A reward for shipping updates" } }
+      }
+    },
+    "次の機能の助けに" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Toward the next feature" } }
+      }
+    }
+  }
+}
