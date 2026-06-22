@@ -10,6 +10,7 @@
 - `docs/launch-prep-2026-06-19.html` の GitHub Pages 公開手順を `asobi-privacy` リポジトリ前提に書き換え（実装側と URL を一致）。
 - `.tools/make_appstore_screenshot.swift` に引数の `\n` をリテラル改行へ置換する処理を追加（gitignore 対象なので commit には含まれない）。
 - `README.md` のテスト件数を 66 → 88 に更新。
+- `AsobiWidget/PrivacyInfo.xcprivacy` を新規作成。App 側と同様に Tracking false / Collected/Tracking domains 空。Widget は UserDefaults を読まないので AccessedAPITypes も空。Apple は extension 単位の Privacy Manifest を推奨しているため、App と Extension で別ファイルにする方が将来の差異吸収に強い。
 
 ## 仕様外で決めたこと（Rule 13）
 
@@ -25,6 +26,7 @@
 - swiftlint バイナリ未インストール（Homebrew 自体が無い）。`fastlane lint` は xcstrings 用なので OK、Swift コード lint は **Phase 1 でスキップ宣言**。導入する場合は `brew install swiftlint` か `mint install realm/SwiftLint`。
 - App Store メタデータ（subtitle / promotional text / description / keywords / What's New）は `docs/launch-prep-2026-06-19.html` のドラフトを使用予定だが、未確定。
 - 各スクショの App Store 仕様加工（キャッチコピー入りフレーム版）は `.tools/make_appstore_screenshot.swift` でいつでも生成可能。コピー文言を確定したら 5 枚 × フレーミングを一括実行する。
+- **iPad 申請ターゲット判断保留**。`project.yml` の `TARGETED_DEVICE_FAMILY: "1,2"` で App / Widget 双方が iPhone + iPad を申請ターゲットにしている。iPad を維持するなら 13 インチ iPad Pro 用スクショ（2064×2752 等）が別途必要。party-game の主用途は iPhone なので iPad ターゲットを外す（`"1"` に変更）案も合理的。本人判断待ち。
 
 ## 次回着手時の起点
 
