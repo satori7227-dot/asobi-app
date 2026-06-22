@@ -32,7 +32,7 @@ struct SettingsView: View {
     }
 
     private var privacyPolicyURL: URL? {
-        URL(string: "https://satori-idogawa.github.io/asobi-privacy/")
+        URL(string: "https://idogawasatori.github.io/asobi-privacy/")
     }
 
     var body: some View {

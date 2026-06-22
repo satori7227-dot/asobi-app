@@ -252,20 +252,21 @@
 </div>
 
 <div class="step"><div class="num">2</div>
-<h4>新規リポジトリ「asobi-app-public」作成</h4>
-<div>Public・README 作成あり。<code>asobi-app-public</code> や <code>asobi</code> 等の名前で。</div>
+<h4>新規リポジトリ「asobi-privacy」作成</h4>
+<div>Public・README 作成あり。<strong>必ず <code>asobi-privacy</code> という名前</strong>で（SettingsView.swift:35 のハードコード URL と一致させるため）。</div>
 </div>
 
 <div class="step"><div class="num">3</div>
-<h4>privacy-policy.html をアップロード</h4>
-<div>Web UI で「Add file」→ Upload → <code>privacy-policy.html</code>（既存のもの）<br>
+<h4>privacy-policy.html を index.html としてアップロード</h4>
+<div>Web UI で「Add file」→ Upload → <code>docs/privacy-policy.html</code> を <code>index.html</code> にリネームしてアップ<br>
 コミット名「Add privacy policy」</div>
 </div>
 
 <div class="step"><div class="num">4</div>
 <h4>Settings → Pages → Source: main → Save</h4>
 <div>数分後に公開URL生成：<br>
-<code>https://idogawasatori.github.io/asobi-app-public/privacy-policy.html</code></div>
+<code>https://idogawasatori.github.io/asobi-privacy/</code><br>
+（SettingsView.swift で参照している URL と完全一致）</div>
 </div>
 
 <div class="step"><div class="num">5</div>
