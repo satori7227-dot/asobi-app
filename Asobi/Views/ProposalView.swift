@@ -34,6 +34,8 @@ struct ProposalView: View {
                             GameCard(game: game, scene: scene)
                                 .contentShape(RoundedRectangle(cornerRadius: 20))
                                 .onTapGesture { selectedGame = game }
+                                .accessibilityElement(children: .combine)
+                                .accessibilityIdentifier("proposal-card-\(index)")
                                 .opacity(visible ? 1 : 0)
                                 .offset(y: visible || reduceMotion ? 0 : 24)
                                 .animation(

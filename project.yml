@@ -101,3 +101,17 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         CODE_SIGNING_REQUIRED: NO
         CODE_SIGNING_ALLOWED: NO
+  AsobiUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: AsobiUITests
+    dependencies:
+      - target: Asobi
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.idogawa.AsobiUITests
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGNING_REQUIRED: NO
+        CODE_SIGNING_ALLOWED: NO
+        TEST_TARGET_NAME: Asobi
