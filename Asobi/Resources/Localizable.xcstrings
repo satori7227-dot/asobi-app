@@ -641,6 +641,11 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Later" } }
       }
     },
+    "候補が見つかりません" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No games found" } }
+      }
+    },
     "条件を変えて、もう一度試してみてください" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Try again with different conditions" } }

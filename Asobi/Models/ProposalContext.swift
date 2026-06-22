@@ -2,10 +2,19 @@ import Foundation
 import SwiftUI
 
 struct ProposalContext: Equatable, Hashable {
+    /// 人数選択の下限・上限。UI の Stepper と提案ロジックで共有する単一の真実。
+    static let minPlayers = 2
+    static let maxPlayers = 10
+
     var playerCount: Int = 4
     var tension: Tension = .medium
     var duration: Duration = .short
     var noItemsOnly: Bool = false
+
+    /// playerCount を許容範囲内にクランプする。外部入力（Deep Link 等）からの保険。
+    mutating func clampPlayerCount() {
+        playerCount = min(max(playerCount, Self.minPlayers), Self.maxPlayers)
+    }
 }
 
 enum Tension: String, CaseIterable, Identifiable, Codable {

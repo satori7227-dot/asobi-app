@@ -105,6 +105,20 @@ final class GameMatchesTests: XCTestCase {
         XCTAssertTrue(g.matches(scene: drinking, context: ProposalContext(playerCount: 1, tension: .medium, duration: .short, noItemsOnly: false)))
         XCTAssertFalse(g.matches(scene: drinking, context: ProposalContext(playerCount: 2, tension: .medium, duration: .short, noItemsOnly: false)))
     }
+
+    func testClampPlayerCountToBounds() {
+        var low = ProposalContext(playerCount: 0, tension: .medium, duration: .short, noItemsOnly: false)
+        low.clampPlayerCount()
+        XCTAssertEqual(low.playerCount, ProposalContext.minPlayers)
+
+        var high = ProposalContext(playerCount: 99, tension: .medium, duration: .short, noItemsOnly: false)
+        high.clampPlayerCount()
+        XCTAssertEqual(high.playerCount, ProposalContext.maxPlayers)
+
+        var ok = ProposalContext(playerCount: 5, tension: .medium, duration: .short, noItemsOnly: false)
+        ok.clampPlayerCount()
+        XCTAssertEqual(ok.playerCount, 5)
+    }
 }
 
 final class FeedbackStoreTests: XCTestCase {

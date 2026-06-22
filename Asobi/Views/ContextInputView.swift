@@ -14,7 +14,7 @@ struct ContextInputView: View {
                     section(title: "人数") {
                         HStack {
                             Button {
-                                if context.playerCount > 2 { context.playerCount -= 1 }
+                                if context.playerCount > ProposalContext.minPlayers { context.playerCount -= 1 }
                             } label: {
                                 Image(systemName: "minus.circle.fill").font(.title)
                             }
@@ -25,7 +25,7 @@ struct ContextInputView: View {
                                 .contentTransition(.numericText())
                                 .minimumScaleFactor(0.7)
                             Button {
-                                if context.playerCount < 10 { context.playerCount += 1 }
+                                if context.playerCount < ProposalContext.maxPlayers { context.playerCount += 1 }
                             } label: {
                                 Image(systemName: "plus.circle.fill").font(.title)
                             }
