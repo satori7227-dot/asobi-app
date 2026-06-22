@@ -204,7 +204,7 @@ fastlane test
 xcodebuild -project Asobi.xcodeproj -scheme Asobi -destination 'platform=iOS Simulator,name=iPhone 17' test
 ```
 
-現状: **66 tests passed (3 skipped, 0 failures)**
+現状: **88 tests passed (3 skipped, 0 failures)** ／ AsobiUITests 1 test passed
 
 ## xcstrings lint
 

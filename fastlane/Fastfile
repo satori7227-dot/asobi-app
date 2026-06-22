@@ -80,4 +80,9 @@ platform :ios do
   lane :lint do
     sh("python3 ../scripts/xcstrings-lint.py --strict")
   end
+
+  desc "App Store 用スクショ5枚を XCUITest で生成し fastlane/screenshots/ja-JP に配置"
+  lane :screenshots do
+    sh("../scripts/capture-screenshots.sh")
+  end
 end
