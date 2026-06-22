@@ -23,4 +23,9 @@ enum Constants {
     /// - false: IAP 未登録の間は設定画面に出さない
     /// - true: Apple Developer 契約後に有効化
     static let tipJarEnabled = false
+
+    /// 匿名イベント計測（AsobiAnalytics）の有効化
+    /// - false: 初回リリース時。no-op、App Privacy = Data Not Collected を維持
+    /// - true: TelemetryDeck 等のバックエンドを差し込んだ後に有効化（Privacy Manifest 更新必須）
+    static let analyticsEnabled = false
 }

@@ -29,6 +29,8 @@ final class GameRepository {
             AsobiLogger.data.error("games.json not found in bundle")
             return
         }
+        let signpost = AsobiSignpost.begin("load games.json")
+        defer { AsobiSignpost.end("load games.json", signpost) }
         do {
             let data = try Data(contentsOf: url)
             let decoded = try JSONDecoder().decode([Game].self, from: data)

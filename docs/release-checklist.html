@@ -65,14 +65,20 @@
     <thead><tr><th>テンプレ</th><th>シナリオ</th><th>ゲート</th></tr></thead>
     <tbody>
       <tr><td>App Launch</td><td>cold start → ScenePicker 表示</td><td>&lt; 400ms（実機 A18）</td></tr>
+      <tr><td>Time Profiler + <code>os_signpost</code></td><td>起動経路。Points of Interest に <code>load games.json</code> 区間が出る（AsobiSignpost 実装済）</td><td>load &lt; 60ms 目安</td></tr>
       <tr><td>Time Profiler</td><td>13シーン × 連続シャッフル20回</td><td>main thread 60FPS 維持</td></tr>
       <tr><td>Allocations</td><td>5分間スワイプ・シャッフル操作</td><td>peak RAM &lt; 80MB</td></tr>
       <tr><td>Hangs</td><td>初回起動 → 提案 → 詳細</td><td>Hang 0件（&gt;100ms）</td></tr>
     </tbody>
   </table>
+  <p class="check" style="font-size:0.9em">
+    Instruments → Time Profiler テンプレに「Points of Interest」インストゥルメントを追加すると、
+    <code>AsobiSignpost.begin/end("load games.json")</code> の区間が時間軸に表示される。
+    この実測値で <code>GameRepository</code> の同期ロード継続 or GameIndex 分離（保留中）を判断する。
+  </p>
   <div class="baseline">
     <strong>baseline 記録欄</strong>（バージョンごとに更新）<br>
-    v1.0.0: cold start = ___ms / peak RAM = ___MB / Hang = ___件
+    v1.0.0: cold start = ___ms / load games.json = ___ms / peak RAM = ___MB / Hang = ___件
   </div>
 </div>
 

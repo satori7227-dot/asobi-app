@@ -20,6 +20,19 @@ final class GameMatchesTests: XCTestCase {
         )
     }
 
+    /// regionBlocklist が無いゲームは全地域 OK（isAllowed=true）。
+    func testIsAllowedWhenNoBlocklist() {
+        let g = makeGame()
+        XCTAssertTrue(g.isAllowed(in: "CN"))
+        XCTAssertTrue(g.isAllowed(in: nil))
+    }
+
+    /// region=nil で matches を呼ぶと地域フィルタは効かない（従来挙動の後方互換）。
+    func testMatchesIgnoresRegionWhenNil() {
+        let g = makeGame()
+        XCTAssertTrue(g.matches(scene: drinking, context: ProposalContext(playerCount: 4, tension: .medium, duration: .short, noItemsOnly: false), region: nil))
+    }
+
     func testMatchesScene() {
         let g = makeGame(scenes: ["drinking"])
         XCTAssertTrue(g.matches(scene: drinking, context: ProposalContext(playerCount: 4, tension: .medium, duration: .short, noItemsOnly: false)))

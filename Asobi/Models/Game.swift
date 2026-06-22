@@ -24,6 +24,16 @@ struct Game: Identifiable, Codable, Hashable {
     let nameEn: String? = nil
     let summaryEn: String? = nil
     let rulesEn: String? = nil
+    /// 文化フィット監査で「この地域では出さない方がよい」と判定された地域コード（ISO 3166-1 alpha-2）。
+    /// 例: ["CN"] = 中国本土では非表示。nil/空なら全地域 OK。
+    /// 判定軸: 性別固定・飲酒前提・身体接触・宗教ネタ・民族ステレオタイプ・年齢配慮。
+    let regionBlocklist: [String]? = nil
+
+    /// 現在の端末リージョンでこのゲームを表示してよいか。
+    func isAllowed(in region: String?) -> Bool {
+        guard let blocklist = regionBlocklist, let region, !blocklist.isEmpty else { return true }
+        return !blocklist.contains(region.uppercased())
+    }
 
     /// 端末ロケールに応じた表示用 name。en 端末でかつ nameEn があれば英語、それ以外は日本語。
     /// **UI 表示はこのプロパティを使うこと。** 直接 name を読むと多言語化が破綻する。
@@ -71,7 +81,10 @@ struct Game: Identifiable, Codable, Hashable {
         items.contains { Self.appProvidedItems.contains($0) }
     }
 
-    func matches(scene: GameScene, context: ProposalContext) -> Bool {
+    /// region を渡すと文化フィット監査の regionBlocklist によるフィルタも適用する。
+    /// nil（既定）なら地域フィルタなし＝従来挙動。
+    func matches(scene: GameScene, context: ProposalContext, region: String? = nil) -> Bool {
+        guard isAllowed(in: region) else { return false }
         guard scenes.contains(scene.id) else { return false }
         guard context.playerCount >= minPlayers, context.playerCount <= maxPlayers else { return false }
         guard tension.contains(context.tension.rawValue) else { return false }

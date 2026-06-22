@@ -15098,7 +15098,16 @@
     "sourceLang": "en",
     "nameEn": "Flip Cup",
     "summaryEn": "Drink, set the cup down, and flip it upside down faster than your team.",
-    "rulesEn": "Two teams line up along opposite sides of a table.\nEach player drinks their cup, sets it at the table edge, then flicks the rim to flip it upside down.\nOnly after a successful flip can the next teammate start.\nFirst team to finish wins."
+    "rulesEn": "Two teams line up along opposite sides of a table.\nEach player drinks their cup, sets it at the table edge, then flicks the rim to flip it upside down.\nOnly after a successful flip can the next teammate start.\nFirst team to finish wins.",
+    "regionBlocklist": [
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "IR"
+    ]
   },
   {
     "id": "キングスカップ-f81238a8",
@@ -15124,7 +15133,16 @@
     "sourceLang": "en",
     "nameEn": "Kings Cup",
     "summaryEn": "Each card drawn triggers a mini-rule for the whole group.",
-    "rulesEn": "Place a large cup at the center surrounded by a ring of cards face down.\nPlayers take turns drawing one card; each number maps to a mini-rule (question, category, new rule, etc.).\nWhoever draws the fourth King must drink the center cup."
+    "rulesEn": "Place a large cup at the center surrounded by a ring of cards face down.\nPlayers take turns drawing one card; each number maps to a mini-rule (question, category, new rule, etc.).\nWhoever draws the fourth King must drink the center cup.",
+    "regionBlocklist": [
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "IR"
+    ]
   },
   {
     "id": "ネバー・ハブ・アイ・エバー-f32957f8",
@@ -16008,7 +16026,19 @@
     "sourceLang": "en",
     "nameEn": "Spin the Bottle (Gesture Variant)",
     "summaryEn": "Spin-the-bottle reworked into a gesture-quiz duel",
-    "rulesEn": "Place an empty bottle in the center of the circle and spin it.\nThe two players it points at duel in a gesture quiz (impressions, speed buzz-in, etc.).\nThe loser takes a penalty; in Japan, skip the kissing version and stick to gesture challenges."
+    "rulesEn": "Place an empty bottle in the center of the circle and spin it.\nThe two players it points at duel in a gesture quiz (impressions, speed buzz-in, etc.).\nThe loser takes a penalty; in Japan, skip the kissing version and stick to gesture challenges.",
+    "regionBlocklist": [
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "IR",
+      "PK",
+      "MY",
+      "ID"
+    ]
   },
   {
     "id": "サンバ・リレー-a91c94f9",
@@ -16104,7 +16134,16 @@
     "sourceLang": "en",
     "nameEn": "Ttwigi (Soju Cap Flick)",
     "summaryEn": "Twist a soju cap tail and flick it to call drinkers",
-    "rulesEn": "Twist the leftover strip on a soju bottle cap and flick it with your finger.\nBefore flicking, other players call out a number; whoever matches the count earns the right to pick someone.\nIf no one matches, the flicker drinks; if someone matches, the person they pick drinks."
+    "rulesEn": "Twist the leftover strip on a soju bottle cap and flick it with your finger.\nBefore flicking, other players call out a number; whoever matches the count earns the right to pick someone.\nIf no one matches, the flicker drinks; if someone matches, the person they pick drinks.",
+    "regionBlocklist": [
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "IR"
+    ]
   },
   {
     "id": "ヌンチゲーム-b013de1a",
@@ -16202,7 +16241,16 @@
     "sourceLang": "en",
     "nameEn": "Titanic",
     "summaryEn": "Pour soju into a floating shot glass and avoid sinking it",
-    "rulesEn": "Fill a beer glass halfway with beer and float an empty shot glass on top.\nPour a little soju into the shot glass in turn; whoever sinks it has to chug the whole \"Titanic.\"\nIt's a psychological battle to add as much as possible without sinking it."
+    "rulesEn": "Fill a beer glass halfway with beer and float an empty shot glass on top.\nPour a little soju into the shot glass in turn; whoever sinks it has to chug the whole \"Titanic.\"\nIt's a psychological battle to add as much as possible without sinking it.",
+    "regionBlocklist": [
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "IR"
+    ]
   },
   {
     "id": "007バン-e41cc55a",
@@ -16624,7 +16672,16 @@
     "sourceLang": "en",
     "nameEn": "Tequila Roulette",
     "summaryEn": "Six shot glasses, one with a spicy surprise — pick at your own risk.",
-    "rulesEn": "Line up six shot glasses; secretly add hot sauce to one of them.\nShuffle their positions, then players choose one to drink in turn.\nWhoever picks the spicy one takes the round's forfeit."
+    "rulesEn": "Line up six shot glasses; secretly add hot sauce to one of them.\nShuffle their positions, then players choose one to drink in turn.\nWhoever picks the spicy one takes the round's forfeit.",
+    "regionBlocklist": [
+      "SA",
+      "AE",
+      "QA",
+      "KW",
+      "BH",
+      "OM",
+      "IR"
+    ]
   },
   {
     "id": "ロンプ・ピニャータ・ミニ-86cfaad0",
