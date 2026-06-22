@@ -28,6 +28,13 @@
 - 各スクショの App Store 仕様加工（キャッチコピー入りフレーム版）は `.tools/make_appstore_screenshot.swift` でいつでも生成可能。コピー文言を確定したら 5 枚 × フレーミングを一括実行する。
 - **iPad 申請ターゲット判断保留**。`project.yml` の `TARGETED_DEVICE_FAMILY: "1,2"` で App / Widget 双方が iPhone + iPad を申請ターゲットにしている。iPad を維持するなら 13 インチ iPad Pro 用スクショ（2064×2752 等）が別途必要。party-game の主用途は iPhone なので iPad ターゲットを外す（`"1"` に変更）案も合理的。本人判断待ち。
 
+## 22:30 追記 — GitHub リモートと Pages 公開
+
+- `asobi-app` リポジトリ作成（`satori7227-dot/asobi-app`, public）→ ローカル 9 commits を push 完了。
+- `asobi-privacy` リポジトリ作成（`satori7227-dot/asobi-privacy`, public）→ `docs/privacy-policy.html` を `index.html` としてコピー、1 commit push 完了。Pages 設定 Source: main / / で配信中。
+- 認証は fine-grained PAT（`asobi-app deploy 2026-06-22`、Contents: Read and write、Repos: 上記2本のみ、Expiration: 30 days）。push 完了後 remote URL から PAT は除去済、`.git/config` 平文残りなし。PAT は不要になり次第本人が revoke 予定。
+- ハマりポイント：fine-grained PAT は新規発行時に Repository permissions を Add しないと **権限ゼロ**で 200 read access はあっても push が 403 になる（Repository access での選択だけでは権限は付与されない）。本書発行手順に「Contents: Read and write を明示追加」を必ず入れる。
+
 ## 次回着手時の起点
 
 `docs/post-developer-signup.html` Phase 0 から順に。本書は Apple Developer 登録前の並走作業ログ。
