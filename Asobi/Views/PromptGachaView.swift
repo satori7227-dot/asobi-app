@@ -77,6 +77,7 @@ struct PromptGachaView: View {
                     }
                     .buttonStyle(.plain)
                     .padding(.horizontal)
+                    .accessibilityLabel(current == nil && currentPair == nil ? "お題を出す" : "次のお題を出す")
                 }
             }
             .padding(.vertical)

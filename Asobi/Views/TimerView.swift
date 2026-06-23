@@ -25,8 +25,9 @@ struct TimerView: View {
                         .animation(.linear(duration: 0.2), value: progress)
                     VStack {
                         Text(formatTime(remaining))
-                            .font(.system(size: 56, weight: .heavy, design: .rounded))
+                            .font(.system(.largeTitle, design: .rounded, weight: .heavy))
                             .contentTransition(.numericText())
+                            .accessibilityLabel("残り時間 \(formatTime(remaining))")
                         Text("/ \(formatTime(seconds))")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
@@ -75,6 +76,7 @@ struct TimerView: View {
                             .background(.regularMaterial, in: Capsule())
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("タイマーをリセット")
 
                     Button {
                         running ? stop() : start()
@@ -86,6 +88,7 @@ struct TimerView: View {
                             .foregroundStyle(.white)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(running ? "タイマーを一時停止" : (remaining == 0 ? "タイマーをリセット" : "タイマーを開始"))
                 }
                 .padding(.horizontal)
             }

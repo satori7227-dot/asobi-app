@@ -93,6 +93,7 @@ struct CardDrawView: View {
                             .background(.regularMaterial, in: Capsule())
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("トランプをリセット")
 
                     Button {
                         draw()
@@ -105,6 +106,7 @@ struct CardDrawView: View {
                     }
                     .buttonStyle(.plain)
                     .disabled(deck.isEmpty)
+                    .accessibilityLabel(deck.isEmpty ? "デッキが空" : "トランプを1枚引く")
                 }
                 .padding(.horizontal)
             }

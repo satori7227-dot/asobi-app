@@ -57,13 +57,16 @@ struct KingGameDistributorView: View {
                 Button { if playerCount > Self.minPlayerCount { playerCount -= 1 } } label: {
                     Image(systemName: "minus.circle.fill").font(.title)
                 }.buttonStyle(.plain)
+                .accessibilityLabel("人数を減らす")
                 Text("\(playerCount) 人")
-                    .font(.system(size: 40, weight: .bold, design: .rounded))
+                    .font(.system(.largeTitle, design: .rounded, weight: .bold))
                     .frame(minWidth: 120)
                     .contentTransition(.numericText())
+                    .accessibilityLabel("人数 \(playerCount) 人")
                 Button { if playerCount < Self.maxPlayerCount { playerCount += 1 } } label: {
                     Image(systemName: "plus.circle.fill").font(.title)
                 }.buttonStyle(.plain)
+                .accessibilityLabel("人数を増やす")
             }
             .foregroundStyle(.yellow)
 
@@ -85,6 +88,7 @@ struct KingGameDistributorView: View {
                     .foregroundStyle(.black)
             }
             .padding(.horizontal)
+            .accessibilityLabel("王様くじを配り始める")
         }
         .padding()
     }
