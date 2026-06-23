@@ -28,6 +28,20 @@
 - 各スクショの App Store 仕様加工（キャッチコピー入りフレーム版）は `.tools/make_appstore_screenshot.swift` でいつでも生成可能。コピー文言を確定したら 5 枚 × フレーミングを一括実行する。
 - **iPad 申請ターゲット判断保留**。`project.yml` の `TARGETED_DEVICE_FAMILY: "1,2"` で App / Widget 双方が iPhone + iPad を申請ターゲットにしている。iPad を維持するなら 13 インチ iPad Pro 用スクショ（2064×2752 等）が別途必要。party-game の主用途は iPhone なので iPad ターゲットを外す（`"1"` に変更）案も合理的。本人判断待ち。
 
+## 2026-06-23 追記 — 承認待ち並走の追加整備
+
+- **A: 数字修正** — `docs/launch-prep-2026-06-19.html` の「256 ゲーム」「215 のお題」を実データに合わせて **1191 ゲーム / 256 お題** に更新。お題数は prompts.json のカテゴリ別合計（50+40+30+20+20+36+20+20+20）。
+- **B: support.html 追加** — App Store Connect の Support URL 欄に貼る用に `asobi-privacy` リポジトリへ `support.html` を追加。`https://satori7227-dot.github.io/asobi-privacy/support.html` で配信中（21秒で初回 build 完了）。
+- **C: 英語版スクショ整備（部分完了）** — `AsobiUITests/ScreenshotTests.swift` を ja / en の 2 メソッドに分割。`ContextInputView` の メイン CTA に `context-input-search-button` identifier を付け、xcstrings 翻訳に依存しない UI test に。`scripts/capture-screenshots.sh` を language prefix（ja_/en_）で fastlane/screenshots/{ja-JP,en-US} に振り分けるよう更新（`LANGUAGES=both` で両言語、未指定で ja のみ）。**ハマり**: 本日 Xcode 26.5 / iOS 26.5 Simulator で `Pseudo Terminal Setup Error / Device not configured` が頻発し、`simctl erase + boot` でも解消せず。Mac 再起動 or Xcode 再起動で復旧見込み。実際の en スクショ生成は環境復旧後に `LANGUAGES=both bash scripts/capture-screenshots.sh` で再実行。既存の ja 5 枚（6/22 17:31 撮影分）は引き続き有効。
+- **D: メタデータ更新** — launch-prep の subtitle / promotional text / description / keywords を 1191 ゲーム前提で書き直し。各シーン例は games.json から実データ抜粋。**他社製品名（GeoGuessr / Gartic Phone / Among Us / Codenames Online / Skribbl.io / Jackbox Quiplash）はメタデータから除去**（実データには残るが、App Store 説明文には載せない・商標リスク回避）。
+- **E: release-log テンプレ** — `docs/release-log/TEMPLATE.md` 新規作成。release-checklist Phase 8 で参照される `docs/release-log/YYYY-MM-DD-vX.Y.Z.md` の雛形。
+- **F: iPad ターゲット判断（保留中）**
+  - 撤退案: `project.yml` の 2 箇所の `TARGETED_DEVICE_FAMILY: "1,2"` を `"1"` に、`UISupportedInterfaceOrientations~ipad` セクション削除、`fastlane deliver` の iPad スクショ要求を回避。実装 5 分。
+  - 維持案: iPad 13" Pro (M4) シミュレータで `capture-screenshots.sh` の DEVICE を切り替えて再実行。`fastlane/screenshots/ja-JP/ipad-13/` に 5 枚配置。実装 10 分 + 1 タスク追加。
+  - 判断: ASOBI の主用途は iPhone・パーティーゲーム提案なので **撤退寄り**を推奨。本人判断待ち。
+- **G: fastlane Snapfile（保留）** — `scripts/capture-screenshots.sh` で実用上十分なので、Snapfile + SnapshotHelper.swift は追加実装せず。将来 `fastlane snapshot` のレポート機能（言語別 HTML grid）が欲しくなったら追加検討。
+- **H: PrivacyInfo 再 audit（OK）** — 全 Swift コード grep の結果、UserDefaults 以外の Required Reason API（FileManager 日付・systemBootTime・systemUptime・disk volume size 等）の使用なし。現状の `Asobi/PrivacyInfo.xcprivacy`（CA92.1 のみ）と `AsobiWidget/PrivacyInfo.xcprivacy`（空）は実装と完全整合。**App Store Connect の App Privacy ラベル「Data Not Collected」のまま提出可**。
+
 ## 22:30 追記 — GitHub リモートと Pages 公開
 
 - `asobi-app` リポジトリ作成（`satori7227-dot/asobi-app`, public）→ ローカル 9 commits を push 完了。
