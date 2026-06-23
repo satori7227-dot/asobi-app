@@ -37,9 +37,17 @@ struct SuggestionFormView: View {
     @State private var selectedSceneId: String = "any"
     @State private var selectedCategory: FeedbackCategory = .gameRequest
     @State private var copyFallbackShown: Bool = false
+    @State private var now: Date = Date()
+    @AppStorage("asobi.feedback.lastSentAt.v1") private var lastSentEpoch: Double = 0
 
     private static let maxBodyLength = 1000
+    private static let cooldownSeconds: TimeInterval = 300
     private static let supportEmail = "satori7227@gmail.com"
+
+    private var cooldownRemaining: Int {
+        let elapsed = now.timeIntervalSince1970 - lastSentEpoch
+        return max(0, Int(Self.cooldownSeconds - elapsed))
+    }
 
     var body: some View {
         NavigationStack {
@@ -120,14 +128,16 @@ struct SuggestionFormView: View {
                     Button {
                         openMailDraft()
                     } label: {
-                        Text("メールアプリで送る")
+                        Text(cooldownRemaining > 0
+                             ? "次の送信まで \(cooldownRemaining / 60)分\(cooldownRemaining % 60)秒"
+                             : "メールアプリで送る")
                             .font(.body.weight(.semibold))
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.accentColor, in: Capsule())
+                            .background(Color.accentColor.opacity(cooldownRemaining > 0 ? 0.4 : 1.0), in: Capsule())
                             .foregroundStyle(.white)
                     }
-                    .disabled(bodyText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                    .disabled(bodyText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || cooldownRemaining > 0)
                     .buttonStyle(.plain)
                     .accessibilityIdentifier("suggestion-send-button")
 
@@ -159,11 +169,18 @@ struct SuggestionFormView: View {
                 }
             }
         }
+        .task {
+            while !Task.isCancelled {
+                now = Date()
+                try? await Task.sleep(nanoseconds: 1_000_000_000)
+            }
+        }
     }
 
     private func openMailDraft() {
         let trimmed = bodyText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
+        guard cooldownRemaining == 0 else { return }
 
         guard let url = mailtoURL(body: trimmed) else { return }
 
@@ -171,6 +188,7 @@ struct SuggestionFormView: View {
             openURL(url) { _ in }
             Haptics.success()
             copyFallbackShown = false
+            lastSentEpoch = Date().timeIntervalSince1970
         } else {
             UIPasteboard.general.string = Self.supportEmail
             Haptics.warning()
