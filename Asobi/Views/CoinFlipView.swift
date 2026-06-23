@@ -25,11 +25,13 @@ struct CoinFlipView: View {
                     .font(.system(size: 140))
                     .foregroundStyle(result?.color ?? .secondary.opacity(0.4))
                     .rotation3DEffect(.degrees(rotationDeg), axis: (x: 0, y: 1, z: 0))
+                    .accessibilityHidden(true)
 
                 if let result = result {
                     Text(result.rawValue)
                         .font(.system(size: 56, weight: .heavy, design: .rounded))
                         .contentTransition(.opacity)
+                        .accessibilityLabel("結果: \(result.rawValue)")
                 } else {
                     Text("どっち？")
                         .font(.title.weight(.semibold))
@@ -48,6 +50,7 @@ struct CoinFlipView: View {
                 }
                 .padding(.horizontal)
                 .disabled(flipping)
+                .accessibilityLabel(result == nil ? "コインを投げる" : "もう一度コインを投げる")
             }
             .padding()
             .navigationTitle("コイン")

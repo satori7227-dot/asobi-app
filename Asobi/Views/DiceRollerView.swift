@@ -20,14 +20,17 @@ struct DiceRollerView: View {
                         if count > 1 { count -= 1 }
                     } label: { Image(systemName: "minus.circle.fill").font(.title) }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("サイコロの数を減らす")
                     Text("\(count) 個")
-                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                        .font(.system(.title, design: .rounded, weight: .bold))
                         .frame(minWidth: 100)
                         .contentTransition(.numericText())
+                        .accessibilityLabel("サイコロ \(count) 個")
                     Button {
                         if count < 6 { count += 1 }
                     } label: { Image(systemName: "plus.circle.fill").font(.title) }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("サイコロの数を増やす")
                 }
                 .foregroundStyle(.purple)
 
@@ -36,6 +39,7 @@ struct DiceRollerView: View {
                     Image(systemName: "die.face.5.fill")
                         .font(.system(size: 100))
                         .foregroundStyle(.purple.opacity(0.3))
+                        .accessibilityHidden(true)
                     Text("「振る」を押してください")
                         .foregroundStyle(.secondary)
                     Spacer()
@@ -47,6 +51,7 @@ struct DiceRollerView: View {
                                 .font(.system(size: 60))
                                 .foregroundStyle(.purple)
                                 .symbolEffect(.bounce, value: rollTrigger)
+                                .accessibilityLabel("\(idx + 1) 個目: \(roll)")
                         }
                     }
                     .padding(.horizontal)
@@ -66,6 +71,7 @@ struct DiceRollerView: View {
                         .foregroundStyle(.white)
                 }
                 .padding(.horizontal)
+                .accessibilityLabel(rolls.isEmpty ? "サイコロを振る" : "もう一度サイコロを振る")
             }
             .padding()
             .navigationTitle("サイコロ")

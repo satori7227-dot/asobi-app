@@ -24,6 +24,7 @@ struct RoulettePickerView: View {
                             .font(.title2)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel("名前を追加")
                 }
                 .padding(.horizontal)
 
@@ -48,6 +49,7 @@ struct RoulettePickerView: View {
                                             .foregroundStyle(.secondary)
                                     }
                                     .buttonStyle(.plain)
+                                    .accessibilityLabel("\(name) を削除")
                                 }
                                 .padding(.horizontal, 12)
                                 .padding(.vertical, 10)
@@ -80,6 +82,7 @@ struct RoulettePickerView: View {
                 }
                 .padding(.horizontal)
                 .disabled(names.count < 2 || spinning)
+                .accessibilityLabel(winner == nil ? "ルーレットを回す" : "もう一度ルーレットを回す")
             }
             .padding(.vertical)
             .navigationTitle("ルーレット")

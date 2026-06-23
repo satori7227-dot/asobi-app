@@ -19,17 +19,20 @@ struct ContextInputView: View {
                                 Image(systemName: "minus.circle.fill").font(.title)
                             }
                             .buttonStyle(.plain)
+                            .accessibilityLabel("人数を減らす")
                             Text("\(context.playerCount) 人")
                                 .font(.system(.largeTitle, design: .rounded, weight: .bold))
                                 .frame(maxWidth: .infinity)
                                 .contentTransition(.numericText())
                                 .minimumScaleFactor(0.7)
+                                .accessibilityLabel("人数 \(context.playerCount) 人")
                             Button {
                                 if context.playerCount < ProposalContext.maxPlayers { context.playerCount += 1 }
                             } label: {
                                 Image(systemName: "plus.circle.fill").font(.title)
                             }
                             .buttonStyle(.plain)
+                            .accessibilityLabel("人数を増やす")
                         }
                         .foregroundStyle(scene.accent)
                     }
