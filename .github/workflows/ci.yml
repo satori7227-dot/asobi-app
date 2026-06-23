@@ -23,8 +23,11 @@ jobs:
           swift --version
           python3 --version
 
+      - name: Install xcodegen
+        run: brew install xcodegen
+
       - name: Generate xcodeproj
-        run: ./.tools/xcodegen.artifactbundle/xcodegen-2.45.4-macosx/bin/xcodegen generate
+        run: xcodegen generate
 
       - name: xcstrings lint (strict)
         run: python3 scripts/xcstrings-lint.py --strict
