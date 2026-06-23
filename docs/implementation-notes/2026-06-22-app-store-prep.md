@@ -56,6 +56,22 @@
 - **効く可能性が高い** (本人作業): (1) **Mac 自体を再起動**、(2) Xcode を一度起動して Settings → Platforms で iOS Simulator を再認証、(3) `sudo xcode-select --reset && sudo xcode-select -s /Applications/Xcode.app`。
 - 当面の回避: **GitHub Actions CI で test を回す**。`brew install xcodegen` + `xcodebuild test -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16 Pro Max' -only-testing:AsobiTests` で 88 unit tests が走る。ローカル test runner が落ちてる間も CI で緑は確認可能。
 
+## 2026-06-23 15:30 追記 — 費用発生案件は売上着金後に後送り
+
+本人方針（2026-06-23 確認）：**費用が発生する追加投資は、収益が立ち始めてから着手**。具体的には haruhi 3 ヶ月撤退ライン or 月 ¥3 万到達ライン到達後。
+
+該当する後送り案件：
+
+| 項目 | 想定費用 | 起点 |
+|---|---|---|
+| Gmail エイリアス分離（独自ドメイン or サブドメイン用 mailbox 増設） | Xserver 内なら無料・追加ドメインなら ¥1,000-3,000/年 | 売上 ¥3 万/月到達後 |
+| TelemetryDeck 等の analytics SaaS | $9-29/月 | 課金率の最適化が ROI 上がる段階で |
+| 独自サポート Web ホスティング（Cloudflare Pages 等） | 多くは無料・カスタムドメインで ¥1,500/年 | App Store 申請通過 + DL 1000 達成後 |
+| Featuring Nomination の有料ローカライズ | プロ翻訳依頼で ¥10-50 万 | 海外売上が立つ段階で |
+| Apple Developer 年会費の継続 | ¥12,980/年（本日決済済の翌年分） | 撤退ラインに到達してなければ自動継続を許可 |
+
+**ゼロ円で動かせるもの**は本人 Mac + 既存 GitHub + 既存 Anthropic Max5x の枠内で完結する作業のみ。Privacy Policy / Support / Marketing URL の GitHub Pages 利用、CI 利用、Webhook 不要の mailto 経路、すべて月額ゼロ円で運用可能な構成。
+
 ## 次回着手時の起点
 
 `docs/post-developer-signup.html` Phase 0 から順に。本書は Apple Developer 登録前の並走作業ログ。
