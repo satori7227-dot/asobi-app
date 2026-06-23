@@ -218,7 +218,7 @@
     ],
     "duration": "medium",
     "items": [
-      "スマホ（お題配布用）"
+      "スマホ"
     ],
     "sourceLang": "ja"
   },
@@ -489,7 +489,7 @@
     "duration": "short",
     "items": [
       "紙とペン",
-      "ストップウォッチ"
+      "タイマー"
     ],
     "sourceLang": "ja"
   },
@@ -550,7 +550,7 @@
     ],
     "duration": "short",
     "items": [
-      "空のペットボトル",
+      "ペットボトル",
       "10円玉（人数分以上）"
     ],
     "sourceLang": "ja"
@@ -1714,7 +1714,7 @@
     ],
     "duration": "medium",
     "items": [
-      "百人一首の絵札"
+      "百人一首"
     ],
     "sourceLang": "ja"
   },
@@ -1735,7 +1735,7 @@
     "duration": "short",
     "items": [
       "福笑いの紙",
-      "目隠し用タオル"
+      "目隠し"
     ],
     "sourceLang": "ja"
   },
@@ -1756,7 +1756,7 @@
     ],
     "duration": "long",
     "items": [
-      "百人一首のかるた"
+      "百人一首"
     ],
     "sourceLang": "ja"
   },
@@ -1971,7 +1971,7 @@
     ],
     "duration": "medium",
     "items": [
-      "サイコロ6個",
+      "サイコロ",
       "紙",
       "ペン"
     ],
@@ -1994,7 +1994,7 @@
     ],
     "duration": "medium",
     "items": [
-      "サイコロ5個",
+      "サイコロ",
       "スコアシート",
       "ペン"
     ],
@@ -2161,7 +2161,7 @@
     "duration": "medium",
     "items": [
       "椅子",
-      "音楽プレーヤー"
+      "音楽"
     ],
     "sourceLang": "ja"
   },
@@ -3669,7 +3669,7 @@
     ],
     "duration": "short",
     "items": [
-      "スマートフォン"
+      "スマホ"
     ],
     "sourceLang": "ja"
   },
@@ -4456,7 +4456,7 @@
     ],
     "duration": "short",
     "items": [
-      "音楽プレイヤー"
+      "音楽"
     ],
     "sourceLang": "ja"
   },
@@ -5610,7 +5610,7 @@
     "items": [
       "福笑い台紙",
       "顔パーツ",
-      "アイマスク"
+      "目隠し"
     ],
     "sourceLang": "ja"
   },
@@ -5631,7 +5631,7 @@
     ],
     "duration": "medium",
     "items": [
-      "百人一首かるた"
+      "百人一首"
     ],
     "sourceLang": "ja"
   },
@@ -5807,7 +5807,7 @@
     "items": [
       "福笑い台紙",
       "顔パーツ",
-      "アイマスク"
+      "目隠し"
     ],
     "sourceLang": "ja"
   },
@@ -5899,7 +5899,7 @@
     ],
     "duration": "short",
     "items": [
-      "アイマスク",
+      "目隠し",
       "各種お菓子"
     ],
     "sourceLang": "ja"
@@ -6104,7 +6104,7 @@
     "duration": "medium",
     "items": [
       "プレゼント",
-      "音楽再生機器"
+      "音楽"
     ],
     "sourceLang": "ja"
   },
@@ -6244,7 +6244,7 @@
     "items": [
       "トナカイ模造紙",
       "赤シール",
-      "アイマスク"
+      "目隠し"
     ],
     "sourceLang": "ja"
   },
@@ -6703,7 +6703,7 @@
     "duration": "short",
     "items": [
       "福笑い紙パーツ",
-      "目隠しタオル"
+      "目隠し"
     ],
     "sourceLang": "ja"
   },
@@ -6727,7 +6727,7 @@
     "items": [
       "卓球台",
       "ラケット",
-      "ピンポン球"
+      "ピンポン玉"
     ],
     "sourceLang": "ja"
   },
@@ -10409,7 +10409,7 @@
     "items": [
       "スイカ",
       "棒",
-      "目隠し布"
+      "目隠し"
     ],
     "sourceLang": "ja"
   },
@@ -11519,7 +11519,7 @@
     "items": [
       "紙",
       "ペン",
-      "サイコロ4個"
+      "サイコロ"
     ],
     "sourceLang": "ja"
   },
@@ -11652,7 +11652,7 @@
     "items": [
       "紙",
       "ペン",
-      "サイコロ3個"
+      "サイコロ"
     ],
     "sourceLang": "ja"
   },
@@ -14758,7 +14758,7 @@
     ],
     "duration": "medium",
     "items": [
-      "ピンポン球",
+      "ピンポン玉",
       "プラカップ20個",
       "ロングテーブル",
       "飲み物"
@@ -15294,7 +15294,7 @@
     ],
     "duration": "medium",
     "items": [
-      "目隠し布",
+      "目隠し",
       "広いスペース"
     ],
     "sourceLang": "en",
@@ -16804,7 +16804,7 @@
     ],
     "duration": "short",
     "items": [
-      "スマホ（任意）"
+      "スマホ"
     ],
     "sourceLang": "ja"
   },
@@ -17435,7 +17435,7 @@
     "duration": "short",
     "items": [
       "ルアー数種",
-      "アイマスク"
+      "目隠し"
     ],
     "sourceLang": "ja"
   },
@@ -18330,7 +18330,7 @@
     ],
     "duration": "short",
     "items": [
-      "ダイス"
+      "サイコロ"
     ],
     "sourceLang": "ja"
   },
@@ -21714,7 +21714,7 @@
     ],
     "duration": "short",
     "items": [
-      "スマホ1台"
+      "スマホ"
     ],
     "sourceLang": "ja"
   },
@@ -21991,7 +21991,7 @@
     ],
     "duration": "short",
     "items": [
-      "ストップウォッチ"
+      "タイマー"
     ],
     "sourceLang": "ja"
   },
@@ -23038,7 +23038,7 @@
     ],
     "duration": "short",
     "items": [
-      "スマートフォン"
+      "スマホ"
     ],
     "sourceLang": "ja"
   },
@@ -23872,7 +23872,7 @@
     ],
     "duration": "medium",
     "items": [
-      "音楽再生機器"
+      "音楽"
     ],
     "sourceLang": "ja"
   },
