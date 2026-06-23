@@ -76,6 +76,7 @@ struct ContextInputView: View {
                     .foregroundStyle(.white)
             }
             .padding()
+            .accessibilityIdentifier("context-input-search-button")
         }
         .navigationBarTitleDisplayMode(.inline)
     }

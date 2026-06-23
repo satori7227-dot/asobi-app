@@ -6,34 +6,42 @@ final class ScreenshotTests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func test_captureAppStoreScreenshots() throws {
+    func test_captureAppStoreScreenshots_ja() throws {
+        try runScreenshotFlow(languages: "(ja)", locale: "ja_JP", prefix: "ja")
+    }
+
+    func test_captureAppStoreScreenshots_en() throws {
+        try runScreenshotFlow(languages: "(en)", locale: "en_US", prefix: "en")
+    }
+
+    private func runScreenshotFlow(languages: String, locale: String, prefix: String) throws {
         let app = XCUIApplication()
-        app.launchArguments += [
+        app.launchArguments = [
             "-asobi.onboarding.v1.done", "YES",
-            "-AppleLanguages", "(ja)",
-            "-AppleLocale", "ja_JP",
+            "-AppleLanguages", languages,
+            "-AppleLocale", locale,
         ]
         app.launch()
 
-        attachScreenshot(name: "01_scene_picker")
+        attachScreenshot(name: "\(prefix)_01_scene_picker")
 
         let drinkingTile = app.descendants(matching: .any)["scene-tile-drinking"]
         XCTAssertTrue(drinkingTile.waitForExistence(timeout: 5), "drinking scene tile not found")
         drinkingTile.tap()
         sleep(1)
-        attachScreenshot(name: "02_context_input")
+        attachScreenshot(name: "\(prefix)_02_context_input")
 
-        let searchButton = app.buttons["ゲームを探す"]
+        let searchButton = app.buttons["context-input-search-button"]
         XCTAssertTrue(searchButton.waitForExistence(timeout: 5), "search button not found")
         searchButton.tap()
         sleep(2)
-        attachScreenshot(name: "03_proposal")
+        attachScreenshot(name: "\(prefix)_03_proposal")
 
         let firstCard = app.descendants(matching: .any)["proposal-card-0"]
         XCTAssertTrue(firstCard.waitForExistence(timeout: 5), "first proposal card not found")
         firstCard.tap()
         sleep(2)
-        attachScreenshot(name: "04_game_detail")
+        attachScreenshot(name: "\(prefix)_04_game_detail")
 
         let closeButton = app.buttons["game-detail-close-button"]
         if closeButton.exists { closeButton.tap() }
@@ -47,9 +55,9 @@ final class ScreenshotTests: XCTestCase {
         if toolsButton.waitForExistence(timeout: 2) {
             toolsButton.tap()
             sleep(1)
-            attachScreenshot(name: "05_tools")
+            attachScreenshot(name: "\(prefix)_05_tools")
         } else {
-            attachScreenshot(name: "05_scene_picker_alt")
+            attachScreenshot(name: "\(prefix)_05_scene_picker_alt")
         }
     }
 
