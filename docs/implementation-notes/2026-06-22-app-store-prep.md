@@ -49,6 +49,13 @@
 - 認証は fine-grained PAT（`asobi-app deploy 2026-06-22`、Contents: Read and write、Repos: 上記2本のみ、Expiration: 30 days）。push 完了後 remote URL から PAT は除去済、`.git/config` 平文残りなし。PAT は不要になり次第本人が revoke 予定。
 - ハマりポイント：fine-grained PAT は新規発行時に Repository permissions を Add しないと **権限ゼロ**で 200 read access はあっても push が 403 になる（Repository access での選択だけでは権限は付与されない）。本書発行手順に「Contents: Read and write を明示追加」を必ず入れる。
 
+## 2026-06-23 追記 — ローカル Pseudo Terminal Setup Error の症状と対処
+
+- 症状: `xcodebuild test` 時に `Pseudo Terminal Setup Error / ErrorCode 7 Errno 6 / Device not configured` で test runner が install/launch 不能。`xcodebuild build` は OK。
+- 試行して**効かなかった**: `simctl shutdown all` + `simctl erase` + `simctl boot`、device を iPhone 17→17 Pro→17 Pro Max→無印で切り替え、ユーザ権限での `killall com.apple.CoreSimulator.CoreSimulatorService`。
+- **効く可能性が高い** (本人作業): (1) **Mac 自体を再起動**、(2) Xcode を一度起動して Settings → Platforms で iOS Simulator を再認証、(3) `sudo xcode-select --reset && sudo xcode-select -s /Applications/Xcode.app`。
+- 当面の回避: **GitHub Actions CI で test を回す**。`brew install xcodegen` + `xcodebuild test -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16 Pro Max' -only-testing:AsobiTests` で 88 unit tests が走る。ローカル test runner が落ちてる間も CI で緑は確認可能。
+
 ## 次回着手時の起点
 
 `docs/post-developer-signup.html` Phase 0 から順に。本書は Apple Developer 登録前の並走作業ログ。
