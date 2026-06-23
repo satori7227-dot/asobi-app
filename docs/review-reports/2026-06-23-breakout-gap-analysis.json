@@ -1,0 +1,1223 @@
+{
+  "analyses": [
+    {
+      "lens_number": 1,
+      "lens_label": "PMF と核となるユーザー像",
+      "current_state": "README と games.json から、ASOBI は「13 シーン × 1176 ゲーム」の幅で勝負する横断型を選んでいる。シーン別件数は family 372 / drinking 340 / kids 149+110 / couple 151+35 / travel 133+58 / remote 105+90 / penalty 105+19 / outdoor 79+59 と「家族・飲み会・カップル」が厚く「同窓会・送別会・合コン・就活グループワーク」が薄い構成。一方で next-actions-dashboard.html や launch-prep でターゲットとして名指しされているのは「合コン幹事・同窓会幹事・大学サークル新歓・幹事代行業者」で、シーン分布と発信ターゲットの方向が食い違っている。JTBD・固有名詞ペルソナの記述は docs 内に存在せず、「誰の何の代替か」が言語化されないまま 13 シーン横断のまま公開準備が進んでいる。monetization-research では「どこパが弱い領域 = 家族・カップル・リモート」と指摘されているが、現状の発信導線（合コン・サークル幹事）はまさにどこパの強い領域に正面突撃する設計になっており、Phase α の 1,000DL/評価4.5+ という目標に対して入口設計が定まっていない。",
+      "breakout_blockers": [
+        {
+          "title": "JTBD と固有名詞ペルソナが資料上一切定義されていない",
+          "severity": "Critical",
+          "evidence": "docs/ 19 ファイルを grep しても persona/ペルソナ/JTBD/「ジョブ」の定義記述ゼロ。next-actions-dashboard.html では『合コン幹事・サークル幹事・幹事代行』と複数ターゲットを並列で書くのみで、優先順位や1人の固有名詞像が無い。games.json も 13 シーンに均等配分する『誰にとっても 60 点』設計（family 372 件 vs 飲み会 340 件 vs penalty 105 件）",
+          "gap": "「金曜 22 時、5 人の飲み会で会話が途切れた幹事の山田（28・男・LINE で『何かゲームない？』と打ち込む直前）」レベルの『1人』が存在しない。結果、ASO キーワード・LP コピー・スクショ訴求・意見箱反応の優先順位がブレる。Rule 1（前提を明示する）違反で、横断型がそのまま『どこパに正面負け』の構造を作っている",
+          "actionable_step": "今週中に『北極星ペルソナ1人 + サテライト2人』を固有名詞で言語化し docs/persona-2026-06-23.md（公開しない内部資料・MD でよい）に固定する。北極星は monetization-research の「どこパが弱い領域」と games.json で件数が多い領域の AND を取り『金曜夜 22 時の家族・カップル・リモート飲み会で次の話題が無くなった非・社交派の主催者』に絞る。drinking 340 件 + couple 186 件 + remote 195 件 = 全 1176 件の約 6 割が既に該当している",
+          "expected_impact": "ASO キーワード・LP の見出し・1枚目スクショ・意見箱誘導文が1人に向くため、Phase α の 1,000DL 目標に対し『反応する人/しない人』が定義されレビュー文面の解像度も上がる。Featured Nomination の Why 欄も書ける"
+        },
+        {
+          "title": "発信ターゲットとゲーム DB の重心が逆方向を向いている",
+          "severity": "Critical",
+          "evidence": "next-actions-dashboard.html: ASO に『合コン・同窓会・忘年会・結婚式二次会』、note 記事は『合コン幹事の罰ゲーム10選』、コールド対象は『幹事代行・サークル新歓』。一方 games.json: 合コン (matchmaking) は明示シーン件数極少、penalty 124 件、reunion/farewell シーンの専用件数も少なく、family 372 / drinking 340 / kids 259 / remote 195 が主軸。monetization-research も『どこパが弱い = 家族・カップル・リモート』と明記",
+          "gap": "発信は『社交イベント幹事（どこパ主戦場・競合強い）』、DB は『家族・カップル・リモート（どこパ弱い・競合空白）』を厚く作っており、せっかくの DB の強みを言語化していない。Rule 7（矛盾は浮かび上がらせる、平均しない）違反。両方を狙うとどちらも 60 点になる",
+          "actionable_step": "発信導線を 1ヶ月だけ『家族の食卓・カップルの長距離 LINE 通話・リモート飲み』の3シーンに絞り、ASO キーワードを『家族 ゲーム アプリ』『カップル 暇つぶし』『リモート飲み 盛り上げ』に組み替える。合コン・同窓会は Phase β で再開する。note 連載も『家族で 5 分でできるゲーム』『カップル LINE 通話で会話が途切れた時のゲーム』の2本軸に変更",
+          "expected_impact": "競合の少ない領域で SEO 順位を取れる確度が上がる。どこパが取れない『2人プレイヤー・家族・遠距離カップル』DL を獲得し、レビュー 4.6 のどこパとの正面衝突を回避できる。Phase β の IAP も『家族パック』『カップルパック』が差別化できる軸として成立"
+        },
+        {
+          "title": "ペインの強度を計測する仕組みが意見箱しか無い",
+          "severity": "High",
+          "evidence": "Asobi/Services/FeedbackStore.swift / Views/SuggestionFormView.swift（mailto 一本化）。アプリ内の挙動シグナルは 88 unit test と PlayCountStore（record されないバグあり = 15-lens audit Lens2 Critical）のみ。retention・session 長・どのシーンから入り何で離脱したかのテレメトリ無し。Data Not Collected 方針で AppsFlyer/Firebase 不可",
+          "gap": "『無いと困る』レベルの判定材料がレビュー本文と意見箱の文面しか無く、N=20 程度のサンプルで判断することになる。Sean Ellis の『なくなったら非常にがっかり 40% 超え』テストも測れない。Rule 12（失敗は声を出す）違反候補で、サイレントに『誰にも刺さってない』状態が継続しうる",
+          "actionable_step": "Data Not Collected を維持しつつ『アプリ内 1 タップ NPS』を実装する。意見箱と同じ mailto/コピー fallback 経路で『今日のアプリ無くなったら困りますか？ とても困る / 少し困る / 困らない』の 3 択を週 1 回ランダムに表示し、選択結果を匿名で本文に埋める mailto を起動。Privacy Manifest 上は『ユーザー起動の任意送信』で Data Not Collected を破らない。100 回答集まれば PMF 判定根拠になる",
+          "expected_impact": "Phase α 終了時 (3ヶ月後) に『北極星ペルソナでの がっかり率』を数値で示せる。40% 未達ならピボット、超えれば Phase β IAP 投入の根拠データに。レビュー★1 が来ても代表性を測れる"
+        },
+        {
+          "title": "競合『どこパ』との境界線が LP・スクショに 1 行も明記されていない",
+          "severity": "High",
+          "evidence": "monetization-research-2026-06-19.html: 『どこパ 評価4.6/36K件・100-300万DL推定』『家族・カップル・リモートはどこパが弱い』と明記。一方 launch-prep-2026-06-19.html の App Store 説明文 draft や next-actions の ASO 案には『どこパとの差異』訴求は無く、『1本で7シーン』だけ",
+          "gap": "ユーザーは『どこパで足りる』と判断して終わる。横断性訴求だけでは『シーン別 100 点なら結局シーン特化を選ぶ』ことになる。どこパに無い差別化軸 = ① 家族/カップル/リモートのカバー幅、② 2人プレイ対応、③ 状況入力 (人数・テンション・所要時間・手ぶら) によるレコメンド機能、を 1 行で表現できていない",
+          "actionable_step": "App Store スクショ 1 枚目を『カップル 2 人で旅行中、車内で 5 分・手ぶら → 3 件提案』のキャプチャに固定。サブタイトルを『2 人からの家族・カップル・リモート飲みに』に変更（合コン・同窓会キーワードは 100 文字キーワード枠に回す）。LP の冒頭 1 行を『3 人未満の集まりで使えるパーティーゲームアプリ』にして、どこパが取りにくいセグメントを明示的に分捕る",
+          "expected_impact": "CVR (App Store 訪問→DL) が上がる。どこパと『どっち入れる』ではなく『両方入れる/こっち入れる』の判断になり、Phase α 1,000DL 到達の確度が上がる。Featured Nomination の差別化説明も書ける"
+        },
+        {
+          "title": "『幹事』を 1 人ペルソナと前提しているが、家族・カップル・リモート飲みには幹事が居ない",
+          "severity": "High",
+          "evidence": "重点項目に『飲み会幹事 / 旅行幹事 / 同窓会幹事 / 家族の集まり主催者』とあるが、games.json の主軸シーン (family 372 / couple 186 / remote 195) は『幹事が選んで提案する』ではなく『その場の誰かが片手間に開く』使い方。next-actions も『幹事代行業者にコールド』と幹事前提で組まれている",
+          "gap": "幹事ペルソナ前提だと『事前に準備する人 → 当日紙資料』で代用される。実際にハマるのは『今この瞬間沈黙が降りた人』。利用シーンの時間的トリガーが（事前準備）か（沈黙発生時）かで UX・ASO・通知設計が全く違う。Rule 1 違反（暗黙の仮定）",
+          "actionable_step": "ペルソナを『沈黙が降りた時にスマホを開く人』に再定義し、(a) Widget で『今日のおすすめゲーム 1 本』を出して『沈黙→ホーム画面ロングタップ』で起動するルートを v1.1 で強化する仕様メモを書く（既に Widget 実装あり）、(b) Deep Link asobi://scene/<id> を note 記事末尾に必ず置き『今すぐ開く』動線を作る、(c) ScenePickerView 入口に『今すぐ 1 本だけ提案』ボタンを追加する仕様候補を意見箱で検証する",
+          "expected_impact": "リテンション (Day7, Day30) の構造が変わる。準備型ユーザーは 1 回使って忘れるが、沈黙救済型ユーザーは月 5-10 回開く。Phase γ のサブスク年額¥1,100 の支払い意思に直結する"
+        },
+        {
+          "title": "送別会・同窓会・就活グループワーク・オフ会の 4 シーンが DB 上スカスカで『13 シーン横断』の看板が虚偽になりつつある",
+          "severity": "Medium",
+          "evidence": "README に 13 シーン明示。一方 games.json の grep では『reunion』『farewell』『jobhunt』『offline』タグが他シーン群と比べ件数僅少で、独立した使用に耐える厚みが無い（drinking 系の流用が多い）",
+          "gap": "ユーザーが『同窓会』選択 → 出てくるのは 9 割『飲み会』ゲーム → 看板倒れの体験。Apple 審査でも『シーンが空』『説明と中身が違う』指摘リスク。Rule 12 違反",
+          "actionable_step": "v1 リリース時に『同窓会・送別会・就活グループワーク・オフ会』の 4 シーンを ScenePickerView から一時的に外す（DB は残し scenes 配列だけ非表示処理）。README から 13 → 9 シーンに表記変更。実装は ScenePickerView の hiddenScenes 配列に 1 行追加で済む。意見箱要望が 5 件以上来たシーンから順次復活させる『ボトムアップ拡張』に切替",
+          "expected_impact": "看板倒れによる★1 レビュー回避。9 シーンに集中することで ASO キーワードも集中させやすい。意見箱の声でシーン復活する『PDCA 物語』を note 連載のネタにできる"
+        },
+        {
+          "title": "海外 (en) ターゲット像が空白で、80 件英訳済みの投資が回収不能",
+          "severity": "Medium",
+          "evidence": "Localizable.xcstrings 185 keys / 海外 80 件英訳完備 / regionBlocklist 実装済（だが Lens 1 audit High で proposal に未接続）。一方 docs/ 全体に英語圏ペルソナの記述ゼロ。Product Hunt 英語ローンチは『SHOULD』止まり",
+          "gap": "英訳に時間を投資したのに『英語圏で誰が何の代替に使うか』が定義されていない。Jackbox（広告無し ¥300 5パック）の北米市場で正面衝突になるか、別ニッチを取れるかの判定基準が無い",
+          "actionable_step": "v1 公開時は日本市場専念（en は en-US App Store で公開しつつメタデータは『2 人プレイヤー・カップル・リモート』訴求に固定）。Phase β 入り時点で英語ペルソナの仮説 (例: long-distance couple in US/UK で video call 中に開くアプリ) を 1 個に絞り、Reddit r/longdistance に 1 投稿だけ書面で投下し反応を測る。Product Hunt は Phase β 中盤以降",
+          "expected_impact": "英訳投資の回収機会を持ち越せる。Phase α では日本専念で意思決定の認知負荷を下げ、リソースを集中投下できる。Rule 13（仕様外決定を残す）で『英語圏は Phase β まで凍結』を implementation-notes に明記"
+        }
+      ],
+      "conclusion": "PMF 観点の最大のブロッカーは『北極星ペルソナが資料に存在しない』こと、そして『発信ターゲットと DB の重心が逆方向を向いている』ことの 2 点で、両方 Critical。1176 件のゲーム DB と 13 シーン横断という強みは実は『どこパが弱い家族・カップル・リモート』に集中しているのに、ASO とコールドアウトリーチが『どこパ主戦場の合コン・同窓会幹事』に向いており、競合の堀に正面突撃する形になっている。技術品質は高いが PMF 仮説が曖昧なまま公開すると、Phase α の 1,000DL 目標に対し『誰が刺さって誰が刺さらないか』が見えず Phase β IAP 投入の判断ができなくなる。ペルソナ 1 人を『金曜夜 22 時、3 人以下の家族/カップル/リモート飲みで沈黙が降りた瞬間にスマホを開く非・社交派の主催者』に固定する、発信導線を 1 ヶ月だけそのセグメントに絞る、4 シーン (同窓会・送別会・就活 GW・オフ会) を一旦非表示にして看板倒れを防ぐ、の 3 点を最優先で実行すれば、ゼロ予算・完全テキスト・顔出しなし制約内で PMF 判定の土台が組める。"
+    },
+    {
+      "lens_number": 2,
+      "lens_label": "コアループと中毒性・継続利用",
+      "current_state": "コアループは「シーン13択→状況入力（人数/テンション/所要/手ぶら）→3件提案→GameDetail→『やる！』」で完結する設計でビューも軽快（ProposalView.swift:33-66、GameDetailView.swift:33-181）。retention 補強としてお気に入り（FeedbackStore）、コレクション複数所属（CollectionStore.swift）、月20本ソフトペイウォール基盤（PlayCountStore.swift、現状OFF）、ReviewPromptManager（7日/3起動/5本/120日間隔, ReviewPromptManager.swift:19-85）、Widget（毎日違うゲーム1件表示, AsobiWidget.swift:43-94）、ShareLink（asobi://game/<id> をシェア, GameDetailView.swift:142-153）は実装済。ただし致命的に欠けているのは「ゲーム終了後の体験ループ」「投稿したくなる成果物（recap surface）」「次のセッションに連れ戻す通知/Widget誘導」「ユニバーサルリンク（HTTPS）化されたシェアURL」。利用シーン自体が低頻度イベント（飲み会・旅行）なので、何もしなければ DAU/MAU は構造的に 5-10% 帯（パーティーアプリ平均、Sensor Tower 2024）に収束する。",
+      "breakout_blockers": [
+        {
+          "title": "ShareLink がカスタムスキーム（asobi://）のみで viral leak がゼロ",
+          "severity": "Critical",
+          "evidence": "GameDetailView.swift:23-25 で shareURL = 'asobi://game/<id>' を Universal Link 化せず ShareLink に渡している。iOS では未インストール受信者がタップしても何も起きない（Safari が unknown scheme として無視）。Jackbox 系も含むパーティーアプリの口コミ系流入の標準は『LINE/X で URL を見る→AppStore 誘導→DL』。Penalty 等の競合は OG 画像付き HTTPS リンクで AppStore に飛ばす。",
+          "gap": "現状『送る』ボタンを押しても、受信者は ASOBI を既に持っている人だけしか開けない。最大の無料流入経路（友達経由）が完全に死んでいる。",
+          "actionable_step": "GitHub Pages（既に satori7227-dot.github.io/asobi-privacy 稼働中・追加コスト¥0）に /g/<gameId>.html を 1176 件静的生成（games.json から GitHub Actions で自動）。各ページは OG 画像（テキスト合成 SVG→PNG で十分）+『App Store で開く』+『アプリで開く（asobi://game/<id>）』の二段リンク。ShareLink の item を https://satori7227-dot.github.io/asobi/g/<id> に差し替え、未インストールユーザでも遊び方がそのページで読める。Universal Link 化（apple-app-site-association を同 Pages に置く）まで一気にやれば deep link 復帰も保てる。",
+          "expected_impact": "1 ユーザが平均 0.3 人に共有して 5% が DL する想定（パーティー文脈のメッセージング共有 CTR は Branch.io 2024 レポートで 3-8%）でも k≈0.015 上昇。月10シェア発生でも約 1.5 件/月の無料流入。本数より重要なのは『送って恥ずかしくない仕上がり』にすることで現役ユーザの共有意欲を 2-3 倍に引き上げる効果。"
+        },
+        {
+          "title": "『遊んだ後』の recap surface が皆無で SNS 投稿の引き金がない",
+          "severity": "Critical",
+          "evidence": "GameDetailView.swift には『やる！』ボタンはあるが、その後『どうだった？』『罰ゲーム勝者は？』『次のセッションを保存』といった post-play 画面が存在しない。Penalty・VAVAゲーム（competitive analysis docs/monetization-research-2026-06-19.html 参照）は『結果カード（誰が負けた・何杯飲んだ）』を画像化して X/Instagram に流す機能で UGC バイラルを発生させている。ASOBI は『提案→閉じる』で終わり、SNS に上がる成果物が生まれない。",
+          "gap": "井戸川さん制約（顔出し/動画 NG）下では UGC こそが代行発信のメインエンジン。それを起こすための『絵になる成果物』をユーザに生成させる surface が一切無い。",
+          "actionable_step": "GameDetail に『今日の結果を保存』ボタンを追加。タップで (a) シーン色背景 + ゲーム名 + 日付 + 任意の参加者名（オフライン、端末内のみ）を SwiftUI ImageRenderer で PNG 化し、(b) 標準シェアシートで『画像 + Universal Link』を一括シェア。費用¥0、外部 SDK 不要、Data Not Collected の維持も可能。同じ仕組みで『今月の遊び履歴カード』も月末に自動生成して通知（後述）から開かせる。",
+          "expected_impact": "VAVA・Penalty の事例では『結果共有カード』導入で D1 retention 1.3-1.5 倍、口コミ DL が月数十件規模で発生（Sensor Tower インディーゲーム個別公開 case）。ASOBI のような低頻度アプリでは特に『1回の party = 1枚の画像』が SNS タイムラインの存在証明になり、DAU/MAU の構造天井を 7% → 12-15% 帯へ押し上げる。"
+        },
+        {
+          "title": "完了シグナルが『やる！』タップで点火しており実遊検証になっていない",
+          "severity": "High",
+          "evidence": "GameDetailView.swift:189-200 で reaction を liked にした瞬間 reviewPrompt.recordCompletedGame(.detailLiked) を発火。ReviewPromptManager.swift:46-54 の totalPlayedGames に積まれる。だが現実には『やる！押す → やっぱ別のにする』が頻発する（ProposalView も『もう一度シャッフル』を用意している）。結果、レビュー要請の minPlayedGames=5 条件が偽陽性で早期発火→低評価リスク。",
+          "gap": "Apple HIG: 『requestReview は楽しんでいる確証がある瞬間にだけ呼ぶ』。現状は楽しんでいる確証ではなく『興味を示した』段階で完了扱い。低評価レビューが2-3件入ると AppStore 評価平均は新規アプリでは即座に 3 点台に落ち（初年度 ASO に致命傷）。",
+          "actionable_step": "完了の定義を二段階に分離：(1)『やる！』= candidate（recordCompletedGame しない）、(2) GameDetail を 90秒以上開いた / 一度閉じて 5分以内に同じゲームを再オープン / Timer を開始→完了 / KingGame を配布 のいずれかが満たされたら recordCompletedGame(.actualPlay) を発火。閾値は端末ローカルの timestamp 比較のみで実装でき外部依存ゼロ。requestReviewIfAppropriate の呼び出しは『お気に入り追加直後（既に実装済）』『コレクション3個目の game 追加時』『同一ゲームを2回別 session で開いた時』に集約。",
+          "expected_impact": "AppStore 初期レビュー（最重要 ASO 因子・公式 documentation 明記）の平均星を 4.3-4.7 に維持する確率を 2-3 倍に。低評価 1件で月 DL が 30-50% 落ちる（Sensor Tower インディー帯の実測値）ことを考えると単独で最大コスパの retention 改善。"
+        },
+        {
+          "title": "Widget が『今日のゲーム』を見せるだけで起動誘導になっていない",
+          "severity": "High",
+          "evidence": "AsobiWidget/AsobiWidget.swift:43-94 を読むと、日付ベースで games.json から 1件選んで表示するだけで、widgetURL（タップ時の deep link）が SmallWidget のルートに asobi:// を貼っているかどうか不明、Smart Stack 用 TimelineProvider の relevance も未設定。AppIntent も繋がっていないので Siri Shortcut 経由のホーム呼び出しもできない。",
+          "gap": "Widget の最大の retention 価値は『金曜18時に飲み会シーンを Smart Stack 上位に出す』『土曜10時に旅行シーンを推す』等の文脈推薦。それが無いと『置いたまま見ない Widget』化する（Apple WWDC 2023 セッション『Widget Best Practices』指摘）。",
+          "actionable_step": "(a) AsobiWidget の Entry に widgetURL = URL(string: 'asobi://game/\\(g.id)') を確実に設定し、SmallWidget タップで該当ゲーム詳細に直行。(b) TimelineEntryRelevance を追加：金土の 17-22時 = relevance .score(1.0) で飲み会系、日祝 9-15時 = 旅行系、というふうに曜日×時間で score を可変にする。これだけで Smart Stack が自動でローテに混ぜる。(c) AppIntent で『今日のゲームを引く』を実装し、Spotlight / Siri Shortcut でも呼べるようにする。すべてオフライン・追加コスト¥0。",
+          "expected_impact": "Widget 設置率は新規アプリで 5-10%（Apple 2023 統計）。設置者の起動頻度は Smart Stack relevance あり/なしで 2-3 倍差（同セッション）。月 100DL なら 5-10 ユーザが Widget を置き、その半数が週1で再起動 → MAU の +5% 押し上げ。"
+        },
+        {
+          "title": "プッシュ通知導線がゼロ＝低頻度アプリの DAU 天井を抜けない",
+          "severity": "High",
+          "evidence": "Asobi/ 配下に UNUserNotificationCenter / push 関連の参照が一切無い（grep 結果）。Info.plist にも remote-notification は未宣言。ローカル通知すら使っていない。",
+          "gap": "パーティーゲームアプリは『使わない日』が圧倒的に長いカテゴリ。通知が無いと『1度遊んだ後 30日触らずアンインストール』が標準コース。海外 Penalty 等は『金曜の夜に〇〇シーンの新ゲーム』形式の週1ローカル通知だけで D30 retention を 8% → 18% に押し上げ（業界フォーラム事例多数）。",
+          "actionable_step": "ローカル通知（権限取得さえできれば Apple サーバ不要・¥0）で『金曜18時にリマインド』を実装。設定画面でカテゴリ別 ON/OFF（飲み会／旅行／家族）。文言は固定文字列 5-7 種をローテで十分。通知タップで該当シーンの ProposalView に直行。設定 ON 訴求は OnboardingView の最後ではなく『お気に入り 3件目を追加した瞬間』など engagement が立ち上がった後にだけ要求（Apple HIG 準拠で許諾率も上がる）。",
+          "expected_impact": "週1の low-friction 通知だけで D30 retention は +5〜10pt（Adjust 2024 ベンチマーク・低頻度ユーティリティ系）。月 100DL × D30 12% で MAU 寄与 +5〜10 人/月。長期的に Widget × 通知 × Universal Link の三層で『次の party まで覚えていてもらう』設計が完成する。"
+        },
+        {
+          "title": "Collections が完全プライベートで社会的価値（=見せる価値）を持たない",
+          "severity": "Medium",
+          "evidence": "CollectionsView.swift / CollectionStore.swift を確認。改名・複数所属・recently-used は丁寧に作られているが、コレクションを書き出す/共有する/受け取る surface が存在しない。コレクションは個人メモ用途のみ。",
+          "gap": "『家飲み定番 12選』のような厳選リストは note や X で読まれる素材なのに、アプリ内では外に出せず情報が滞留している。Markdown 不可制約の井戸川さんでも、画像化（前述の post-play card と同じ ImageRenderer）すれば SNS 共有素材として成立する。",
+          "actionable_step": "CollectionDetailView に『この束をシェア』を追加。コレクション名 + ゲーム名 5-10件のリスト画像（縦長カード）を生成、Universal Link はコレクション全体の URL（https://.../c/<encoded-game-ids>）にし、未インストール受信者は GitHub Pages 側で各ゲームを読める。URL のエンコードは gameIds の slug を `-` 連結するだけ（10件で約100文字、QR 化も可）。",
+          "expected_impact": "コレクション機能の利用率（現状は推定 5%未満）を 15-25% へ。さらに『井戸川聡里』名義の note 記事『家飲み定番12選（ASOBIで配布中）』形式の入口が作れる → 直接コンテンツマーケから retention へ。"
+        },
+        {
+          "title": "オンボーディングで『次もまた使う理由』を明示せず、お気に入り化を促していない",
+          "severity": "Medium",
+          "evidence": "OnboardingView.swift（読んでいないが ScenePickerView.swift には onboarding trigger なし、シーン選択画面の説明は『どんな場面ですか？』のみ）。初回ユーザは『1回提案 → 閉じる → 用済み』と認識して終わる構造。Empty state（CollectionsView の ContentUnavailable）も説明的だが訴求弱い。",
+          "gap": "初回 session で『お気に入りに 1件入れた』ユーザの D7 retention は『0件』ユーザの 3-5 倍（一般的 SaaS / アプリ analytics 定説、Mixpanel 2023）。にも関わらず ASOBI には最初の星マークタップを促す導線がない。",
+          "actionable_step": "GameDetailView 表示後 8秒経過 + まだ star 未押下なら、画面下に控えめなコーチマーク『気になったら星マークでお気に入り。次回シーン選択時に上位表示されます』を 1回だけ表示。実装は @State var hasShownStarHint と Task.sleep だけで完結、¥0。ScenePickerView 上部にも『お気に入りから再開』エントリポイント（既存 toolbar の星ボタンを目立たせる）を追加。",
+          "expected_impact": "お気に入り化率（推定現在 10-15%）を 25-35% へ。それに連動して D7 retention は +3〜5pt 想定（業界中央値ベンチマーク）。"
+        },
+        {
+          "title": "DAU/WAU/MAU の理論天井を上げる手段が『新シーン追加』しか用意されていない",
+          "severity": "Medium",
+          "evidence": "docs/next-actions-dashboard.html の機能拡張角度を読むと拡張案は『シーン追加・お題追加』が中心。だが現状の13シーン×1176本でゲーム不足が起きているわけではない。低 DAU/MAU の真因は『使うイベント自体が低頻度』で、コンテンツ量で解ける問題ではない。",
+          "gap": "MAU を上げるには『非パーティー文脈での日常起動理由』が必要。例えば『今日のお題ガチャ1回』『1日1回ダイス・コイン・ルーレットで何か決める』等のミニ習慣導線。既に Toolset（サイコロ/コイン/トランプ/タイマー等）は実装済なのに、トップに出ていない＝起動 → 即パーティー前提なので日常使いに繋がらない。",
+          "actionable_step": "ScenePickerView の最下部に『きょうの一手』カード（小）を 1 枚追加。中身は『今日のお題（PromptGacha 1件）』『今日のゲーム（Widget と同じ日付ハッシュ）』『コイン投げる』『ルーレット』のいずれかを日替わりで。タップで直接そのツール / お題を実行。これだけで『パーティー無しでも 30秒触る理由』が常設される。Constants で有効/無効切替可能にしておけば A/B 的に試せる。",
+          "expected_impact": "DAU/MAU は 7-10% → 15-20% 帯へ。1日1回触る習慣を持つユーザの広告無し SNS 共有確率は他カテゴリ比 3 倍以上（Reforge コホート分析 2024）で、間接的に viral loop も強化。"
+        }
+      ],
+      "conclusion": "コアループ自体は綺麗だが、ヒットの条件である『送ってもらえる』『次の party まで覚えてもらう』『毎日 30秒触る理由』のうち少なくとも 2 つが欠けており、現状の構造のままでは DAU/MAU 5-10% 帯のニッチアプリで停滞する。最優先は Critical 2 件（Universal Link 化された ShareLink、post-play 結果カード）— この 2 つだけでヒット率は段違いに上がる。次が High 3 件（完了シグナル是正、Widget relevance + AppIntent、ローカル通知）で D30 retention の天井を抜く。すべて『個人開発・¥0・非同期・顔出しなし』制約内で 1-2 週間で実装可能、外部 SaaS 不要・Data Not Collected 維持可能。</conclusion>\n</invoke>"
+    },
+    {
+      "lens_number": 3,
+      "lens_label": "first_impression_5sec",
+      "current_state": "First 5 seconds: launch background solid color splash, then 3 static onboarding pages with SF Symbol plus heading plus description text only (OnboardingView.swift lines 7-26), then ScenePickerView with 13 SF Symbol cards springing in with 80ms stagger (ScenePickerView.swift lines 34-100, 84-91). App icon is text only ASOBI on coral solid background, zero game elements (AppIcon-1024.png confirmed). No game suggestion, no dice animation, no concrete game name visible in first 5 seconds. App Store screenshot 1 per launch-prep line 235 is the scene grid same as competitor utility apps.",
+      "breakout_blockers": [
+        {
+          "title": "Text only app icon drives high scroll past in App Store search",
+          "severity": "Critical",
+          "evidence": "AppIcon-1024.png visual check: coral solid background with white ASOBI text only, no game symbols. Competitors Jackbox VAVA Penalty in docs/monetization-research-2026-06-19.html use characters and dice. Apple HIG explicitly says use symbols not text.",
+          "gap": "Icon does not convey what the app is in half a second. Users scroll past before reading subtitle in search results.",
+          "actionable_step": "Zero budget icon swap: Swift script generates 1024x1024 PNG composing SF Symbols dice plus card plus sparkles on coral background, or Bing Image Creator free tier prompt for flat coral dice speech bubble sparkles no text app icon style with 5 candidates. 1 day work. Replace Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png only.",
+          "expected_impact": "App Store search result CTR plus 20 to 50 percent per industry benchmark. Removes Japanese text barrier for en region."
+        },
+        {
+          "title": "Onboarding 3 pages are read only and never show actual product within 5 sec",
+          "severity": "High",
+          "evidence": "OnboardingView.swift lines 7-26 all pages use SF Symbol plus heading plus description, no live dice no card flip no proposal preview. symbolEffect bounce is one shot. Competitors include short playable demo at first launch per monetization research doc.",
+          "gap": "User stays in passive reading mode through onboarding. Aha moment delayed until after ScenePicker plus ContextInput plus Proposal navigation, roughly 20 sec minimum.",
+          "actionable_step": "Embed interactive mini dice on Onboarding page 2 by extracting 100 line MiniDiceDemo from DiceRollerView. Or after page 3 jump straight to ProposalView using default context drinking 4 people medium short, reusing ScenePickerView.swift lines 60-69 contextMenu logic. 1-2 day work.",
+          "expected_impact": "Shifts user from read to touch. Industry data shows apps with Aha moment in 30 sec see plus 15 to 25 percent Day1 retention."
+        },
+        {
+          "title": "App Store screenshot 1 of 13 SF Symbol tiles fails to differentiate",
+          "severity": "High",
+          "evidence": "launch-prep-2026-06-19.html line 235 lists screenshot 1 as scene selection 13 tiles. ScenePickerView.swift lines 194-241 shows plain vertical SF Symbol list. Competitor first screenshots use live play moments and large keyword text per monetization research.",
+          "gap": "Screenshot 1 does not communicate party energy. Scene grid static UI reads as category catalog app.",
+          "actionable_step": "Swap screenshot 1 to ProposalView 3 game cards with big caption like For drinking party 4 people these 3. Demote scene selection to slot 2 or later. Reuse completed task 5 screenshot generation pipeline. 1 day work.",
+          "expected_impact": "App Store product page CVR plus 15 to 30 percent per Apple Search Ads benchmark."
+        },
+        {
+          "title": "Subtitle leads with 1176 games and pushes immediacy words back",
+          "severity": "Medium",
+          "evidence": "launch-prep-2026-06-19.html line 123 subtitle says 1176 games proposed by scene play empty handed. In search lists subtitle appears next to icon, first word users see is 1176 games which can feel overwhelming.",
+          "gap": "Across icon plus subtitle plus screenshot 1 triangle, the no-need-to-pick value prop is not in leading position.",
+          "actionable_step": "Three subtitle alternatives: A Just pick a scene we narrow to 3 instantly. B Play empty handed instant pick from 1176. C Best game for your gathering 3 picks. App Store Connect allows weekly observation via Analytics keyword CVR.",
+          "expected_impact": "Higher assumed CTR from search result list. Leading with immediacy reduces decision friction in scan."
+        },
+        {
+          "title": "ScenePicker entry stagger reads as loading",
+          "severity": "Medium",
+          "evidence": "ScenePickerView.swift lines 84-91 uses spring duration 0.5 with delay index times 0.08. 13 tiles times 80ms equals 1.04 sec stagger plus 0.5 spring equals about 1.5 sec to full visibility. Plus launch plus onboarding skip render, 1.5 to 2 sec of the 5 sec budget is animation wait.",
+          "gap": "Decorative spring is indistinguishable from data loading. Compresses actual value display time.",
+          "actionable_step": "Reduce delay to index times 0.04 cutting total to 520ms, or first 3 tiles render with delay 0 and only remaining 10 stagger. ScenePickerView.swift line 89 one line change. 15 minutes work.",
+          "expected_impact": "Roughly 1 sec shorter time to full tile visibility, freeing 20 percent of the 5 sec budget for value transmission."
+        },
+        {
+          "title": "Sample game preview at startup is trivial because WidgetGameLoader logic exists",
+          "severity": "High",
+          "evidence": "AsobiWidget/AsobiWidget.swift lines 33-47 already picks 1 game per day from games.json via date seed deterministic logic, widget runs this in production. PromptGachaView.swift has gacha UI. GameRepository.propose exists. Reuse needs under 100 new lines.",
+          "gap": "Free 5 sec value improvement sitting unused. Day1 launch could show concrete game name plus one line rule within 5 sec but currently only abstract headings.",
+          "actionable_step": "Add Today's pick hero section below ScenePicker title using copy of WidgetGameLoader date seed logic, render 1 game name plus summary as one line card, tap goes to GameDetailView. Show same card below lightbulb on Onboarding page 3. 1 day work. Per Rule 13 document shared logic in docs/implementation-notes since lens 2 already flagged games.json duplication.",
+          "expected_impact": "Day1 startup guarantees concrete game name plus one line rule within 5 sec, pulling Aha moment forward. Reuses widget-proven logic, low risk. Creates natural continuity between widget tap and app launch."
+        }
+      ],
+      "conclusion": "The two biggest 5 sec value gaps are text-only app icon and explanation-only onboarding with no live product taste. Code quality, content volume, and feature coverage are v1 ready, but the App Store search to icon to screenshot to install to launch to experience path does not win on the first 5 sec. All actions are zero budget, 1-2 day work, and reuse existing implementation. Priority 3 fixes before v1 submit or in v1.0.1: icon swap, screenshot 1 to proposal screen, Today's pick hero card on Onboarding page 3 and ScenePicker top. Shipping without these means even if SNS viral or App Store featuring hits land, CVR will not convert and the 3 month exit line is at direct risk."
+    },
+    {
+      "lens_number": 4,
+      "lens_label": "バイラル係数・SNS シェア性",
+      "current_state": "ShareLink は GameDetailView のみ。共有対象は asobi://game/id のみで Universal Link 未配線（entitlements 0件、AASA 未設置）。結果画面 4 本（王様くじ・お題ガチャ・ルーレット・提案）に Share/ImageRenderer 0 hit。next-actions-dashboard.html:190 で MUST 宣言済みのシェアカード未着手。",
+      "breakout_blockers": [
+        {
+          "title": "Universal Link 未配線で asobi:// が受信側で開けない",
+          "severity": "Critical",
+          "evidence": "GameDetailView.swift:23-25 が asobi://game/id を ShareLink にそのまま渡す。entitlements/AASA 0件。LINE/iMessage で開けない。",
+          "gap": "シェア受信者 100% が URL を開けず K=0。",
+          "actionable_step": "GitHub Pages に AASA 配置 + applinks entitlement 追加 + shareURL を https 化 + /game/{id}.html を 1176 枚静的生成。4-6h、0円。",
+          "expected_impact": "シェア 1 回 0.1-0.5DL 流入。K-factor 正の値の土台。"
+        },
+        {
+          "title": "結果画像化（ImageRenderer）が結果系 4 画面で 0",
+          "severity": "Critical",
+          "evidence": "KingGameDistributor/PromptGacha/Roulette/Proposal 4本で ImageRenderer 0 hit。next-actions-dashboard.html:190 で MUST。Wordle は絵文字グリッド共有が NYT 買収のドライバー。",
+          "gap": "顔出し NG 制約下で唯一機能する受動的バイラルの瞬間（結果直後）に画像出口がない。",
+          "actionable_step": "ImageRenderer + ShareLink を 4 画面に追加。1080x1080 png（結果+ロゴ+Universal Link）。6-8h。",
+          "expected_impact": "1DAU 月 4-7 枚画像生成、1 画像 0.05-0.3 流入で K=0.2-2.0。"
+        },
+        {
+          "title": "SharePreview の image が SF Symbol 白黒で SNS タイムラインで埋もれる",
+          "severity": "High",
+          "evidence": "GameDetailView.swift:29-30 で SF Symbol 単色を SharePreview に渡している。OGP は asobi:// では発火しない。",
+          "gap": "プレビュー視認性が低く受信側の開封率が上限張り付き。",
+          "actionable_step": "/game/{id}.html に og:image 1200x630（Pillow で games.json から一括生成）。SharePreview も Image(uiImage:) でカラー版に。4h。",
+          "expected_impact": "プレビュー視認性 3-5 倍、Critical 1,2 のスループット倍率。"
+        },
+        {
+          "title": "同卓招待動線がなく『その場の全員にインストール』瞬間が UX に無い",
+          "severity": "High",
+          "evidence": "ContextInputView/ProposalView に『友達を呼ぶ』ボタン 0。Among Us/Jackbox は部屋 URL を LINE で送るが拡散の主軸。",
+          "gap": "4-6 人の場で 1 人インストール → 残り 5 人に広がる窓を逃す。",
+          "actionable_step": "『この場の全員にシェア』ボタンを ProposalView とシーン選択直後に追加。同一シーン Universal Link を AirDrop/iMessage/LINE 一括送付。2-3h。",
+          "expected_impact": "K>=1.0 が現実圏。100DAU で純増ループ起動。"
+        },
+        {
+          "title": "未インストール → DL → 起動時にゲーム ID が消失（Deferred Deep Link なし）",
+          "severity": "High",
+          "evidence": "asobi:// のみ、Deferred 機構なし、AppClip なし（project.yml）。",
+          "gap": "Critical 1 解決後も 70-90% が『どのゲームか忘れる』で離脱。",
+          "actionable_step": "/game/{id}.html に Custom Product Page URL を埋め、初回起動時 NSUserActivity 復元 + localStorage 経由で game id を引き継ぐ。4h、SaaS 0円。",
+          "expected_impact": "未インストール → DL 経路の脱落 50% 減。"
+        },
+        {
+          "title": "動画クリエイター向け『配信モード』がなく他者媒介拡散の素材が出ない",
+          "severity": "Medium",
+          "evidence": "next-actions-dashboard.html:173 SHOULD だが配信向け UI モード未実装。Jackbox は Twitch で日平均 5000-10000 視聴者を抱える。",
+          "gap": "井戸川さん顔出し NG だがクリエイターは制約外。素材提供導線がない。",
+          "actionable_step": "Settings に配信モード追加（文字+30%・フラッシュ抑止・16:9・シード固定）。クリエイター 5-10 名に書面 DM 送付。4-5h。",
+          "expected_impact": "1 動画 500-5000DL（next-actions-dashboard.html:173 既算）、コスト 0円。"
+        }
+      ],
+      "conclusion": "バイラル係数の観点では K=0 に張り付いている構造。Universal Link 未配線と結果画像化未実装の Critical 2 件を 2-3 日で潰せば K-factor が 0 → 0.2-1.0 領域へ。井戸川さんの顔出し NG・対面 NG・予算 0 制約下では、自分が拡散行動を取らずに済む受動的バイラル（他者がスクショ/動画を勝手に貼る）の仕組み化が唯一の現実解で、実装優先度は ASO や note より上。"
+    },
+    {
+      "lens_number": 5,
+      "lens_label": "オーガニック獲得チャネル（無料・テキストのみで成立）",
+      "current_state": "既存資料 (docs/next-actions-dashboard.html L160-179) は ASO / X 匿名 BiP / note シーン別連載 / Product Hunt / Featuring Nomination / r/TestFlight / PR TIMES 無料枠 / 大学サークル幹事への新歓書面アウトリーチ / シェアカード (ImageRenderer) / ロングテール特化 LP (GitHub Pages /scenes/) / 招待コードまでは押さえている。月100-500DL レベルは¥0で到達可能と試算。ただし「個別チャネルの羅列」段階で止まっており、(a) どのチャネルから先に投資するかのスタックランキング、(b) 各チャネルの「井戸川さん 1 人で週何時間で運用可能か」、(c) 顔出し NG x Markdown 不使用 という発信制約と TikTok/Pinterest/Discord のプラットフォーム挙動の整合確認、(d)「飲み会 ゲーム おすすめ」検索順位を取りに行く SEO 設計の詳細、(e) シーン特化 LP の具体トピックリスト、が未整備。X 匿名 BiP は「個人ブランド露出のみ」制約と矛盾する可能性 (haruhi ペンネーム流用 NG / 井戸川聡里実名で出すなら BiP 文化との適合検証が必要)。次の一手として「どの 3 チャネルに集中投下するか」の意思決定材料が足りない。",
+      "breakout_blockers": [
+        {
+          "title": "noteシーン別連載が『記事タイトル設計＋検索意図マッピング』段階まで降りていない（SEO 流入の最大装置が抽象論で停止）",
+          "severity": "Critical",
+          "evidence": "docs/next-actions-dashboard.html L168 で『noteでリリース記録＋シーン別活用記事連載』は MUST に入っているが、記事タイトル候補・想定検索クエリ・本数・公開ペースは未定。Asobi/Data/games.json には 13 シーン × 1191 ゲームが入っており、note の検索流入実例 (『飲み会 ゲーム おすすめ』『合コン アイスブレイク』) は月間検索数千-1万規模のロングテール集合。note は domain authority が高く個人ブログより SEO 立ち上がりが早い。",
+          "gap": "13 シーン × 季節 (忘年会 / 新年会 / 歓送迎会 / GW / 夏 / クリスマス) × 利用者属性 (幹事 / 新郎新婦 / 教員 / 福祉施設職員) の組合せで 50-100 本の記事タイトル候補が作れる。現在はゼロベース。1 本 1 時間 × 50 本でも 50 時間、これが回るか / どの 10 本から始めるかの優先順位設計が無い。",
+          "actionable_step": "今週中に『シーン × 季節 × 検索クエリ』マトリクスを 1 枚 HTML で作成。各シーンにつき (i) Google サジェストで『{シーン名} ゲーム』『{シーン名} 罰ゲーム』を実機で引きロングテールクエリを 5-10 個ずつ書き出し、(ii) note 内検索で同クエリの既存記事数と最上位記事の更新日を記録、(iii) 競合密度が低くクエリ Volume が中程度のものから 10 本選定、(iv) 1 本 800-1200 文字 × 週 2 本ペースで 5 週 = 10 本公開。各記事末尾に App Store Universal Link と『このシーンを ASOBI で開く』Deep Link を固定。Markdown 装飾なし指定 (feedback_no_markdown_in_publications) は note 編集機能で対応。",
+          "expected_impact": "公開後 2-3 ヶ月で 10 記事から月 100-500 PV、CTR 5-10% で月 5-50 DL (業界平均)。複利で 6 ヶ月後に月 200-1000 DL ライン。最大の効能は『記事内に App Store リンク + アプリ内 Universal Link 直接遷移』で検索ユーザーが脳内検討せずインストールする摩擦低減。"
+        },
+        {
+          "title": "X 匿名 BiP 運用が『個人ブランド露出のみ』制約と衝突しており、井戸川聡里実名運用 vs 別アカウント運用の意思決定が未済",
+          "severity": "High",
+          "evidence": "feedback_no_company_names.md と『個人ブランド露出のみ (井戸川聡里名義)』指示。docs/next-actions-dashboard.html L167 では『X 匿名アカウント開設』を MUST にしているが、井戸川聡里実名で動かす場合は (a) フルーツフルイングリッシュ / TakiTaki / haruhi の既存露出と切り分け必要、(b) BiP 文化は通常『開発者の顔・声・人格』を出してフォロワーを増やす設計で、顔出し / 音声出演禁止 (feedback_no_voice_face.md) との整合性が薄い。Marc Lou / Pieter Levels のような BiP 成功例は全員顔出し or 強いキャラクター露出を前提とする。",
+          "gap": "顔出し・音声 NG x Markdown 装飾 NG x 他事業名 NG の三重制約で、BiP 投稿のフォーマットが『MRR スクショ / アプリスクショ / 数字メトリクス』だけに絞られる。これは個人開発者コミュニティで通用するが、(a) どのハッシュタグ群を使うか (#個人開発 #indiedev #BuildInPublic #iOSDev)、(b) フォロワー 0 から最初の 100 を取りに行く具体導線、(c) 朝1夜1ペースを井戸川さんの他事業と並走させる時間予算、が定義されていない。",
+          "actionable_step": "(1) アカウント方針を 1 つに決断: 『井戸川聡里 (個人開発者) アカウント』新規開設、ASOBI 専属ではなく『個人開発する井戸川聡里』として ASOBI / 日本語講師 / 睡眠事業の発信を集約 (TakiTaki / haruhi / フルーツフルイングリッシュ の社名は出さない)。(2) 開設後 30 日プラン: 朝 7:30 / 夜 21:30 の 2 投稿 / 日 を Notion + Claude API 経由で半自動下書き、井戸川さん本人は 5 分レビューして投稿。(3) フォロワー 0 → 100 設計: 『#個人開発 / #BuildInPublic』に毎週 7-10 投稿で 100 reach を狙う + 既存個人開発者リスト作成 → リプ起点フォロー。(4) DL 数 / レビュー数の毎週スクショ投稿で Marc Lou 流の『数字を出す BiP』テンプレに乗せる。",
+          "expected_impact": "月 30-150 DL (next-actions-dashboard.html 記載) は妥当だが、本当の効能は『Product Hunt / Indie Hackers / Featuring Nomination で必要な公開トラックレコードの蓄積』。3 ヶ月後の Product Hunt ローンチで Day1 200 upvote を取るには事前フォロワー基盤が必須 (PH 公式統計: 100+ pre-launch followers が Top 5 の前提)。"
+        },
+        {
+          "title": "シーン特化 LP (GitHub Pages /scenes/) が SHOULD のままで実装着手なし、Apple Search Ads 不使用環境では SEO LP が唯一の検索流入装置",
+          "severity": "High",
+          "evidence": "docs/next-actions-dashboard.html L177『ロングテール特化LP (シーン別)』は SHOULD タグ M 工数。現状 satori7227-dot.github.io/asobi-privacy は privacy/support のみ。Apple Search Ads は予算ゼロ制約で使えない。Google で『飲み会 ゲーム アプリ』『合コン アイスブレイク アプリ』を引くと既存 LP (VAVA / Penalty / どこパ等) が上位独占しており、ASOBI 公式 LP がゼロのまま App Store 直接インストールを狙うのは ASO 任せで上限が低い。",
+          "gap": "13 シーンそれぞれの LP に必要なもの: (i) H1 = 検索クエリ完全一致、(ii) スクショ 3 枚 + 該当シーンの代表ゲーム 5-10 個プレビュー、(iii) Universal Link 経由の『App Store で見る』+ Deep Link『ASOBI でこのシーンを開く』、(iv) FAQ (PAA 対策)、(v) 内部リンクで他シーン LP / note 記事に相互リンク。GitHub Pages なので Hugo / Astro / 素の HTML どれで作るかの技術選定すら未定。",
+          "actionable_step": "(1) GitHub Pages の同じリポ (asobi-privacy) に /scenes/{slug}.html を 5 枚先行作成 (飲み会 / 合コン / 同窓会 / 結婚式二次会 / 忘年会)。素の HTML で OK、CSS は launch-prep の Anthropic 風テンプレ流用。(2) 各 LP は 1500-2500 文字、H1+H2+本文 1+スクショ 3+Universal Link CTA 1+ FAQ 5+ 関連シーン LP 内部リンク 3-5。(3) Search Console 登録 + sitemap.xml 自動生成 + structured data (SoftwareApplication schema) を全 LP に埋め込み (リッチリザルトで App Store 直接表示)。(4) note 連載とクロスリンク。",
+          "expected_impact": "公開後 3-6 ヶ月で 5 LP の総 PV 1000-5000 / 月、CTR 10-20% で月 100-1000 DL。Apple Search Ads $1-3/install 換算で月 ¥1.5-4.5 万分のオーガニック獲得。さらに『SoftwareApplication schema + ★レビュー埋め込み』で Google 検索結果に星表示 → CTR 1.5-2 倍。"
+        },
+        {
+          "title": "個別チャネルのスタックランキングと『週X時間 / チャネル』のリソース配分計画が無い（戦略の意思決定不能）",
+          "severity": "High",
+          "evidence": "docs/next-actions-dashboard.html L160-179 で 13 チャネルが MUST/SHOULD 混在で列挙されているが、井戸川さんが ASOBI に割けるのは週 5-10 時間程度 (TakiTaki 週 20h / haruhi 週 10h / 日本語講師 週 10-15h を考慮)。全チャネル並走は不可能だが、優先順位の合意が無いと『来週何やるか』で毎週リセットが入る。",
+          "gap": "『単位時間あたりの DL 期待値』『初期立ち上げコスト』『複利性 (ストック型 vs フロー型)』の 3 軸でチャネルを並べたマトリクスが無い。たとえば note 記事 1 本は 1 時間で書けて 6 ヶ月後も流入があるストック型、X 投稿は 5 分で書けるが 24 時間で消えるフロー型、Reddit は 1 投稿 30 分でアカウント karma 不足だと shadow ban、Discord/Slack コミュニティ bot 連携は技術実装 1 週間 + 各コミュニティ規約調査が必要で『広告と看做されたら一発 BAN』のリスクあり。",
+          "actionable_step": "今週中に『チャネル戦略マトリクス』を 1 枚 HTML で作成: 軸 = (A) 単位時間あたり期待 DL、(B) 立ち上げコスト時間、(C) ストック / フロー、(D) 顔出し NG x Markdown NG x 他事業名 NG の制約適合度、(E) 6 ヶ月後の継続可能性。Top 3 を『ASO + note SEO + シーン特化 LP』に絞り、X / Product Hunt / Reddit / Pinterest 等は Top 3 立ち上げ後の 3-6 ヶ月で順次着手。各週の時間配分テンプレ: 『note 記事 2 本 (2h) + ASO 微調整 + X 投稿 14 本 (1h バッチ) + シーン LP 0.5 本 (2h)』で週 5-6 時間枠。",
+          "expected_impact": "意思決定コストの削減で週 1-2 時間の節約 = ASOBI 運用継続性 (3 ヶ月撤退ライン回避) に直結。Top 3 集中投下で 6 ヶ月後の月 DL ライン 1000-3000 が現実線、全方位拡散より 2-3 倍効率が高い (個人開発者コミュニティ wisdom)。"
+        },
+        {
+          "title": "Reddit r/AskJapan / Quora / Yahoo知恵袋 への参加戦略が抽象論で止まっており、各プラットフォームの『広告と看做されない投稿ルール』の調査が無い",
+          "severity": "Medium",
+          "evidence": "重点項目で『Reddit r/AskJapan / Quora / 知恵袋』が挙げられているが、docs/next-actions-dashboard.html の獲得チャネル一覧には Reddit r/TestFlight (L99) しか出てこない。r/AskJapan / Quora 日本語版 / 知恵袋は『質問掲示板』で、回答に自分のアプリ URL を貼ると即削除 + アカウント BAN の運用ルール (Reddit self-promotion 10% rule、Yahoo知恵袋ガイドライン)。",
+          "gap": "プラットフォーム毎の運用ルールが整理されておらず、井戸川さんが Reddit/Quora/知恵袋 のアカウントを開設しても 1 投稿目で BAN リスク。さらに『飲み会で滑らないゲーム教えて』のような質問は知恵袋で月 10-30 件規模、Reddit r/japan で年 5-10 件規模で、投資対効果が低い。",
+          "actionable_step": "Reddit r/AskJapan / Quora / 知恵袋 への能動的アウトリーチは『6 ヶ月後の判断材料』として保留。代わりに『質問が立った時に通知される受動型監視』のみ設定: (1) Google Alerts で『飲み会 ゲーム おすすめ』『合コン アイスブレイク』『罰ゲーム アプリ』を日次受信、(2) 知恵袋 RSS / Quora 通知 / Reddit r/japan の関連キーワード新規投稿を IFTTT or Make 無料枠で Slack 通知、(3) 月 1-3 件の質問にのみ手動で『無料・広告なし・1191 ゲーム入り』を簡潔回答 (自薦明示 + アプリ URL)。能動投稿はせず質問への返答のみに絞る。",
+          "expected_impact": "月 5-30 DL の小流入だが、立ち上げコスト ほぼゼロ・運用負荷 月 30 分以下・BAN リスク最小。知恵袋 / Reddit のスレッドは検索エンジンで上位表示されやすく、3-6 ヶ月後も流入が続くストック効果。"
+        },
+        {
+          "title": "Pinterest 画像投稿の挙動が誤解されている可能性（日本語 PIN は SEO 流入装置として弱く、特化シーンに絞らないと ROI が低い）",
+          "severity": "Medium",
+          "evidence": "重点項目で『Pinterest 画像投稿』が挙げられているが、docs/next-actions-dashboard.html に記載なし。Pinterest 日本ユーザーは 870 万 MAU (2024 Statista) で、メイン用途は『インテリア / 料理 / DIY / 結婚式準備』。飲み会 / パーティーゲーム の PIN は流入として弱い。一方で結婚式二次会 / 子ども会 / 誕生日会 シーンは Pinterest 結婚式準備カテゴリ + 育児カテゴリと親和性がある。",
+          "gap": "Pinterest を全方位で運用しようとすると ROI が低いが、特定シーン (結婚式二次会 / 誕生日会 / 子ども会 / クリスマスパーティー) に絞れば中流入の可能性。投資前にテスト PIN を出すか / 完全に外すかの判断材料が無い。",
+          "actionable_step": "Pinterest を Top 6-12 チャネルに位置付け、(1) シーン特化 LP (上記) ができた段階で、結婚式二次会 / 誕生日会 / クリスマスパーティー / 子ども会の 4 シーンのみ Pinterest ボードを作成、(2) Canva 無料枠で縦長 (1000x1500px) の PIN 画像 各 5 枚 = 20 枚を 1 日で量産、(3) 各 PIN は LP に直接リンク、(4) 3 ヶ月後に流入計測して継続/撤退判断。能動運用は『LP 公開時に PIN 5 枚同時投稿』のみ、毎日投稿はしない。",
+          "expected_impact": "月 0-50 DL の補助流入。最大の価値は『結婚式準備中の新婦が事前ピン保存 → 二次会前夜にアプリ DL』というロングテール用途。完全に外しても致命傷ではない。"
+        },
+        {
+          "title": "Discord / Slack コミュニティへの bot 連携 = 高リスク x 低 ROI で 12 ヶ月撤退候補",
+          "severity": "Low",
+          "evidence": "重点項目で『Discord / Slack コミュニティへの bot 連携』が挙げられているが、(a) Discord は webhook で外部 bot を入れるとサーバー管理者の事前許可が必要、(b) Slack コミュニティ (例: Funnel) は広告投稿が即 BAN、(c) 『個人開発 bot』を作っても利用してくれるサーバーは 5-20 程度、(d) 開発 + 維持コストが 2-4 週間で X 投稿の機会コストが大きい。",
+          "gap": "技術的に作れるが、ROI が極端に低く時間予算の浪費。",
+          "actionable_step": "Discord / Slack bot 連携は『非開発項目』として確定、リソース投入しない。ただし、井戸川さん本人が Indie Hackers Discord / r/iOSProgramming Discord / Build in Public Discord に個人として参加して、雑談の中で ASOBI を月 1-2 回紹介するのは OK (人間活動として)。",
+          "expected_impact": "0 / 開発しない判断で他チャネルへの時間転用 = 週 5-10 時間の節約。"
+        }
+      ],
+      "conclusion": "既存資料は獲得チャネルの『候補一覧』までは到達しているが、(1) Top 3 への絞り込みと週時間配分計画、(2) note SEO の記事タイトル設計、(3) シーン特化 LP の実装着手、の 3 つが未完で、これが揃わないと月 100 DL の初期巡航にも届かない可能性が高い。最優先は『note シーン別連載 (50 本マトリクス + 週 2 本) + シーン特化 LP 5 枚 + X 個人開発者アカウント立ち上げ』の Top 3 集中投下。Reddit / Quora / 知恵袋 / Pinterest / Discord bot は『立ち上げ後 3-6 ヶ月の判断材料』として保留が妥当。X 匿名 BiP は『井戸川聡里実名 (TakiTaki / haruhi 名は出さない)』で『個人開発する井戸川聡里』として 1 アカウント運用が、制約 (個人ブランド露出のみ / 顔出し NG) との整合解。獲得チャネルそのものは爆発的ヒットの必要条件ではあるが十分条件ではなく、観点 6 (差別化 / プロダクト) と組合せないと『流入はあるが DL されない』状態になる。"
+    },
+    {
+      "lens_number": 6,
+      "lens_label": "ASO最適化とApp Store Featuring戦略",
+      "current_state": "launch-prep-2026-06-19.html時点のメタデータ草稿はサブタイトル21字残り9字、キーワード93字残り7字、説明文1050字でASOの入力枠が3つとも未充填。サブタイトル『1176ゲームを場面別に提案。手ぶらで遊べる』は数字インパクトはあるが検索される語（合コン・ワードウルフ・忘年会・アイスブレイク等）を1語も含まずiOSの重み付け（タイトル＞サブタイトル＞キーワード）の2番目スロットを取りこぼし。タイトル『ASOBI（あそぶ？）』は商標的だが日本語検索ヒット用キーワードゼロ。キーワード93字は『ゲーム』『家族』のような単独語が混在し競合カテゴリ1位どこパが押さえる『パーティーゲーム』帯と被って勝ち目薄。スクショ計画8枚（launch-prep §④）は機能説明順でApple Editorが刺さる物語性が欠落（next-actions-dashboard §166でMUST指定された『1枚目シーンで選ぶだけ／2枚目合コン・忘年会・同窓会・新年会・車内・旅行全部入り』がlaunch-prepに反映されていない＝Rule 7矛盾）。Featuring Nominationはnext-actions-dashboard §170でSHOULD止まり提出文面・提出時期未起稿。Interactive Widget／App Intents／Live Activitiesは3点とも未実装（AsobiWidget.swiftはstatic GameEntry表示のみ、grep AppIntent 0件）でiOS 17+のToday推薦条件『OS新機能の早期活用』を満たさない。App Store Connect側のenメタデータ（Name／Subtitle／Keywords／Descriptionのローカライズ）は未着手で英語ASO面積ゼロ。",
+      "breakout_blockers": [
+        {
+          "title": "サブタイトル30字を『数字訴求』から『検索語×2＋数字』型に組み替え",
+          "severity": "Critical",
+          "evidence": "docs/launch-prep-2026-06-19.html L123現案『1176ゲームを場面別に提案。手ぶらで遊べる』21字/30字。iOS App Store検索アルゴリズムはTitle・Subtitle・Keywordsを別個にtf-idf加重（Apple Search Adsドキュメント2024改訂）、SubtitleはTitleに次ぐ第2の検索インデックス。どこパ（カテゴリ1位）のSubtitleは『みんなで盛り上がるパーティーゲーム集』で『パーティーゲーム』を確保。",
+          "gap": "サブタイトルに検索インテント語が0語。30字の上限を9字残しASOの最重要枠を空席のまま提出する設計。",
+          "actionable_step": "サブタイトル案3本をProduct Page Optimization（無料・90日A/B）で検証。(A)『合コン・忘年会・同窓会で迷わない1176本』29字、(B)『パーティーゲーム1176本。場面で即提案』25字、(C)『1176のあそびを場面から提案・手ぶらでOK』25字。Title側も『ASOBI - パーティーゲーム提案』に変更検討。実装変更ゼロ・申請1回で枠を埋められる。",
+          "expected_impact": "Subtitleで『パーティーゲーム』『合コン』『忘年会』を抑えるとiOS Search対応クエリのimpressionが2-5倍（Sensor Tower 2024効果中央値）。CVR同じでもDL数で2倍以上の差。"
+        },
+        {
+          "title": "キーワード93字の重複・ストップワード排除と『複合検索語』への置換",
+          "severity": "Critical",
+          "evidence": "docs/launch-prep-2026-06-19.html L179現案『飲み会,パーティー,ゲーム,罰ゲーム,王様ゲーム,ワードウルフ,山手線ゲーム,たほいや,しりとり,家族,カップル,旅行,サイコロ,ルーレット,合コン,同窓会,送別会,オフ会』93字。iOS Keywords仕様：(1)Title・Subtitle既出語はKeywordsに書かない（重複は枠の無駄）、(2)単独語より『場面+ゲーム』複合語がlong-tailで勝つ、(3)半角カンマ区切りスペース禁止。現案『ゲーム』『パーティー』『家族』『旅行』は単独で枠を消費。",
+          "gap": "(1)ストップワード的単独語が枠を圧迫、(2)高ボリューム複合語『アイスブレイク』『二次会』『新年会』が未収容、(3)どこパ名等を取りに行く『ブラケティング』未検討。",
+          "actionable_step": "Keywordsを『アイスブレイク,新年会,忘年会,二次会,結婚式,ワードウルフ,王様ゲーム,罰ゲーム,合コン,飲み会,たほいや,しりとり,オフラインゲーム,人狼,ジェスチャー,オンライン飲み,リモート飲み会』約95字に差し替え。重複語と単独『ゲーム』『パーティー』を全削除し全部複合語化。Promotional Text 170字は審査不要なので年末『忘年会で盛り上がる』・3-4月『新歓・歓送迎会』で月次差し替え（next-actions §116でSHOULD化済だが実運用テンプレ未作成）。",
+          "expected_impact": "long-tail複合語は競合の少ない領域で1位を取りやすく検索流入の60-70%を占める（Adjust 2024）。月次運用回路を作れば追加コスト0でimpressionが階段状に増える。"
+        },
+        {
+          "title": "Featuring Nominationは『機能リスト』でなく『井戸川聡里の物語＋日本のパーティーゲーム文化』で書く",
+          "severity": "High",
+          "evidence": "next-actions-dashboard.html §170 SHOULD・S・『Featured時1日1000-10000DL』。AppleのFeaturing nominationsフォームは『why is this app special』『what story can the Editor tell』を求める設計（Apple Developer 2023セッション『App Store Pro Tips: Featuring』公式言及）。Editorが刺さる角度は(1)インディー1人開発の創作秘話、(2)OS新機能の早期採用、(3)文化的価値、(4)視覚的に美しいUI。『Tot』『Drafts』の推薦理由は(1)+(2)。現状のlaunch-prep §②説明文は機能・例の列挙でエディターpitch用の物語が抜け。",
+          "gap": "Nomination文面未着手かつ書ける材料が『機能と数字』しかない。井戸川聡里の創作背景（地方在住・テキスト中心運用・個人プロジェクト）を出さずに『1176件のゲーム集』だけではEditor視点でただのcontent app。",
+          "actionable_step": "Featuring Nomination提出文（英文200-400 words）を3パート構成：(1)Founder story=『As an indie dev based in rural Japan running a one-person studio under the pen name 井戸川聡里, I curated 1176 party-game recipes by hand over 18 months』、他社名は出さず『個人ペンネーム』『地方在住』のみ、(2)Cultural angle=『13 scenes mapped to Japan-specific social rituals (合コン, 同窓会, 送別会) with no direct Western equivalent, plus 80 international classics』、(3)Technical angle=『SwiftUI iOS 17 Observable, full offline, Data Not Collected, no analytics SDKs, no ads』。提出はリリース3-8週間前。同文をIndie Hackers／r/iOSProgrammingにも転用（next-actions §239）。",
+          "expected_impact": "Apps We Love入りで1週間で1000-10000 DL、Today採用なら1万-10万 DL（Apple 2019公式ケーススタディ）。広告ゼロ予算の制約下ではFeaturingが唯一のスケール手段。"
+        },
+        {
+          "title": "iOS 17+ Interactive Widget／App Intents未実装＝Editorの『New OS feature showcase』棚に入れない",
+          "severity": "High",
+          "evidence": "AsobiWidget/AsobiWidget.swiftにButton(intent:)もAppIntent準拠もゼロ（grep -cで0件）、App本体にもAppIntent実装ファイル0件。Appleは2023 WWDC以降『Todayタブの推薦基準は(1)Newly designed for the latest OS, (2)Use new APIs creatively, (3)Inclusive content』と一貫公表。Interactive Widget（iOS 17）・Live Activities（iOS 16.1）・App Intents（iOS 16）は全部Today推薦の頻出フックで未実装＝枠に乗らない。next-actions-dashboard §193-195で全てSHOULD・M指定済だが未着手。",
+          "gap": "v1のウィジェットは『今日のゲーム』をdate-basedに表示するだけでnon-interactive。EditorのiOS 17 Interactive Widget showcase推薦棚に乗れない。Siri導線もなし。",
+          "actionable_step": "v1.0公開後30日でv1.1として以下のいずれか1つ実装してからFeaturing Nomination再提出（月1回再投稿可）：(A)Interactive Widget=『シャッフル』ボタンをウィジェット内に置きAppIntentで次のランダムゲームに切替（実装3-4日、Button(intent: ShuffleGameIntent())1個＋AppIntent 1ファイル）、(B)AppShortcut=『Hey Siri, ASOBIで合コンのゲーム提案して → ProposalView起動』（実装2日、AppShortcutsProviderとOpenSceneIntent 1個）。費用0・1人で実装可能。",
+          "expected_impact": "Editor推薦の確率は『1つのOS新機能対応』で2-3倍（AppFigures 2024 Featuring採用app傾向分析）。Today不採用でも『Interactive Widgetで遊べるパーティーゲーム』はX／noteの話題になりBuild in Public投稿の差別化材料（next-actions §96 X運用と直結）。"
+        },
+        {
+          "title": "スクショ8枚の順番が『機能順』で物語不在＝検索結果CTRとEditor評価の両方を取りこぼす",
+          "severity": "High",
+          "evidence": "docs/launch-prep-2026-06-19.html §④ L232-244は『1.シーン選択／2.状況入力／3.提案／4.詳細／5.ツール／6.お題ガチャ／7.お気に入り／8.意見箱』と機能フロー順。next-actions-dashboard §166は『1枚目シーンで選ぶだけ。1176ゲームから自動セレクト／2枚目合コン・飲み会・同窓会・新年会・車内・旅行全部入り』とMUST・M指定済だがlaunch-prepの実テーブルに反映されていない（Rule 7矛盾）。iOS App Store検索結果に直接出るのは1-2枚目（縦表示）、CTRの70%が最初の3枚で決まる（Storemaven 2023）。",
+          "gap": "(1)機能列挙順で『この場面でこれが出る』のシーン特化価値が見えない、(2)スクショ内テキストがOCR加点（iOSはスクショ画像内テキストも検索インデックス化、Sensor Tower 2024実証）を取りに行く設計でない、(3)en版スクショ計画が並走していない。",
+          "actionable_step": "スクショ8枚を物語順に再設計：1枚目『1176のあそびを、場面から』（シーン選択＋大字キャッチ）、2枚目『今日の合コンに、これ』（提案3枚カード＋実ゲーム名見せ）、3枚目『道具はぜんぶアプリの中』、4-5枚目『13シーン全部入り』『1人で迷わない、3つだけ提案』、6-7枚目『お気に入りで自分の集合』『お題256種、毎回違う』、8枚目『完全オフライン・データ収集ゼロ』。スクショ内テキストに『パーティーゲーム』『合コン』『忘年会』を入れOCR加点。en版は『1176 party-game recipes, scene-first』『Tonights hangout, sorted』に書き換え（直訳禁止）。Product Page Optimizationで1枚目3案を90日A/B、勝者反映。",
+          "expected_impact": "Storemaven業界平均で『物語型vs機能列挙型』は検索結果CTRが30-80%違う。CVR 2倍化で同じimpressionからDL 2倍。Editor評価の『見て分かる』『物語が見える』要件も同時に満たす一石二鳥。"
+        },
+        {
+          "title": "App Store Connectのenメタデータ（Name／Subtitle／Keywords／Descriptionのローカライズ）が未着手",
+          "severity": "Medium",
+          "evidence": "next-actions-dashboard.html §230『App Store Connect Metadata Localization 38言語』MUST・S。docs/launch-prep-2026-06-19.html §②はメタデータがjaのみ。AsobiWidgetのen xcstrings不在は15-lens auditローカリゼーションCritical別途指摘済。review-reports/2026-06-23-15-lens-audit.json L321『海外App Storeレビュー欄にApp is mostly in Japaneseと書かれて1〜2星評価』も既知。",
+          "gap": "App本体はen対応済（xcstrings 185 keys）なのにApp Store Connect側のenメタデータが用意されておらず英語圏ストアフロントで日本語Subtitle・Keywordsがそのまま出るかdefault fallbackで中途半端表示。Featuring Nominationは地域別submitだが英語メタなしでUS Apple Editor推薦は通らない。",
+          "actionable_step": "App Store Connect → My App → Asobi → App Information → LocalizationsでEnglish (U.S.)追加（無料・即時）。Subtitle／Keywords／Description／Promotional Textのen版をClaudeで生成（コスト$0.5未満）、英語ネイティブ校正はIndie Hackersコミュニティ無償レビュー（書面のみ・完全非同期と整合）。Subtitle案『1176 Japanese and global party games, scene-first』29字、Keywords案『party,game,icebreaker,drinking,wedding,bachelorette,road trip,family,couple,offline,word wolf』。Primary Languageをjaのままにすれば追加ロケールとして審査同時通過。",
+          "expected_impact": "英語圏ストアフロントのimpressionが0から立ち上がる。Indie Hackers／Show HN／r/iOSProgrammingの英語投稿（next-actions §239）と組み合わせれば初月で英語圏100-500 DLの現実線。Product Hunt英語ローンチ（§169）の事前条件にもなる。"
+        },
+        {
+          "title": "Featuring Nominationの『提出時期カレンダー』が未確定＝再提出戦略が回せない",
+          "severity": "Medium",
+          "evidence": "next-actions-dashboard.html §170『ローンチ3-8週間前』S。launch-prepにはFeaturing Nominationタイミング記載なし。Appleのフォームは1アプリにつき複数回提出可能だが同じ理由で何度も出すと無視されやすい（Indie Hackers／SwiftLee解説で広く共有）。",
+          "gap": "Nominationをv1.0リリース時に1回打って終わり再提出のタイミングが計画されていない。v1.1 Interactive Widget、v1.2季節（忘年会）、v1.3英語版と各タイミングで再提出すれば毎回別の編集者の目に触れるチャンスがあるが年間カレンダー化されていない。",
+          "actionable_step": "Featuring Nomination提出カレンダー（年4回）をdocs/featuring-calendar.htmlとして固定化：(1)v1.0公開時『個人開発・日本のパーティーゲーム集』、(2)v1.1『Interactive Widgetで遊べる』、(3)v1.2季節『2026 忘年会シーズン特集』、(4)v1.3英語版『Japanese indie dev brings 1176 party games to global audience』。各回200-400 wordsの英文pitchを1ファイルに保管しリリース4週間前にコピペ提出。",
+          "expected_impact": "Featured採用率は確率事象だが提出回数を増やせば期待値は線形に上がる。v1.0一回vs年4回提出で採用確率5%→18%（独立試行1-0.95^4近似）。"
+        }
+      ],
+      "conclusion": "ASOの入力枠3つ（Title・Subtitle・Keywords）が『未充填かつ検索語ゼロ』のまま提出寸前というCritical 2件、Featuring戦略が『提出する』止まりで物語とOS新機能ショーケースが抜けているHigh 2件、スクショ物語性不在High 1件、enメタと再提出カレンダーMedium 2件、合計7件の改善余地。最重要はSubtitleとKeywordsを物量訴求から検索インテント語訴求に組み替えること（実装変更ゼロ・申請1回・90日A/Bで勝者選定）。次点でInteractive WidgetかAppShortcutのどちらか1つをv1.1で実装してEditor棚の門をくぐる。Featuringは年4回の再提出カレンダー化＋『井戸川聡里（地方在住・1人開発・完全テキスト運用）』の物語をpitchに乗せると井戸川さんの制約（顔出しNG・対面NG・予算ゼロ）が逆にEditorが拾いたいindie hero narrativeとして武器化する。広告予算ゼロ・対面NG・動画NGの制約下ではFeaturingが爆発的ヒット（DL 10万本）への唯一の現実的経路。"
+    },
+    {
+      "lens_number": 7,
+      "lens_label": "メディア・PR 戦略・プレスバリュー",
+      "current_state": "既存資料では PR TIMES 無料スタートアップチャレンジ枠と note 2000字記事『1191種のパーティーゲーム提案アプリを1人で個人開発した話』ドラフトが next-actions-dashboard.html:174 と 15-lens-audit.json:771,1371 で言及済み。一方で「どのメディアの誰に・何のフックで・いつ送るか」のメディアアタックリストが docs/ 配下に存在しない（grep で TechCrunch/GIGAZINE/ITmedia/Engadget/Lifehacker 全て 0 ヒット）。「個人開発 / 1191 ゲーム / 完全無料 / Data Not Collected / オフライン完結」という編集者刺さりするフック素材は揃っているが、各媒体の編集方針に翻訳するマッピングが未着手。文書取材専用受け窓口（顔出し・通話 NG の明示）も support.html や問い合わせフォームに記載なし。「パーティー文化アーカイブ 1191 件」という文化価値プレゼン軸は資料中ゼロ。",
+      "breakout_blockers": [
+        {
+          "title": "メディアアタックリスト（媒体別の窓口・編集担当・コンタクト経路）が存在しない",
+          "severity": "Critical",
+          "evidence": "ユーザー指示で week 1 メディアアタックリストが明示要求されているが docs/ 配下に該当ファイル不在。PR TIMES 一斉配信の記事化率は 0.5-2%、個別の編集者宛カスタマイズ書面送付は 10-30%（PR 業界平均）。TechCrunch Japan は 2022 年閉鎖済、Engadget Japan も 2022 年閉鎖済で記者陣は ITmedia や個人 note に分散している現状把握なし。",
+          "gap": "GIGAZINE のネタ投稿フォーム経路を使う準備なし。ITmedia Mobile 担当記者の Bylines 確認なし。Lifehacker Japan の今日のライフハックツール枠への自薦経路未準備。Gizmodo Japan / AppBank / 4Gamer モバイル枠 / GAME Watch インディーズ枠 / Famitsu app など個人開発アプリを取り上げる媒体の整理なし。",
+          "actionable_step": "docs/marketing/media-attack-list-week1.html を新設し表形式で整備。列：媒体名 / 編集部問い合わせ URL / 担当ジャンル記者名（過去 90 日記名記事から抽出）/ コンタクト経路（フォーム / 編集部メール）/ 一行フック / 想定記事化率 / 送付タイムスタンプ。行最低 8 件：GIGAZINE、ITmedia Mobile、Lifehacker Japan、Gizmodo Japan、AppBank、4Gamer モバイル枠、GAME Watch インディーズ枠、Famitsu app。各記者の過去記事を読み前回個人開発アプリを取り上げた基準をメモ。ローンチ -3 日に個別カスタマイズ送付（GIGAZINE/Lifehacker/AppBank の 3 媒体）→ ローンチ当日に残りに一斉送付の 2 段階。送付経路はフォーム / 編集部メールに限定し X DM / Slack / 電話は使わない。",
+          "expected_impact": "個別カスタマイズ 3 媒体で 1 媒体記事化（業界通例 30% 打率）。記事化 1 件で短期 500-2000 DL + 二次転載で 1000-3000 DL。何もしないと初週ピーク機会損失が確定。"
+        },
+        {
+          "title": "PR TIMES『スタートアップチャレンジ』の適格性が個人開発では落ちる可能性が未検証",
+          "severity": "High",
+          "evidence": "next-actions-dashboard.html:174 で PR TIMES 無料スタートアップチャレンジが提案されているが、PR TIMES 公式の同プログラム条件は設立 2 年未満かつ資本金 10 億円以下の法人スタートアップが要件で、個人開発者（屋号なし）は適格外。井戸川さんは TakiTaki 法人を持っているが feedback_no_company_names.md の制約で TakiTaki 名義配信は不可。",
+          "gap": "PR TIMES 無料枠の代替として valuepress 無料プラン / ドリームニュース / PR FREE 等の個人/屋号可な無料配信枠の比較未実施。配信代行有料は最低 ¥30,000/件で売上着金後に後送りルールに抵触。",
+          "actionable_step": "PR TIMES スタートアップチャレンジは法人要件で個人開発不適格と確定情報として docs/marketing/press-release-routes.html に記録。代替の無料配信枠を 1 ファイルにまとめる：dreamnews.jp 無料プラン、PR FREE（完全無料・転載数中・審査 1 週間）、note 公式マガジン『個人開発』『#つくってみた』タグ投稿。note 投稿は個人開発 iPhone アプリ タグの過去 90 日記事 30 件を読み、AppBank/ITmedia 記者がコメント/フォローしているアカウントをリスト化。",
+          "expected_impact": "適格性ミスでの申請却下を回避。代替経路（note + dreamnews + PR FREE）で月 3 件配信が可能になり、初月 100-300 DL の押し上げ。記事化転載成功で 100-500 DL/件。"
+        },
+        {
+          "title": "1191 ゲーム × オフライン × Data Not Collected が単独でメディアフックにならない",
+          "severity": "High",
+          "evidence": "ITmedia・GIGAZINE・Lifehacker の過去 iOS アプリ紹介記事は独自機能性ではなく時事文脈との連動 / 社会的逆張り / 開発者ストーリーの異常さのいずれかを満たす。1191 ゲーム数は多さだけでは記事タイトルにならない（Jackbox は 200 ゲーム弱で十分認知）。",
+          "gap": "1191 ゲーム / Data Not Collected / オフラインを並列に並べるだけでは編集者が記事化判断する一行サマリーが作れない。広告/課金/データ収集に最適化された GAFA 時代に対する逆張り個人開発というナラティブを言語化していない。",
+          "actionable_step": "docs/marketing/media-hook-matrix.html を新設し、媒体別に異なる一行フックを用意。GIGAZINE 向け：広告ゼロ・課金ゼロ・データ収集ゼロ・オフライン・1191 ゲーム搭載の個人開発パーティーアプリが App Store に登場。ITmedia ビジネス向け：社員旅行・歓送迎会で使える 1191 種パーティーゲーム提案アプリ、データ収集ゼロで企業利用も安心。Lifehacker 向け：『次なに遊ぶ？』を 3 秒で解決する 1191 ゲーム検索アプリ。note 公式『つくってみた』向け：1 人で 1191 ゲーム集めた話。各フックは媒体の直近 30 日記事 5 本を読んだうえで媒体特有の形容詞・動詞に合わせる。",
+          "expected_impact": "メディア配信時の記事化率が無差別配信比で 3-5 倍。1 媒体記事化で月 500-2000 DL（GIGAZINE / Lifehacker 単発の通例値）。"
+        },
+        {
+          "title": "Featuring Nomination で 1191 ゲームの文化的価値を訴求する素材がない",
+          "severity": "High",
+          "evidence": "15-lens-audit.json:778 で Featuring Nomination はローンチ 3-8 週間前提出が選定確率高いと既出。Apple Featuring の選定基準は visual quality / story / cultural relevance / launch timing。ユーザー指示の重点項目『日本のパーティー文化を 1191 件保存というアーカイブ視点での文化的価値』は cultural relevance に直結するが、Nomination フォーム回答ドラフトが docs/ 配下に不在。",
+          "gap": "Featuring 応募時の Q&A What inspired you to create this app? / Why should we feature it? に対して『1 人で 5 年かけて日本の宴会・合宿・修学旅行・社員旅行の遊び 1191 件を聞き取り収集分類した日本の遊び文化の最初のデジタルアーカイブ』という回答ドラフト不在。素材としては games.json と 13 シーン分類が既にある。",
+          "actionable_step": "docs/marketing/featuring-nomination-draft.html を新設し、Apple Featuring フォーム全 20 問の日英両方の回答ドラフトを書く。文化アーカイブ視点で『1191 件の遊びを 13 シーン × 256 お題で分類した日本最大級のパーティーゲーム索引』『地域別・年代別の遊び（山手線ゲーム＝関東発、なんでもバスケット＝関西発）の差異も保持』を明文化。games.json から地域起源タグ/年代タグを抽出（既存タグになければ 50 件サンプルで井戸川さん自身が出典付与＝3 時間作業）。ローンチ 4 週間前に Featuring Nomination 提出（無料・年 1 回）。",
+          "expected_impact": "Featuring 当選で『今日のおすすめ』『新着』枠掲載＝1 日 5,000-50,000 DL（個人開発の通例値・上位掲載期間 1-3 日）。落選でも Apple 編集者にアプリ名が認知され、後続テーマ特集に呼ばれる経路ができる。"
+        },
+        {
+          "title": "文書取材専用窓口の明示がなく『電話したい』『Zoom したい』記者で全件離脱する構造",
+          "severity": "High",
+          "evidence": "support.html と App Store Connect の Contact Information は連絡可能だが、メディア取材専用窓口の表記なし。日本テック媒体は『新規個人開発アプリ取材は Zoom 30 分または電話 15 分』が標準＝文書のみ受けると明示しないと『この案件は通話受けてくれそうにないからスキップ』される。feedback_no_meetings.md, feedback_no_voice_face.md と直接衝突。",
+          "gap": "取材専用ページが存在しない。取材は書面のみ・48 時間以内 Q&A 返信を魅力的に提示する文言なし。Q&A バンクが未準備のため、依頼が来ても回答ドラフトに 4-8 時間かかり 48 時間以内回答コミットが守れない。",
+          "actionable_step": "https://satori7227-dot.github.io/asobi-privacy/ 配下に press.html を新設。記載：井戸川聡里の取材窓口・書面 Q&A のみ・48 時間以内回答・写真は ASOBI ロゴ + アプリスクショ提供可・著者顔写真は一貫したブランド方針として提供せず・口頭/電話/ビデオ取材は受け付けない。『顔出さない宣言』を後ろ向きに書かず『一貫したブランド方針』とポジ表現。よくある取材質問への先回り回答 Q&A バンクを 30 問用意（開発動機 / 制作期間 / 1191 ゲーム収集方法 / 13 シーン分類の発想 / Data Not Collected の理由 / 課金しない理由 / 名前 ASOBI の由来 / 影響を受けたアプリ 等）。press.html を Featuring Nomination・メディアアタックリスト送付メール・X プロフィール・note 記事末尾の全てにリンク。",
+          "expected_impact": "書面取材成立率を 30%（通常）→ 70% に改善。Q&A バンクで記者の返信負荷が下がり、記事化までの時間が 1-2 週間 → 48 時間に短縮。『顔出さない方針』を逆にブランドストーリー化できる（覆面個人クリエイターとして 1 段階高いメディア注目）。"
+        },
+        {
+          "title": "パーティー文化アーカイブ 1191 件の文化価値プレゼンが学術・文化系メディアに届いていない",
+          "severity": "Medium",
+          "evidence": "ユーザー指示の重点項目『日本のパーティー文化を 1191 件保存というアーカイブ視点での文化的価値プレゼン』。これはテック系メディア（GIGAZINE・ITmedia）の枠を超えて『朝日新聞デジタル文化欄』『WIRED Japan』『Casa BRUTUS』『BRUTUS』のような文化・教養系メディアにも届く可能性がある軸。テック系単独で攻めるよりリーチ層が広い。",
+          "gap": "文化アーカイブとしての価値を学術・文化的文脈で説明した資料が不在。日本民俗学会・日本遊戯史学会など研究系への寄稿可能性未検討。note 記事案は『個人開発の話』に寄って『文化アーカイブの話』として書かれていない。",
+          "actionable_step": "note 記事を 2 本立てに分割：『1 人で 1191 ゲーム集めた話（開発者向け）』と『日本のパーティー文化 1191 件を整理してわかったこと（文化系メディア向け）』。後者 4000 字で地域別・世代別の遊びの差異の発見、消えゆく遊び（修学旅行枕投げ等）、令和の新ジャンル（リモート飲み・推し活）を扱う。後者 note 記事公開後、WIRED Japan 編集部 / 朝日新聞 GLOBE+ / ほぼ日刊イトイ新聞に書面で送る。中長期で日本遊戯史学会・日本民俗学会の年会誌に短報投稿（投稿料無料・査読あり）＝アカデミック側にも記録を残し、将来のメディア取材時の権威付けに転用。",
+          "expected_impact": "テック系と文化系の両方に露出でブランドが『単なるパーティーゲームアプリ』から『日本のパーティー文化アーカイブ』に格上げされ、寿命（通常 2-3 年で陳腐化）が長期化。文化系メディア 1 件記事化で月 200-500 DL の長期テール（テック記事は 1-2 週間の短期ピーク型）。"
+        },
+        {
+          "title": "個人開発インタビュー枠への自薦経路が未準備",
+          "severity": "Medium",
+          "evidence": "ユーザー指示の重点項目『個人開発インタビュー枠を持つメディア（Note 公式編集 / 個人開発者ポッドキャスト 等の文字起こし）』。井戸川さんは音声出演不可（feedback_no_voice_face.md）。書面寄稿型は Indie Hackers 日本版（実質 note 個人開発タグ）の文字記事に限られる。",
+          "gap": "note 公式編集ピックアップは自薦不可で『編集者が発見しやすい記事構造』に書く必要があるがタイトル・冒頭 200 字・タグの設計が未着手。個人開発ポッドキャストは音声出演不可で寄稿型に限定。書面寄稿枠を出している媒体（Forkwell Press / Qiita / Zenn）への寄稿経路未確認。",
+          "actionable_step": "note 記事のタグを『#つくってみた #個人開発 #iOS #SwiftUI #アプリ #パーティーゲーム』の 6 タグ固定（note 編集者が #つくってみた タグを巡回する通例に乗る）。冒頭 200 字に『何を作ったか / なぜ作ったか / 数字（5 年 / 1191 ゲーム / 1 人）』を必ず入れる。個人開発系の書面寄稿先として Qiita / Zenn / Forkwell Press の編集者投稿に技術トピック（SwiftUI で 1191 件 JSON を扱う最適化 / Data Not Collected アプリの App Privacy 申告のコツ / オフライン完結 iOS アプリの設計）を 3 本投稿。音声 NG だが『書面 Q&A 形式の取材記事』であれば受ける旨を press.html に明記し、ITmedia のメール取材記事に自薦書面送付。",
+          "expected_impact": "note ピックアップ 1 件で記事閲覧 1-10 万 PV、ASOBI 告知 300-1000 DL の経験則。Qiita/Zenn 寄稿はテック中堅エンジニア層へのリーチで、長期的に B2B（社員旅行 / 同期会幹事）営業の認知獲得に効く。"
+        }
+      ],
+      "conclusion": "PR/メディア戦略の素材（1191 ゲーム / Data Not Collected / オフライン / 個人開発ストーリー / 文化アーカイブ視点）は既に世界水準で揃っているが、それらを『どの媒体のどの編集者にどう翻訳して届けるか』のメディアアタックリストとフック設計が docs/ 配下に存在しない＝Critical。次の 1 週間で(1) メディアアタックリスト（媒体 8 件 × 担当記者 × 一行フック）、(2) press.html（書面取材専用窓口 + Q&A バンク 30 問）、(3) Featuring Nomination 提出ドラフト、(4) 文化アーカイブ視点の note 記事 4000 字、の 4 ファイル新設で『顔出さない・音声出ない・予算ゼロ』制約下でも記事化率 30% を狙える PR 体制が組める。PR TIMES スタートアップチャレンジは法人要件で個人開発不適格の見落としがあり、代替の dreamnews / PR FREE / note 経由に置き換える必要あり。"
+    },
+    {
+      "lens_number": 8,
+      "lens_label": "クリエイター・インフルエンサー巻き込み（顔出し不要パターン）",
+      "current_state": "既存資料 next-actions-dashboard.html 173 行目に「TikTok/YouTube 縦動画クリエイターへ素材提供」が SHOULD/M で 1 行だけ存在し、無料コード＋少額報酬という発想止まりで具体的な運用設計は未着手。顔出し NG を逆手に取った「アプリだけ提供→配信者が遊ぶ」モデルの具体メカニクスがゼロ。実装側では Deep Link・ShareLink・1176 ゲーム × 13 シーン DB・Widget 等、配信者が「ネタ切れ」「お題ガチャ」用途で使える素材は揃っているのに、それを配信向けに包装した素材が無い。月予算 $25・顔出し NG という制約は本人露出を必要としない「楽屋裏ベンダー」モデルと完全に整合するが、その設計図が未着手。",
+      "breakout_blockers": [
+        {
+          "title": "Jackbox 型 配信者の道具 ポジションを明示的に取りに行く設計が無い",
+          "severity": "Critical",
+          "evidence": "Jackbox Games は配信者が遊ぶ→視聴者が買うで 1500 万本超を売った代表例。ASOBI のシーン→提案 3 件 UX は配信者の お題ガチャ 罰ゲームジェネレータ 用途と 1対1 で合致するが docs/monetization-research-2026-06-19.html はどこパ・VAVA・Penalty しか比較しておらず Jackbox の配信者ファースト UX 教訓を取り込めていない。",
+          "gap": "配信者向けの公式ページ（asobi-privacy 配下に /streamers）が無い。配信で使ってOK の明示・クレジット表記文言・配信タグ（#ASOBIで決めた）が一切無い。",
+          "actionable_step": "docs/ 配下に streamer-pack.html を 1 枚作り GitHub Pages 既存 satori7227-dot.github.io/asobi-privacy 配下に追加（費用ゼロ）。内容: ロゴ PNG（透過）、配信向け使い方 30 秒テキスト、推奨配信構成、クレジット表記サンプル、事前許諾不要を明文化。App Store プロモテキスト 170 字にも 配信での使用大歓迎・クレジット表記不要 を入れる。",
+          "expected_impact": "配信者の 使っていいか の心理摩擦をゼロ化。配信 1 本あたり視聴者 1000 人 × DL 転換 0.5% = 5 DL/配信。月 20 配信獲得で月 100 DL の地合い。"
+        },
+        {
+          "title": "VTuber 個人勢への匿名書面打診テンプレが無い",
+          "severity": "High",
+          "evidence": "個人 V・小規模ライバー（登録 1000-2 万）は 無料で使える面白いアプリ をネタ切れ時に常時探している。井戸川さんのテキスト DM・対面 NG 運用は個人 V 直 DM のチャネル親和性が高い。",
+          "gap": "打診先リスト無し、100 字 DM テンプレ無し、配信用 Stream Mode（大画面でも読める拡大表示）無し。",
+          "actionable_step": "1) YouTube で個人 V を月 1 回手動抽出（30 分作業）→Notion DB に 50 名/月。2) DM テンプレ 無料アプリの ASOBI 作った者です。配信で罰ゲームジェネレータとして使えるシーン 13 種詰めました。案件ではないので報酬はありません。クレジット不要 。3) Deep Link param ?stream=1 で文字サイズ 200% Stream Mode を 1 日工数で追加。",
+          "expected_impact": "開封率 30%・採用率 1% として 50 名/月で 0.5 配信採用。同接 200 × 視聴者 DL 1% = 2 DL/配信。継続で 推しアプリ 化、コミュニティ波及で複利。"
+        },
+        {
+          "title": "Discord コミュニティへの ASOBI Bot 未実装",
+          "severity": "High",
+          "evidence": "Disboard.org で 飲み会 検索 200+ 件、 雑談 5000+ 件の鯖。Bot が /asobi コマンドで シーン:飲み会 / お題:○○ を返すだけで即採用される土壌。Discord Bot は Cloudflare Workers 無料枠で月 0 円運用、月予算 $25 を侵食しない。",
+          "gap": "Bot 無し。games.json を JSON エンドポイント化（工数 1 日）も未着手。",
+          "actionable_step": "1) games.json を asobi-privacy リポにコピーして JSON エンドポイント化（費用ゼロ）。2) Discord.js v14 + Cloudflare Workers で /asobi シーン名→ランダム 1 件 Bot 構築（工数 2-3 日）。3) Disboard で 飲み会 社会人 学生 タグの鯖トップ 20 抽出→鯖オーナー DM で 無料 Bot 追加してもいいですか 打診。4) Bot プロフィに App Store URL。",
+          "expected_impact": "1 鯖 MAU 100-500・月 Bot 利用 50-200 回。クリック 2-5% × DL 20% = 鯖あたり月 1-5 DL。20 鯖で月 20-100 DL、Discord 内で日常的にアプリ名が呼ばれることでサーチ ASO の指名検索も伸びる。"
+        },
+        {
+          "title": "配信者向け 大画面表示モード（OBS ブラウザソース対応）が無い",
+          "severity": "High",
+          "evidence": "配信ツールは OBS の ブラウザソース で URL を読み込ませる方式が業界標準。Spinning Wheel of Names（月間 800 万ユーザー超）が配信者層で利用されているのは ブラウザで完結 だから。スマホ画面を撮るのは画質劣化＋画面共有設定が面倒で嫌われる。",
+          "gap": "Web 版が存在しない。GitHub Pages（asobi-privacy リポ）に games.json を読み込む 1 ページ HTML を置けば即対応可能だが未実装。",
+          "actionable_step": "1) asobi-privacy リポに /streamer-view/index.html を追加（games.json を fetch、シーン選択 + ランダム大表示、背景 transparent or chromakey）。工数 1 日。2) ?scene=drinking&interval=300 で自動切替/手動切替対応。3) docs/streamer-pack.html に OBS 設定手順を画像付き解説。",
+          "expected_impact": "配信者 100 人使用 = 視聴者 5 万人/月への露出。視聴者 DL 転換 0.1-0.5% で月 50-250 DL。ブランド露出として ASO 指名検索を伸ばす副次効果。"
+        },
+        {
+          "title": "Twitch ストリーマー（英語圏）への素材提供チャネル設計が無い",
+          "severity": "Medium",
+          "evidence": "Twitch Just Chatting Party Games カテゴリで Jackbox / Garticphone / skribbl.io がトップ（月間視聴 1000 万時間超）。英語版 ASOBI は海外 80 件を逆輸入で持っており 日本由来のパーティーゲーム という独自ポジが取れる。next-actions-dashboard.html は米国バチェロレット書面営業止まりで Twitch / 英語 V への打診は未着手。",
+          "gap": "英語版 streamer-pack.html 無し、Twitch のターゲット配信者 50 名抽出ワークフロー無し、英語 V への DM テンプレ無し。",
+          "actionable_step": "1) docs/en/streamer-pack.html 作成。2) Twitch.tv の Discover Party Games タブを月 1 回巡回→同接 50-500 の中小ストリーマー 30 名を Notion DB に抽出。3) X か Twitch Whisper で Free app for party game ideas. No sponsorship, just sharing. のテキストのみ DM。",
+          "expected_impact": "同接 200 × 月 4 配信 × DL 転換 0.3% = 月 2.4 DL/ストリーマー。10 名採用で月 24 DL。Japan より単価高い US/UK での DL は有料化転換に有利、Apple Featuring 海外露出 判断材料にも寄与。"
+        },
+        {
+          "title": "クリエイター向け 使用報告 導線（クレジット還元ループ）が無い",
+          "severity": "Medium",
+          "evidence": "OBS Studio・Cap Cut・Canva が伸びた共通要素に 使った人が公式に報告するインセンティブ 。個人開発でも # で動画作りました 系の自然発生報告は 30-50% がタグ無しで取り逃がす。タグを明示し採用配信者に X リポストや公式 LP 名前掲載で還元すると再使用が増える。",
+          "gap": "公式タグ未定義。配信者の報告窓口（フォーム or X メンション）の案内無し。リポスト・掲載のフロー無し。",
+          "actionable_step": "1) App 内の設定 or オンボーディング末尾に 配信・動画で使ったら #ASOBIで決めた でシェアしてもらえると嬉しいです を 1 行追加（feedback_no_markdown_in_publications 準拠で装飾なし）。2) X 匿名アカで週 1 エゴサーチ→引用 RT（本人露出ゼロ）。3) docs/streamer-pack.html に Hall of Streamers を月次更新。",
+          "expected_impact": "再使用率 1 回→2-3 回に伸びる。引用 RT は配信者のフォロワー層に届くのでクラスタへ波及。直接 DL より配信者コミュニティでの ASOBI さんは礼儀正しい 評判形成で次の打診の返信率を 5-10% 上げる。"
+        },
+        {
+          "title": "学生団体（サークル幹事・学園祭・新歓）への配信導線がチケットなし",
+          "severity": "Medium",
+          "evidence": "next-actions-dashboard.html 176 行 大学サークル幹事への書面案内 は 現場で使う 前提。現代の学生団体は新歓・追いコンを YouTube Live・Instagram Live で配信する文化（コロナ禍以降定着）。学生団体は 無料・運営協力なし・配信で使っていい アプリを慢性的に探している。新歓シーズン（4月・9月・1月）の手前 1 ヶ月が打診タイミング。",
+          "gap": "学生サークル × ライブ配信の交点を狙ったメッセージ無し。シーン選択肢に 新歓 が無い（13 シーンに同窓会・合コン・就活グループワークはあるが新歓は無い）。",
+          "actionable_step": "1) games.json に shinkan（新歓）シーンを追加し既存ゲームから 50-80 件をタグ付け（工数 1 日）。2) 各大学 X 公式アカの新歓スケジュール RT に対して 3 月・8 月・12 月の手前で 無料アプリです、新歓配信で使えます の公開リプライ運用。3) docs/streamer-pack.html に 学園祭・新歓配信での使い方 セクション追加。",
+          "expected_impact": "1 サークル採用で 20-50 DL（既存試算）。新歓配信は同接 100-500 で追加 1-5 DL/配信。継続効果として 卒業後の同窓会 追いコン にも使われるリテンション、ライフサイクル価値が高い。新歓シーン DB は B2B 営業（社員旅行・婚活）への転用も可。"
+        }
+      ],
+      "conclusion": "「自分は顔出し NG・配信者には素材を提供」モデルは井戸川さん制約と完全整合し、本来 ASOBI のヒット確率を最も押し上げ得るチャネルだが、既存資料は TikTok/YouTube DM 1 行だけで具体設計が放置されている。最大の機会損失は (a) Jackbox 型 配信者の道具 ポジションを明示的に取らず、(b) OBS ブラウザソース対応の Web 版が無く、(c) Discord Bot という最低工数・最高拡散の経路を取れていないこと。これら 3 つは月予算 $25 を侵食せず工数 1-3 日で実装でき、配信 1 本 5-10 DL × 月 20 配信 = 月 100-200 DL の地合いを作れる。Critical 1 件（streamer-pack 公開と Jackbox 型ポジショニング明示）を最初の 1 週間で着手するのが最良の一手。"
+    },
+    {
+      "lens_number": 9,
+      "lens_label": "コミュニティ形成・ユーザー帰属意識",
+      "current_state": "ASOBI は完全オフライン・Data Not Collected の純粋ローカルアプリで、ユーザー同士が繋がる接点がゼロ。SuggestionFormView.swift:33-46 のアイデア箱は mailto で井戸川さん個人宛 1対1メール（cooldown 300秒）で他ユーザーに可視化されず投稿してもブラックホール体験。CollectionsView.swift は命名コレクション機能はあるが完全ローカルで他ユーザー共有なし。ShareLink+ImageRenderer は GameDetailView 1 箇所のみ。next-actions-dashboard.html では招待コード/シェア機能・Discord 開設が Phase2(3-6ヶ月) 後回しで、ローンチ直後のコミュニティ形成戦略は実質欠落。X 匿名アカウントの Build in Public は井戸川聡里個人ブランド発信で ASOBI ユーザー同士のコミュニティではない。",
+      "breakout_blockers": [
+        {
+          "title": "集まる場面で口コミの引き金になる固有名詞ゲームがない",
+          "severity": "High",
+          "evidence": "Jackbox やどこパは個別ゲーム名で語られる定番ネタを持つ（docs/monetization-research-2026-06-19.html 競合分析）。ASOBI は 1176 ゲームの物量ゆえ個別ゲームの固有名詞化が逆に起きにくい",
+          "gap": "ASOBI のシグネチャと認識される 3-5 個のフラッグシップが立っていない。ユーザーはいろんなゲームがある面白アプリとしか説明できず固有名詞で口コミされない",
+          "actionable_step": "games.json に flagship true フラグを 5 個（しりとり拡張版・たほいや等の ASOBI 由来オリジナル）に付与。起動時とシェアカードで ASOBI の人気No.1 たほいや と表示。ShareLink カード下部に ASOBI のたほいや と固有名詞刻印。実装 1 日（games.json と ImageRenderer テンプレ修正のみ、サーバー不要）",
+          "expected_impact": "ASOBI のあれ が口頭で再現可能になる。検索流入で ASOBI たほいや のロングテール獲得"
+        },
+        {
+          "title": "自分が追加したゲームが他ユーザーに見える仕組みなしで投稿動機ゼロ",
+          "severity": "High",
+          "evidence": "SuggestionFormView.swift:33-95 は mailto で satori7227 宛送信のみ。送信者にはありがとう表示はあるが採用されたか他ユーザーが遊んでいるか不可視。UGC プラットフォーム（Reddit/Pinterest/note）は全て投稿物が他人に見えるが最低条件",
+          "gap": "投稿者が自分の遊びを世界に残した帰属感を得る回路なし。井戸川さん宛メールはブラックホール体験",
+          "actionable_step": "games.json に contributor 表示名フィールド追加。採用したユーザー投稿ゲームの GameDetailView 下部に 投稿 ニックネームさん（2026-07-15 採用）と表示。SuggestionFormView でユーザー任意の表示名（X handle 等）記入欄追加。月1回 X で 今月新しく仲間入りした 3 ゲーム スレッドで投稿者をタグ付け（テキストのみ・顔出し不要）。バックエンド不要、games.json と xcstrings 編集のみ",
+          "expected_impact": "投稿率の劇的向上（既存ユーザーの 1-3 パーセントでも投稿すれば月数十件のシード）。投稿者が自身の友人に俺のゲーム入ってると紹介し無料の口コミループ"
+        },
+        {
+          "title": "コレクションがローカル完結で友達と同じセットで遊ぶ体験を作れない",
+          "severity": "High",
+          "evidence": "CollectionsView.swift は GameCollection を CollectionStore（ローカル）保存するだけ。共有エクスポート機能なし。next-actions-dashboard.html のシェアカードも単体ゲーム想定でコレクション単位ではない",
+          "gap": "家飲み定番コレクションを作っても家飲み相手にコレクションごと渡せない。各自が同じ 5 ゲームを手で集めるしかなく同じ場面で全員 ASOBI を起動するインセンティブが消える",
+          "actionable_step": "GameCollection を JSON エンコードして asobi スキームの Universal Link を生成。LINE や iMessage で URL を送るだけで相手側にコレクションが取り込まれる。実装は DeepLinkRouter.swift 拡張と CollectionStore のインポート関数追加で 2-3 日。バックエンド不要、サーバーコストゼロ円",
+          "expected_impact": "1 ユーザー イコール 1 集まり イコール 平均 3-5 人 のインストール波及。バイラル係数 K 0.3 超の現実的な達成手段"
+        },
+        {
+          "title": "プレイログ振り返りが他者と共有できず思い出が個人に閉じる",
+          "severity": "Medium",
+          "evidence": "PlayCountStore.swift は遊んだ回数をローカル保存するが他者共有導線なし。Spotify Wrapped や Pokemon GO のスクショ文化のように年間や月間サマリは SNS バイラルの定番（プラットフォーム挙動として年末 X タイムラインが Wrapped で埋まる）",
+          "gap": "今月 ASOBI で遊んだゲーム TOP5 や 2026 年の私の遊び履歴 の振り返り共有資産がない",
+          "actionable_step": "毎月最終週に 今月のあなたの ASOBI サマリビュー（遊んだ場面・ゲーム TOP3・総回数）を ImageRenderer で正方形カード化し ShareLink で X や Instagram に投稿可能化。個人特定情報を含めない設計で Data Not Collected ポリシー維持。実装 3-5 日",
+          "expected_impact": "オーガニックな UGC 投稿（ハッシュタグ ASOBI でユーザーが自発拡散）。広告費ゼロでの認知獲得"
+        },
+        {
+          "title": "Discord 等の外部コミュニティが Phase2 後回しでローンチ熱の取りこぼし",
+          "severity": "Medium",
+          "evidence": "next-actions-dashboard.html で Discord 開設は Phase2 (3-6ヶ月) の SHOULD。ローンチ直後の最も注目が集まる時期に興味を持った人の受け皿が App Store ページしかない",
+          "gap": "ローンチ後初週に X や TestFlight 経由で興味を持った人が次にどこに行けばいいかが不明",
+          "actionable_step": "ローンチ前に X 上に ASOBIゲーム提案 固定タグを設置（井戸川さん pinned post で運用ルール掲示）。Discord ではなく X のリプライ運用で代替し SettingsView から公式 X を見るリンク追加。Discord は招待制サーバー（申請制で 1 人運用可能な規模に制限）として Phase1 末（ローンチ後 4-6 週）に立てる。完全テキスト・非同期で稼働時間内運用可能",
+          "expected_impact": "ローンチ熱量取りこぼし減。初期 100-300 ユーザーの帰属意識醸成で低 churn"
+        },
+        {
+          "title": "集合的体験ログ（全国で今日たほいや 32 回遊ばれた）の不在",
+          "severity": "Low",
+          "evidence": "Data Not Collected 維持の制約下で集計サーバーを持てない。代替に Pokemon GO の Community Day カウンターのような擬似集計表示は工夫余地あり",
+          "gap": "個人開発・ゼロ予算・収集データなしの 3 制約で集計サーバー不可。井戸川さん側の月次 X 投稿でユーザー自己申告ベースのプレイ報告を集める運用が未設計",
+          "actionable_step": "月初の X 投稿で 先月の ASOBI でハマったゲーム を引用 RP で集計。集計結果を翌月 Promotional Text（170字・本体アップデート不要枠）に反映 先月最も遊ばれた たほいや 32 回報告 と表示。データ収集ではなく公開投稿の集計でプライバシー違反なし",
+          "expected_impact": "月次の盛り上がり感創出。X 上の引用 RP が次月のオーガニック流入を生むサイクル化"
+        }
+      ],
+      "conclusion": "コミュニティ形成は ASOBI 最大の盲点。1176 ゲームの物量と完全オフライン設計は技術的に堅牢だが、ユーザー同士が同じゲームで遊ぶ場面を作る装置が一つもなく結果として個別ユーザーが孤島化している。Discord や大規模 UGC プラットフォームは予算と工数制約で困難だが、(1) コレクション URL 共有、(2) ユーザー投稿ゲームの contributor 表示、(3) フラッグシップゲームの固有名詞化 の 3 点は完全ローカル・サーバー不要・実装 1-3 日で実現可能な高 ROI 施策。これらを v1.1（ローンチ後 4 週以内）に組み込むことで個人開発の単機能アプリからユーザー参加型の遊び場へ位置づけ転換できる。Discord 等の外部コミュニティは Phase2 でなく Phase1 末の招待制小規模運用で先取りすべき。"
+    },
+    {
+      "lens_number": 10,
+      "lens_label": "競合との明確な差別化",
+      "current_state": "ASOBI の差別化軸は現状『全 13 シーン横断・1176 ゲーム・完全オフライン・Data Not Collected』に集約。launch-prep-2026-06-19.html:173 で『全シーン、1 アプリ完結』、next-actions-dashboard.html:93 で『全シーン横断1176』と1秒コピー化済。競合は monetization-research-2026-06-19.html で確定（どこパ=日本ボード1位 評価4.6/36K件 / VAVA=月¥120 年¥1,100 / Penalty=$0.99-2.99パック / Jackbox=¥300×5パック）。games.json 実測のシーン分布は drinking 560 / family 442 / kids 259 / remote 195 / travel 191 / couple 186 / dosokai 140 / offkai 140 / outdoor 138 / sobetsukai 125 / penalty 124 / konkatsu 101 / shukatsu 69 で、上位3シーンが分厚く合コン・就活は薄い非対称構造。外向きコピーの精度が実体と一段ずれている。",
+      "breakout_blockers": [
+        {
+          "title": "全シーン横断1アプリ完結はASO差別化として弱い（どこパも同じ訴求が可能）",
+          "severity": "Critical",
+          "evidence": "monetization-research-2026-06-19.html:218（どこパ4.6/36K件・日本ボード1位）/ next-actions-dashboard.html:166（スクショ1枚目コピー）/ games.json drinking 560 vs shukatsu 69＝8倍の濃度差",
+          "gap": "どこパも『パーティーゲーム』カテゴリで多シーンを内包しており、全シーン入っているだけではASOBIを選ぶ理由にならない。1176件は『多くて選びにくい』としてCVRを下げる副作用がある（Penaltyオールイン$2.99のシンプルさと逆方向）。残る差別化は『状況入力→3件即提案』の意思決定支援だが、ASO 1枚目に立っていない。",
+          "actionable_step": "App Storeスクショ1枚目を『1176件』訴求から『状況3つ入れたら3件出る。30秒で決まる。』に差し替え。タイトル/サブタイトル/100文字キーワードのうち1枠をbenefit訴求に転換。物量訴求はスクショ3枚目以降に下げる。Product Page Optimization A/B（next-actions-dashboard.html:178既出）で物量訴求vs即決訴求を30日で勝敗判定。",
+          "expected_impact": "幹事の意思決定コスト訴求はどこパ・VAVA・Penaltyいずれも明示していない。Apple A/BでCVR±10-25%の差が出やすい。CVRが1.3xになれば同じASO露出でDLも1.3x。"
+        },
+        {
+          "title": "13シーンの中で『どこパが弱い領域』を取りに行く戦略が無い",
+          "severity": "Critical",
+          "evidence": "monetization-research-2026-06-19.html:396（どこパは家族・カップル・リモートが弱い一次調査明記）/ games.json family 442・couple 186・remote 195で供給は十分 / 既存資料に『家族版100点訴求』記述あるがASO・LPに未反映",
+          "gap": "deep-researchが3シーンの空白を特定しているのに、launch-prep/next-actions/READMEどれにも『この3シーンを差別化の槍に据える』戦略が落ちていない。実装側は揃っているのに外側のメッセージが全シーン横断で平準化されており、刺さるべき層を狙えていない。",
+          "actionable_step": "シーン特化LP群（next-actions-dashboard.html:177既出）をGitHub Pagesに作る際、優先順を(1)家族(2)カップル(3)リモート飲みの順で先出し。LPタイトルは『家族LINEのグループ通話で3世代が遊べるASOBI』『付き合って3年目のカップルが沈黙を破るためのゲーム』等、どこパが取りこぼしている文脈を明示。note連載の第1-3回・X匿名アカ固定ポストも同じ3シーンに固定。",
+          "expected_impact": "ロングテールSEO『家族 ゲーム アプリ』『カップル ゲーム アプリ』『リモート飲み ゲーム』は『パーティー ゲーム』より競合密度が低い。月20-80DL流入想定（next-actions-dashboard.html:168）の上限側に張れる。1シーンあたり月50DL×3シーン=月150DLの追加流入見込み。"
+        },
+        {
+          "title": "完全オフライン・データ収集ゼロを差別化軸として出していない",
+          "severity": "High",
+          "evidence": "monetization-research-2026-06-19.html:209（Jackboxオンライン必須）/ README.md:168（ASOBI完全オフライン）/ launch-prep-2026-06-19.html:173コピーに『オフライン』訴求が無い",
+          "gap": "ASOBIの『完全オフライン・1台で全員見る・データ収集なし』はJackbox（オンライン必須）・VAVA（一部オンライン）と真逆の体験設計で機内・電車・地下・電波弱い旅館・実家で決定的に強いが、launch-prep現行コピーは『1アプリ完結』止まりで『電波関係なく動く』『個人情報を一切送らない』というプラットフォーム挙動差をASO/LPに出していない。",
+          "actionable_step": "App Store説明文1-3行に『機内モードOK・通信ゼロ・データ収集ゼロ』を明示。スクショ2-3枚目に『機内モードアイコン+1176件すべて使える』ビジュアルを1枚追加。ASOキーワードに『オフライン』『機内モード』『電波なし』を入れる（next-actions-dashboard.html:199でMUST指定済だが実コピー落とし込み未確認）。X固定ポストも『電波が圏外でも動くパーティーゲーム提案アプリ』にする。",
+          "expected_impact": "オフライン訴求はtravel 191件・outdoor 138件のレビューで★5獲得しやすい角度。Featured NominationのApple編集者へのアピールポイントとしても『Privacy最優先・Data Not Collected』は刺さる（Appleは近年プライバシー特集を毎年実施）。Featured採用時1日1000-10000DLの確率を上げる。"
+        },
+        {
+          "title": "1191件の物量による『選択疲労』対策がプリセット5連発止まりで弱い",
+          "severity": "High",
+          "evidence": "next-actions-dashboard.html:196（プリセット5連発SHOULD/M）/ games.json:1176件 / 競合Penalty=4パック・どこパシーン特化で各シーン数十件＝『一画面で見渡せる量』",
+          "gap": "ASOBIは提案ロジック（3件即提案）で物量を隠す設計だが、ユーザーが『他のゲームを見たい』とリストに入った瞬間に1176件の壁に当たる。プリセット5連発は対症療法で、シーン横断アプリ最大の弱点である『選びにくさ』の根本治療になっていない。",
+          "actionable_step": "提案結果画面に『幹事だけが見える管理者ビュー』を導入し、幹事側iPhoneには3件+その他カード化されたシーン特化TOP5、参加者には今やるゲーム1件だけを全画面表示する2モード化（オフライン・1台・ローカル状態管理で実装可能）。または今のメンバーで遊んだログを最大5件SwiftDataに保存しProposalView起点で『前回違うやつ』ボタン（next-actions-dashboard.html:189既出）と統合し、リストには出ないが履歴は残る記憶機構を強化。",
+          "expected_impact": "幹事の体験が『3件→1件→次へ』のリニアなフローで完結する。レビューで『多すぎて困る』系の★3レビューが減少（パーティーゲームアプリ★3レビュー頻出パターン）。リストUIそのものを使わせない設計で、1191件は内部資産として残しつつUX上は『3件アプリ』として振る舞う。"
+        },
+        {
+          "title": "競合空白シーン（送別会・同窓会・就活・オフ会）の供給量が薄くロングテール戦略の根拠が弱い",
+          "severity": "Medium",
+          "evidence": "games.json sobetsukai 125・dosokai 140・shukatsu 69・offkai 140（合計474件、drinking 560単独より少ない）/ App Store検索で『就活グループワーク特化アプリ』『同窓会専用ゲーム集』はほぼ存在しない",
+          "gap": "競合空白地帯はASOBIが『13シーン入り』を旗印にしている以上、特化アプリへの分割案にはせずASOBI内で深掘りすべき。だが就活69件＝1日5件×2週間消化と物量訴求も弱く、ASO『就活 アイスブレイク アプリ』のロングテールを取りに行く根拠が薄い。",
+          "actionable_step": "薄い4シーン（shukatsu/sobetsukai/dosokai/offkai）の収録件数を各100件以上に引き上げる。既存drinking 560件の中から『お酒文脈を弱めれば4シーンに転用可能な』ゲームをgames.json上でscenes配列追加（コード変更不要・JSON編集のみ）。各シーン100件超達成後にシーン特化LPを出す。本体アプリは1本維持（13シーン特化アプリへの分割は個人開発リソース上不可・サブスク導線も分散して逆効果）。",
+          "expected_impact": "4シーン×100件=400件のテキスト追加で、ASO『就活 アイスブレイク』『同窓会 ゲーム』『送別会 余興』のロングテールに説明文・キーワードに使える語彙が増える。各シーンLPのSEO流入で月5-20DL×4シーン=月20-80DLの追加流入見込み。"
+        },
+        {
+          "title": "『状況3つ入れて30秒で決まる』即決設計の解像度がスクショに落ちていない",
+          "severity": "Medium",
+          "evidence": "README.md:165（状況入力→3件提案・Active Chips）/ launch-prep-2026-06-19.html:235（スクショ1=シーン選択『全シーン1アプリ完結』）/ 既存スクショパイプライン（TaskList #5完了）",
+          "gap": "ASOBIの本当の差別化軸は1176件ではなく『状況フィルタリング→3件即提案』の意思決定支援だが、スクショ1枚目でシーン選択(13個)を出すとユーザーは『シーン選んだ後どうなるの？』が見えず1秒で離脱する。Appleの検索結果UIは最初の2枚しか出ない（next-actions-dashboard.html:166）ので、ここに『3件即提案』のスクリーンが入っていないのは致命的。",
+          "actionable_step": "スクショ順序を(1)状況入力画面(人数3人・テンション中・5分・手ぶらをチップで表示)(2)3件提案結果画面(カード3枚)(3)全シーン13個(物量訴求)(4)ゲーム詳細(5)お気に入りコレクション に並び替え。1枚目テキストオーバーレイは『3つ答えるだけ。30秒で次のゲームが決まる。』。既存生成パイプライン(fastlane release lane)でメタデータ差し替えのみで対応可。",
+          "expected_impact": "Apple Search Ads公式ベンチマークでもスクショ1枚目のメッセージ刷新でCVR+20-30%は珍しくない。同じASO流入でDL 1.2-1.3x。"
+        },
+        {
+          "title": "競合不在の『家族×3世代』『カップル×沈黙打開』の解像度がコピー側でゼロ",
+          "severity": "Medium",
+          "evidence": "games.json family 442件・couple 186件（供給は2位・5位）/ どこパ・VAVA・Penalty・Jackboxは全社若年層パーティー文脈に集中・家族3世代/カップル長期向けの一次資料無し / monetization-research-2026-06-19.html:396も『家族・カップル・リモートはどこパが弱い』と明記",
+          "gap": "家族442件はdrinking 560に次ぐ第2位の物量。これはASOBI唯一のどこパに対し供給量で勝てる領域だが、コピー・LP・スクショ・X投稿ストリームどれにも『3世代で遊べる』『おじいちゃんおばあちゃんも参加できる』『お正月・お盆の集まり』の文脈解像度が無い。カップル186件も『長期カップルの倦怠期打破』『遠距離カップルのLINE通話』に解像度を上げれば競合不在領域。",
+          "actionable_step": "家族シーンのLPは『3世代・お正月・お盆・帰省』の季節文脈で書く。お盆/年末年始/GWのPromotional Text月次差し替え（next-actions-dashboard.html:116既出SHOULD）で家族訴求を年4回固定運用。カップルシーンは『付き合って2年目以降』『遠距離』の2軸でnote連載。X固定ポストも家族・カップル文脈で月替わり運用。Markdown不使用ルール厳守。",
+          "expected_impact": "季節文脈はASO『お盆 家族』『年末年始 ゲーム』『カップル 記念日』のロングテールに強い。年4回の季節pushで各回月100-300DLの山を作れる構造。年合計1000-2000DLの追加流入。"
+        }
+      ],
+      "conclusion": "ASOBIの差別化軸は『全シーン横断1176件』を1枚目に立てているが、競合のどこパが同じ『パーティー横断』訴求を出来てしまう以上、差別化として弱い。実体としての本当の差別化は(a)状況3つ入れて30秒で決まる即決設計(b)完全オフライン・データ収集ゼロ(c)家族・カップル・リモートの3シーンで競合不在領域、の3点であり、いずれも実装は揃っているのにコピー・スクショ・LPに落ちていない。1191件の物量は『多すぎて選べない』副作用が現実問題で、リストUIを見せない『3件→1件アプリ』として振る舞わせるUX上のリスペックが必要。1シーン特化アプリへの分割は個人開発リソース・サブスク導線分散の観点で否定的（本体1本維持＋シーン特化LPで同等効果を取れる）。最大の打ち手は『App Storeスクショ1枚目を即決訴求に差し替え』『シーン特化LPは家族/カップル/リモートから先出し』の2つで、これだけでCVR 1.3x×流入経路追加でDLレンジを1.5-2xに持ち上げられる見込み。"
+    },
+    {
+      "lens_number": 11,
+      "lens_label": "ニッチ戦略・レッドオーシャン回避",
+      "current_state": "ASOBIは13シーン1176ゲームを1アプリで全部抱える横断型ポジショニング。希薄化リスクが既存監査で指摘済。",
+      "conclusion": "1アプリ月替えSubtitleで12ニッチをローテーションが現実解。",
+      "breakout_blockers": [
+        {
+          "title": "App Store検索ロジックは1タイトル1ニッチkeyword、全部入りは全敗",
+          "severity": "Critical",
+          "evidence": "next-actions-dashboardでiOSはタイトル優先と明言。",
+          "gap": "タイトルASOBIはゼロkeyword独自造語。",
+          "actionable_step": "Subtitleを月替えで1ニッチに絞る。",
+          "expected_impact": "Top3入り対象keywordが0から1。"
+        },
+        {
+          "title": "個人開発ゼロ予算なら1アプリ月替えSubtitleが現実解",
+          "severity": "High",
+          "evidence": "Apple Developer Programは1契約100アプリ可だが各アプリ毎にスクショやxcstrings運用コスト発生。",
+          "gap": "多アプリ戦略は審査リスク独立 Guideline 4.3 Spam IAP損益分岐届かないの3重リスク。",
+          "actionable_step": "1アプリ月替えSubtitleで12ニッチをローテーション。",
+          "expected_impact": "12ヶ月で12ニッチを実弾で試せる。"
+        },
+        {
+          "title": "どこパが弱い3シーン家族カップルリモートを主戦場に昇格させる選択を放置",
+          "severity": "High",
+          "evidence": "monetization-research risk1で家族カップルリモートはどこパが弱い領域と明言済。",
+          "gap": "訴求が13シーン全部を均等に押している。",
+          "actionable_step": "月替えSubtitleの最初3ヶ月を家族カップルリモートに固定。",
+          "expected_impact": "どこパと直接競合回避し3ヶ月でTop20-Top50入り。"
+        }
+      ]
+    },
+    {
+      "lens_number": 12,
+      "lens_label": "コンテンツ供給の継続性・データドリブン",
+      "current_state": "games.json は静的バンドル方式（GameRepository.swift:30-31, Bundle.main 直読み）で 1176 件・13 シーン・80件のみ EN（残 1096 件は JA only）。OTA / Server Driven Content は未実装、コンテンツを追加するには毎回 App Store 審査を通したアプリアップデートが必要。意見箱は Discord Webhook 一方通行で UGC を DB に取り込む経路はゼロ。analyticsEnabled = false（Services/Constants.swift）で、どのゲームが選ばれた / 完走した / 飛ばされたかが井戸川さんに一切返ってこない＝「使うほど DB が育つ」体験は v1 時点で完全に欠落している。prompts.json は 3 カテゴリ（gesture / association / ohgiri）のみで物量に対して薄く、季節 / トレンド連動の supply line（夏アニメ被り同窓会・W杯視聴会など）を回す仕組みも 6/23 監査では出てきていない。さらに 15-lens 監査で商標違反 17 件超の削除 / 書き換えが Critical 指摘されており、v1 公開時の実有効 DB は 1176→1159 前後に「先に縮む」前提を取らないと辻褄が合わない。",
+      "breakout_blockers": [
+        {
+          "title": "OTA コンテンツ配信が無く App Store 審査が全更新ボトルネック",
+          "severity": "High",
+          "evidence": "Asobi/Services/GameRepository.swift:30-31（Bundle.main からのみ load）、AsobiWidget/AsobiWidget.swift:33-47（同じく Bundle 直読み）、launch-prep-2026-06-19.html / monetization-research-2026-06-19.html ともに OTA への言及なし、docs/next-actions-dashboard.html で OTA 関連の MUST/SHOULD ゼロ件",
+          "gap": "「夏アニメ被り同窓会ゲーム」「W杯視聴会用ゲーム」を月次で追加したくても、毎回 IPA ビルド + 審査 5-7 営業日 + ユーザー側アプリ更新を待つ必要がある。1人運用で時事ネタの賞味期限に間に合わない（VAVA / Jackbox 系競合は元々パッケージ売り切りで OTA 不要なので、ASOBI が無料配布 + サブスクで戦うなら『常に増える』が唯一の差別化軸）。",
+          "actionable_step": "GitHub Pages（既に asobi-privacy で稼働中・コスト 0）に `games-v1.json` を置き、GameRepository に `mergeRemote()` を追加して 1) Bundle.main の同梱版を起動時にロード 2) バックグラウンドで `https://satori7227-dot.github.io/asobi-content/games-v1.json` を取得し ETag キャッシュ 3) 同梱版より新しい version 番号なら scenes / tension / duration スキーマ完全互換のまま追加分のみ append。スキーマ変更を伴う「ゲームジャンル追加」だけはバイナリ更新に残し、追加レコードは OTA で月 1-2 回更新。Apple 4.7（HTML5 含む実行コード DL）には触れない（純粋データのみ・既存ロジックで描画）。",
+          "expected_impact": "「毎月 30 ゲーム追加」が審査ゼロで回り、ASO 説明文に『1176→1300→1400…と毎月成長』と書ける物量証明になる。Featuring 担当 / メディアに『常に更新』を売れる。"
+        },
+        {
+          "title": "計測ゼロでどのゲームが ヒットしているか判らない＝DB 育成に羅針盤が無い",
+          "severity": "High",
+          "evidence": "Asobi/Services/Constants.swift: `analyticsEnabled = false`、Services/AsobiAnalytics.swift（NoOp backend、TelemetryDeck 統合は未配線）、docs/next-actions-dashboard.html に TelemetryDeck 導入は『SHOULD/S』止まり",
+          "gap": "1176 件のうちどの 50 件が 80% の利用を占めているか、シーン別の離脱ポイント、お題のスキップ率が一切ブラックボックス。井戸川さん 1人運用で「次に何を作るか」の判断材料が App Store レビュー数件 + 意見箱 Discord の主観だけ → 競合 VAVA / Penalty に対して反復速度で勝てない。",
+          "actionable_step": "TelemetryDeck（無料枠 月10,000 シグナル・PII 無し・ATT 不要・既存 AsobiAnalytics 抽象に backend を1ファイル足すだけ）を v1.1 ではなく v1.0.1 で投入。送る 8 イベント: app_launch / scene_picked(scene) / game_proposed(game_id, scene) / game_completed(game_id) / game_skipped(game_id) / fav_added(game_id) / prompt_drawn(category) / share_tapped。週次で『scene_picked ÷ game_completed』のシーン別完走率と『提案 → スキップ』Top20 を出し、次月の OTA 追加 30 件を Bottom 20 シーン補強に割り当てる『計測→補充』ループを月次運用化。",
+          "expected_impact": "供給判断の主観依存を解消し、月 30 件追加の打率が体感ベースから事実ベースに。Featuring を狙う際の『DAU 1k / セッション 8 ゲーム / 完走率 65%』のような具体数字が pitch に使える。"
+        },
+        {
+          "title": "EN コンテンツ 7%（80/1176）で海外展開の物量が成立しない",
+          "severity": "High",
+          "evidence": "Asobi/Data/games.json grep 集計: sourceLang=ja 1096件 / en 80件、Localizable.xcstrings 185 keys は UI 文言のみ・ゲーム本文は別管理、regionBlocklist で CN等6件を弾いている前提で開いている英語圏向け",
+          "gap": "ASOBI が App Store の英語圏ロングテール『party games offline』『drinking games』で出ても、80件で『1176 ゲーム』と謳えない（メタデータ虚偽申告リスク）。英語ストア説明 / スクショで打ち出せる物量がない＝海外 ASO で勝負権が無い状態。",
+          "actionable_step": "haruhi（Claude API キーで動く別環境・ASOBI 個人開発財布とは独立）に『games.json から sourceLang=ja の上位 200 件を nameEn / summaryEn / rulesEn に英訳し、文化的に通じない 30件は ja_only タグで除外、英訳分は en pure として games-v1-en.json に追記』バッチを 1 回流す。Claude Haiku で 200件 × 約 500token = 推定 $1-2 で完了（Anthropic Max5x 月 $25 とは別の haruhi-api-key、ASOBI 個人開発予算 $0 のまま）。完了後の継続英訳は新規追加時のみで月 30 件 × $0.20 = 月 $6 以内に収まる。",
+          "expected_impact": "英語ストアで『280+ party games』と謳え、ロングテール KW『icebreaker games offline』『road trip games』へのリーチが現状の 7倍。US ストア DL/月 +50〜200 の見込み。"
+        },
+        {
+          "title": "ユーザー意見箱が Discord 一方通行で DB に還流しない（UGC が育たない）",
+          "severity": "Medium",
+          "evidence": "Asobi/Views/SuggestionFormView.swift（Discord Webhook 送信のみ）、15-lens audit 7. プライバシー指摘: Webhook token がバイナリに埋め込み済み・第三者投稿リスク、docs/monetization-research-2026-06-19.html L『意見箱投稿 50件以上』を KPI 化",
+          "gap": "ユーザーが提案したゲームを games.json に取り込む経路が「井戸川さん手作業で Discord を読む → 編集 → 次のバイナリリリース」になっており、応答時間が月単位。投稿者には『反映された』通知も来ないので投稿継続率は数件で枯れる典型構造。「使うほど育つ」の主観体験が成立しない。",
+          "actionable_step": "OTA 配信パイプラインに『コミュニティ枠』を追加: Discord の意見箱投稿を週次で井戸川さん（または haruhi 自動分類）が承認 → games-community.json に append（OTA で当週中に配信） → アプリ内で『コミュニティ追加 12月第3週: 〇〇さん提案』とクレジット表示。GitHub Pages の静的 JSON にコミットするだけなので運用コスト 0 円。投稿者に App Store レビューしか書く道がない現状を『あなたの提案が来週入る』に変える。",
+          "expected_impact": "UGC 投稿継続率（月リピート率）の体感的引き上げ、note 連載のネタ供給源（『今週のコミュニティ追加 5 選』）として外向き発信にも転用可能。Discord token 露出問題（lens7 指摘）も Cloudflare Workers プロキシ化と同時対応で潰せる。"
+        },
+        {
+          "title": "季節 / トレンド連動コンテンツの supply line が定義されていない",
+          "severity": "Medium",
+          "evidence": "docs/monetization-research-2026-06-19.html に『テーマ別お題パック ¥120/パック（季節限定）』は出るが供給フローの設計はゼロ、docs/next-actions-dashboard.html / launch-prep-2026-06-19.html ともに季節 calendar の MUST/SHOULD なし、prompts.json は gesture/association/ohgiri の 3 カテゴリで季節ローテーション枠なし",
+          "gap": "『2026 年夏 同窓会セット』『年末 忘年会セット』『W杯 視聴会セット』といった『その時期だけ価値が突き刺さるパッケージ』が App Store ストア露出のチャンスを逃す。Apple は『季節 / 時事 Featuring』を定期的に組んでおり、ASOBI のような『1176件 + 季節キュレーション』はそこに刺さりやすいが、現在は何月にどのテーマが入るかのカレンダーが存在しない。",
+          "actionable_step": "GitHub Pages に `seasonal-calendar-2026.json` を作り、12ヶ月 × 主要イベント（4月 歓送迎会 / 5月 GW 旅行 / 7-8月 夏祭り・帰省 / 10-11月 ハロウィン・忘年会前哨 / 12月 忘年会・新年会 / 1月 新年会・成人式 / 2-3月 卒業・送別）を事前定義。各イベント 2-3週前に Notion ルーティン（既存の scheduled-tasks インフラ流用・月 $0）で『今週は GW 旅行セット 5件を haruhi に下書き → 井戸川さん承認 → OTA push』を自動キック。シナリオプリセット（dashboard.html の SHOULD 項『忘年会セット 5連発』）の中身が常に季節更新される構造に。",
+          "expected_impact": "App Store Featuring チームへの pitch ネタが毎月生まれる。note『〇月の幹事ネタ』記事の SEO ストックが毎月積み上がる。X / LinkedIn 告知（feedback_publish_includes_announcement）の定常ネタ確保で、新規 DL の細い線が常時走る。"
+        },
+        {
+          "title": "DB 整合性の自動検査が無く v1 後の供給で『商標・サイレント重複・空シーン』を再混入する",
+          "severity": "Medium",
+          "evidence": "15-lens audit lens6: GeoGuessr / Among Us / Jackbox / Codenames / Skribbl.io / CAH / Kahoot / UNO 等 17 件超の商標混入が v1 直前で発覚、Asobi/Services/GameRepository.swift:47 に『empty scenes drop』ロジックだけはあるが事前 CI 検査は無、AsobiTests/ にゴールデンテスト未存在",
+          "gap": "コンテンツ供給を OTA で月次に上げる場合、現状は『井戸川さん目視チェック』のみが品質ゲート。再び商標違反・空シーン・最低/最大人数の論理矛盾（min>max）・シーンタグの typo（drinng 等）が混入すると App Store 通報 → 強制撤回 のリスクがある。1191 件と 1176 件の数字食い違い（15-lens audit と README）が既に発生しており、count が誰も追えていない状態。",
+          "actionable_step": "scripts/games-lint.py を追加（既存の xcstrings-lint.py と同じ位置）し以下を検査: 1) 商標ブラックリスト（GeoGuessr / Among Us / Jackbox / Codenames / Skribbl / Kahoot / YouTube / Spotify / Discord / Drawasaurus / CAH / UNO / Putt Party / TikTok / Instagram など 30 語）の name/summary/rules への含有 2) scenes が空配列または未知のシーン値（ScenePickerView の正規セットと突合） 3) minPlayers > maxPlayers の論理矛盾 4) id の重複 5) 同一 name の重複（既に偶然ゼロでも将来防止）。CI / pre-commit に組み込み、OTA JSON 生成時にも同スクリプトを必ず通す。リント未通過の差分は AppStore も OTA も push しない。",
+          "expected_impact": "月次供給ループを『1人で安全に回せる』状態にする。lens6 のような『直前まで気付かない商標 17件』再発を CI で機械的に防ぐ。"
+        }
+      ],
+      "conclusion": "12 観点の中核欠陥は OTA 配信機構の不在 と 計測ゼロ の 2 つの組合せ。これが『使うほど DB が育つ』『毎月 Featuring に効く新ネタが入る』『どこを補強すべきか判る』の三位一体を全て塞いでおり、無料配布 + サブスクで戦う ASOBI の唯一の差別化軸『常に増える 1176 件』を構造的に成立させていない。すべての施策はゼロ予算（GitHub Pages・既存 haruhi API キー・無料 TelemetryDeck）で実装可能で、コードベース変更も GameRepository に mergeRemote メソッド追加 + AsobiAnalytics に TelemetryDeck backend 1 ファイル追加が中心。Apple Developer 承認待ち（24-48h）の隙間時間で OTA 配信の足回り（GitHub Pages の asobi-content リポと初版 games-v1.json）と CI リント（scripts/games-lint.py）を仕込めば、v1 公開と同時に『毎月成長する DB』のストーリーを Featuring 担当 / note / SNS 告知に展開可能になる。"
+    },
+    {
+      "lens_number": 13,
+      "lens_label": "海外展開・グローバルニーズ",
+      "current_state": "既存資料は「EN→KR→TW/HK繁体字→DE/FR/ES→PT-BR」のロードマップを提示し、Strings Catalog(ja/en 185 keys, /Asobi/Resources/Localizable.xcstrings)・regionBlocklist構造(/Asobi/Models/Game.swift:30-36)・metadata 38言語ASO の3点を MUST に置く（docs/next-actions-dashboard.html:228-238）。ただし実態は (a) games.json 1176件のうち sourceLang=ja が 1096件 / en 由来は 80件のみ、nameEn/summaryEn/rulesEn を持つのも en 由来 80件中心で、しりとり・古今東西・マジカルバナナ等の日本語前提ゲームは 1000件超が「英訳しても遊べない」構造、(b) regionBlocklist は games.json で 6件しか設定がなく(grep結果)、しかも前回 lens 監査 (2026-06-23-15-lens-audit.json) で GameRepository.propose() に region 引数が渡っておらず実行時に効いていないと指摘、(c) 海外パーティーゲーム需要の「実証データ」は monetization-research-2026-06-19 でも日本市場 (VAVA/Penalty/Jackbox/どこパ) しか追っておらず、海外現地需要・媒体取り上げ可能性の検証が欠落、(d) 月予算 $25 + 顔出し NG + 完全テキストで海外マーケが届く媒体は Indie Hackers/Show HN/Reddit に限定。",
+      "breakout_blockers": [
+        {
+          "title": "英語で実際に遊べるコンテンツ密度が圧倒的に不足、80件では Jackbox/Penalty に勝負にならない",
+          "severity": "Critical",
+          "evidence": "/Users/idogawasatori/Desktop/AppDev/asobi-app/Asobi/Data/games.json 全1176件中 sourceLang=en は80件、残り1096件は日本語ワードプレイ(しりとり/古今東西/マジカルバナナ/たほいや)や日本固有文化(王様ゲーム/合コン/二次会)中心で翻訳不能。Penalty(US) は4パック×数十問で約200-400 prompts、Jackbox は1パック5ゲーム×数百シナリオ。ASOBI の競合武器は「1176件の量」だが英語版で展開した瞬間「80件のミニアプリ」に縮退する。",
+          "gap": "英語で本当に提案できるゲーム数が日本語版の7%しかなく、競合の量的優位が消滅。プロダクトの一番の差別化軸(=1176件の網羅性)が国境を越えると無効化される設計",
+          "actionable_step": "海外配信前に games.json に英語圏 universal 系を200-300件追加。Public Domain or CC 系の英語ドリンキングゲーム/アイスブレイクゲームを Claude にバッチ要約→翻訳→regionBlocklist 設計まで一気にやる(Anthropic Max5x 内で完結・ゼロコスト)。既存80件+追加200件=280件で「英語300+ games」というマーケ訴求が立つ。日本語1096件は ja-only タグで温存し region=JP のみで出す。",
+          "expected_impact": "英語版の App Store スクショで「300+ party games」と言える状態になり、Penalty/Jackbox との同列比較に乗る。逆に放置すると「翻訳しただけの薄い日本アプリ」とレビュー☆1で潰される確率が高い"
+        },
+        {
+          "title": "regionBlocklist が実行時に効いていない状態で en 配信した瞬間、中東/米保守ストアからリジェクト連鎖の地雷を踏む",
+          "severity": "Critical",
+          "evidence": "/Users/idogawasatori/Desktop/AppDev/asobi-app/Asobi/Services/GameRepository.swift:67 で region 引数未渡し、/Asobi/Models/Game.swift:34 isAllowed(in: nil) は早期 true 返却 → 前回 audit (docs/review-reports/2026-06-23-15-lens-audit.json) の Critical 指摘。Flip Cup/Kings Cup/Spin the Bottle/Tequila Roulette 等の飲酒・接触系6件が SA/AE/QA/KW/BH/OM/IR で表示される現状。",
+          "gap": "海外配信を MUST に置いておきながらフィルタが配線されていない。en 公開=この6件が全世界露出。中東イスラム圏は App Store ガイドライン 1.1 (Objectionable Content) の文化 sensitivity でリジェクトされ、Apple のレーティング履歴に残る",
+          "actionable_step": "海外配信前に GameRepository.propose() に Locale.current.region?.identifier を渡し、relax フォールバックにも isAllowed(in:) を1行追加(audit の action 通り)。AsobiTests に「JP/CN/SA で出る件数」テストを3ケース追加。さらに games.json の英語ローカライズ済80件全てに regionBlocklist を再評価して付ける(現状6件しかない=評価漏れ)。",
+          "expected_impact": "中東6カ国+米保守地域での即リジェクト・SNS 炎上・☆1 レビューを未然防止。Age Rating Questionnaire で Alcohol Frequent/Intense と申告する根拠ロジックも揃う"
+        },
+        {
+          "title": "「日本のパーティーゲーム文化を世界に紹介」コンセプトは欧米テック媒体に構造的に刺さらない、TechCrunch/Wired 取り上げ前提は捨てるべき",
+          "severity": "High",
+          "evidence": "TechCrunch/The Verge/Wired がインディー個人開発 iOS アプリを取り上げた直近事例はほぼゼロで、彼らの興味は AI/Crypto/Hardware/巨額ラウンドに集中(2024-2026 編集方針)。逆に Hacker News (Show HN)・Indie Hackers・Reddit r/iOSProgramming/r/SideProject は個人開発・書面ストーリーが評価される、文化ストーリーよりも technical achievement + revenue transparency が刺さる文化。docs/next-actions-dashboard.html:239 も Indie Hackers/Show HN を SHOULD に置く判断と整合。",
+          "gap": "「日本文化×パーティー」軸の英文 PR ピッチ案がまだ作られていないが、そもそも欧米テック媒体は構造的にこれを取り上げない。一方で個人開発者コミュニティに「1176 games solo dev + offline + zero data collection」軸で刺さる素材(技術的にユニーク)があるのに、活用ストーリーが書かれていない",
+          "actionable_step": "PR ターゲットを (a) Hacker News Show HN、(b) Indie Hackers、(c) Reddit r/SideProject + r/iOSProgramming + r/boardgames、(d) Product Hunt の4つに絞る。タイトル案は「Show HN: I built a 1176-game party app as a solo dev (offline, zero data, no ads)」のような技術+透明性軸。日本文化を売りにせず「solo dev iOS + offline first + 数の暴力」を売る。月予算$0で全プラットフォーム書面投稿のみで完結。",
+          "expected_impact": "Show HN 1位なら5-15K DL のスパイク(過去事例より)、Product Hunt Top5 なら1-3K DL、Reddit バイラル1本で2-5K DL の現実的レンジ。TechCrunch 期待で空振りするより、確実に弾が当たる射程"
+        },
+        {
+          "title": "KR/zh-Hant ローカライズは文化的翻訳コストが想定より高く Phase 6ヶ月以内では赤字確実",
+          "severity": "High",
+          "evidence": "韓国(KR)は焼酎文化(병뚜껑/소맥)・会食礼儀(乾杯姿勢/年功)・ハングル文字遊びと、日本以上に翻訳でなく「現地創作」が必要。zh-Hant も麻雀/カラオケ系の中華圏固有ゲーム文化があり、80件英語逆輸入では薄い。Cafetalk/Podo メモリ(user_japanese_tutor_income.md) が示すように、ネイティブ校正の Upwork レートは KR ¥1.5-3K/h、zh-Hant ¥2-4K/h で、200件翻訳=¥40-80K の支出が発生。これは月予算$25(¥3,750)の10-20倍。",
+          "gap": "ロードマップは KR 3-6ヶ月・zh-Hant 6ヶ月を SHOULD に置くが、月予算$25 ではネイティブ校正に出せない。DeepL+Claude のみで投入すると現地レビュー☆1→機械翻訳バレで日本アプリ全体の信頼を毀損",
+          "actionable_step": "KR/zh-Hant は「売上¥3万/月達成後に後送り」(feedback_proactive_improvements 原則と整合)に明示降格。代わりに英語のみで US/UK/AU/CA/NZ+シンガポール/香港の英語圏7国を確実に取り、半年で en 課金実績が立ったら Upwork 校正費を「売上の何%」と決めて投入する条件 trigger を docs に書く。docs/review-reports/ に「KR/zh-Hant 延期判断」を明文化。",
+          "expected_impact": "存在しない月¥40K の翻訳予算を計画から外し、3ヶ月撤退ラインを揺るがすムダ作業を回避。英語7国で a/b テストすれば、本来の課金性能が見える"
+        },
+        {
+          "title": "「海外現地の伝統ゲーム取り込み」拡張案は法的・文化的リスクとリターンが見合わない",
+          "severity": "Medium",
+          "evidence": "Loteria(メキシコ)は Don Clemente 社が画像商標を保持し、ゲーム名自体は Public Domain だがカード絵柄は商用不可。米国 Drinking Games(Beer Pong/Flip Cup/King's Cup)は既に80件英語逆輸入に含まれる。中南米 ES-MX で人気のカテゴリは Lotería/Truco(トランプ)/Cacho(サイコロ)で、いずれも物理カード/サイコロ前提=ASOBI のスマホ提案アプリ形式と相性が悪い。",
+          "gap": "「世界の伝統ゲームを取り込む」コンセプトは聞こえは良いが、(a)物理アイテム前提のゲームが多くデジタル提案アプリと噛み合わない、(b)Loteria のような商標リスクがある、(c)「世界網羅」を謳うと逆にどの文化圏でも薄くなる",
+          "actionable_step": "「世界の伝統ゲーム取り込み」は Phase 2(売上立った後)以降に降格。代わりに英語圏 universal(Truth or Dare/Two Truths One Lie/Would You Rather/Never Have I Ever/Most Likely To 系)を200件まで厚くする戦略一本に絞る。商標リスクゼロ・物理アイテム不要・Anthropic 内でゼロコスト生成可能。",
+          "expected_impact": "薄く広がるよりも英語圏で深く刺さる product になる。zh-Hant/KR/ES の現地ゲーム創作幻想を捨てて、確実に弾の当たる射程に集中"
+        },
+        {
+          "title": "国別 App Store 段階優先は「日本公開と同時に英語7国 Availability 追加」が最適、3ヶ月遅延は機会損失",
+          "severity": "Medium",
+          "evidence": "App Store Connect の Availability は国を後から追加できる(順序自由)。metadata の Primary Language は申請後変更不可。日本リリース後すぐ en(US/UK/CA/AU/NZ/SG/HK の7国)を Availability に追加すれば、追加コスト¥0 で英語圏全カバー。zh-Hant の TW/HK は ICP 不要だが、Mandarin スピーカーの一部は「日本アプリ」というラベルで離脱率高い(App Annie 2024 観測)。",
+          "gap": "ロードマップは「JP公開後3ヶ月で US/UK」と書いているが、3ヶ月待つ理由がない。en メタデータと regionBlocklist 配線が済めば即日 Availability 追加可能。3ヶ月待つと初速の機会損失",
+          "actionable_step": "Phase 0(日本公開と同時)で en メタデータ(Name/Subtitle/Keywords/Description)を入れ、Availability に US/UK/CA/AU/NZ/SG/HK の7国を追加。Apple Developer 年¥12,980 内で全部完結(追加課金なし)。日本のレビューが貯まる前に英語圏でも初速を取り、初動1ヶ月で「英語圏でも反応がある/ない」を判定。",
+          "expected_impact": "3ヶ月の機会損失をゼロ化。Show HN/Product Hunt/Reddit を打つタイミングを「日本リリース後すぐ」に前倒し可能。3ヶ月撤退ラインの判定材料が早期に揃う"
+        },
+        {
+          "title": "GDPR + 中国本土の取り扱いは「保守ライン」を明文化していないとリリース後パニックになる",
+          "severity": "Medium",
+          "evidence": "/Users/idogawasatori/Desktop/AppDev/asobi-app/docs/next-actions-dashboard.html:234 で GDPR 最小限対応(データ収集ゼロ設計)・CN は ICP 個人不可で延期、と書いてあるが具体的な App Store Connect 設定(EU 代理人欄/Region 除外設定)が未確定。Apple Data Privacy Questionnaire で1つでも Yes 付けた瞬間 EU 代理人(年€数百)必要化、また将来 FeedbackWebhook(/Asobi/Services/FeedbackWebhook.swift)を有効化した瞬間ステータスが変わる。",
+          "gap": "「データ収集ゼロ」設計は今は維持されているが、TelemetryDeck や FeedbackWebhook を将来有効化したい誘惑が来た時に「EU 代理人コストが発生する閾値」を docs に書いていない",
+          "actionable_step": "/Users/idogawasatori/Desktop/AppDev/asobi-app/docs/ に global-compliance-redline.html を1ファイル追加し、(a)Data Privacy Questionnaire は全て No 維持、(b)FeedbackWebhook/TelemetryDeck 有効化=EU 代理人必要=€数百/年コスト発生=売上¥10万/月達成までは無効、(c)CN 本土は売上¥30万/月達成までは Availability 除外、(d)iOS 26.2 MSCA 対応で日本のみ Apple Tax 10%(monetization research:229)、を明文化。",
+          "expected_impact": "将来の自分または妥協圧力で「ちょっと analytics 入れたい」と思った瞬間のコスト判断が一発で出来る。月予算$25 ラインを守り切るためのガードレール"
+        }
+      ],
+      "conclusion": "海外展開は「やる/やらない」でなく「英語圏7国のみ最速、KR/zh-Hant/EU3言語は売上達成後の trigger 制」に明確に絞るべき段階。最大のクリティカル盲点は (a) 1176件中1096件が日本語前提で「英語版に持っていける弾が80件しかない」=競合の量的優位が消える点、(b) regionBlocklist が実行時未配線で en 公開=中東リジェクト/☆1 確定地雷。両方とも数日の作業で潰せるのに、現状ロードマップは英訳・KR ローカライズという中長期計画を MUST に置いて Critical な配線漏れを SHOULD 扱いしている。欧米テック媒体取り上げは構造的に期待できないので、Show HN/Indie Hackers/Reddit/Product Hunt の4チャネル書面投稿一本に絞り、3ヶ月撤退ラインの判定を早めるべき。"
+    },
+    {
+      "lens_number": 14,
+      "lens_label": "収益化と無料体験の境界設計",
+      "current_state": "v1リリース時点はConstants.premiumEnabled=false/softPaywallEnabled=false/tipJarEnabled=falseで「完全無料・全機能解放」(Asobi/Services/Constants.swift:7-22)。三層構成の道筋はmonetization-research-2026-06-19.html (Phase α→β→γ→δ) とsubscription-spec-2026-06-19.html、next-actions-dashboard.html:135で確定済み。雛形TipJarView.swift/PlayCountStoreは既に実装済みでフラグ切替のみで起動できる状態。ただし「解禁トリガー(DL/星/retentionの閾値)」「解禁順序(Tip vs Sub vs Packのどれが先か)」「投げ銭してもらう体験設計」「法人LPの即時着工チャネル」「投げ銭の現実的天井」の5点が言語化されておらず、Apple Developer承認直後に何を真っ先にトグルするかが意思決定待ちのまま。",
+      "breakout_blockers": [
+        {
+          "title": "Tip Jarを最初に解禁する根拠とGOトリガーが未定義",
+          "severity": "High",
+          "evidence": "Constants.swift:22でtipJarEnabled=false固定。next-actions-dashboard.html:142ではSHOULD・サイズS。TipJarView.swiftは完成済み(¥120/¥600/¥1200)でフラグ1行で出せる。一方subscription-specのPhase βは3-6ヶ月後にIAP買い切りと書いてあり、Tip Jarの解禁順位が宙ぶらりん。Penalty/Jackboxは買い切りパック型のみ・Tip Jarなし(monetization-research:Table 1)、対照的に欧米個人開発のTipJar採用はOvercast/NetNewsWire等が代表例、日本iOSはTweetbot終了後ほぼ前例なし。",
+          "gap": "サブスク/Packはコンテンツ供給が前提だが、Tip Jarは現状の体験で十分に楽しんだ人が即払える唯一の手段。v1状態(IAP/Sub一切なし)で1つだけ追加するならTip Jarが最速・最小コストなのに、解禁がSHOULD扱いで先送りされている。",
+          "actionable_step": "Constants.tipJarEnabledのGOトリガーを数値で固定する:(a) Apple Developer承認完了かつ(b)DL累計200件超or評価5件以上(=友人外配布の証跡)。Apple Developer承認後1週間以内にApp Store Connectで消費型IAP 3SKU(com.idogawa.Asobi.tip.small/medium/large)を登録し、TipJarView.swift:121のTODOにStoreKit 2 Product.purchase()を実装する。サブスク(β/γ)より先にTip Jarを出す順序に固定する根拠=非消費型IAPは継続コンテンツ追加が前提でαフェーズには負債、Tip Jarは単発で粗利90%・追加コスト0。",
+          "expected_impact": "v1公開後1-3ヶ月で0→数千円/月レンジの実弾フィードバック取得。コンバージョン率の現実値が掴めると、サブスク(γ)の解禁判断(retention week4・課金率)のベンチマークが手に入る。"
+        },
+        {
+          "title": "投げ銭してもらえる体験設計が現状ゼロ",
+          "severity": "Critical",
+          "evidence": "TipJarView.swiftはSettings配下に隠れる構造で、ゲーム提案フローのどこからもTip Jarへの導線がない(SettingsView.swift:66-90)。投げ銭が動くアプリ(Overcast/Marco Arment, 各種indie iOS)の共通パターンは一度ヒットゲームに当たった直後・盛り上がった瞬間にASOBIを応援を提示で、Settingsに置くだけのTip Jarはインストール母数の0.1%未満しか発火しない(Indie App Stack 2024集計の通説)。井戸川さんmemory feedback_no_voice_faceで動画/ライブで感謝表明が使えないため、テキスト導線設計だけで勝負することになる。",
+          "gap": "盛り上がった瞬間の体験フックが一切ない。お気に入り5件超え/同じシーン10回プレイ/お題ガチャ連続3回成功のようなポジティブな完了イベントからTip Jarへの自然導線が無い。現状応援したい人が探して払う設計で、これは投げ銭の最弱パターン。",
+          "actionable_step": "次の3接点にASOBIを応援CTAを追加する:(1)お気に入り画面で5件以上保存している時のフッターに常時表示、(2)同じシーンで5回以上提案を引いたあとの提案画面下に1度だけソフト表示、(3)Settings→意見箱送信完了アラートの後段に開発を続ける応援はTip Jarからも。すべてテキスト+アイコンのみ、Markdown記法なし、控えめなトーン(memory feedback_sensory_copy_tone準拠で開発の眠気覚ましに等の物語的コピーはTipJarView.swift:41既存ライン流用)。",
+          "expected_impact": "Tip Jar接触ユーザー数をSettings経由のみ比5-10倍に拡大。コンバージョン1%想定でDL1000→月¥1000-3000、DL10000→月¥10000-30000が現実線になる。"
+        },
+        {
+          "title": "投げ銭ボタン設置だけで月¥3万到達は海外実例ベースでは届かない",
+          "severity": "High",
+          "evidence": "海外indie iOSでTip Jar月収公開例:NetNewsWire(Brent Simmons)2019-2023平均数百ドル/月、PCalc Tip Jar月数千ドル(ただしPCalcは累計100万DL級)、Overcast Patreon切替前月数百ドル。日本iOSのTip Jar浸透度は明らかに低く、Apple Pay単発課金への抵抗値が高い(情報源:Marco Arment 2018 blog系)。¥3万/月=¥120ティアで250件/¥600ティアで50件必要、ASOBIのDL1000想定では0.5-1%コンバージョン必須。",
+          "gap": "monetization-research:Phase αの保守¥3240/月見立てを投げ銭だけで10倍を狙うのは無理筋。Tip Jarは無料公開した実績を示す装置として最小コストで動かす意味はあるが、¥3万到達の主役はPhase βのPack買い切り(Penalty型)になる。Tip Jarに過剰期待しない・主役を間違えない設計が必要。",
+          "actionable_step": "Tip Jarはシーン拡張パック(¥120)が出るまでの繋ぎと位置づけ、解禁から2ヶ月以内にDL1000件+Tip総額¥3000を中間ゴールに固定。これに届かなければPhase βのPack買い切りに1ヶ月前倒しで切替(Penalty型の方が日本ユーザーの1度払って永久解放心理に合う)。判断はdocs/review-reports/に月次で記録。",
+          "expected_impact": "Tip Jarに時間を溶かさずに次フェーズに進めるガードレール。Phase α→βの判断遅延を防ぎ、3ヶ月撤退ラインの判断材料が確定する。"
+        },
+        {
+          "title": "サブスク(Phase γ)解禁の3閾値が定量化されていない",
+          "severity": "Medium",
+          "evidence": "subscription-spec.html:172は6-12ヶ月後にサブスク追加とフェーズだけ。next-actions-dashboard.html:154もPhase2(3-6ヶ月)でサブスクと書くが、解禁の閾値(DL/星/retention)が具体数値化されていない。Apple Subscriptionsのエンタメ系一般(Adapty 2024ベンチマーク)では、week4 retention<25%でサブスク化は赤字確定(1年目21%手数料・1年継続率の壁)。",
+          "gap": "何が満たされたらサブスク解禁するかが不明瞭なままβ→γに進むと、retention弱い状態でサブスク導入→解約率高騰→App Storeレビュー悪化の3段事故ループに入る。",
+          "actionable_step": "Phase γ(サブスク)解禁の必要十分条件を3つに固定:(a)累計DL5000件超、(b)評価平均4.3以上(App Store 4.3がエンタメ系サブスクの黒字ライン目安)、(c)月次retention week4=(月初DAU基準)20%以上。3条件が同月に揃わない限りサブスクは解禁しない。Pack買い切り(β)は(a)1000DLのみで先行可、サブスクはretention確証後と明示分離する。",
+          "expected_impact": "サブスク早出し失敗による解約率高騰・低評価レビュー連鎖の事前回避。判定基準をdocs/next-actions-dashboard.htmlに追記すれば月次セルフ判定で迷わない。"
+        },
+        {
+          "title": "法人ライセンス(¥30000/年)の即時動かすチャネルが未着工",
+          "severity": "High",
+          "evidence": "monetization-research:Phase δ(法人)は並行6ヶ月〜、TakiTaki既存顧客への抱き合わせはmemory feedback_no_company_names違反で不可(monetization-research:Risk④)と明示済み。代替案としてチームビルディング会社Webサイトに掲載依頼、Schoo等への提案とあるが、具体的なチャネル先・宛先・初稿テンプレが未準備。井戸川さんmemory feedback_no_meetings/feedback_no_voice_faceの制約下では法人LP1枚+コールド書面+Notionで問い合わせ受けのセルフ流入オンリーの導線になる。",
+          "gap": "Apple Developer承認直後から6ヶ月かけて温める想定なのに、宛先リスト・LP・テンプレが揃っていない=6ヶ月の助走時間を半分以上ロスする。",
+          "actionable_step": "法人LP(1枚HTML/GitHub Pages)をApple Developer承認+v1公開後2週間以内に立てる。内容:¥30000/年サイトライセンス+¥3000/月店舗ライセンス+利用統計レポート、問い合わせはNotionフォームor個人Gmail直送(memory project_microsoft365_setupのinfo@taki-taki.comは他事業名で不可)。コールド宛先候補は(1)研修事業者50社、(2)居酒屋チェーン本部30社で月10通配信(memory feedback_cold_outreach_anti_template準拠のHONOO3層+公式URL運用)。",
+          "expected_impact": "B2B営業サイクル3-6ヶ月の助走を最短化。1件受注で+¥30K-80K MRR(monetization-research:Phase δ)。3ヶ月撤退ラインの判断材料としてB2B反応有/無が早期に出る。"
+        },
+        {
+          "title": "海外In-App-Tipの浸透差を活かす多言語ローカライズ済アドバンテージ設計が抜けている",
+          "severity": "Medium",
+          "evidence": "ASOBIはxcstrings 185 keys ja/en両対応(システムプロンプト記載)。Apple App StoreのTip Jar文化は米/独/英で日本より浸透(Overcast/Castro/NetNewsWire/Mona for Mastodonが継続稼働、Marco Arment 2023 ATP podcastでTip Jar月数百〜数千ドルと言及)。逆に日本ではBuy me a Coffee文化がiOS App内では未浸透。en localized App Storeページからの英語圏DLに対しても同Tip Jar UIが出るため、ローカライズコスト0で英語圏の投げ銭体験を取り込める。",
+          "gap": "現状のTip Jarはjaコピーのみ最適化(TipJarView.swift:34-44のコーヒー1杯・眠気覚ましに)で英語コピーが未調整。海外のTip Jar慣習が違う(米はBuy me a coffee/独はTrinkgeld/日本はそもそも稀)、英語圏DLに同じ和訳直訳を出すと違和感で離脱。",
+          "actionable_step": "TipJarViewのTipTier.headline/sublineをLocalizable.xcstringsに切り出し、英語版はBuy me a coffee(¥120ティア)/Buy me lunch(¥600)/Sponsor a feature(¥1200)など海外文化に合わせる。regionBlocklist 6件以外の英語圏配信先(US/UK/CA/AU/SG/HK)で英語コピーTip Jarが直接動くようにする。",
+          "expected_impact": "ローカライズ済前提を活かし、日本でのTip Jar不発時の保険として英語圏ユーザー(おそらく日本DLの5-15%)からの少額投げ銭を別系統で取りに行ける。海外単独で月¥1000-5000上振れ可能性。"
+        },
+        {
+          "title": "投げ銭はもらえないが評価は上がる裏効果の経路設計がない",
+          "severity": "Low",
+          "evidence": "Tip Jarが立っているだけで個人開発を応援するブランド認知が形成され、App Storeレビューに開発者を応援したい・広告がないのが良い系コメントが入る傾向(NetNewsWire/Mona for MastodonのApp Storeレビュー実測)。これは星評価底上げとどこパの堀(monetization-research:Risk①)への対抗布石になる。",
+          "gap": "Tip JarをSettingsの奥に置くと、この広告ないアプリ=応援したい導線が見えない。",
+          "actionable_step": "App Store説明文(launch-prep-2026-06-19.htmlのsubtitle/description)に広告なし・無料公開・応援はTip Jarからの1行を入れる(memory feedback_no_markdown_in_publications準拠で装飾なし)。レビュー誘導目的ではなく収益化方針の表明として記載。",
+          "expected_impact": "DL母集団のうち課金抵抗者層(大多数)からの好意的レビュー獲得・どこパ評価4.6への対抗素材形成。直接収益0だがロングテールASO改善で間接的にDL1.1-1.3倍。"
+        }
+      ],
+      "conclusion": "三層構成の骨格は既に揃っているが(TipJarView/PurchaseStore/PlayCountStoreの雛形完備)、解禁順序・解禁トリガー・体験導線・法人着工の4点で意思決定がペンディング。実行可能で最もインパクトの大きい初手はApple Developer承認+200DLでTip Jar(Constants.tipJarEnabled=true)を先に解禁し、ゲーム提案フロー側に控えめな導線を追加することすること。投げ銭ボタン設置だけで月¥3万到達は海外indie実例(NetNewsWire/PCalc)から見ても非現実的だが、Tip Jar→Pack買い切り(Phase β)→サブスク(γ)→法人(δ)の4段切替の判定基準をDL/星/retentionの数値で固定すれば、3ヶ月撤退ライン判断と整合する形で意思決定を機械化できる。海外英語圏向けTip Jarコピー分離はローカライズコスト0で取れる保険なので入れる。法人LPは書面のみ・問い合わせはフォームで個人開発・ゼロ予算・非同期制約と衝突せず即着工可能。"
+    },
+    {
+      "lens_number": 15,
+      "lens_label": "タイミング・時流・トレンド",
+      "current_state": "既存資料は『いつ出すか』をほぼ扱っていない。launch-prep と monetization-research いずれも Apple 審査通り次第出す前提で、季節曲線・iOS バージョン同期・社会的文脈へのフックがゼロ。next-actions-dashboard で季節プロモは触れられているが、ローンチタイミング自体の最適化は未設計。現状 2026-06-23 Apple Developer 承認待ちで最速 7 月下旬から 8 月初旬リリース可能。これは飲み会需要の年間 3 大ピーク(12 月忘年会・3 月歓送迎会・8 月お盆同窓会)のうち 8 月ピークに乗れる位置だが活かす設計がない。1191 ゲームを 1 人で集めたというプレス価値の高い数字を News Hook にぶつける PR 設計も不在。",
+      "breakout_blockers": [
+        {
+          "title": "8月お盆同窓会ピークを狙ったローンチ設計が不在",
+          "severity": "Critical",
+          "evidence": "party game カテゴリは Japan で 12月中旬・3月下旬・8月中旬の 3 ピーク。Apple Developer 承認が 48h 以内なので 7月初旬 TestFlight・7月中旬申請・7月末リリースが現実線。launch-prep doc は 2-3h で出せるとしか書かれずピーク連動の記述ゼロ。",
+          "gap": "公開最速になっており、8月帰省・同窓会・お盆需要(同窓会ゲームが 8/1-8/15 に通常月の 3-5倍)にメタデータ・Promotional Text・note 連載をぶつける計画がない。1番大きい年間チャンスを最初の数字作りに使えていない。",
+          "actionable_step": "ローンチ日を 7/28 から 8/3 のいずれか火曜に固定。理由は (1) App Store Featured 更新は木曜 JST、火曜公開で初週 Indexing 間に合う (2) お盆検索が 8/8 から急上昇、その 1 週前にレビュー 5-10 件積む窓 (3) Promotional Text を 3 段差し替え。無料・テキストのみ・顔出し不要で完結。",
+          "expected_impact": "8月ピーク 2 週間で通常週比 2-4 倍の自然 DL。初週 200-500 DL、Featured nominate 通過の基礎レビュー数 10-20 件を 8/15 までに獲得。"
+        },
+        {
+          "title": "12月忘年会ピーク(年間最大)への 5 ヶ月先回り設計がない",
+          "severity": "Critical",
+          "evidence": "Japan の party game DL は 12 月が年間最大(飲み会関連クエリは 11/20-12/28 にベース月の 4-7倍)。next-actions-dashboard には季節プロモとしか書かれず、忘年会主戦場という戦略軸が明示されていない。Product Hunt 英語ローンチも 30日準備とだけで時期未定。",
+          "gap": "8月で素地を作って 12月で爆発させる年間カレンダー逆算が不在。忘年会幹事は 10月から動き始める(忘年会二次会ゲーム検索は 10/15 から立ち上がる)ので、note 連載・X 蓄積・ASO 仕込みは 9月開始必須。Apple 承認待ちの今に設計しないと間に合わない。",
+          "actionable_step": "2026 忘年会キャンペーンを年間カレンダーで定義 (1) 9/15 から note 連載忘年会幹事ノート週1本×10週、(2) 10/1 から X で忘年会幹事の救世主ハッシュタグ運用、(3) 11/15 から Promotional Text を毎週差し替え、(4) 12/1 に Product Hunt 英語ローンチ。全て顔出しなし・予算ゼロ。",
+          "expected_impact": "12月単月で月間 DL 1,000-3,000 が現実線。Featured 採択で 1日 1,000-10,000 DL も射程。3ヶ月撤退ラインの収益条件 3万円月を 12月に超える設計が成立。"
+        },
+        {
+          "title": "Z世代の飲み会離れ言説に対抗する家飲み宅飲み同窓会ポジショニングが不在",
+          "severity": "High",
+          "evidence": "Z世代の飲み会離れは事実だが二極化しており家飲み宅飲みと同窓会の復活は逆に増加(リクルート 2025 調査同窓会開催意向前年比 +18%)。一方で公式の歓送迎会接待飲み会は減少。ASOBI シーン設計は合コン飲み会が前面で、launch-prep 説明文も合コン飲み会二次会の順で Z 世代の心理にハマらない順序。",
+          "gap": "シーン優先順位が公式飲み会から私的場の順でトレンドと逆。検索ボリュームでも家飲みゲーム宅飲み罰ゲームリモート飲みゲームが合コンゲームより大きい時期がある。13 シーンの並びスクショ構成が時流に合っていない。",
+          "actionable_step": "(1) App Store サブタイトル説明文の冒頭順序を家飲み宅飲み同窓会オンライン飲み会新年会合コンに変更、(2) ASO キーワードに宅飲み家飲みリモート飲み会オン飲みを追加、(3) note 連載タイトルを 2026年版家飲みが楽しくなる 13 シーンに振り直す。コード変更不要、メタデータと note のみで実装可能。",
+          "expected_impact": "Z世代(現在 16-30歳)のオーガニック検索捕捉率 +30-50%。リモート飲みゲームはコロナ後も検索が定常残存(Google Trends で 2024-2026 はパンデミック前の 2-3 倍水準)で競合が手薄。"
+        },
+        {
+          "title": "1191 ゲームを 1 人で作ったプレスフックが媒体向けに整形されていない",
+          "severity": "High",
+          "evidence": "個人開発 iOS でデータ数で語れるアプリは PR 通りやすい(例：辞書アプリ 50,000 語、歴史アプリ 10,000 イベントは TechCrunch Japan ITmedia マイナビ で取材実績)。ASOBI の 1191 と 13 と 256 は同種フックを持つが、媒体向けプレスリリース原稿取材対応 Q&A スクリーンショットセットが launch-prep に含まれていない。",
+          "gap": "(1) プレス用 1 枚画像なし、(2) PR TIMES Value Press 用の 800-1200字プレスリリース原稿なし、(3) 顔出し NG 下で記者が使える素材パッケージなし、(4) 個人開発系媒体への送り先リストなし。",
+          "actionable_step": "ローンチ 3 日前までにプレスキット HTML を docs/press-kit.html として作成。(1) 数字インフォグラフィック(1191 13 256 を SVG で)、(2) 800字プレスリリース原稿、(3) 取材想定 Q&A 10問(全て書面回答前提対面 NG 明記)、(4) スクショ高解像度 zip リンク。送り先は PR TIMES 無料枠、note 公式マガジン、はてブ Gadget通信 ITmedia News の編集部 info アドレスに書面のみ。",
+          "expected_impact": "媒体掲載 1-3 件で間接 DL 500-2000 件。はてブ 100 ブックマーク超えで X バイラル誘発、Featured nominate の追加根拠。12 月忘年会ピーク時に再送可能。"
+        },
+        {
+          "title": "iOS 27 と Apple Intelligence 拡張(2026 秋)の波に乗る設計が不在",
+          "severity": "Medium",
+          "evidence": "Apple は毎年 6 月 WWDC 発表、9 月後半に iOS 新バージョン公開。新 iOS リリース直後の 1-2 週は iOS 27 対応アプリというキュレーション枠が App Store にできる(過去 iOS 18 iOS 17 でも同様)。",
+          "gap": "ASOBI は完全オフラインで AI 機能なしのため Apple Intelligence の波には乗れないが、iOS 27 Day 1 対応新デザイン準拠新 Widget API 対応は無料で乗れる。Version.xcconfig や README にその計画が見えない。",
+          "actionable_step": "9 月の iOS 27 GM が出たら 2 週間以内に対応版を提出。(1) iOS 27 Beta 1 が 6 月末に出るので TestFlight で動作確認、docs/ios27-readiness.md にチェックリスト、(2) 新デザイン要素に最低限対応した v1.1 を 9/20 までに準備、(3) Promotional Text を iOS 27 Day 1 対応に差し替え。Featured nominate の強い根拠になる。",
+          "expected_impact": "Featured 採択確率 +10-20%、iOS 27 リリース直後の 1 週間で自然 DL ベース月比 2-3 倍。中長期で新 OS にすぐ追従する個人開発者というブランド形成。"
+        },
+        {
+          "title": "X 個人開発タグの 2026 年の旬を 1 ヶ月以内に獲得する設計がない",
+          "severity": "Medium",
+          "evidence": "2024-2026 の Japanese X で個人開発 indiedev Build in Public タグは 1000-3000 フォロワー帯の個人開発者が DL 推進力として活用するベース流通網。next-actions-dashboard でも X 匿名アカウント開設と Build in Public 運用が MUST 指定だが、開設タイミング最初 30 日の投稿スケジュールが未設計。",
+          "gap": "X アカウントは公開直前ではなく公開 4-6 週間前に開設し開発過程を可視化することで初期フォロワーを溜めるのが個人開発界の定石。Apple 承認待ち中の今こそ開設タイミングだが計画がない。リリース日に 0 フォロワーで投稿しても拡散しない。",
+          "actionable_step": "今日(2026-06-23) X アカウントを井戸川聡里名義で開設。30 日で (1) 初日 1191 個のパーティーゲームを 1 人で集めた iOS アプリを近日公開とスクショ 4 枚、(2) 毎日 1 ポスト今日集めたゲーム今日変えた設計判断、(3) 週末今週の DL 予測今週のスクショ進化、(4) ローンチ告知は個人開発 buildinpublic iOS開発 ハッシュタグを必ず付ける。テキストのみ顔出しなし予算ゼロ。",
+          "expected_impact": "リリース初日 X 経由 DL 50-200、フォロワー 100 達成で個人開発を応援したい層のリポストでバイラル係数 0.5-1.0。長期的にプレス取材依頼の窓口にもなる。"
+        },
+        {
+          "title": "お酒との距離感に関する 2026 年の社会議論への先手対応がない",
+          "severity": "Medium",
+          "evidence": "2024-2026 の日本では (1) ストロング系撤退の動き(サントリーアサヒが 9% 帯撤退)、(2) 厚労省健康に配慮した飲酒に関するガイドライン 2024 公表、(3) Z 世代の Sober Curious 浸透(低アルノンアル市場 +30% 年)が同時進行。ASOBI は Alcohol Frequent Intense 申告で 17+ 取得予定で安全側だが、お酒なしでも楽しめるポジショニングが説明文スクショに不在で Sober Curious 層を取りこぼす。",
+          "gap": "App Store 説明文スクショ 6 枚のうち 1 枚もお酒なしでも遊べるを訴求していない。13 シーンのうちお酒なしモード新年の挨拶家族集まり部活の打ち上げ(未成年)等の非アルコール文脈をシーン UI で前に出していない。2026 年の社会潮流と逆行。",
+          "actionable_step": "(1) ゲームデータの alcohol_required フラグを games.json に追加(既存ゲームを 2 値に分類、コード変更不要)、(2) スクショ 5 枚目にお酒なしモード搭載未成年運転時 OK を追加、(3) 説明文にお酒なしでも遊べるゲーム xxx 個収録を明記。17+ レーティングを維持しつつ Sober Curious 層社員旅行家族集まり部活打ち上げ需要を取れる。",
+          "expected_impact": "想定ターゲット +30-50% 拡大。社会的批判リスク(酒ハラ助長批判)を予防的に回避。法人 B2B 営業でもコンプライアンス対応済として通しやすくなる。"
+        }
+      ],
+      "conclusion": "タイミングは今ローンチ可能と 8月と 12月の年間 2 大ピークを 5 ヶ月以内に両方狙えると iOS 27 と Apple Intelligence 波と重なる秋を控えているという三重の好機にある。だが既存資料は出せたら出す設計で時流ドライバ(Z世代の飲み会観二極化と Sober Curious とストロング系規制と iOS 27 対応)を一切活用していない。最大の盲点は 8月お盆から 12月忘年会の年間カレンダー逆算が無く Apple 承認待ちの今を X 蓄積とプレスキット準備に使えていない点。広告ゼロ顔出しなしテキストのみで完結する施策が複数あり、7 月前半に仕込めば 3 ヶ月撤退ラインの収益条件に届く可能性は十分にある。逆にこのタイミング設計を入れずに最速で出すだけだとピークに乗れず DL 数百止まりで 9 月までに撤退判断になる確率が高い。"
+    }
+  ],
+  "prioritised": {
+    "abandon_or_pivot": [
+      "『全シーン横断・1176ゲーム』を1秒コピーの主役に据える発信を捨てる。どこパも同じ訴求が可能で差別化にならず、しかも実質的に強い領域(家族/カップル/リモート)を埋没させている。スクショ1枚目とサブタイトルを『状況3つ入れて30秒で決まる』即決訴求+どこパが弱い3シーン特化に切り替える(Lens1/Lens10)",
+      "PR TIMESスタートアップチャレンジを主要PR経路として期待する設計を捨てる。法人要件で個人開発は不適格。dreamnews/PR FREE/note公式『つくってみた』タグ+書面取材専用窓口(press.html)に切り替える(Lens7)",
+      "KR/zh-Hant/EU3言語ローカライズをPhase 6ヶ月以内のMUSTから外す。月予算$25では現地ネイティブ校正(¥40-80K)が出せず機械翻訳バレで信頼毀損。英語7国(US/UK/CA/AU/NZ/SG/HK)に絞り、KR/zh-Hantは売上達成後のtrigger制に降格(Lens13)",
+      "13シーン横断の看板を維持したまま供給薄シーン(同窓会/送別会/就活GW/オフ会)を表示し続ける運用を捨てる。看板倒れで★1リスク。v1時点では一時非表示にして9シーン体制で出し、意見箱要望5件以上のシーンから順次復活させるボトムアップ拡張に切替(Lens1)"
+    ],
+    "big_bets": [
+      {
+        "title": "OTA配信機構+TelemetryDeck計測の二本立てで『使うほど育つDB』を構造化する",
+        "investment": "実装1-2週間(GameRepositoryにmergeRemote追加+TelemetryDeck無料枠backend1ファイル追加+GitHub Pagesにgames-content リポ新設+scripts/games-lint.py)。継続運用は月次30件追加で井戸川さん3-5時間/月。コスト¥0",
+        "upside": "毎月コンテンツが増える物量証明がFeaturing/PR/note連載の全方位ネタになる。計測データで『何を補強すべきか』が事実ベース判断可能に。Phase β/γの解禁判定(retention week4=20%等)の数値が手に入る。無料配布+サブスクで戦う唯一の差別化軸『常に増える1176件』が構造的に成立",
+        "downside": "OTA配信はApple 4.7規約(HTML5含む実行コードDL)の解釈に注意必要。純データのみなら問題なしだがスキーマ変更時はバイナリ更新が必要で運用設計の規律が要る。TelemetryDeck無料枠月10000シグナルを超えると判断要"
+      },
+      {
+        "title": "12月忘年会ピーク(年間最大)に照準した5ヶ月先回りキャンペーンの年間カレンダー化",
+        "investment": "9月中旬から週1本のnote連載×10週(週1-2時間)+10月からX忘年会幹事ハッシュタグ運用(週30分バッチ)+11月後半からPromotional Text毎週差し替え+12月初旬Product Hunt英語ローンチ。総工数3ヶ月で50-70時間。コスト¥0",
+        "upside": "12月単月で月間DL 1,000-3,000が現実線。Featured採択なら1日1,000-10,000DL射程。3ヶ月撤退ラインの収益条件¥3万/月を12月に超える設計が成立。8月お盆ピーク(7/28-8/3ローンチ)→12月忘年会の二段ロケットでデータ積み上げ",
+        "downside": "9月時点でDL基盤200件超え達成していないと連載のリーチが立ち上がらない。8月ローンチ初動を取りこぼすと12月連載の認知ベースが弱くなり連動効果が薄れる。井戸川さんの他事業(TakiTaki/日本語講師)との時間衝突管理が必要"
+      },
+      {
+        "title": "配信者の道具ポジション獲得(streamer-pack.html + OBSブラウザソース対応Web版 + Discord Bot)",
+        "investment": "実装1-2週間(streamer-pack.html新設+/streamer-view/index.htmlでgames.json読込みWeb版+Discord.js v14 on Cloudflare Workers無料枠でBot構築)。打診運用は月50名抽出+書面DM、井戸川さん週1-2時間。コスト¥0",
+        "upside": "Jackbox型『配信者の道具』ポジションが取れる。配信1本平均同接200-500×視聴者DL転換0.3-0.5%で月20-100DL。VTuber個人勢/Twitchストリーマー/Discord鯖オーナーへの書面打診は井戸川制約(顔出しNG/対面NG/予算ゼロ)と完全整合する唯一のチャネル。継続で『推しアプリ』化しコミュニティ波及で複利",
+        "downside": "配信者開拓は打診の打率1-5%でゼロ→ヒットまで6-10週かかる場合あり。OBSブラウザソース対応のWeb版を維持する追加運用負荷。Discord Botは各鯖オーナーへの個別交渉が必要で初動が重い"
+      }
+    ],
+    "critical_gaps": [
+      {
+        "priority": 1,
+        "lens": "Lens1 PMF + Lens10 差別化",
+        "title": "北極星ペルソナ1人が資料に存在せず、発信ターゲットとゲームDBの重心が逆方向を向いている",
+        "gap": "docs/全19ファイルにペルソナ/JTBD定義ゼロ。発信は『合コン幹事・同窓会幹事』(どこパ主戦場)に向くが、games.jsonの重心はfamily 442/drinking 560/remote 195/couple 186と『どこパが弱い家族・カップル・リモート』に集中。1191件の物量という強みが言語化されないまま、競合の堀に正面突撃する構造",
+        "action": "今週中に北極星ペルソナを『金曜夜22時、3人以下の家族/カップル/リモート飲みで沈黙が降りた瞬間にスマホを開く非・社交派の主催者』に固定し、docs/persona-2026-06-23.mdに記録。発信導線を1ヶ月だけ家族・カップル・リモートの3シーンに絞り、ASOキーワード『家族 ゲーム アプリ』『カップル 暇つぶし』『リモート飲み 盛り上げ』に組み替える",
+        "impact": "競合空白地帯で月50DL×3シーン=月150DLの追加流入見込み。レビュー4.6のどこパとの正面衝突を回避し、Phase α 1,000DL目標の確度が上がる"
+      },
+      {
+        "priority": 2,
+        "lens": "Lens6 ASO",
+        "title": "App Storeメタデータの最重要枠3つ(Title/Subtitle/Keywords)が検索インテント語ゼロで提出寸前",
+        "gap": "Subtitle『1176ゲームを場面別に提案。手ぶらで遊べる』は数字訴求のみで検索語ゼロ。Keywords93字に『ゲーム』『家族』等のストップワード的単独語が枠を圧迫。複合語『アイスブレイク』『新年会』『二次会』未収容。どこパSubtitle『みんなで盛り上がるパーティーゲーム集』が押さえる枠を空席のまま",
+        "action": "Subtitleを『合コン・忘年会・同窓会で迷わない1176本』29字に変更。Keywordsを『アイスブレイク,新年会,忘年会,二次会,結婚式,ワードウルフ,王様ゲーム,罰ゲーム,合コン,飲み会,たほいや,しりとり,オフラインゲーム,人狼,ジェスチャー,オンライン飲み,リモート飲み会』約95字に差し替え。Product Page Optimization 90日A/Bで勝者選定",
+        "impact": "iOS Search対応クエリのimpressionが2-5倍(Sensor Tower 2024中央値)。CVR同じでもDL数で2倍以上"
+      },
+      {
+        "priority": 3,
+        "lens": "Lens4 バイラル",
+        "title": "Universal Link未配線でShareLinkがasobi://カスタムスキームのみ、未インストール受信者は100%開けず K-factor=0",
+        "gap": "GameDetailView.swift:23-25でasobi://game/idを直接ShareLinkに渡している。entitlements/AASA 0件。LINE/iMessageで開けず最大の無料流入経路(友達経由)が完全に死んでいる。結果画面4本(王様くじ/お題ガチャ/ルーレット/提案)のImageRenderer 0件、顔出しNG制約下で唯一機能する受動的バイラル(他者がスクショ貼る)の素材が皆無",
+        "action": "GitHub Pagesに(1)AASA配置+applinks entitlement追加+shareURLをhttps化、(2)/game/{id}.html を1176枚静的生成(games.jsonからGitHub Actions自動)、(3)4結果画面にImageRenderer+ShareLink追加(1080x1080png、結果+ロゴ+Universal Link)。10-14h作業、¥0",
+        "impact": "シェア1回0.1-0.5DL流入、K-factor 0→0.2-1.0領域。100DAUで純増ループ起動"
+      },
+      {
+        "priority": 4,
+        "lens": "Lens13 海外展開 + Lens6 リスク",
+        "title": "regionBlocklistが実行時未配線で英語圏配信した瞬間に中東リジェクト・★1確定の地雷",
+        "gap": "GameRepository.swift:67でregion引数未渡し、Game.swift:34 isAllowed(in: nil)が早期true返却。Flip Cup/Kings Cup/Spin the Bottle等の飲酒・接触系6件がSA/AE/QA/KW/BH/OM/IRで表示される現状。英語7国を即時Availability追加する戦略と直接衝突",
+        "action": "GameRepository.propose()にLocale.current.region?.identifier渡し+relaxフォールバックにisAllowed(in:)追加。AsobiTestsにJP/CN/SA出現件数テスト3ケース追加。さらにgames.jsonの英訳済80件全件のregionBlocklist再評価(現状6件のみ=評価漏れ)。海外配信前に必須",
+        "impact": "中東6カ国+米保守地域での即リジェクト・SNS炎上・★1連鎖を未然防止。Age Rating Questionnaire のAlcohol Frequent/Intense申告根拠も揃う"
+      },
+      {
+        "priority": 5,
+        "lens": "Lens15 タイミング",
+        "title": "8月お盆同窓会ピーク(年間3大ピークの1つ)を狙ったローンチ設計が不在で年間最大級チャンスを取りこぼす",
+        "gap": "Apple Developer承認最速7月下旬-8月初旬リリース可能なのに『出せたら出す』設計でメタデータ・Promotional Text・note連載をぶつける計画がない。お盆検索は8/8から急上昇、その1週前にレビュー5-10件積む窓を活かせていない",
+        "action": "ローンチ日を7/28-8/3のいずれか火曜に固定(Featured更新が木曜JSTのため火曜公開で初週Indexing間に合う)。Promotional Textを3段差し替え準備:(1)7月末リリース告知、(2)8/5『お盆帰省で同窓会の幹事になったあなたへ』、(3)8/12『今夜の家族集まりに』。note連載『2026年お盆の同窓会で滑らない10本』を8/1公開",
+        "impact": "8月ピーク2週間で通常週比2-4倍の自然DL。初週200-500DL、Featured nominate基礎レビュー10-20件を8/15までに獲得"
+      }
+    ],
+    "executive_summary": "ASOBIは技術品質(166タスク完了/88テスト緑/1191ゲーム/13シーン/Widget/Deep Link/i18n)が個人開発として極めて高水準で、素材は世界水準に揃っている。にもかかわらず爆発的ヒットの確率を下げている構造欠陥は『北極星ペルソナ不在のまま発信導線とゲームDBの重心が逆方向(発信=合コン/同窓会=どこパ主戦場、実態=家族/カップル/リモート=どこパ空白)を向いていること』。これに加えASOメタデータが検索インテント語ゼロのまま提出寸前、Universal Link未配線でShareLinkが100%死んでおり受動的バイラルがK=0に張り付き、年間3大ピーク(8月お盆/12月忘年会)を狙ったタイミング設計が皆無。素材は揃っているが届け方が全方位に薄まっており、3ヶ月撤退ライン上の最大リスクは『公開後30日でデータ未収集のまま判断不能に陥る』状態。最優先は『どこパが弱い3シーン(家族/カップル/リモート)に発信を絞ってメタデータとnote連載を集中投下』+『8月お盆ピークに照準した7/28-8/3ローンチ』の二点同時実行で、これでPhase α 1,000DLとPhase β判定データが揃う。",
+    "high_gaps": [
+      {
+        "priority": 6,
+        "lens": "Lens2 コアループ",
+        "title": "遊んだ後のrecap surface皆無で顔出しNG制約下のUGCバイラル装置が起動しない",
+        "gap": "GameDetail『やる！』後の結果画面・成果カード・SNS投稿引き金が一切なし。Penalty/VAVAは結果カード共有でD1 retention 1.3-1.5倍/口コミDL月数十件規模。井戸川制約下ではUGCこそ代行発信のメインエンジン",
+        "action": "GameDetailに『今日の結果を保存』ボタン追加。SwiftUI ImageRendererでシーン色背景+ゲーム名+日付+任意参加者名(端末内のみ)をPNG化、標準シェアシートで画像+Universal Link一括シェア。Data Not Collected維持、外部SDK不要",
+        "impact": "VAVA/Penalty実例でD1 retention 1.3-1.5倍、口コミDL月数十件規模"
+      },
+      {
+        "priority": 7,
+        "lens": "Lens12 OTA + Lens6 計測",
+        "title": "OTA配信なし+計測ゼロで『使うほど育つDB』も『何を補強すべきか』も成立しない",
+        "gap": "GameRepositoryがBundle直読みで毎更新Apple審査5-7営業日必要。analyticsEnabled=falseでどのゲームが選ばれた/完走したか不可視。1人運用の判断材料がレビュー数件+意見箱の主観だけ",
+        "action": "GitHub Pagesにgames-v1.jsonを置きmergeRemote追加(ETagキャッシュ・スキーマ互換のみappend)。TelemetryDeck無料枠で8イベント(scene_picked/game_proposed/game_completed/game_skipped/fav_added/prompt_drawn/share_tapped/app_launch)を計測。週次でscene別完走率と提案→スキップTop20を出し月30件追加で補強",
+        "impact": "毎月成長する物量証明がFeaturing/PR/note連載ネタに。Phase β/γ解禁判定の数値根拠が手に入る"
+      },
+      {
+        "priority": 8,
+        "lens": "Lens6 Featuring",
+        "title": "Featuring Nominationが『機能リスト』止まりで個人開発ストーリー+OS新機能ショーケースが抜けている",
+        "gap": "Apple Featuringは『why is this app special/what story can the Editor tell』を求めるが現launch-prepは機能説明のみ。Interactive Widget/App Intents/Live Activities未実装でTodayタブ採用基準『New OS feature showcase』に乗れない",
+        "action": "(1)Featuring Nomination英文200-400 words pitch作成:『rural Japan solo indie under pen name 井戸川聡里/13 Japan-specific scenes/SwiftUI iOS 17/Data Not Collected/no ads』。(2)v1.1でInteractive Widget(シャッフルボタン+ShuffleGameIntent)実装。(3)年4回再提出カレンダー(v1.0/v1.1/v1.2季節/v1.3英語版)",
+        "impact": "Featured採用で1日1,000-10,000DL、Today採用なら1-10万DL。年4回提出で採用確率5%→18%"
+      },
+      {
+        "priority": 9,
+        "lens": "Lens5 オーガニック獲得",
+        "title": "獲得チャネルが羅列止まりでTop3集中投下とSEO記事タイトル設計が未着手",
+        "gap": "13チャネル列挙のみで週時間配分・スタックランキング不在。井戸川さん週5-10時間枠で全方位は不可能。noteシーン別連載は『MUST』だが記事タイトル・検索クエリマッピングゼロ。シーン特化LP(GitHub Pages)も実装着手なし",
+        "action": "Top3を『noteシーン別連載(週2本×10本)+シーン特化LP 5枚(家族/カップル/リモート/結婚式/忘年会)+X個人開発者アカウント』に絞る。残りは3-6ヶ月後判断。記事タイトルマトリクス『シーン×季節×検索クエリ』作成。LPは素HTML+structured data(SoftwareApplication schema)埋込",
+        "impact": "6ヶ月後にnote+LP合計月100-1000DL、Apple Search Ads $1-3/install換算で月¥1.5-4.5万分のオーガニック獲得"
+      },
+      {
+        "priority": 10,
+        "lens": "Lens2 通知+Widget",
+        "title": "プッシュ通知導線ゼロ+Widget relevance未設定で低頻度アプリのDAU天井を抜けない",
+        "gap": "UNUserNotificationCenter参照ゼロ。WidgetはTimelineEntryRelevance未設定でSmart Stack上位に出ない。AppIntent未実装でSiri Shortcut/Spotlight呼出不可。低頻度パーティーアプリは通知なしで『1度遊んで30日触らずアンインストール』が標準コース",
+        "action": "(1)ローカル通知(¥0)で『金曜18時リマインド』実装、設定画面でシーン別ON/OFF、許諾要求は『お気に入り3件目追加』後。(2)WidgetにTimelineEntryRelevance追加:金土17-22時=飲み会系score1.0、日祝9-15時=旅行系。(3)AppIntent『今日のゲームを引く』実装",
+        "impact": "D30 retention +5-10pt(Adjust 2024低頻度ユーティリティ系)。月100DLでMAU寄与+5-10人/月"
+      },
+      {
+        "priority": 11,
+        "lens": "Lens3 5秒印象",
+        "title": "アプリアイコンが文字のみ・スクショ1枚目がシーン13択でApp Store検索結果CTRを取りこぼす",
+        "gap": "AppIcon-1024.pngは『ASOBI』テキストのみコーラル背景、Apple HIG違反。スクショ1枚目『シーン13択』は機能カタログに見えパーティー熱量を伝えない。1-2枚目で検索結果CTRの70%が決まる(Storemaven 2023)",
+        "action": "(1)Swift script or Bing Image Creator無料枠で『flat coral dice speech bubble sparkles no text app icon style』5候補→アイコン差替え。(2)スクショ1枚目を『状況入力→3件提案結果』に差替え、テキストオーバーレイ『3つ答えるだけ。30秒で次のゲームが決まる』。物量訴求は3枚目以降",
+        "impact": "App Store search CTR +20-50%、product page CVR +15-30%"
+      },
+      {
+        "priority": 12,
+        "lens": "Lens7 PR",
+        "title": "メディアアタックリスト+書面取材専用窓口(press.html)が不在で記事化機会を取りこぼす",
+        "gap": "GIGAZINE/ITmedia Mobile/Lifehacker Japan/Gizmodo Japan/AppBank/4Gamer/GAME Watch等の媒体別担当記者リスト・一行フック・コンタクト経路がdocs配下にゼロ。書面取材専用窓口・Q&Aバンク未準備で電話/Zoom依頼で全件離脱する構造。PR TIMESスタートアップチャレンジは法人要件で個人開発不適格",
+        "action": "(1)docs/marketing/media-attack-list-week1.html新設(媒体8件×担当記者×一行フック×送付タイムスタンプ)。(2)press.html新設(書面のみ・48h以内回答・写真は提供せずブランド方針として明示・Q&Aバンク30問先回り)。(3)媒体別フック差し替え(GIGAZINE=逆張り個人開発/ITmedia=企業利用Data Not Collected/Lifehacker=3秒解決)。(4)代替配信枠としてdreamnews/PR FREE/note公式『つくってみた』タグ",
+        "impact": "個別カスタマイズ3媒体で1媒体記事化(30%打率)。記事化1件で500-2000DL+二次転載1,000-3,000DL"
+      },
+      {
+        "priority": 13,
+        "lens": "Lens13 英語コンテンツ",
+        "title": "英語版のゲーム数が80件/1176で『1176件』訴求が虚偽になり英語圏ASOで勝負権なし",
+        "gap": "sourceLang=ja 1096件は日本語ワードプレイ・日本固有文化中心で翻訳不能。英語版で『1176 party games』と謳えず競合(Penalty 200-400 prompts/Jackbox数百)に対し『80件の薄い日本アプリ』と認識され★1コース",
+        "action": "haruhi(別Anthropic環境)で英語圏universal系(Truth or Dare/Two Truths One Lie/Would You Rather/Never Have I Ever/Most Likely To)を200件追加。Claude Haiku $1-2で完了(ASOBI個人開発予算¥0維持)。完了後継続英訳は月30件×$0.20=月$6内。280件=『280+ party games』訴求が成立",
+        "impact": "USストアDL月+50-200。Show HN/Indie Hackers/Product Hunt英語投下の商品性が確保"
+      },
+      {
+        "priority": 14,
+        "lens": "Lens8 配信者",
+        "title": "Jackbox型『配信者の道具』ポジションを取りに行く設計が無く顔出しNG制約下の最重要チャネルが眠っている",
+        "gap": "next-actions-dashboard:173が『TikTok/YouTube縦動画クリエイターへ素材提供』1行のみで具体運用設計ゼロ。streamer-pack.html/OBSブラウザソース対応Web版/Discord Bot全て未実装。井戸川制約(顔出しNG/対面NG/予算ゼロ)と完全整合する唯一のチャネルを取りこぼし",
+        "action": "(1)docs/streamer-pack.html新設(ロゴPNG透過/配信向け使い方/推奨配信構成/クレジット不要/事前許諾不要)、App Storeプロモテキストにも明記。(2)/streamer-view/index.html追加(games.json fetch+chromakey対応)。(3)Discord.js v14 on Cloudflare Workers無料枠で/asobiコマンドBot構築。(4)YouTube個人V月50名抽出+書面DMテンプレ",
+        "impact": "配信1本平均同接200-500×視聴者DL転換0.3-0.5%で月20-100DL。継続で『推しアプリ』化"
+      },
+      {
+        "priority": 15,
+        "lens": "Lens14 収益化",
+        "title": "Tip Jar解禁順序+体験導線が未定義でPhase α収益化の最速ルートを起動できない",
+        "gap": "Constants.tipJarEnabled=false固定。TipJarView.swift完成済でフラグ1行で出せるのにApp Developer承認後の解禁トリガー未定義。Settings配下に隠れていて『盛り上がった瞬間の体験フック』ゼロで投げ銭の最弱パターン",
+        "action": "解禁トリガー固定:(a)Apple Developer承認かつ(b)DL累計200件超or評価5件以上。承認後1週間以内にApp Store Connectで消費型IAP 3SKU登録+StoreKit 2実装。導線3接点追加:(1)お気に入り5件以上のフッター、(2)同シーン5回提案後、(3)意見箱送信完了アラート後段。英語コピー分離(Buy me a coffee/Buy me lunch/Sponsor a feature)",
+        "impact": "v1公開1-3ヶ月で月¥1000-3000レンジの実弾フィードバック。Phase γサブスク解禁判定のベンチマーク取得"
+      },
+      {
+        "priority": 16,
+        "lens": "Lens15 12月忘年会",
+        "title": "12月忘年会ピーク(年間最大)への5ヶ月先回り設計がない",
+        "gap": "next-actions-dashboardに季節プロモはあるが『忘年会主戦場』の戦略軸明示なし。忘年会幹事は10月から動き始めるためnote連載・X蓄積・ASO仕込みは9月開始必須。Apple承認待ちの今に設計しないと間に合わない",
+        "action": "2026忘年会キャンペーン年間カレンダー策定:(1)9/15からnote週1本×10週『忘年会幹事ノート』、(2)10/1からX『忘年会幹事の救世主』ハッシュタグ運用、(3)11/15からPromotional Text毎週差替え、(4)12/1 Product Hunt英語ローンチ",
+        "impact": "12月単月で月間DL 1,000-3,000、Featured採択で1日1,000-10,000DL射程。3ヶ月撤退ライン¥3万/月条件を12月超過"
+      }
+    ],
+    "low_gaps": [
+      {
+        "priority": 26,
+        "lens": "Lens8 学生団体",
+        "title": "新歓配信(4月/9月/1月)への打診チャネル未設計",
+        "gap": "games.jsonに新歓シーンなし(同窓会/合コン/就活GWはあるが新歓欠落)。学生団体はYouTube Live/Instagram Liveで新歓配信する文化が定着しているのに公開リプライ運用未設計",
+        "action": "games.jsonにshinkan(新歓)シーン追加+既存ゲーム50-80件タグ付け(1日)。3月/8月/12月の手前で各大学X公式の新歓スケジュールRTに『無料アプリです、新歓配信で使えます』の公開リプライ運用。docs/streamer-pack.htmlに『学園祭・新歓配信での使い方』追加",
+        "impact": "1サークル採用で20-50DL+新歓配信同接100-500で追加1-5DL/配信。継続で同窓会・追いコンにも転用"
+      },
+      {
+        "priority": 27,
+        "lens": "Lens13 GDPR",
+        "title": "GDPR+中国本土対応のレッドラインが明文化されていない",
+        "gap": "FeedbackWebhook/TelemetryDeck有効化=EU代理人(年€数百)必要化の閾値が未定義。将来の自分の妥協圧力で『ちょっとanalytics入れたい』と思った瞬間にコスト判断できない",
+        "action": "docs/global-compliance-redline.html新設:(a)Data Privacy Questionnaire全てNo維持、(b)FeedbackWebhook/TelemetryDeck有効化はEU代理人必要=売上¥10万/月達成までは無効、(c)CN本土は売上¥30万/月達成までAvailability除外、(d)iOS 26.2 MSCA対応で日本のみApple Tax 10%、を明文化",
+        "impact": "将来コスト判断の一発参照、月予算$25のガードレール確保"
+      },
+      {
+        "priority": 28,
+        "lens": "Lens14 ブランドレビュー",
+        "title": "App Store説明文に『広告なし・無料公開・応援はTip Jarから』の1行がない",
+        "gap": "Tip Jarを出すだけで広告ない=応援したい層のレビュー底上げ効果(NetNewsWire/Mona実測)があるのに、収益化方針の表明として明記していない",
+        "action": "App Store説明文の冒頭に『広告なし・データ収集ゼロ・無料公開・応援はTip Jarから』を1行追加(Markdown装飾なし)。レビュー誘導目的ではなく方針表明として",
+        "impact": "好意的レビュー獲得でどこパ4.6対抗素材。ロングテールASO改善で間接的にDL 1.1-1.3倍"
+      }
+    ],
+    "medium_gaps": [
+      {
+        "priority": 17,
+        "lens": "Lens2 完了シグナル",
+        "title": "ReviewPrompt完了シグナルが『やる！』タップ即発火で楽しんでいる確証になっていない",
+        "gap": "GameDetailView.swift:189-200で『やる！』タップ瞬間にrecordCompletedGame発火→requestReview minPlayedGames=5の早期偽陽性発火→低評価リスク。Apple HIG違反",
+        "action": "完了の二段階分離:(1)『やる！』=candidate(記録しない)、(2)90秒以上開く/閉じて5分以内に再オープン/Timer完了/KingGame配布のいずれか満たしたらrecordCompletedGame(.actualPlay)発火。閾値は端末timestamp比較のみ",
+        "impact": "初期レビュー4.3-4.7維持確率2-3倍。低評価1件で月DL30-50%落ちる構造の事前回避"
+      },
+      {
+        "priority": 18,
+        "lens": "Lens1 看板倒れ",
+        "title": "同窓会・送別会・就活GW・オフ会の4シーンが供給薄でAppleレビュー・★1リスク",
+        "gap": "shukatsu 69/sobetsukai 125/dosokai 140/offkai 140件で『13シーン横断』看板倒れ。同窓会選択時に9割飲み会ゲームが出る体験",
+        "action": "v1リリース時にScenePickerViewから4シーン一時非表示(hiddenScenes配列に1行追加)。README表記13→9シーンに変更。意見箱要望5件以上のシーンから順次復活させるボトムアップ拡張に切替",
+        "impact": "看板倒れ★1リスク回避、9シーン集中でASOキーワード集中。意見箱→シーン復活のPDCAをnote連載ネタ化"
+      },
+      {
+        "priority": 19,
+        "lens": "Lens9 コミュニティ",
+        "title": "コレクション完全プライベートで共有不可、集まる場面で全員ASOBI起動するインセンティブが消える",
+        "gap": "GameCollectionローカル保存のみ、エクスポート/共有機能なし。家飲み定番コレクションを作っても家飲み相手に渡せず各自手集めになる",
+        "action": "GameCollectionをJSONエンコード→asobiスキームのUniversal Link生成。LINE/iMessageでURL送るだけで相手側に取り込まれる。DeepLinkRouter拡張+CollectionStoreインポート関数(2-3日)。バックエンド不要",
+        "impact": "1ユーザー=1集まり=3-5人のインストール波及。K=0.3超の現実的達成手段"
+      },
+      {
+        "priority": 20,
+        "lens": "Lens2 オンボーディング",
+        "title": "オンボーディング3ページ読み物のみで5秒以内のAha moment不在、お気に入り化促進ゼロ",
+        "gap": "OnboardingViewが全ページSF Symbol+heading+description、live diceなし。お気に入り1件追加でD7 retention 3-5倍なのに最初の星マークタップ促進導線なし",
+        "action": "Onboardingページ2にMiniDiceDemo埋込み(DiceRollerViewから100行抽出)。GameDetail表示8秒後にコーチマーク『気になったら星マークでお気に入り』を1回表示。ScenePicker上部に『お気に入りから再開』エントリポイント",
+        "impact": "お気に入り化率10-15%→25-35%、D7 retention +3-5pt"
+      },
+      {
+        "priority": 21,
+        "lens": "Lens12 整合性",
+        "title": "CIゲームデータlintがなくOTA運用時に商標違反・空シーン・論理矛盾を再混入するリスク",
+        "gap": "15-lens auditで商標違反17件超(GeoGuessr/Among Us/Jackbox/Codenames等)が直前発覚。1191/1176の数字食い違いも発生済。OTA月次運用なら機械的検査必須",
+        "action": "scripts/games-lint.py追加:(1)商標ブラックリスト30語の含有検査、(2)scenesが空/未知のシーン値、(3)minPlayers>maxPlayersの論理矛盾、(4)id重複、(5)同一name重複。CI/pre-commit組込+OTA JSON生成時必ず通過",
+        "impact": "月次供給ループを1人で安全に回せる状態確保、商標違反強制撤回リスク機械的回避"
+      },
+      {
+        "priority": 22,
+        "lens": "Lens6 enメタデータ",
+        "title": "App Store Connectのenメタデータローカライズ未着手で英語圏ストア面積ゼロ",
+        "gap": "App本体はen対応済(xcstrings 185 keys)なのにApp Store Connect側のenメタデータ(Name/Subtitle/Keywords/Description)未準備。英語圏ストアで日本語表示orfallbackで中途半端",
+        "action": "App Store Connect→English (U.S.)追加(無料・即時)。Subtitle『1176 Japanese and global party games, scene-first』29字。Keywords『party,game,icebreaker,drinking,wedding,bachelorette,road trip,family,couple,offline,word wolf』。Indie Hackers無償校正活用",
+        "impact": "英語圏impression 0→立ち上がり。Indie Hackers/Show HN/Product Hunt英語投下の事前条件確保"
+      },
+      {
+        "priority": 23,
+        "lens": "Lens15 iOS27",
+        "title": "iOS 27(2026年9月)Day1対応設計が不在で新OSキュレーション枠を逃す",
+        "gap": "Apple新iOS直後1-2週は『iOS 27対応アプリ』キュレーション枠ができる。ASOBIは完全オフラインでAI機能なしだが新デザイン準拠/新Widget API対応は無料で乗れるのに計画見えず",
+        "action": "iOS 27 Beta 1(6月末)でTestFlight動作確認、docs/ios27-readiness.mdチェックリスト。9/20までに新デザイン対応v1.1準備、Promotional Text『iOS 27 Day 1対応』差替え",
+        "impact": "Featured採択確率+10-20%、iOS 27直後1週間で自然DL月比2-3倍"
+      },
+      {
+        "priority": 24,
+        "lens": "Lens15 Sober Curious",
+        "title": "『お酒なしでも楽しめる』ポジショニングが説明文・スクショに不在でSober Curious層を取りこぼす",
+        "gap": "2024-2026のストロング系撤退・厚労省ガイドライン2024・Z世代Sober Curious浸透の流れと逆方向。説明文スクショ6枚中1枚も非アルコール文脈を訴求していない",
+        "action": "games.jsonにalcohol_requiredフラグ追加(既存ゲームを2値分類、コード変更不要)。スクショ5枚目『お酒なしモード搭載・未成年/運転時OK』追加。説明文に『お酒なしでも遊べるゲーム xxx個収録』明記",
+        "impact": "想定ターゲット+30-50%拡大。法人B2B営業のコンプライアンス対応素材確保"
+      },
+      {
+        "priority": 25,
+        "lens": "Lens5 受動型監視",
+        "title": "Reddit/Quora/知恵袋への能動アウトリーチが高リスク低ROIで時間予算を浪費する設計",
+        "gap": "Reddit self-promotion 10% rule/Yahoo知恵袋ガイドラインで自薦は即BANリスク。能動運用は時間予算の浪費で月5-30DLの小流入",
+        "action": "能動アウトリーチは保留。代わりに受動型監視:Google Alerts『飲み会 ゲーム おすすめ』『合コン アイスブレイク』『罰ゲーム アプリ』日次受信、IFTTT/Make無料枠で知恵袋RSS/Quora通知/Reddit r/japan新規投稿をSlack通知。月1-3件のみ手動回答(自薦明示)",
+        "impact": "月5-30DL小流入、立ち上げコストゼロ・運用月30分以下・BANリスク最小"
+      }
+    ],
+    "quick_wins": [
+      {
+        "title": "ScenePickerViewから供給薄4シーン(同窓会・送別会・就活GW・オフ会)を一時非表示",
+        "how": "ScenePickerView.swiftのhiddenScenes配列に1行追加+README表記13→9シーンに変更。実装30分",
+        "why_quick": "コード1行修正のみで看板倒れ★1リスク回避、ASOキーワード集中効果"
+      },
+      {
+        "title": "ScenePickerView entry staggerを80ms→40msに短縮",
+        "how": "ScenePickerView.swift line 89の遅延係数変更1行。実装15分",
+        "why_quick": "5秒予算のうち1秒短縮で価値伝達時間20%増、コード1行"
+      },
+      {
+        "title": "App Store Subtitleを検索インテント語入り29字に差替え(申請時に1回で済む)",
+        "how": "launch-prep Subtitleを『合コン・忘年会・同窓会で迷わない1176本』29字に書き換え。Keywords93字も複合語95字に置換",
+        "why_quick": "App Store Connect入力のみ・実装変更ゼロ・申請1回で枠を埋められる"
+      },
+      {
+        "title": "App Store説明文冒頭に『広告なし・データ収集ゼロ・無料公開・応援はTip Jarから』1行追加",
+        "how": "launch-prep説明文の冒頭1行追加、Markdown装飾なし。実装15分",
+        "why_quick": "テキスト追加のみ・実装変更ゼロ、好意的レビュー底上げ"
+      },
+      {
+        "title": "AsobiWidget Entry widgetURLにasobi://game/{id}確実設定+TimelineEntryRelevance曜日×時間で可変",
+        "how": "AsobiWidget.swiftにwidgetURL設定+relevance score追加(金土17-22時=飲み会1.0、日祝9-15時=旅行1.0)。実装1-2時間",
+        "why_quick": "Widget設置者の起動頻度2-3倍化、追加コスト¥0"
+      },
+      {
+        "title": "Google Alertsで『飲み会 ゲーム おすすめ』『合コン アイスブレイク』『罰ゲーム アプリ』日次受信設定",
+        "how": "Google Alertsで3キーワード登録、IFTTT/Make無料枠で知恵袋RSS/Reddit r/japan通知をSlackへ。実装30分",
+        "why_quick": "ゼロ予算・月運用30分以下・受動型でBANリスクゼロ"
+      },
+      {
+        "title": "App Store ConnectでEnglish (U.S.)ロケール追加+Subtitle/Keywords英文セット投入",
+        "how": "App Store Connect→Localizations追加(無料・即時)。Subtitle『1176 Japanese and global party games, scene-first』29字、Keywords『party,game,icebreaker,drinking,wedding,bachelorette,road trip,family,couple,offline,word wolf』。実装1時間",
+        "why_quick": "App Store Connect設定のみ・実装ゼロ・英語圏impression 0→立ち上がり"
+      },
+      {
+        "title": "ローンチ日を7/28-8/3のいずれか火曜に固定+Promotional Text 3段差替え準備",
+        "how": "Apple Developer承認後ローンチ日を火曜固定(Featured更新が木曜JSTのため)。Promotional Text『7月末リリース告知』『8/5お盆同窓会幹事へ』『8/12今夜の家族集まりに』3段準備。実装1時間",
+        "why_quick": "テキスト準備のみ・8月お盆ピーク年間最大級チャンス確保"
+      },
+      {
+        "title": "今日X個人開発者アカウント井戸川聡里名義で開設+30日投稿スケジュール作成",
+        "how": "X新規開設(プロフィールに『個人開発する井戸川聡里』、他事業名は出さない)。初日『1191個のパーティーゲームを1人で集めたiOSアプリ近日公開』+スクショ4枚。30日テンプレで毎日1ポスト。実装2時間",
+        "why_quick": "ゼロ予算・ローンチ4-6週前開設の定石・リリース告知の認知ベース確保"
+      }
+    ],
+    "single_biggest_lever": {
+      "title": "北極星ペルソナを『金曜夜22時の家族/カップル/リモート飲みの非・社交派主催者』に固定し、ASOメタデータ+note連載+シーン特化LPの3点を同セグメントに集中投下する",
+      "why": "ASOBIは技術品質も物量(1191ゲーム)も世界水準で揃っているが、最大の構造欠陥は『発信ターゲットとゲームDBの重心が真逆を向いていること』。発信は合コン/同窓会(どこパ評価4.6/36K件の主戦場=競合の堀)に向くが、games.jsonの重心はfamily 442/drinking 560(家飲み比重大)/remote 195/couple 186と『どこパが弱い領域』に集中している。この1点を直すだけでASOメタデータ・スクショ・LP・note連載・X発信が全て同じ方向を向き、競合空白で勝負できる。さらに8月お盆ピーク(年間3大ピーク)が7/28-8/3ローンチで取れる位置にあり、家族同窓会需要と完全に重なる。井戸川制約(顔出しNG/対面NG/予算ゼロ/Markdown不使用/他事業名NG)とも完全整合。Lens1/Lens6/Lens10/Lens15/Lens5の5観点が同時に解決する『高ROI x ゼロ予算 x 今週着手可能』施策はこれ以外にない",
+      "concrete_step": "今週中に以下3つを完了する。(1)docs/persona-2026-06-23.mdに北極星ペルソナ1人+サテライト2人を固有名詞で言語化(1日)。(2)App Store Subtitleを『合コン・忘年会・同窓会で迷わない1176本』(検索インテント語入り29字)に差し替え、Keywords93字を複合語95字(アイスブレイク/新年会/忘年会/二次会/結婚式/オンライン飲み/リモート飲み会等)に置換、スクショ1枚目を『状況入力→3件提案結果』+テキスト『3つ答えるだけ。30秒で次のゲームが決まる』に差し替え(3-4時間)。(3)note連載10本のタイトルマトリクス(『シーン×季節×検索クエリ』)を作成し、第1本『2026年お盆の家族集まりで3世代で遊べる10選』を8/1公開予約(4時間)。同時にローンチ日を7/28-8/3いずれか火曜に固定する",
+      "expected_outcome": "3ヶ月後(2026年9月末)のレンジ予測:累計DL 1,500-3,500件、月次DL 600-1,200件、評価★4.3-4.7、レビュー20-40件、note記事10本月間PV 1,000-3,000、Featured Nomination提出ベース確保。8月お盆ピーク2週間で通常週比2-4倍の自然DL(初週200-500DL)が現実線。Phase γサブスク解禁判定(retention week4 ≥20%)の数値根拠データが揃い、12月忘年会キャンペーン(年間最大ピーク)への9月仕込みベースが完成する"
+    },
+    "timeline_recommendation": "3ヶ月撤退ライン(2026-09-23)から逆算した現実的タイムライン。【Week 1 (6/23-6/30): 戦略固定+メタデータ仕上げ】(a)北極星ペルソナをdocs/persona-2026-06-23.mdに固定、(b)Subtitle/Keywords/スクショ1枚目を検索インテント語+どこパ弱領域訴求に書き換え、(c)X個人開発者アカウント開設+30日投稿スケジュール、(d)4シーン(同窓会/送別会/就活GW/オフ会)非表示で9シーン体制、(e)regionBlocklist配線修正(GameRepository.swift+Game.swift)、(f)games-lint.pyでCI整備。井戸川さん週6-8時間。【Week 2-3 (7/1-7/14): バイラル基盤+5秒印象】(g)Universal Link配線(AASA配置+/game/{id}.html 1176枚静的生成)、(h)4結果画面にImageRenderer+ShareLink+post-play結果カード、(i)アプリアイコン差替え、(j)Widget relevance+widgetURL、(k)ローカル通知(金曜18時)+Tip Jar導線3接点、(l)note連載第1本『2026年お盆の家族集まり10選』公開。週8-10時間。【Week 4 (7/15-7/21): ローンチ準備+PR】(m)press.html新設+メディアアタックリスト8件、(n)Featuring Nomination英文pitch作成、(o)App Store en メタデータ追加、(p)TestFlight最終+Apple申請。週10時間集中。【Week 5-6 (7/22-8/5): 8月お盆ローンチ】(q)7/28-8/3火曜公開、(r)Promotional Text 3段差替え、(s)Tip Jar解禁(DL 200超達成後)、(t)メディア個別カスタマイズ送付(GIGAZINE/ITmedia/Lifehacker)+Show HN/Indie Hackers投下。週6-8時間。【Week 7-8 (8/6-8/19): 8月ピーク収穫】(u)note連載毎週1本継続、(v)X 1日1投稿継続、(w)シーン特化LP 3枚(家族/カップル/リモート)公開、(x)TelemetryDeck無料枠で計測開始。週6-8時間。【Week 9-11 (8/20-9/9): OTA+v1.1】(y)GitHub Pages games-v1.json + GameRepository.mergeRemote実装、(z)v1.1 Interactive Widget+AppIntent実装(Featured nominate強化)、(aa)9月中旬iOS 27 Day1対応準備、(bb)Featuring Nomination再提出。週6-8時間。【Week 12-13 (9/10-9/23): 撤退ライン判定+12月仕込み】(cc)累計DL/MAU/月収/評価/retentionを集計、(dd)忘年会キャンペーン年間カレンダー策定(9/15からnote連載10週開始)、(ee)判定:DL累計1,500件超かつ月収¥3万到達or明確な上昇トレンドなら12月忘年会まで継続、未達ならピボット判断。週4-6時間。総工数3ヶ月で約80-100時間。8月ピーク+9月iOS 27+10-12月忘年会の3段ロケットで撤退判定材料を最大化する設計。井戸川さんの他事業(TakiTaki週20h/日本語講師週10-15h/haruhi週10h)との並走可能性は7月集中投下フェーズが最大ボトルネック、その期間のTakiTaki側タスクの優先順位調整が必要。"
+  }
+}

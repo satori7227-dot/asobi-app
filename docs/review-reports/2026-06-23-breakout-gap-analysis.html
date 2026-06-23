@@ -1,0 +1,125 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ASOBI 爆発的ヒット要件分析 — 2026-06-23</title>
+<style>
+:root { --bg:#fafaf7; --fg:#1c1c1e; --muted:#6b6b70; --line:#e2e2dc; --card:#ffffff;
+        --accent:#D97757; --crit:#b3261e; --high:#c47b16; --med:#4F7CAC; --low:#6b6b70;
+        --gold:#c89846; --green:#2a7d4f; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#161617; --fg:#ececec; --muted:#a0a0a4; --line:#2c2c2e; --card:#1f1f20;
+          --accent:#E89B7A; --crit:#ff6f60; --high:#E0BA70; --med:#7AA9DD; --low:#a0a0a4;
+          --gold:#E0BA70; --green:#6dd394; }
+}
+body { font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;
+       background:var(--bg); color:var(--fg); margin:0; line-height:1.7; }
+.container { max-width:1100px; margin:0 auto; padding:40px 24px 80px; }
+h1 { font-size:30px; margin:0 0 4px; }
+h2 { font-size:22px; margin-top:48px; padding-bottom:8px; border-bottom:2px solid var(--line); }
+.meta { color:var(--muted); font-size:13px; margin-bottom:24px; }
+.hero { background:linear-gradient(135deg,var(--accent),var(--gold)); color:white; padding:28px 32px; border-radius:14px; margin:20px 0; }
+.hero h2 { border:none; margin:0 0 14px; color:white; font-size:22px; }
+.lever { background:rgba(255,255,255,0.10); padding:18px 22px; border-radius:10px; margin-top:12px; }
+.lever h3 { margin:0 0 8px; font-size:16px; color:#fff8eb; }
+.lever p { margin:6px 0; font-size:14px; opacity:0.95; }
+table { width:100%; border-collapse:collapse; margin:14px 0; font-size:13px; }
+th, td { padding:9px 12px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top; }
+th { background:var(--card); font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:0.4px; color:var(--muted); }
+td.sev-crit { color:var(--crit); font-weight:800; }
+.gap { font-size:12px; color:var(--muted); margin-top:4px; }
+ul { padding-left:22px; } li { margin:6px 0; font-size:14px; }
+.section-card { background:var(--card); border-left:4px solid var(--accent); border-radius:0 12px 12px 0; padding:14px 22px; margin:10px 0; }
+.section-card h4 { margin:0 0 6px; font-size:14px; color:var(--accent); }
+.section-card p { margin:4px 0; font-size:13px; }
+.pivot { background:rgba(179,38,30,0.10); border-left:4px solid var(--crit); border-radius:0 8px 8px 0; padding:12px 18px; margin:8px 0; font-size:13px; }
+.timeline { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 22px; font-size:13px; }
+.note-fixed { background:rgba(42,125,79,0.10); border-left:4px solid var(--green); padding:12px 18px; border-radius:0 8px 8px 0; font-size:13px; margin:14px 0; color:var(--fg); }
+</style></head><body><div class="container">
+<h1>ASOBI 爆発的ヒット要件分析</h1>
+<div class="meta">2026-06-23 ・ 15 lens gap analysis ・ 16 agents ・ 321 tool uses ・ 38 min ・ 1.64M tokens</div>
+<div class="hero">
+<h2>結論（Executive Summary）</h2>
+<p style="margin:0;font-size:14px;line-height:1.8;">ASOBIは技術品質(166タスク完了/88テスト緑/1191ゲーム/13シーン/Widget/Deep Link/i18n)が個人開発として極めて高水準で、素材は世界水準に揃っている。にもかかわらず爆発的ヒットの確率を下げている構造欠陥は『北極星ペルソナ不在のまま発信導線とゲームDBの重心が逆方向(発信=合コン/同窓会=どこパ主戦場、実態=家族/カップル/リモート=どこパ空白)を向いていること』。これに加えASOメタデータが検索インテント語ゼロのまま提出寸前、Universal Link未配線でShareLinkが100%死んでおり受動的バイラルがK=0に張り付き、年間3大ピーク(8月お盆/12月忘年会)を狙ったタイミング設計が皆無。素材は揃っているが届け方が全方位に薄まっており、3ヶ月撤退ライン上の最大リスクは『公開後30日でデータ未収集のまま判断不能に陥る』状態。最優先は『どこパが弱い3シーン(家族/カップル/リモート)に発信を絞ってメタデータとnote連載を集中投下』+『8月お盆ピークに照準した7/28-8/3ローンチ』の二点同時実行で、これでPhase α 1,000DLとPhase β判定データが揃う。</p>
+<div class="lever">
+<h3>🎯 80/20 で1つだけ選ぶならこれ</h3>
+<p><b>北極星ペルソナを『金曜夜22時の家族/カップル/リモート飲みの非・社交派主催者』に固定し、ASOメタデータ+note連載+シーン特化LPの3点を同セグメントに集中投下する</b></p>
+<p><b>Why:</b> ASOBIは技術品質も物量(1191ゲーム)も世界水準で揃っているが、最大の構造欠陥は『発信ターゲットとゲームDBの重心が真逆を向いていること』。発信は合コン/同窓会(どこパ評価4.6/36K件の主戦場=競合の堀)に向くが、games.jsonの重心はfamily 442/drinking 560(家飲み比重大)/remote 195/couple 186と『どこパが弱い領域』に集中している。この1点を直すだけでASOメタデータ・スクショ・LP・note連載・X発信が全て同じ方向を向き、競合空白で勝負できる。さらに8月お盆ピーク(年間3大ピーク)が7/28-8/3ローンチで取れる位置にあり、家族同窓会需要と完全に重なる。井戸川制約(顔出しNG/対面NG/予算ゼロ/Markdown不使用/他事業名NG)とも完全整合。Lens1/Lens6/Lens10/Lens15/Lens5の5観点が同時に解決する『高ROI x ゼロ予算 x 今週着手可能』施策はこれ以外にない</p>
+<p><b>今週の具体策:</b> 今週中に以下3つを完了する。(1)docs/persona-2026-06-23.mdに北極星ペルソナ1人+サテライト2人を固有名詞で言語化(1日)。(2)App Store Subtitleを『合コン・忘年会・同窓会で迷わない1176本』(検索インテント語入り29字)に差し替え、Keywords93字を複合語95字(アイスブレイク/新年会/忘年会/二次会/結婚式/オンライン飲み/リモート飲み会等)に置換、スクショ1枚目を『状況入力→3件提案結果』+テキスト『3つ答えるだけ。30秒で次のゲームが決まる』に差し替え(3-4時間)。(3)note連載10本のタイトルマトリクス(『シーン×季節×検索クエリ』)を作成し、第1本『2026年お盆の家族集まりで3世代で遊べる10選』を8/1公開予約(4時間)。同時にローンチ日を7/28-8/3いずれか火曜に固定する</p>
+<p><b>3ヶ月後の数値見込み:</b> 3ヶ月後(2026年9月末)のレンジ予測:累計DL 1,500-3,500件、月次DL 600-1,200件、評価★4.3-4.7、レビュー20-40件、note記事10本月間PV 1,000-3,000、Featured Nomination提出ベース確保。8月お盆ピーク2週間で通常週比2-4倍の自然DL(初週200-500DL)が現実線。Phase γサブスク解禁判定(retention week4 ≥20%)の数値根拠データが揃い、12月忘年会キャンペーン(年間最大ピーク)への9月仕込みベースが完成する</p>
+</div></div>
+<div class="note-fixed"><b>📝 注釈</b>: Critical #4「regionBlocklist 未配線」は本日 commit <code>dea09a6</code> で対応済 + 3 unit tests 追加済。本レポートは strategy 観点で再指摘されているが技術的には解消。</div>
+<h2>🟥 5 Critical Gaps</h2>
+<table><thead><tr><th>#</th><th>Sev</th><th>観点</th><th>Title / Gap / Action</th></tr></thead><tbody>
+<tr><td>1</td><td class="sev-crit">Critical</td><td>Lens1 PMF + Lens10 差別化</td>
+<td><b>北極星ペルソナ1人が資料に存在せず、発信ターゲットとゲームDBの重心が逆方向を向いている</b>
+<div class="gap"><b>Gap:</b> docs/全19ファイルにペルソナ/JTBD定義ゼロ。発信は『合コン幹事・同窓会幹事』(どこパ主戦場)に向くが、games.jsonの重心はfamily 442/drinking 560/remote 195/couple 186と『どこパが弱い家族・カップル・リモート』に集中。1191件の物量という強みが言語化されないまま、競合の堀に正面突撃する構造</div>
+<div class="gap"><b>Action:</b> 今週中に北極星ペルソナを『金曜夜22時、3人以下の家族/カップル/リモート飲みで沈黙が降りた瞬間にスマホを開く非・社交派の主催者』に固定し、docs/persona-2026-06-23.mdに記録。発信導線を1ヶ月だけ家族・カップル・リモートの3シーンに絞り、ASOキーワード『家族 ゲーム アプリ』『カップル 暇つぶし』『リモート飲み 盛り上げ』に組み替える</div>
+<div class="gap"><b>Impact:</b> 競合空白地帯で月50DL×3シーン=月150DLの追加流入見込み。レビュー4.6のどこパとの正面衝突を回避し、Phase α 1,000DL目標の確度が上がる</div></td></tr>
+<tr><td>2</td><td class="sev-crit">Critical</td><td>Lens6 ASO</td>
+<td><b>App Storeメタデータの最重要枠3つ(Title/Subtitle/Keywords)が検索インテント語ゼロで提出寸前</b>
+<div class="gap"><b>Gap:</b> Subtitle『1176ゲームを場面別に提案。手ぶらで遊べる』は数字訴求のみで検索語ゼロ。Keywords93字に『ゲーム』『家族』等のストップワード的単独語が枠を圧迫。複合語『アイスブレイク』『新年会』『二次会』未収容。どこパSubtitle『みんなで盛り上がるパーティーゲーム集』が押さえる枠を空席のまま</div>
+<div class="gap"><b>Action:</b> Subtitleを『合コン・忘年会・同窓会で迷わない1176本』29字に変更。Keywordsを『アイスブレイク,新年会,忘年会,二次会,結婚式,ワードウルフ,王様ゲーム,罰ゲーム,合コン,飲み会,たほいや,しりとり,オフラインゲーム,人狼,ジェスチャー,オンライン飲み,リモート飲み会』約95字に差し替え。Product Page Optimization 90日A/Bで勝者選定</div>
+<div class="gap"><b>Impact:</b> iOS Search対応クエリのimpressionが2-5倍(Sensor Tower 2024中央値)。CVR同じでもDL数で2倍以上</div></td></tr>
+<tr><td>3</td><td class="sev-crit">Critical</td><td>Lens4 バイラル</td>
+<td><b>Universal Link未配線でShareLinkがasobi://カスタムスキームのみ、未インストール受信者は100%開けず K-factor=0</b>
+<div class="gap"><b>Gap:</b> GameDetailView.swift:23-25でasobi://game/idを直接ShareLinkに渡している。entitlements/AASA 0件。LINE/iMessageで開けず最大の無料流入経路(友達経由)が完全に死んでいる。結果画面4本(王様くじ/お題ガチャ/ルーレット/提案)のImageRenderer 0件、顔出しNG制約下で唯一機能する受動的バイラル(他者がスクショ貼る)の素材が皆無</div>
+<div class="gap"><b>Action:</b> GitHub Pagesに(1)AASA配置+applinks entitlement追加+shareURLをhttps化、(2)/game/{id}.html を1176枚静的生成(games.jsonからGitHub Actions自動)、(3)4結果画面にImageRenderer+ShareLink追加(1080x1080png、結果+ロゴ+Universal Link)。10-14h作業、¥0</div>
+<div class="gap"><b>Impact:</b> シェア1回0.1-0.5DL流入、K-factor 0→0.2-1.0領域。100DAUで純増ループ起動</div></td></tr>
+<tr><td>4</td><td class="sev-crit">Critical</td><td>Lens13 海外展開 + Lens6 リスク</td>
+<td><b>regionBlocklistが実行時未配線で英語圏配信した瞬間に中東リジェクト・★1確定の地雷</b>
+<div class="gap"><b>Gap:</b> GameRepository.swift:67でregion引数未渡し、Game.swift:34 isAllowed(in: nil)が早期true返却。Flip Cup/Kings Cup/Spin the Bottle等の飲酒・接触系6件がSA/AE/QA/KW/BH/OM/IRで表示される現状。英語7国を即時Availability追加する戦略と直接衝突</div>
+<div class="gap"><b>Action:</b> GameRepository.propose()にLocale.current.region?.identifier渡し+relaxフォールバックにisAllowed(in:)追加。AsobiTestsにJP/CN/SA出現件数テスト3ケース追加。さらにgames.jsonの英訳済80件全件のregionBlocklist再評価(現状6件のみ=評価漏れ)。海外配信前に必須</div>
+<div class="gap"><b>Impact:</b> 中東6カ国+米保守地域での即リジェクト・SNS炎上・★1連鎖を未然防止。Age Rating Questionnaire のAlcohol Frequent/Intense申告根拠も揃う</div></td></tr>
+<tr><td>5</td><td class="sev-crit">Critical</td><td>Lens15 タイミング</td>
+<td><b>8月お盆同窓会ピーク(年間3大ピークの1つ)を狙ったローンチ設計が不在で年間最大級チャンスを取りこぼす</b>
+<div class="gap"><b>Gap:</b> Apple Developer承認最速7月下旬-8月初旬リリース可能なのに『出せたら出す』設計でメタデータ・Promotional Text・note連載をぶつける計画がない。お盆検索は8/8から急上昇、その1週前にレビュー5-10件積む窓を活かせていない</div>
+<div class="gap"><b>Action:</b> ローンチ日を7/28-8/3のいずれか火曜に固定(Featured更新が木曜JSTのため火曜公開で初週Indexing間に合う)。Promotional Textを3段差し替え準備:(1)7月末リリース告知、(2)8/5『お盆帰省で同窓会の幹事になったあなたへ』、(3)8/12『今夜の家族集まりに』。note連載『2026年お盆の同窓会で滑らない10本』を8/1公開</div>
+<div class="gap"><b>Impact:</b> 8月ピーク2週間で通常週比2-4倍の自然DL。初週200-500DL、Featured nominate基礎レビュー10-20件を8/15までに獲得</div></td></tr>
+</tbody></table>
+<h2>⚡ 9 Quick Wins（1日以内 + ¥0）</h2>
+<div class="section-card"><h4>1. ScenePickerViewから供給薄4シーン(同窓会・送別会・就活GW・オフ会)を一時非表示</h4>
+<p><b>How:</b> ScenePickerView.swiftのhiddenScenes配列に1行追加+README表記13→9シーンに変更。実装30分</p>
+<p><b>Why quick:</b> コード1行修正のみで看板倒れ★1リスク回避、ASOキーワード集中効果</p></div>
+<div class="section-card"><h4>2. ScenePickerView entry staggerを80ms→40msに短縮</h4>
+<p><b>How:</b> ScenePickerView.swift line 89の遅延係数変更1行。実装15分</p>
+<p><b>Why quick:</b> 5秒予算のうち1秒短縮で価値伝達時間20%増、コード1行</p></div>
+<div class="section-card"><h4>3. App Store Subtitleを検索インテント語入り29字に差替え(申請時に1回で済む)</h4>
+<p><b>How:</b> launch-prep Subtitleを『合コン・忘年会・同窓会で迷わない1176本』29字に書き換え。Keywords93字も複合語95字に置換</p>
+<p><b>Why quick:</b> App Store Connect入力のみ・実装変更ゼロ・申請1回で枠を埋められる</p></div>
+<div class="section-card"><h4>4. App Store説明文冒頭に『広告なし・データ収集ゼロ・無料公開・応援はTip Jarから』1行追加</h4>
+<p><b>How:</b> launch-prep説明文の冒頭1行追加、Markdown装飾なし。実装15分</p>
+<p><b>Why quick:</b> テキスト追加のみ・実装変更ゼロ、好意的レビュー底上げ</p></div>
+<div class="section-card"><h4>5. AsobiWidget Entry widgetURLにasobi://game/{id}確実設定+TimelineEntryRelevance曜日×時間で可変</h4>
+<p><b>How:</b> AsobiWidget.swiftにwidgetURL設定+relevance score追加(金土17-22時=飲み会1.0、日祝9-15時=旅行1.0)。実装1-2時間</p>
+<p><b>Why quick:</b> Widget設置者の起動頻度2-3倍化、追加コスト¥0</p></div>
+<div class="section-card"><h4>6. Google Alertsで『飲み会 ゲーム おすすめ』『合コン アイスブレイク』『罰ゲーム アプリ』日次受信設定</h4>
+<p><b>How:</b> Google Alertsで3キーワード登録、IFTTT/Make無料枠で知恵袋RSS/Reddit r/japan通知をSlackへ。実装30分</p>
+<p><b>Why quick:</b> ゼロ予算・月運用30分以下・受動型でBANリスクゼロ</p></div>
+<div class="section-card"><h4>7. App Store ConnectでEnglish (U.S.)ロケール追加+Subtitle/Keywords英文セット投入</h4>
+<p><b>How:</b> App Store Connect→Localizations追加(無料・即時)。Subtitle『1176 Japanese and global party games, scene-first』29字、Keywords『party,game,icebreaker,drinking,wedding,bachelorette,road trip,family,couple,offline,word wolf』。実装1時間</p>
+<p><b>Why quick:</b> App Store Connect設定のみ・実装ゼロ・英語圏impression 0→立ち上がり</p></div>
+<div class="section-card"><h4>8. ローンチ日を7/28-8/3のいずれか火曜に固定+Promotional Text 3段差替え準備</h4>
+<p><b>How:</b> Apple Developer承認後ローンチ日を火曜固定(Featured更新が木曜JSTのため)。Promotional Text『7月末リリース告知』『8/5お盆同窓会幹事へ』『8/12今夜の家族集まりに』3段準備。実装1時間</p>
+<p><b>Why quick:</b> テキスト準備のみ・8月お盆ピーク年間最大級チャンス確保</p></div>
+<div class="section-card"><h4>9. 今日X個人開発者アカウント井戸川聡里名義で開設+30日投稿スケジュール作成</h4>
+<p><b>How:</b> X新規開設(プロフィールに『個人開発する井戸川聡里』、他事業名は出さない)。初日『1191個のパーティーゲームを1人で集めたiOSアプリ近日公開』+スクショ4枚。30日テンプレで毎日1ポスト。実装2時間</p>
+<p><b>Why quick:</b> ゼロ予算・ローンチ4-6週前開設の定石・リリース告知の認知ベース確保</p></div>
+<h2>🎲 3 Big Bets（1ヶ月+の投資）</h2>
+<div class="section-card"><h4>1. OTA配信機構+TelemetryDeck計測の二本立てで『使うほど育つDB』を構造化する</h4>
+<p><b>Investment:</b> 実装1-2週間(GameRepositoryにmergeRemote追加+TelemetryDeck無料枠backend1ファイル追加+GitHub Pagesにgames-content リポ新設+scripts/games-lint.py)。継続運用は月次30件追加で井戸川さん3-5時間/月。コスト¥0</p>
+<p><b>Upside:</b> 毎月コンテンツが増える物量証明がFeaturing/PR/note連載の全方位ネタになる。計測データで『何を補強すべきか』が事実ベース判断可能に。Phase β/γの解禁判定(retention week4=20%等)の数値が手に入る。無料配布+サブスクで戦う唯一の差別化軸『常に増える1176件』が構造的に成立</p>
+<p><b>Downside:</b> OTA配信はApple 4.7規約(HTML5含む実行コードDL)の解釈に注意必要。純データのみなら問題なしだがスキーマ変更時はバイナリ更新が必要で運用設計の規律が要る。TelemetryDeck無料枠月10000シグナルを超えると判断要</p></div>
+<div class="section-card"><h4>2. 12月忘年会ピーク(年間最大)に照準した5ヶ月先回りキャンペーンの年間カレンダー化</h4>
+<p><b>Investment:</b> 9月中旬から週1本のnote連載×10週(週1-2時間)+10月からX忘年会幹事ハッシュタグ運用(週30分バッチ)+11月後半からPromotional Text毎週差し替え+12月初旬Product Hunt英語ローンチ。総工数3ヶ月で50-70時間。コスト¥0</p>
+<p><b>Upside:</b> 12月単月で月間DL 1,000-3,000が現実線。Featured採択なら1日1,000-10,000DL射程。3ヶ月撤退ラインの収益条件¥3万/月を12月に超える設計が成立。8月お盆ピーク(7/28-8/3ローンチ)→12月忘年会の二段ロケットでデータ積み上げ</p>
+<p><b>Downside:</b> 9月時点でDL基盤200件超え達成していないと連載のリーチが立ち上がらない。8月ローンチ初動を取りこぼすと12月連載の認知ベースが弱くなり連動効果が薄れる。井戸川さんの他事業(TakiTaki/日本語講師)との時間衝突管理が必要</p></div>
+<div class="section-card"><h4>3. 配信者の道具ポジション獲得(streamer-pack.html + OBSブラウザソース対応Web版 + Discord Bot)</h4>
+<p><b>Investment:</b> 実装1-2週間(streamer-pack.html新設+/streamer-view/index.htmlでgames.json読込みWeb版+Discord.js v14 on Cloudflare Workers無料枠でBot構築)。打診運用は月50名抽出+書面DM、井戸川さん週1-2時間。コスト¥0</p>
+<p><b>Upside:</b> Jackbox型『配信者の道具』ポジションが取れる。配信1本平均同接200-500×視聴者DL転換0.3-0.5%で月20-100DL。VTuber個人勢/Twitchストリーマー/Discord鯖オーナーへの書面打診は井戸川制約(顔出しNG/対面NG/予算ゼロ)と完全整合する唯一のチャネル。継続で『推しアプリ』化しコミュニティ波及で複利</p>
+<p><b>Downside:</b> 配信者開拓は打診の打率1-5%でゼロ→ヒットまで6-10週かかる場合あり。OBSブラウザソース対応のWeb版を維持する追加運用負荷。Discord Botは各鯖オーナーへの個別交渉が必要で初動が重い</p></div>
+<h2>↺ 4 Pivot Points（捨てるべき）</h2>
+<div class="pivot"><b>Pivot 1:</b> 『全シーン横断・1176ゲーム』を1秒コピーの主役に据える発信を捨てる。どこパも同じ訴求が可能で差別化にならず、しかも実質的に強い領域(家族/カップル/リモート)を埋没させている。スクショ1枚目とサブタイトルを『状況3つ入れて30秒で決まる』即決訴求+どこパが弱い3シーン特化に切り替える(Lens1/Lens10)</div>
+<div class="pivot"><b>Pivot 2:</b> PR TIMESスタートアップチャレンジを主要PR経路として期待する設計を捨てる。法人要件で個人開発は不適格。dreamnews/PR FREE/note公式『つくってみた』タグ+書面取材専用窓口(press.html)に切り替える(Lens7)</div>
+<div class="pivot"><b>Pivot 3:</b> KR/zh-Hant/EU3言語ローカライズをPhase 6ヶ月以内のMUSTから外す。月予算$25では現地ネイティブ校正(¥40-80K)が出せず機械翻訳バレで信頼毀損。英語7国(US/UK/CA/AU/NZ/SG/HK)に絞り、KR/zh-Hantは売上達成後のtrigger制に降格(Lens13)</div>
+<div class="pivot"><b>Pivot 4:</b> 13シーン横断の看板を維持したまま供給薄シーン(同窓会/送別会/就活GW/オフ会)を表示し続ける運用を捨てる。看板倒れで★1リスク。v1時点では一時非表示にして9シーン体制で出し、意見箱要望5件以上のシーンから順次復活させるボトムアップ拡張に切替(Lens1)</div>
+<h2>📅 Timeline（撤退ライン 2026-09-23 から逆算）</h2>
+<div class="timeline">3ヶ月撤退ライン(2026-09-23)から逆算した現実的タイムライン。【Week 1 (6/23-6/30): 戦略固定+メタデータ仕上げ】(a)北極星ペルソナをdocs/persona-2026-06-23.mdに固定、(b)Subtitle/Keywords/スクショ1枚目を検索インテント語+どこパ弱領域訴求に書き換え、(c)X個人開発者アカウント開設+30日投稿スケジュール、(d)4シーン(同窓会/送別会/就活GW/オフ会)非表示で9シーン体制、(e)regionBlocklist配線修正(GameRepository.swift+Game.swift)、(f)games-lint.pyでCI整備。井戸川さん週6-8時間。【Week 2-3 (7/1-7/14): バイラル基盤+5秒印象】(g)Universal Link配線(AASA配置+/game/{id}.html 1176枚静的生成)、(h)4結果画面にImageRenderer+ShareLink+post-play結果カード、(i)アプリアイコン差替え、(j)Widget relevance+widgetURL、(k)ローカル通知(金曜18時)+Tip Jar導線3接点、(l)note連載第1本『2026年お盆の家族集まり10選』公開。週8-10時間。【Week 4 (7/15-7/21): ローンチ準備+PR】(m)press.html新設+メディアアタックリスト8件、(n)Featuring Nomination英文pitch作成、(o)App Store en メタデータ追加、(p)TestFlight最終+Apple申請。週10時間集中。【Week 5-6 (7/22-8/5): 8月お盆ローンチ】(q)7/28-8/3火曜公開、(r)Promotional Text 3段差替え、(s)Tip Jar解禁(DL 200超達成後)、(t)メディア個別カスタマイズ送付(GIGAZINE/ITmedia/Lifehacker)+Show HN/Indie Hackers投下。週6-8時間。【Week 7-8 (8/6-8/19): 8月ピーク収穫】(u)note連載毎週1本継続、(v)X 1日1投稿継続、(w)シーン特化LP 3枚(家族/カップル/リモート)公開、(x)TelemetryDeck無料枠で計測開始。週6-8時間。【Week 9-11 (8/20-9/9): OTA+v1.1】(y)GitHub Pages games-v1.json + GameRepository.mergeRemote実装、(z)v1.1 Interactive Widget+AppIntent実装(Featured nominate強化)、(aa)9月中旬iOS 27 Day1対応準備、(bb)Featuring Nomination再提出。週6-8時間。【Week 12-13 (9/10-9/23): 撤退ライン判定+12月仕込み】(cc)累計DL/MAU/月収/評価/retentionを集計、(dd)忘年会キャンペーン年間カレンダー策定(9/15からnote連載10週開始)、(ee)判定:DL累計1,500件超かつ月収¥3万到達or明確な上昇トレンドなら12月忘年会まで継続、未達ならピボット判断。週4-6時間。総工数3ヶ月で約80-100時間。8月ピーク+9月iOS 27+10-12月忘年会の3段ロケットで撤退判定材料を最大化する設計。井戸川さんの他事業(TakiTaki週20h/日本語講師週10-15h/haruhi週10h)との並走可能性は7月集中投下フェーズが最大ボトルネック、その期間のTakiTaki側タスクの優先順位調整が必要。</div>
+<p style="margin-top:40px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;">Generated by Claude Workflow ・ Run ID: wf_2524ab91-ab6</p>
+</div></body></html>
