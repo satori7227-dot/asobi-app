@@ -7,6 +7,7 @@ struct GameDetailView: View {
     let scene: GameScene
     @Environment(FeedbackStore.self) private var feedback
     @Environment(ReviewPromptManager.self) private var reviewPrompt
+    @Environment(PlayCountStore.self) private var playCount
     @Environment(\.dismiss) private var dismiss
     @State private var likeBounce = 0
     @State private var dislikeBounce = 0
@@ -173,6 +174,9 @@ struct GameDetailView: View {
                 case .kingGame: KingGameDistributorView()
                 }
             }
+        }
+        .onAppear {
+            playCount.recordPlay()
         }
     }
 
