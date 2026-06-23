@@ -62,20 +62,23 @@ final class GameRepository {
     ///
     /// excludedIds は「直近で出した」「dislike された」ゲーム等を除く想定で呼び出し側が渡す。
     func propose(scene: GameScene, context: ProposalContext, excluding excludedIds: Set<String> = []) -> [Game] {
+        let region = Locale.current.region?.identifier
+
         // === 段階1: strict マッチ ===
         let candidates = games
-            .filter { $0.matches(scene: scene, context: context) }
+            .filter { $0.matches(scene: scene, context: context, region: region) }
             .filter { !excludedIds.contains($0.id) }
         let shuffled = candidates.shuffled()
         let pick = Array(shuffled.prefix(3))
         if pick.count == 3 { return pick }
 
         // === 段階2: relax フォールバック ===
-        // strict で 3 件揃わなかった時のみ通る。所要時間・tension は無視し、scene/人数/道具縛りだけ残す。
+        // strict で 3 件揃わなかった時のみ通る。所要時間・tension は無視し、scene/人数/道具縛り/region 制限だけ残す。
         let relaxed = games
             .filter { $0.scenes.contains(scene.id) }
             .filter { $0.minPlayers <= context.playerCount && $0.maxPlayers >= context.playerCount }
             .filter { !context.noItemsOnly || $0.physicalItems.isEmpty }
+            .filter { $0.isAllowed(in: region) }
             .filter { !excludedIds.contains($0.id) }
             .filter { !pick.contains($0) }
             .shuffled()
