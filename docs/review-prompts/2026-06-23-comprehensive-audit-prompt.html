@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASOBI 全体監査プロンプト — 多角徹底レビュー版</title>
+<style>
+  :root {
+    --bg:#fafaf7; --fg:#1c1c1e; --muted:#6b6b70; --line:#e2e2dc;
+    --card:#ffffff; --accent:#D97757; --accent-soft:rgba(217,119,87,0.10);
+    --green:#2a7d4f; --red:#b3261e; --gold:#c89846; --blue:#4F7CAC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161617; --fg:#ececec; --muted:#a0a0a4; --line:#2c2c2e;
+            --card:#1f1f20; --accent:#E89B7A; --accent-soft:rgba(232,155,122,0.14);
+            --green:#6dd394; --red:#ff6f60; --gold:#E0BA70; --blue:#7AA9DD; }
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", sans-serif;
+    background: var(--bg); color: var(--fg); margin: 0; line-height: 1.7;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 30px; margin: 0 0 4px; }
+  h2 { font-size: 22px; margin-top: 48px; padding-bottom: 8px; border-bottom: 2px solid var(--line); }
+  h3 { font-size: 16px; margin-top: 24px; color: var(--accent); }
+  h4 { font-size: 14px; margin-top: 16px; color: var(--fg); }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .hero {
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    color: white; padding: 24px 28px; border-radius: 14px; margin: 20px 0;
+  }
+  .hero p { margin: 8px 0 0; opacity: 0.95; font-size: 14px; }
+  .lens {
+    background: var(--card); border-left: 4px solid var(--accent);
+    border-radius: 0 12px 12px 0; padding: 18px 22px; margin: 14px 0;
+  }
+  .lens .num {
+    display: inline-block; min-width: 28px;
+    color: var(--accent); font-weight: 800; font-size: 17px;
+  }
+  .lens ul { margin: 8px 0; padding-left: 22px; }
+  .lens li { margin: 4px 0; font-size: 14px; }
+  pre {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; overflow-x: auto; font-size: 13px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace; line-height: 1.55;
+  }
+  code { font-family: ui-monospace, monospace; background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  .copy-prompt {
+    background: var(--card); border: 2px solid var(--accent); border-radius: 16px;
+    padding: 24px 28px; margin: 28px 0;
+  }
+  .copy-prompt h2 { margin-top: 0; border: none; color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 13px; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--card); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); }
+  td.sev-crit { color: var(--red); font-weight: 700; }
+  td.sev-high { color: var(--gold); font-weight: 700; }
+  td.sev-med { color: var(--blue); font-weight: 700; }
+  td.sev-low { color: var(--muted); }
+  .caveat {
+    background: rgba(127,127,127,0.08); border-radius: 8px;
+    padding: 12px 16px; margin: 12px 0; font-size: 13px; color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>ASOBI 全体監査プロンプト</h1>
+<div class="meta">2026-06-23 ・ 多角徹底レビュー panel 用 ・ 1191 ゲーム / 13 シーン / 256 お題 ・ v1.0.0 ready / Apple Developer 承認待ち</div>
+
+<div class="hero">
+  <h2 style="border:none; margin:0; color:white; font-size:22px;">用途</h2>
+  <p>下記プロンプト本体を /code-review ultra / Workflow / 単発 Agent / 他社 LLM に投げると、
+  ASOBI プロジェクト全体を <b>15 角度から独立並列</b>でレビューし、
+  Critical/High/Medium/Low の severity 別 findings と
+  優先順位付き action items が返ってきます。
+  各観点はファイル：行番号で根拠を示すよう要求しています。</p>
+</div>
+
+<h2>監査対象スコープ</h2>
+
+<table>
+<thead><tr><th>レイヤ</th><th>対象</th></tr></thead>
+<tbody>
+<tr><td>実装</td><td><code>Asobi/</code>（SwiftUI 本体）/ <code>AsobiWidget/</code>（Widget Extension）</td></tr>
+<tr><td>テスト</td><td><code>AsobiTests/</code>（88 unit）/ <code>AsobiUITests/</code>（1 ja screenshot）</td></tr>
+<tr><td>データ</td><td><code>Asobi/Data/games.json</code>（1191 件）/ <code>Asobi/Data/prompts.json</code>（256 お題）</td></tr>
+<tr><td>ローカリゼーション</td><td><code>Asobi/Localizable.xcstrings</code>（185 keys / ja, en）</td></tr>
+<tr><td>プライバシー</td><td><code>Asobi/PrivacyInfo.xcprivacy</code> / <code>AsobiWidget/PrivacyInfo.xcprivacy</code></td></tr>
+<tr><td>メタデータ</td><td><code>docs/launch-prep-2026-06-19.html</code></td></tr>
+<tr><td>運用 docs</td><td><code>docs/post-developer-signup.html</code> / <code>docs/release-checklist.html</code> / <code>docs/manual-tests.html</code> / <code>docs/implementation-notes/</code> / <code>docs/release-log/</code></td></tr>
+<tr><td>外部公開</td><td><code>satori7227-dot.github.io/asobi-privacy/</code>（プライバシー / サポート HTML）</td></tr>
+<tr><td>CI/Release</td><td><code>fastlane/Fastfile</code>（test / beta / release / lint / screenshots lanes）/ <code>scripts/</code> 群 / <code>project.yml</code></td></tr>
+<tr><td>業務文脈</td><td><code>docs/monetization-research-2026-06-19.html</code>（収益化戦略）</td></tr>
+</tbody>
+</table>
+
+<h2>15 監査観点（独立・並列）</h2>
+
+<div class="lens">
+  <h3><span class="num">1.</span>コード品質（Swift / SwiftUI idiom）</h3>
+  <ul>
+    <li>force-unwrap (<code>!</code>) / force-try (<code>try!</code>) の濫用</li>
+    <li><code>@State / @StateObject / @Binding / @ObservedObject</code> の選択ミス</li>
+    <li><code>onAppear</code> での副作用の重複発火</li>
+    <li><code>Task { }</code> / <code>async/await</code> のキャンセル漏れ</li>
+    <li>不要な <code>@MainActor</code> 指定 / 漏れ</li>
+    <li>Long view body (200 行超 / 5 階層超のネスト)</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">2.</span>アーキテクチャ / 依存関係</h3>
+  <ul>
+    <li>Service 層と View 層の責務分離 (<code>Services/</code> 配下の design)</li>
+    <li>Singleton 化された UserDefaults アクセスの testability</li>
+    <li>Navigation Stack の path 管理が view ごとに散らばっていないか</li>
+    <li>Widget Extension と App の data sharing 戦略（App Group の必要性）</li>
+    <li>循環参照（retain cycle）</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">3.</span>パフォーマンス / 起動時間</h3>
+  <ul>
+    <li>1191 件 <code>games.json</code> の初回読込み戦略（同期 / 非同期 / lazy）</li>
+    <li>ScenePicker / Proposal シャッフルの計算量</li>
+    <li>Image / SF Symbol の重い render</li>
+    <li>SwiftUI の不要な再描画（ID 不整合・equatable 漏れ）</li>
+    <li>cold start &gt; 400ms になっていないか</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">4.</span>アクセシビリティ</h3>
+  <ul>
+    <li>VoiceOver: 各画面の読み上げ順序が論理的か</li>
+    <li>Dynamic Type: xLarge / accessibility5 で破綻しないか</li>
+    <li>色のみで情報を伝えていないか（color-blind safe）</li>
+    <li>contrast ratio 4.5:1 以上（<code>docs/color-audit.html</code> 参照）</li>
+    <li>Reduce Motion 対応の完全性</li>
+    <li>Touch target 44×44pt 未満の箇所</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">5.</span>ローカリゼーション / 国際化</h3>
+  <ul>
+    <li>xcstrings の en 翻訳の品質（不自然・直訳・文化適合）</li>
+    <li>ハードコード文字列の取り残し（<code>Text("...")</code> 直書きで xcstrings 未登録）</li>
+    <li>右から左の言語（アラビア・ヘブライ）への対応有無</li>
+    <li>regionBlocklist 6 件 × イスラム圏指定が App Store の availability 設定と整合しているか</li>
+    <li>日付・数値・通貨のロケール対応</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">6.</span>App Store 審査リスク（Guidelines 違反）</h3>
+  <ul>
+    <li>飲酒・罰ゲーム表現が 12+ レーティングと矛盾しないか</li>
+    <li>他社製品名（GeoGuessr / Among Us / Gartic Phone / Jackbox / Codenames / Skribbl.io）が
+    実データに残存している remote シーンが商標リジェクト対象にならないか</li>
+    <li>「アイデア箱」が <code>mailto:</code> で外部メーラを開く動作が UX guideline 違反でないか</li>
+    <li>Privacy Manifest の Required Reason API 宣言漏れ</li>
+    <li>4.5 (Spam / Repackaged) 対象になる「シーン提案」コアの独自性をどう主張するか</li>
+    <li>Age rating questionnaire の回答との整合性</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">7.</span>セキュリティ / プライバシー</h3>
+  <ul>
+    <li>satori7227@gmail.com を <code>SuggestionFormView.swift</code> にハードコードしている件のリスク</li>
+    <li>UserDefaults に保存される個人データ（お気に入り / コレクション / フィードバック）の機微度</li>
+    <li>iCloud バックアップに乗るデータの量と機微度</li>
+    <li>Universal Link や Custom URL scheme の悪用可能性（<code>asobi://</code>）</li>
+    <li>本人確認なしで開ける「設定」「アイデア箱」が悪意ユーザーから乱用されるシナリオ</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">8.</span>データ整合性 / コンテンツ品質</h3>
+  <ul>
+    <li>1191 件 games.json の schema が全件均質か（必須キー欠落、型不整合）</li>
+    <li>各 game の scenes 配列が空 / 未定義シーン参照を含んでいないか</li>
+    <li>シーン別ゲーム数の偏り（drinking 574 vs konkatsu 101 等）が UX 上問題か</li>
+    <li>同一名 / 同一説明のゲーム重複</li>
+    <li>nameEn / summaryEn / rulesEn が 80 件のみで他は日本語 → 海外利用時の体験</li>
+    <li>regionBlocklist の漏れ（飲酒系の他のゲームに blocklist が付いていない可能性）</li>
+    <li>prompts.json カテゴリ間の難易度バランス</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">9.</span>テスト品質 / 回帰耐性</h3>
+  <ul>
+    <li>88 unit tests のカバレッジ偏り（Services 層集中 vs View 層空白）</li>
+    <li>games.json 変更時に検知できる schema test の有無</li>
+    <li>UI test 1 件だけでは Phase β / γ の IAP / サブスク追加時にカバー不足</li>
+    <li>snapshot test の不在（UI regression 検知能力）</li>
+    <li>fastlane test が CI に組み込まれていない（手動実行のみ）</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">10.</span>リリースプロセス / CI/CD</h3>
+  <ul>
+    <li>GitHub Actions / Xcode Cloud が未設定 → 手動 fastlane に依存</li>
+    <li>fastlane API Key が <code>~/.config/asobi/.envrc</code> に置く想定で安全か（誤コミットリスク）</li>
+    <li>version bump （Version.xcconfig）の自動化と人手介入の境界</li>
+    <li>Phased Release 中断時のリカバリ手順の docs 化</li>
+    <li>asobi-app と asobi-privacy の 2 リポ間の同期手順（privacy 内容更新時）</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">11.</span>収益化準備 / IAP / StoreKit2</h3>
+  <ul>
+    <li><code>PurchaseStore.swift</code> がまだ UserDefaults だけで実 StoreKit2 接続なし → Phase β 着手時の差分量</li>
+    <li><code>Constants.softPaywallEnabled</code> / <code>premiumEnabled</code> / <code>tipJarEnabled</code> の解禁順序設計</li>
+    <li>Family Sharing と Subscription Group の組み立て案</li>
+    <li>Receipt validation 方針（オンデバイス vs サーバー）</li>
+    <li>サブスク 7 日間無料トライアルの設計</li>
+    <li>Small Business Program 適格性の維持条件</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">12.</span>マーケティング / ASO</h3>
+  <ul>
+    <li>サブタイトル「1191ゲームを場面別に提案。手ぶらで遊べる」の検索ヒット率と訴求</li>
+    <li>キーワード 93 字の配分（飲み会・パーティー系 vs シーン特化）</li>
+    <li>スクショ 5 枚の物語性（最初の 3 枚で離脱止められるか）</li>
+    <li>Promotional Text の月次差し替え運用（季節文脈）</li>
+    <li>note / X / LinkedIn 告知タイミングと文面（feedback_publish_includes_announcement 準拠）</li>
+    <li>Featuring Nomination の応募タイミング</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">13.</span>法務 / 規約</h3>
+  <ul>
+    <li>プライバシーポリシー（<code>satori7227-dot.github.io/asobi-privacy/</code>）が最新コードと一致しているか</li>
+    <li>利用規約（EULA）を別途置くか Apple の標準を流用するか</li>
+    <li>商標：「ASOBI」「あそぶ？」の商標調査・出願要否</li>
+    <li>games.json の各ゲームに既存の商標がある場合の表記（「山手線ゲーム」「ロシアンルーレット」等）</li>
+    <li>送別会 / 同窓会など職場文脈の利用での雇用主データ取扱い責任</li>
+    <li>個人開発者の特定商取引法表示（IAP 解禁時に必要）</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">14.</span>ドキュメント整合性 / 真実の単一情報源</h3>
+  <ul>
+    <li>README.md / launch-prep / post-developer-signup / release-checklist 間で数字や手順が矛盾していないか</li>
+    <li>13 シーン名の表記揺れ（「カップル」vs「カップル・2 人」等）</li>
+    <li>implementation-notes と現状コードの乖離（古い決定が残っていないか）</li>
+    <li>scripts/ ヘルパ群が docs から正しく参照されているか</li>
+    <li>図やテーブルが現状を反映しているか（256 ゲーム → 1191 ゲーム の伝播漏れ）</li>
+  </ul>
+</div>
+
+<div class="lens">
+  <h3><span class="num">15.</span>運用 / 1 人開発の継続可能性</h3>
+  <ul>
+    <li>Apple ID / GitHub PAT / fastlane API Key / 銀行口座情報など機密の集約場所</li>
+    <li>「30 日休んだら何が壊れるか」リスト（fastlane key 期限・PAT 期限・サブスク期限・証明書期限）</li>
+    <li>本人不在時のユーザーサポート（意見箱への返信遅延）</li>
+    <li>iOS メジャーアップデート（17 → 18 → 19 → 26）への追従コスト</li>
+    <li>Anthropic 月 $25 縛りの中で AI 機能（v2 ヘルメスエージェント）を載せる方法</li>
+    <li>v1 公開後 90 日経過時の撤退判断ライン（井戸川さんの本業 TakiTaki / 日本語講師 / haruhi との時間配分）</li>
+  </ul>
+</div>
+
+<h2>守るべき制約（井戸川さん固有 / 既知メモリ）</h2>
+
+<table>
+<thead><tr><th>制約</th><th>適用範囲</th></tr></thead>
+<tbody>
+<tr><td>他社製品名はメタデータから出さない</td><td>App Store description / keywords / 公開 docs</td></tr>
+<tr><td>12+ レーティング維持</td><td>表現調整（「飲み会」→「集まる場面」「王様くじ」→「順番決め」）</td></tr>
+<tr><td>Markdown 装飾は対外発信物には使わない</td><td>note / SNS / メール本文（社内 docs と implementation-notes は OK）</td></tr>
+<tr><td>個人情報収集なし維持</td><td>Data Not Collected ラベル / 第三者 SDK 不採用</td></tr>
+<tr><td>iOS 17.0+ 想定</td><td>API 採用判断 / 後方互換コード削減</td></tr>
+<tr><td>1 人運用前提</td><td>対面 / 音声 / 顔出し避ける ・ 完全テキスト ・ 非同期</td></tr>
+<tr><td>月予算 $25 (Anthropic)</td><td>AI 機能呼び出し設計 ・ Capafy 第 5 柱とは別軸</td></tr>
+<tr><td>3 ヶ月撤退ライン</td><td>haruhi / TakiTaki / 日本語講師 / ASOBI の優先順位判断</td></tr>
+<tr><td>他事業の社名を出さない</td><td>App Store / SNS / 個人ブランド露出時に TakiTaki / haruhi / フルーツフルイングリッシュ等の名前は出さない</td></tr>
+</tbody>
+</table>
+
+<h2>severity 基準</h2>
+
+<table>
+<thead><tr><th>レベル</th><th>定義</th><th>初動</th></tr></thead>
+<tbody>
+<tr><td class="sev-crit">Critical</td><td>App Store リジェクト確実 / 個人情報漏洩 / 法令違反 / アプリ起動不能</td><td>申請前に即修正</td></tr>
+<tr><td class="sev-high">High</td><td>リジェクトリスク有 / 重大バグ / 主要ユーザー体験毀損 / 機密漏洩リスク</td><td>初回申請前 or v1.0.1 で修正</td></tr>
+<tr><td class="sev-med">Medium</td><td>UX 低下 / 保守性問題 / 競争劣位 / 長期的なバグの種</td><td>v1.1.0 までに対応</td></tr>
+<tr><td class="sev-low">Low</td><td>美的問題 / 些細な改善余地 / 将来の検討事項</td><td>余裕がある時 / 撤退判断後に</td></tr>
+</tbody>
+</table>
+
+<h2 class="copy-prompt-anchor">プロンプト本体（コピペ用）</h2>
+
+<div class="copy-prompt">
+<h2>↓ ここから ↓</h2>
+
+<pre>あなたは ASOBI（iOS パーティーゲーム提案アプリ）の徹底監査 panel です。
+井戸川聡里さんの個人開発で、v1.0.0 ready / Apple Developer Program 承認待ち
+の段階にあります。1191 ゲーム × 13 シーン × 256 お題、完全オフライン・
+完全無料・個人情報収集なし、12+ レーティングで運用予定です。
+
+下記 15 観点から独立並列にプロジェクト全体をレビューし、findings と
+action items を構造化して返してください。各 finding は必ず file:line
+番号（または HTML の見出しテキスト）で根拠を示してください。
+
+【監査観点】
+1. コード品質（Swift / SwiftUI idiom）
+2. アーキテクチャ / 依存関係
+3. パフォーマンス / 起動時間
+4. アクセシビリティ
+5. ローカリゼーション / 国際化
+6. App Store 審査リスク
+7. セキュリティ / プライバシー
+8. データ整合性 / コンテンツ品質
+9. テスト品質 / 回帰耐性
+10. リリースプロセス / CI/CD
+11. 収益化準備 / IAP / StoreKit2
+12. マーケティング / ASO
+13. 法務 / 規約
+14. ドキュメント整合性
+15. 運用 / 1 人開発の継続可能性
+
+【守るべき制約】
+- 他社製品名はメタデータから出さない（実データには許容）
+- 12+ レーティング維持（飲酒・罰ゲームの表現に注意）
+- 対外発信物に Markdown 装飾を使わない（社内 docs は OK）
+- 個人情報収集なし維持（Data Not Collected）
+- iOS 17.0+ 想定
+- 1 人運用前提（対面 / 音声 / 顔出し避ける、完全テキスト・非同期）
+- 月予算 $25 (Anthropic)
+- 他事業の社名（TakiTaki / haruhi 等）を出さない
+
+【監査対象】
+- リポジトリ: github.com/satori7227-dot/asobi-app
+- 実装: Asobi/ , AsobiWidget/
+- データ: Asobi/Data/games.json (1191), prompts.json (256 お題)
+- ローカリゼーション: Asobi/Localizable.xcstrings (185 keys, ja/en)
+- プライバシー: Asobi/PrivacyInfo.xcprivacy, AsobiWidget/PrivacyInfo.xcprivacy
+- メタデータ: docs/launch-prep-2026-06-19.html
+- 運用 docs: docs/post-developer-signup.html, docs/release-checklist.html,
+  docs/manual-tests.html, docs/implementation-notes/, docs/release-log/
+- 外部公開: satori7227-dot.github.io/asobi-privacy/
+- CI/Release: fastlane/Fastfile, scripts/, project.yml
+- 業務文脈: docs/monetization-research-2026-06-19.html
+
+【出力フォーマット】
+観点ごとに：
+
+## 観点 N: <タイトル>
+
+### Findings
+- [Critical] <title>
+  - Evidence: <file:line または docs の見出し>
+  - Description: <1-3 行>
+  - Action: <具体的な修正 or 検討事項>
+  - Cost of inaction: <放置するとどうなるか>
+- [High] ...
+- [Medium] ...
+- [Low] ...
+
+### この観点の結論
+<2-3 行サマリ>
+
+最後にすべての観点を統合：
+
+## 統合: 優先順位付き ToDo
+
+### 申請前に必須（Critical / High）
+1. ...
+2. ...
+
+### v1.0.1 ホットフィックス候補
+1. ...
+
+### v1.1.0 検討事項（Medium）
+1. ...
+
+### 長期検討（Low / 撤退判断後）
+1. ...
+
+### 監査者が判断できなかった項目
+- ...（本人の判断が要る事項）
+
+【severity 基準】
+- Critical: App Store リジェクト確実 / 個人情報漏洩 / 法令違反 / 起動不能
+- High: リジェクトリスク有 / 重大バグ / 主要 UX 毀損 / 機密漏洩リスク
+- Medium: UX 低下 / 保守性問題 / 競争劣位 / 長期的なバグの種
+- Low: 美的問題 / 些細な改善 / 将来の検討事項
+
+【姿勢】
+- 表層でなく根本まで。なぜそれが問題かを 1 行で説明。
+- 推測でなく根拠で。file:line がない findings は出さない。
+- 「ぼやけた指摘」を出さない。「<具体的修正>」を毎回提示。
+- 矛盾は浮かび上がらせる、平均しない（複数 docs 間で数字 / 手順 / 名称が
+  不一致なら、どちらを採用すべきか提案）。
+- 既知の trade-off（iPad ターゲット、英語版スクショ等）には新情報を加えるか、
+  ないなら触れない。
+- 仕様外で決めた点（命名・例外処理・妥協）を必ず記録する（Rule 13）。
+- 不明点は無理に推測せず、「監査者が判断できなかった項目」に置く。</pre>
+
+<h2>↑ ここまで ↑</h2>
+</div>
+
+<h2>使い方</h2>
+
+<h3>A. Claude Code の /code-review ultra で回す（最大規模・並列）</h3>
+<pre>cd /Users/idogawasatori/Desktop/AppDev/asobi-app
+# 現在のブランチで multi-agent cloud review を起動
+/code-review ultra
+
+# プロンプトの指示文として上記をコピペ
+# 15 観点を並列で回し、Critical/High に絞った findings を inline PR comment 化することも可能</pre>
+
+<h3>B. Workflow で自前 panel を組む（細かい制御）</h3>
+<pre># 15 観点それぞれを独立 agent として fan-out
+# 適応度関数: severity 配分（Critical/High に集中させる）
+# 統合: 全 findings を dedup → 優先順位付き ToDo 生成
+
+claude --workflow review-panel \
+  --args '{"scope": "asobi-app", "lenses": 15, "depth": "high"}'</pre>
+
+<h3>C. 単発 Agent で回す（軽量）</h3>
+<pre># Agent ツールに上記プロンプトをそのまま渡す
+# subagent_type=general-purpose または code-reviewer
+# 一度に 15 観点を 1 agent でやらせる場合は出力が長大化するため、
+# 4-5 観点ずつ 3 セッションに分けるのが現実的</pre>
+
+<h3>D. 他社 LLM （Gemini / GPT / o3）で回す（コスト分散）</h3>
+<pre># プロンプト本体（pre 内）をそのまま貼り付け
+# 各 LLM の長文出力上限に注意（≦ 32k tokens 推奨）
+# 同じプロンプトで複数 LLM の結果を取って比較すると、
+# 1 LLM では見逃される盲点が出やすい</pre>
+
+<h2>監査者が見ない方が良いもの</h2>
+
+<div class="caveat">
+  <ul>
+    <li>本人の機密（PAT / Apple ID パスワード / 銀行口座情報 / 個人住所）はプロンプトに含めない。</li>
+    <li><code>~/.ssh/</code>, <code>~/.config/asobi/.envrc</code> 等の secrets パスは「あること」だけ言及し中身は読ませない。</li>
+    <li>他事業（TakiTaki / haruhi / 日本語講師業）のメモリやリポジトリは ASOBI レビューに混ぜない。</li>
+    <li>memory feedback は読ませて良い（本プロンプトの「守るべき制約」に取り込み済）。</li>
+  </ul>
+</div>
+
+<h2>次回更新タイミング</h2>
+
+<div class="caveat">
+  <ul>
+    <li>v1.0.0 リリース後 1 週間（Critical / High が消化されたかチェック）</li>
+    <li>v1.1.0 機能着手前（観点 8 / 11 を更新）</li>
+    <li>IAP / サブスク解禁時（観点 11 / 13 を厚く）</li>
+    <li>iOS メジャー更新時（iOS 27 等・観点 1 / 3 / 4 を更新）</li>
+  </ul>
+</div>
+
+<p style="margin-top: 40px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px;">
+  本プロンプトはスナップショット。コード・データ・docs の変化に応じて 1-3 ヶ月毎に再生成推奨。<br>
+  保存先: <code>docs/review-prompts/2026-06-23-comprehensive-audit-prompt.html</code>
+</p>
+
+</div>
+</body>
+</html>
