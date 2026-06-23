@@ -92,7 +92,7 @@ Xcode が自動生成した `Asobi/AsobiApp.swift` と `Asobi/ContentView.swift`
 
 ### 3. ビルド＆実行
 
-1. 上部の実行ターゲットを **iPhone 15 Simulator**（か手元のiPhone）に
+1. 上部の実行ターゲットを **iPhone 17 Pro Max Simulator**（か手元のiPhone）に
 2. **⌘R** で実行
 3. シーン選択画面が出れば成功
 
@@ -141,7 +141,7 @@ Xcode が自動生成した `Asobi/AsobiApp.swift` と `Asobi/ContentView.swift`
 
 ## 意見箱の運用
 
-ユーザーが意見箱に書いた内容は **`mailto:satori7227@gmail.com`** で Gmail に届きます。
+ユーザーが意見箱に書いた内容は標準メールアプリ経由で `satori7227@gmail.com` 宛に届きます（2026-06-23 Discord Webhook 経路は完全廃止・mailto 一本化済、メールアプリ未設定時はクリップボードコピー fallback）。
 
 週 1 で受信箱を確認 → よく出る要望を `games.json` に反映 → 再ビルド配信。
 
@@ -150,7 +150,6 @@ Xcode が自動生成した `Asobi/AsobiApp.swift` と `Asobi/ContentView.swift`
 ## v2 で予定している拡張
 
 - ヘルメスエージェント（Anthropic API）でゲーム動的生成
-- 意見箱を Supabase に切替
 - Widget / AppIntents（Siri）/ Live Activities
 - 海外パーティーゲームの英訳完全カバー（現状 80/80 件）
 
@@ -158,13 +157,15 @@ Xcode が自動生成した `Asobi/AsobiApp.swift` と `Asobi/ContentView.swift`
 
 ---
 
-## 現在の主要機能（2026-06-22 時点）
+## 現在の主要機能（2026-06-23 時点）
 
 - **1176 件** のゲーム DB（13 シーン横断、全件 id 一意、海外 80 件は英訳完備）
+- 13 シーン: 飲み会 / 旅行 / 罰ゲーム決め / 家族・親戚 / カップル・2人 / キャンプ・BBQ / リモート飲み / 子供連れ / 合コン / 同窓会 / オフ会 / 就活グループワーク / 送別会
 - 状況入力（人数/テンション/所要時間/手ぶら）→ 3 件提案、Active Chips で常時表示
 - お気に入り / コレクション（複数所属可・改名・削除・スワイプ追加）
 - ツールセット 7 種（サイコロ/コイン/トランプ/ルーレット/タイマー/お題ガチャ/王様くじ）
-- ja/en 多言語対応（178 文言、format string 含む）
+- ja/en 多言語対応（185 文言、format string 含む）
+- regionBlocklist による地域別フィルタ（飲酒系6件をイスラム圏で非表示）
 - アプリ内レビュー要請（条件 AND 発火）
 - 月間プレイ回数ベースのソフトペイウォール（flag で OFF）
 - 設定画面（バージョン / Privacy Policy / 意見箱 / Tip Jar）
