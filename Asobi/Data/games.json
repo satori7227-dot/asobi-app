@@ -3252,153 +3252,6 @@
     "sourceLang": "ja"
   },
   {
-    "id": "remote_01",
-    "name": "GeoGuessr マルチ",
-    "summary": "ストビューで場所当て",
-    "rules": "ホストが画面共有でGeoGuessrのパーティールームを立ち上げ\n全員でストリートビューの手がかりから国・都市を推測\n獲得スコアで順位を競う",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 2,
-    "maxPlayers": 10,
-    "tension": [
-      "medium",
-      "high"
-    ],
-    "duration": "medium",
-    "items": [
-      "GeoGuessr"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_02",
-    "name": "Gartic Phone",
-    "summary": "伝言ゲーム式お絵描き",
-    "rules": "全員ブラウザで部屋に入り、最初にお題文章を書く\n次の人がそれを絵にし、また次の人が絵を文章化\nズレた最終結果を全員で鑑賞して爆笑",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 4,
-    "maxPlayers": 15,
-    "tension": [
-      "calm",
-      "medium"
-    ],
-    "duration": "medium",
-    "items": [
-      "Gartic Phone"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_03",
-    "name": "Skribbl.io",
-    "summary": "お題お絵描き当て",
-    "rules": "ホストが部屋URLを共有しブラウザで集合\n順番にお題ワードをマウスで描き、他参加者がチャット欄で回答\n正解の早さでポイント獲得",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 3,
-    "maxPlayers": 12,
-    "tension": [
-      "medium"
-    ],
-    "duration": "medium",
-    "items": [
-      "Skribbl.io"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_04",
-    "name": "Codenames Online",
-    "summary": "暗号語連想チーム戦",
-    "rules": "2チームに分かれスパイマスター1人ずつ選出\n5x5カード盤面で自陣カードを示すヒント単語+数字を出す\n相手陣やアサシンを避けて連想正解を狙う",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 4,
-    "maxPlayers": 10,
-    "tension": [
-      "medium",
-      "high"
-    ],
-    "duration": "medium",
-    "items": [
-      "Codenames"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_05",
-    "name": "Jackbox Quiplash",
-    "summary": "スマホで珍回答対決",
-    "rules": "ホストPCがJackboxを起動し画面共有\n全員スマホでルームコード入力\nお題に珍回答を入力、互いに投票して笑える方が勝ち",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 3,
-    "maxPlayers": 8,
-    "tension": [
-      "medium",
-      "high"
-    ],
-    "duration": "medium",
-    "items": [
-      "スマホ",
-      "Jackbox"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_06",
-    "name": "Kahoot クイズ大会",
-    "summary": "スマホ4択クイズ早押し",
-    "rules": "ホストがKahootでクイズを作成し画面共有\n全員スマホでPINを入力して参加\n4色の選択肢を早く正解した順にスコア加算",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 3,
-    "maxPlayers": 30,
-    "tension": [
-      "high"
-    ],
-    "duration": "medium",
-    "items": [
-      "スマホ",
-      "Kahoot"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_07",
-    "name": "YouTube曲名当て",
-    "summary": "イントロドンで曲当て",
-    "rules": "ホストがYouTube画面共有で曲のイントロを流す\n参加者は曲名・アーティスト名をチャット欄に書き込む\n最速で正解した人が次の出題者",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 2,
-    "maxPlayers": 10,
-    "tension": [
-      "medium",
-      "high"
-    ],
-    "duration": "short",
-    "items": [
-      "YouTube"
-    ],
-    "sourceLang": "ja"
-  },
-  {
     "id": "remote_08",
     "name": "バーチャル背景しりとり外伝",
     "summary": "背景画像でお題伝える",
@@ -3530,67 +3383,6 @@
     "sourceLang": "ja"
   },
   {
-    "id": "remote_15",
-    "name": "Among Us",
-    "summary": "宇宙船でインポスター推理",
-    "rules": "全員Among Usを起動しコードで集合\nクルーはタスク遂行、インポスターはこっそりキル\nボイチャで議論してインポスターを追放",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 4,
-    "maxPlayers": 15,
-    "tension": [
-      "high"
-    ],
-    "duration": "long",
-    "items": [
-      "Among Us"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_16",
-    "name": "Minecraft 協力建築",
-    "summary": "皆で建物を作って飲む",
-    "rules": "サーバーに集合し共通テーマで建築物を作る\n素材集めも分担、画面共有しながら雑談\n完成したら全員で乾杯して見学ツアー",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 2,
-    "maxPlayers": 8,
-    "tension": [
-      "calm"
-    ],
-    "duration": "long",
-    "items": [
-      "Minecraft"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_17",
-    "name": "Jackbox Drawful",
-    "summary": "ヘタウマお絵描き当て",
-    "rules": "ホストがDrawfulを起動し画面共有\nスマホで配られた変なお題を絵で表現\n他の人は珍回答を投じ、皆で本物を当てる",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 3,
-    "maxPlayers": 8,
-    "tension": [
-      "medium"
-    ],
-    "duration": "medium",
-    "items": [
-      "スマホ",
-      "Jackbox"
-    ],
-    "sourceLang": "ja"
-  },
-  {
     "id": "remote_18",
     "name": "乾杯シンクロチャレンジ",
     "summary": "全員同時カンパイ撮影",
@@ -3627,26 +3419,6 @@
     "duration": "short",
     "items": [
       "音楽"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_20",
-    "name": "Spotify曲名当て",
-    "summary": "プレイリスト共有曲当て",
-    "rules": "ホストがSpotifyを画面共有+音声付きで再生\nランダム再生のイントロでチャットに曲名投稿\n世代別プレイリストにすると盛り上がる",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 2,
-    "maxPlayers": 8,
-    "tension": [
-      "medium"
-    ],
-    "duration": "medium",
-    "items": [
-      "Spotify"
     ],
     "sourceLang": "ja"
   },
@@ -3710,24 +3482,6 @@
     "sourceLang": "ja"
   },
   {
-    "id": "remote_24",
-    "name": "Putt Party (Discord)",
-    "summary": "ボイチャでミニゴルフ",
-    "rules": "Discordボイスチャンネルでロケットボタン押下\nPutt Partyを起動し全員参加\nミニゴルフをワイワイプレイし負けたら飲む",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 2,
-    "maxPlayers": 8,
-    "tension": [
-      "medium"
-    ],
-    "duration": "medium",
-    "items": [],
-    "sourceLang": "ja"
-  },
-  {
     "id": "remote_25",
     "name": "ミステリードリンクチャレンジ",
     "summary": "混ぜたミステリー酒を飲む",
@@ -3785,47 +3539,6 @@
     "duration": "long",
     "items": [
       "質問リスト"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_28",
-    "name": "Drawasaurus",
-    "summary": "シンプル早書きお絵描き",
-    "rules": "ブラウザで部屋を作りURLを共有\n出題された単語を制限時間内に描く\n他プレイヤーはチャット欄で連打して当てる",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 3,
-    "maxPlayers": 10,
-    "tension": [
-      "medium"
-    ],
-    "duration": "short",
-    "items": [
-      "Drawasaurus"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "remote_29",
-    "name": "Cards Against Humanity Online",
-    "summary": "下ネタ系珍回答カード",
-    "rules": "All Bad Cards等の無料サイトで部屋を立てる\n各自手札の黒カードから出題に対し最低の回答を出す\n親が一番笑った回答を選び勝者決定",
-    "scenes": [
-      "remote",
-      "drinking"
-    ],
-    "minPlayers": 4,
-    "maxPlayers": 10,
-    "tension": [
-      "medium",
-      "high"
-    ],
-    "duration": "medium",
-    "items": [
-      "CAH Online"
     ],
     "sourceLang": "ja"
   },
@@ -14732,26 +14445,6 @@
     "duration": "medium",
     "items": [
       "トランプ"
-    ],
-    "sourceLang": "ja"
-  },
-  {
-    "id": "UNOバトル-4cd58887",
-    "name": "UNOバトル",
-    "summary": "盛り上がる定番カード",
-    "rules": "通常ルールでUNO。\n「UNO!」コールを忘れたらペナルティ追加引き。\n部屋単位で持ち寄り対戦。",
-    "scenes": [
-      "travel",
-      "kids"
-    ],
-    "minPlayers": 3,
-    "maxPlayers": 10,
-    "tension": [
-      "medium"
-    ],
-    "duration": "medium",
-    "items": [
-      "UNOカード"
     ],
     "sourceLang": "ja"
   },
