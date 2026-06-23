@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+          python3 --version
+
+      - name: Generate xcodeproj
+        run: ./.tools/xcodegen.artifactbundle/xcodegen-2.45.4-macosx/bin/xcodegen generate
+
+      - name: xcstrings lint (strict)
+        run: python3 scripts/xcstrings-lint.py --strict
+
+      - name: List available simulators
+        run: xcrun simctl list devices available | head -40
+
+      - name: Build & Unit Test
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project Asobi.xcodeproj \
+            -scheme Asobi \
+            -destination 'platform=iOS Simulator,OS=latest,name=iPhone 16 Pro Max' \
+            -only-testing:AsobiTests \
+            CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
+            -resultBundlePath /tmp/AsobiCI.xcresult
+
+      - name: Upload xcresult on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: xcresult
+          path: /tmp/AsobiCI.xcresult
+          retention-days: 7
