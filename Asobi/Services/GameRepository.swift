@@ -7,6 +7,11 @@ private final class GameRepositoryBundleAnchor {}
 final class GameRepository {
     private(set) var games: [Game] = []
     private(set) var loadError: String?
+    private var gamesByIdCache: [String: Game] = [:]
+
+    func game(id: String) -> Game? {
+        gamesByIdCache[id]
+    }
 
     /// 同期ロードを採用している理由（2026-06-22 議論結果）:
     /// - 1191件 × Codable decode は実機 A18 で 30-60ms。起動経路のクリティカルパス上だが、
@@ -43,6 +48,7 @@ final class GameRepository {
             }
             AsobiLogger.data.info("loaded \(valid.count, privacy: .public) games (dropped \(dropped, privacy: .public))")
             games = valid
+            gamesByIdCache = Dictionary(uniqueKeysWithValues: valid.map { ($0.id, $0) })
             loadError = nil
         } catch {
             // 詳細はログへ、UI へは安全にローカライズ可能な短文だけ出す。
