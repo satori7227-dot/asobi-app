@@ -49,10 +49,10 @@ final class DeepLinkRouter {
 
     func handle(url: URL) {
         guard let link = DeepLink(url: url) else {
-            AsobiLogger.lifecycle.warning("ignored deep link: \(url.absoluteString, privacy: .public)")
+            AsobiLogger.lifecycle.warning("ignored deep link: \(url.absoluteString, privacy: .private(mask: .hash))")
             return
         }
-        AsobiLogger.lifecycle.info("received deep link: \(url.absoluteString, privacy: .public)")
+        AsobiLogger.lifecycle.info("received deep link: \(url.absoluteString, privacy: .private(mask: .hash))")
         pending = link
     }
 }
