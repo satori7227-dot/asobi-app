@@ -7,6 +7,7 @@ enum AppStorageKeys {
     static let onboardingDone = "asobi.onboarding.v1.done"
     static let feedbackEntries = "asobi.feedback.v1"
     static let favoriteGames = "asobi.favorites.v1"
+    static let favoriteOrder = "asobi.favorites.order.v1"
     static let purchasedScenes = "asobi.purchases.scenes.v1"
     static let purchasedPrompts = "asobi.purchases.prompts.v1"
     static let allInPurchase = "asobi.purchases.allin.v1"

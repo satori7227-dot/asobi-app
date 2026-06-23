@@ -24,9 +24,9 @@ struct FeedbackEntry: Codable, Identifiable {
 
 @Observable
 final class FeedbackStore {
-    private let entriesKey = "asobi.feedback.v1"
-    private let favoritesKey = "asobi.favorites.v1"
-    private let favoriteOrderKey = "asobi.favorites.order.v1"
+    private let entriesKey = AppStorageKeys.feedbackEntries
+    private let favoritesKey = AppStorageKeys.favoriteGames
+    private let favoriteOrderKey = AppStorageKeys.favoriteOrder
     var entries: [FeedbackEntry] = []
     var favoriteGameIds: Set<String> = []
     /// ユーザーが指定した表示順。Set とは独立に持ち、UI 側で並び替え可能にする。

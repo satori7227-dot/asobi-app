@@ -3,10 +3,10 @@ import SwiftUI
 
 @Observable
 final class PurchaseStore {
-    private let purchasedScenesKey = "asobi.purchases.scenes.v1"
-    private let purchasedPromptsKey = "asobi.purchases.prompts.v1"
-    private let allInKey = "asobi.purchases.allin.v1"
-    private let subscriptionActiveKey = "asobi.subscription.active.v1"
+    private let purchasedScenesKey = AppStorageKeys.purchasedScenes
+    private let purchasedPromptsKey = AppStorageKeys.purchasedPrompts
+    private let allInKey = AppStorageKeys.allInPurchase
+    private let subscriptionActiveKey = AppStorageKeys.subscriptionActive
 
     var purchasedSceneIds: Set<String> = []
     var purchasedPromptCategories: Set<String> = []
