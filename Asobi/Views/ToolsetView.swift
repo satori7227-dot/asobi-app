@@ -20,6 +20,8 @@ struct ToolsetView: View {
             }
         }
 
+        var localizedDisplayName: LocalizedStringKey { LocalizedStringKey(displayName) }
+
         var symbol: String {
             switch self {
             case .dice:     return "die.face.5.fill"
@@ -89,7 +91,7 @@ private struct ToolCard: View {
                 .frame(width: 64, height: 64)
                 .background(tool.accent.opacity(0.18), in: Circle())
                 .foregroundStyle(tool.accent)
-            Text(tool.displayName)
+            Text(tool.localizedDisplayName)
                 .font(.headline)
         }
         .frame(maxWidth: .infinity)

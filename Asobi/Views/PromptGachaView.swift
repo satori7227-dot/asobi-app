@@ -97,7 +97,7 @@ struct PromptGachaView: View {
             Image(systemName: "lock.fill")
                 .font(.system(size: 80))
                 .foregroundStyle(.secondary.opacity(0.5))
-            Text(category.displayName)
+            Text(category.localizedDisplayName)
                 .font(.title2.weight(.bold))
             Text("20問の特別お題が解放されます")
                 .font(.subheadline)
@@ -127,7 +127,7 @@ struct PromptGachaView: View {
                 Image(systemName: category.symbol)
                     .font(.system(size: 80))
                     .foregroundStyle(.blue.opacity(0.3))
-                Text(category.displayName)
+                Text(category.localizedDisplayName)
                     .font(.title2.weight(.semibold))
                     .foregroundStyle(.secondary)
             }
@@ -197,7 +197,7 @@ private struct CategoryChip: View {
         HStack(spacing: 4) {
             Image(systemName: locked ? "lock.fill" : category.symbol)
                 .font(.caption)
-            Text(category.displayName)
+            Text(category.localizedDisplayName)
                 .font(.caption.weight(.semibold))
             if locked {
                 Text("¥240")

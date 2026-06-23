@@ -131,7 +131,7 @@ struct ContextInputView: View {
         .buttonStyle(.plain)
     }
 
-    private func itemsButton(allow: Bool, label: String, symbol: String) -> some View {
+    private func itemsButton(allow: Bool, label: LocalizedStringKey, symbol: String) -> some View {
         let selected = context.noItemsOnly == !allow
         return Button {
             withAnimation(.spring) { context.noItemsOnly = !allow }

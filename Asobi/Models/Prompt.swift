@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 struct WordWolfPair: Codable, Hashable {
     let majority: String
@@ -43,6 +44,8 @@ enum PromptCategory: String, CaseIterable, Identifiable {
         case .drinkingTaboo:  return "大人の本音"
         }
     }
+
+    var localizedDisplayName: LocalizedStringKey { LocalizedStringKey(displayName) }
 
     var symbol: String {
         switch self {
