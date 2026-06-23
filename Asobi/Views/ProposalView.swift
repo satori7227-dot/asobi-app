@@ -10,6 +10,7 @@ struct ProposalView: View {
     @State private var games: [Game] = []
     @State private var visible = false
     @State private var selectedGame: Game?
+    @State private var visibilityTask: Task<Void, Never>?
 
     var body: some View {
         ScrollView {
@@ -65,6 +66,7 @@ struct ProposalView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { refresh() }
+        .onDisappear { visibilityTask?.cancel() }
         .sheet(item: $selectedGame) { game in
             GameDetailView(game: game, scene: scene)
                 .presentationDetents([.medium, .large])
@@ -79,7 +81,10 @@ struct ProposalView: View {
         )
         visible = false
         games = proposed
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+        visibilityTask?.cancel()
+        visibilityTask = Task { @MainActor in
+            try? await Task.sleep(nanoseconds: 50_000_000)
+            guard !Task.isCancelled else { return }
             visible = true
         }
     }
