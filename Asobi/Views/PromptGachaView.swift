@@ -116,7 +116,7 @@ struct PromptGachaView: View {
                     .font(.system(size: 36))
                     .foregroundStyle(.blue)
                 Text(current)
-                    .font(.system(size: 32, weight: .heavy, design: .rounded))
+                    .font(.system(.largeTitle, design: .rounded, weight: .heavy))
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                     .symbolEffect(.bounce, value: revealTrigger)
