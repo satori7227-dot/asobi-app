@@ -28,27 +28,24 @@
   各項目は <strong>実機 or Simulator で確認 → 結果欄を更新</strong>する。
 </div>
 
-<h2>T1. SuggestionFormView — Webhook 失敗時の mailto フォールバック</h2>
+<h2>T1. SuggestionFormView — mailto 起動 + コピー fallback</h2>
 <div class="note">
-  Discord Webhook が落ちている／ネットワーク無し時に、標準メーラー経由で
-  <code>satori7227@gmail.com</code> 宛に意見を届けられることを確認する。
+  2026-06-23 Discord Webhook 経路は廃止し mailto 一本化済。
+  ボタンタップで標準メーラーが開き <code>satori7227@gmail.com</code> 宛のメール下書きが作成されること、
+  メールアプリ未設定時はクリップボードにアドレスがコピーされることを確認する。
 </div>
 
 <h3>事前準備</h3>
 <ul>
-  <li><code>Constants.feedbackWebhookEnabled = true</code>（既定値）</li>
-  <li>テスト時に Webhook URL を意図的に無効値に差し替えるか、機内モードで送信を試す</li>
-  <li>Simulator なら「Settings → Mail」でテスト用 Apple ID をメール設定済にしておくとリンク開ける</li>
+  <li>Simulator なら「Settings → Mail」でテスト用 Apple ID をメール設定済にしておく</li>
+  <li>コピー fallback テスト時はメールアプリを削除した状態の端末を用意（or Simulator では再現困難なので skip）</li>
 </ul>
 
 <h3>手順</h3>
 <ol>
   <li>アプリ起動 → ScenePicker 右上の💡 (アイデア箱) をタップ</li>
-  <li>「種類」を選び、シーンを選び、「例: 〜」のフォーマットで本文を入力</li>
-  <li>機内モード ON（または Webhook を意図的に破壊した debug ビルド）</li>
-  <li>「送信する」ボタンをタップ</li>
-  <li>失敗状態のオレンジバナーが出ることを確認</li>
-  <li>「メールで送る」リンクをタップ</li>
+  <li>「種類」を選び、シーンを選び、「例: 〜」のフォーマットで本文を入力（1000字制限がカウント表示されることを確認）</li>
+  <li>「メールアプリで送る」ボタンをタップ</li>
   <li>標準メーラーが起動、<code>To: satori7227@gmail.com</code>、件名 <code>[ASOBI] バグ / 飲み会</code> 等、本文に入力したテキストが入っていることを確認</li>
 </ol>
 

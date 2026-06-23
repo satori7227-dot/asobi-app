@@ -11,9 +11,6 @@ enum Constants {
     /// - true: AppStorage で初回のみ表示
     static let onboardingPersistent = true
 
-    /// 意見箱（Discord Webhook）の有効化
-    static let feedbackWebhookEnabled = true
-
     /// 月間プレイ回数ベースのソフトペイウォール
     /// - false: 初回リリース時。無制限プレイ可
     /// - true: 月 PlayCountStore.monthlyLimit 本超でペイウォール提示

@@ -1,18 +1,45 @@
 import SwiftUI
+import UIKit
+
+enum FeedbackCategory: String, CaseIterable, Identifiable {
+    case gameRequest
+    case bug
+    case question
+    case other
+
+    var id: String { rawValue }
+
+    var displayName: String {
+        switch self {
+        case .gameRequest: return "新ゲーム要望"
+        case .bug:         return "不具合報告"
+        case .question:    return "質問"
+        case .other:       return "その他"
+        }
+    }
+
+    var localizedDisplayName: LocalizedStringKey { LocalizedStringKey(displayName) }
+
+    var emoji: String {
+        switch self {
+        case .gameRequest: return "💡"
+        case .bug:         return "🐛"
+        case .question:    return "❓"
+        case .other:       return "📝"
+        }
+    }
+}
 
 struct SuggestionFormView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @State private var bodyText: String = ""
     @State private var selectedSceneId: String = "any"
     @State private var selectedCategory: FeedbackCategory = .gameRequest
-    @State private var sendState: SendState = .idle
+    @State private var copyFallbackShown: Bool = false
 
-    enum SendState {
-        case idle
-        case sending
-        case sent
-        case failed(String)
-    }
+    private static let maxBodyLength = 1000
+    private static let supportEmail = "satori7227@gmail.com"
 
     var body: some View {
         NavigationStack {
@@ -21,7 +48,7 @@ struct SuggestionFormView: View {
                     Text("こんなゲームが欲しい")
                         .font(.title.weight(.bold))
 
-                    Text("種類を選んで、内容を教えてください。送信ボタンで開発者に直接届きます。")
+                    Text("種類を選んで、内容を教えてください。送信ボタンで標準メールアプリが開き、開発者宛のメール下書きが作成されます。")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
 
@@ -76,68 +103,50 @@ struct SuggestionFormView: View {
                             .padding(8)
                             .scrollContentBackground(.hidden)
                             .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 12))
+                            .onChange(of: bodyText) { _, new in
+                                if new.count > Self.maxBodyLength {
+                                    bodyText = String(new.prefix(Self.maxBodyLength))
+                                }
+                            }
+                    }
+
+                    HStack {
+                        Spacer()
+                        Text("\(bodyText.count) / \(Self.maxBodyLength)")
+                            .font(.caption2)
+                            .foregroundStyle(bodyText.count >= Self.maxBodyLength ? .orange : .secondary)
                     }
 
                     Button {
-                        Task { await send() }
+                        openMailDraft()
                     } label: {
-                        HStack {
-                            if case .sending = sendState {
-                                ProgressView()
-                                    .progressViewStyle(.circular)
-                                    .tint(.white)
-                            }
-                            Text(buttonLabel)
-                                .font(.body.weight(.semibold))
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.accentColor, in: Capsule())
-                        .foregroundStyle(.white)
+                        Text("メールアプリで送る")
+                            .font(.body.weight(.semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(Color.accentColor, in: Capsule())
+                            .foregroundStyle(.white)
                     }
-                    .disabled(bodyText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isSending)
+                    .disabled(bodyText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                     .buttonStyle(.plain)
                     .accessibilityIdentifier("suggestion-send-button")
 
-                    switch sendState {
-                    case .sent:
-                        VStack(alignment: .leading, spacing: 6) {
-                            Label("送信しました！", systemImage: "checkmark.circle.fill")
-                                .foregroundStyle(.green)
-                                .font(.subheadline.weight(.semibold))
-                            Text("ご意見は開発者に直接届きました。今後のアップデートに反映していきます。")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                        }
-                        .padding()
-                        .background(.green.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
-                    case .failed(let msg):
-                        VStack(alignment: .leading, spacing: 6) {
-                            Label("送信に失敗しました", systemImage: "exclamationmark.triangle.fill")
+                    if copyFallbackShown {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Label("メールアプリが見つかりませんでした", systemImage: "exclamationmark.triangle.fill")
                                 .foregroundStyle(.orange)
                                 .font(.subheadline.weight(.semibold))
-                            Text(msg)
+                            Text("以下のメールアドレスをクリップボードにコピーしました。お好みのメールアプリ・Web メール等から送信してください。")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
-                            Text("ネットワーク接続を確認して、もう一度お試しください。")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            // Webhook 失敗時の最終フォールバック：標準メーラーで開発者に直接届ける。
-                            if let url = mailtoFallbackURL() {
-                                Link(destination: url) {
-                                    Label("メールで送る", systemImage: "envelope.fill")
-                                        .font(.caption.weight(.semibold))
-                                        .padding(.horizontal, 12)
-                                        .padding(.vertical, 6)
-                                        .background(.orange.opacity(0.25), in: Capsule())
-                                }
-                                .padding(.top, 4)
-                            }
+                            Text(Self.supportEmail)
+                                .font(.caption.monospaced())
+                                .padding(.vertical, 6)
+                                .padding(.horizontal, 10)
+                                .background(.orange.opacity(0.15), in: Capsule())
                         }
                         .padding()
                         .background(.orange.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
-                    default:
-                        EmptyView()
                     }
                 }
                 .padding()
@@ -152,59 +161,36 @@ struct SuggestionFormView: View {
         }
     }
 
-    /// Webhook 送信に失敗した場合の最終フォールバック。
-    /// 標準メーラーを開いて開発者 (satori7227@gmail.com) 宛のメールに本文を仕込む。
-    private func mailtoFallbackURL() -> URL? {
+    private func openMailDraft() {
         let trimmed = bodyText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return nil }
+        guard !trimmed.isEmpty else { return }
+
+        guard let url = mailtoURL(body: trimmed) else { return }
+
+        if UIApplication.shared.canOpenURL(url) {
+            openURL(url) { _ in }
+            Haptics.success()
+            copyFallbackShown = false
+        } else {
+            UIPasteboard.general.string = Self.supportEmail
+            Haptics.warning()
+            copyFallbackShown = true
+        }
+    }
+
+    private func mailtoURL(body: String) -> URL? {
         let sceneLabel: String = {
             if selectedSceneId == "any" { return "どのシーンでも" }
             return GameScene.initial.first { $0.id == selectedSceneId }?.name ?? selectedSceneId
         }()
         let subject = "[ASOBI] \(selectedCategory.displayName) / \(sceneLabel)"
-        let body = trimmed
         var components = URLComponents()
         components.scheme = "mailto"
-        components.path = "satori7227@gmail.com"
+        components.path = Self.supportEmail
         components.queryItems = [
             URLQueryItem(name: "subject", value: subject),
             URLQueryItem(name: "body", value: body),
         ]
         return components.url
-    }
-
-    private var isSending: Bool {
-        if case .sending = sendState { return true }
-        return false
-    }
-
-    private var buttonLabel: String {
-        switch sendState {
-        case .idle:      return "送信する"
-        case .sending:   return "送信中..."
-        case .sent:      return "もう一度送る"
-        case .failed:    return "もう一度送る"
-        }
-    }
-
-    private func send() async {
-        let trimmed = bodyText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return }
-
-        let sceneLabel: String = {
-            if selectedSceneId == "any" { return "どのシーンでも" }
-            return GameScene.initial.first { $0.id == selectedSceneId }?.name ?? selectedSceneId
-        }()
-
-        sendState = .sending
-        do {
-            try await FeedbackWebhook.send(category: selectedCategory, sceneLabel: sceneLabel, body: trimmed)
-            Haptics.success()
-            sendState = .sent
-            bodyText = ""
-        } catch {
-            Haptics.warning()
-            sendState = .failed(error.localizedDescription)
-        }
     }
 }
