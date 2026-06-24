@@ -1,0 +1,2021 @@
+{
+  "research_results": [
+    {
+      "conclusion": "どこパ・VAVAゲーム・Jackbox・Picolo・Do or Drink・Most Likely To・怒れるおじさん・ワードウルフ決定版・ワンナイト人狼の実レビューを30件以上集めた結果、競合は4つの構造的 pain を抱えている: (1) サブスク/プレミアム課金トラブル（Picolo $5/週・Do or Drink 二重課金）、(2) 接続/サーバ不安定（Jackbox 共通）、(3) ルーム制/友達招集の摩擦（どこパ）、(4) お題の繰り返し/種類不足・カテゴリ別最適化不足（Picolo Caliente / Jackbox Joke Boat / Do or Drink）。ASOBI の「完全オフライン・データ非収集・無料・1191ゲーム・13シーン」は、これら4 pain 全てに同時に応答する稀少なポジションになっている。逆に競合の強みである「動画コンテンツの可愛さ」「ドット絵」「キャラ性」「ハードコア飲み会向け緊張感」は ASOBI に不足。次の戦略アクションは「無料・オフライン・広告ゼロ」を ASOBI ストア訴求の冒頭に置き、シーン別の「カテゴリフィルタ」「お題タグ」を明示することで Picolo の「カテゴリ分け要望」と Jackbox の「飽き」を同時に拾うこと。",
+      "lens_label": "競合実ユーザーレビュー感情分析",
+      "lens_number": 1,
+      "raw_data_collected": [
+        {
+          "fact": "どこパ レビュー（初めてくん, 2023/11/08）: 『スタート押せばランダムでマッチングできるって仕様じゃない。ゲームするために誰かに連絡取ってできるかどうか確認してっていう一手間が必要。』 → ルーム制への不満。",
+          "source": "https://apps.apple.com/jp/app/id1529747588",
+          "confidence": "high",
+          "source_date": "2023-11-08"
+        },
+        {
+          "fact": "どこパ レビュー（はひふへ夫, 2024-05-27）: 『完全ルーム制 友人や身内とプレイできない場合はディスコードで集めましょう』容量が控えめで広告少を評価。",
+          "source": "https://apps.apple.com/jp/app/id1529747588",
+          "confidence": "high",
+          "source_date": "2024-05-27"
+        },
+        {
+          "fact": "どこパ レビュー（ねこです。, 2022/08/26）: 『ゲーム終了後、部屋主が「続けて遊ぶ」を押す前に他プレイヤーが「ロビーに戻る」ボタンを押してしまうと、ボタンを押した他プレイヤーが次のゲームに参加できなくなります。』バグ報告。",
+          "source": "https://apps.apple.com/jp/app/id1529747588",
+          "confidence": "high",
+          "source_date": "2022-08-26"
+        },
+        {
+          "fact": "どこパ レビュー（玉子王子玉子玉子玉子玉子, 2020/10/07）: 『元々このシリーズのワードウルフをしていてとても楽しんでいたので、オンライン版もでて嬉しいです！』 → 既存ファン優位。",
+          "source": "https://apps.apple.com/jp/app/id1529747588",
+          "confidence": "high",
+          "source_date": "2020-10-07"
+        },
+        {
+          "fact": "VAVAゲーム レビュー（あやかたまやさまや, 2025/05/25）: 『広告はあります。課金して消せるなら消したいです。よろしくお願いします。』広告除去オプション要望。",
+          "source": "https://apps.apple.com/jp/app/vava%E3%82%B2%E3%83%BC%E3%83%A0/id1663647603",
+          "confidence": "high",
+          "source_date": "2025-05-25"
+        },
+        {
+          "fact": "VAVAゲーム レビュー（キャンタマティックレボリューション, 2025/06/24）: 『boomの左上のボタンを押すと毎回「あなたアウト」になります』バグ。",
+          "source": "https://apps.apple.com/jp/app/vava%E3%82%B2%E3%83%BC%E3%83%A0/id1663647603",
+          "confidence": "high",
+          "source_date": "2025-06-24"
+        },
+        {
+          "fact": "VAVAゲーム レビュー（つけ太郎, 2024/04/22）: 『会計時にwho will payするととんでもなくひりつきます』 → 飲み会シーン固有の刺さり方を示す。",
+          "source": "https://apps.apple.com/jp/app/vava%E3%82%B2%E3%83%BC%E3%83%A0/id1663647603",
+          "confidence": "high",
+          "source_date": "2024-04-22"
+        },
+        {
+          "fact": "VAVAゲーム レビュー（say！言うとりますけど, 2024/08/16）: 『このゲーム性がいいんだよね。飲みの場はきっと盛り上がること間違いなし』 → 飲み会=コアシーン。",
+          "source": "https://apps.apple.com/jp/app/vava%E3%82%B2%E3%83%BC%E3%83%A0/id1663647603",
+          "confidence": "high",
+          "source_date": "2024-08-16"
+        },
+        {
+          "fact": "Jackbox Party Pack 10 レビュー（Thai-roc, 07/30/2025）: 『This is a terrible app- only is a controller for the game once you share the screen with a TV and cannot use the iPad to play the game as a player.』TV接続前提への不満。",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack-10/id1667692686",
+          "confidence": "high",
+          "source_date": "2025-07-30"
+        },
+        {
+          "fact": "Jackbox Party Pack 10 レビュー（Groundman, 11/05/2023）: 『Soooo fun when you lose connection and can't rejoin Jk don't buy until bugs fixed or else you ain't playing』 → 接続性不満。",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack-10/id1667692686",
+          "confidence": "high",
+          "source_date": "2023-11-05"
+        },
+        {
+          "fact": "Jackbox Party Pack 10 レビュー（Bigasshonk, 12/16/2023）: 『My friends and I spent 5 hours on this pack alone; we had so much fun! Dodo Re Mi was so addictive』 → 滞在時間長＝深い満足。",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack-10/id1667692686",
+          "confidence": "high",
+          "source_date": "2023-12-16"
+        },
+        {
+          "fact": "Jackbox Party Pack 10 レビュー（Why put, 06/05/2025）: 『The price on your website use cheaper than the app store price. Is there a way to honor the store price a provide a refund?』価格不満。",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack-10/id1667692686",
+          "confidence": "high",
+          "source_date": "2025-06-05"
+        },
+        {
+          "fact": "Jackbox Party Pack（Mac版, Afrancis77, 12/29/2015）: $25価格設定で『only 2 games are worth it』Fibbage と Drawful しか価値がないと評価。",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack/id957862217",
+          "confidence": "high",
+          "source_date": "2015-12-29"
+        },
+        {
+          "fact": "Jackbox Party Pack（Mac, HobieC913, 05/02/2020）: 『weak connection issues causing players to disconnect mid-game and severe battery drain requiring constant charging』",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack/id957862217",
+          "confidence": "high",
+          "source_date": "2020-05-02"
+        },
+        {
+          "fact": "Jackbox Party Pack（jloloew, 09/05/2015）: 『worst-written app on my Mac, noting 75% battery reduction and lack of fullscreen functionality』",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack/id957862217",
+          "confidence": "high",
+          "source_date": "2015-09-05"
+        },
+        {
+          "fact": "Jackbox 共通評価: 'app is a massive app (2.2 GB) loaded with unnecessary sounds and animations that don't really enhance game play but do slow it down'",
+          "source": "https://apps.apple.com/us/app/the-jackbox-party-pack-10/id1667692686",
+          "confidence": "medium",
+          "source_date": "2024"
+        },
+        {
+          "fact": "Picolo レビュー（LetThat_HurtGo, 06/25/2025）: 『the option to change penalties to something like shots, sips or drinks』『some content is absurd』『an introduction pack that is presented as a tutorial』 → カテゴリ/強度フィルタ要望。",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "confidence": "high",
+          "source_date": "2025-06-25"
+        },
+        {
+          "fact": "Picolo レビュー（Taycollinss608, 06/26/2018, 5★）: 『WELL WORTH THE MONEY! My friends and I love this game! We can play it for hours』 だが『Caliente mode can get a bit repetitive』 → 繰り返し感。",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "confidence": "high",
+          "source_date": "2018-06-26"
+        },
+        {
+          "fact": "Picolo レビュー（Kyung 22, 11/30/2025, 1★）: 『$5/week pricing as excessive』『MORE THAN MY NETFLIX』サブスク高すぎ批判。",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "confidence": "high",
+          "source_date": "2025-11-30"
+        },
+        {
+          "fact": "Picolo レビュー（akwejfhlaskdch, 04/11/2023, 1★）: 『$4.50 a week for 3 years』隠れ課金訴え、開発者コンタクト困難。",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "confidence": "high",
+          "source_date": "2023-04-11"
+        },
+        {
+          "fact": "Picolo レビュー（anrmh, 04/25/2020, 1★）: 『I was not given any notification that I was being charged. I was not prompted to confirm a payment.』",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "confidence": "high",
+          "source_date": "2020-04-25"
+        },
+        {
+          "fact": "Picolo レビュー（Fun to mess with, 12/13/2017, 4★）: 『Requests undo button for accidental card advances』UX要望。",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "confidence": "high",
+          "source_date": "2017-12-13"
+        },
+        {
+          "fact": "Picolo レビュー（cashworth09, 11/14/2021, 5★）: カップル用『great ice breaker』『Reports learning new things about relationship partner』 → 2人プレイ需要も存在。",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "confidence": "high",
+          "source_date": "2021-11-14"
+        },
+        {
+          "fact": "Do or Drink レビュー（BroadwayPunk1, 09/03/2025, 2★）: 『DO NOT BUY PREMIUM. It takes your money, but re-locks the decks after you close the app』",
+          "source": "https://apps.apple.com/us/app/do-or-drink-drinking-game/id1457844294",
+          "confidence": "high",
+          "source_date": "2025-09-03"
+        },
+        {
+          "fact": "Do or Drink レビュー（Devon N Singer, 06/13/2020, 2★）: 『I had closed the app and reopened it and could no longer access the premium content...I spent $7.99 and wasn't able to access anything』",
+          "source": "https://apps.apple.com/us/app/do-or-drink-drinking-game/id1457844294",
+          "confidence": "high",
+          "source_date": "2020-06-13"
+        },
+        {
+          "fact": "Do or Drink レビュー（Job seeker for this, 07/04/2022, 2★）: 『you get the same cards over and over again』 → お題のリピート問題。",
+          "source": "https://apps.apple.com/us/app/do-or-drink-drinking-game/id1457844294",
+          "confidence": "high",
+          "source_date": "2022-07-04"
+        },
+        {
+          "fact": "Most Likely To レビュー（garfunkle!, 11/24/2018）: 『it's fun at party's if your at least in high school with at least 12 people but if your just with like 2/3 people it's going to be nothing』 → 少人数で機能しない弱点。",
+          "source": "https://apps.apple.com/us/app/most-likely-to-group-games/id1225246161",
+          "confidence": "high",
+          "source_date": "2018-11-24"
+        },
+        {
+          "fact": "Most Likely To レビュー（SNAZZTASTICAL, 09/13/2020）: 『when me and my best friend we're sitting drunk in the back of his van playing this we both realize that we need to work out more』 → 自己発見/関係深化フック。",
+          "source": "https://apps.apple.com/us/app/most-likely-to-group-games/id1225246161",
+          "confidence": "high",
+          "source_date": "2020-09-13"
+        },
+        {
+          "fact": "Balagan レビュー（Glamourkills_, 01/29/2018, 4★）: 『It favors the first 2-3 people you put in. If i put Jason name first and lisa 4th Jason would get most questions while lisa would barely get any』 → ランダム性アルゴリズム不公平の指摘。",
+          "source": "https://apps.apple.com/us/app/balagan-party-drinking-game/id1225358313",
+          "confidence": "high",
+          "source_date": "2018-01-29"
+        },
+        {
+          "fact": "Balagan レビュー（Mandy Garrette, 01/21/2018）: 『This is a great app for when you start to get bored of the same old cards from the original game.』 → 既存カードに飽きた層を捕捉。",
+          "source": "https://apps.apple.com/us/app/balagan-party-drinking-game/id1225358313",
+          "confidence": "high",
+          "source_date": "2018-01-21"
+        },
+        {
+          "fact": "ワードウルフ決定版 レビュー: 『タイマーが回っていても放置すると画面がスリープに』（2018年10月）UX不具合。",
+          "source": "https://apps.apple.com/jp/app/id1222278363",
+          "confidence": "medium",
+          "source_date": "2018-10"
+        },
+        {
+          "fact": "ワードウルフ決定版 レビュー: カテゴリー設定時に『カテゴリーに沿ってないお題が出てくる場合がある』指摘。デベロッパは2023年大型アップデートで全お題見直し、約1400問以上に増。",
+          "source": "https://apps.apple.com/jp/app/id1222278363",
+          "confidence": "medium",
+          "source_date": "2023"
+        },
+        {
+          "fact": "ワンナイト人狼 for mobile レビュー: 『1ゲーム毎に広告が視界に入るのを煩わしい』広告非表示要望、複数ユーザーから。",
+          "source": "https://appreview.jp/app/3c6d1bf8746be39a8db3f1787fba17bc",
+          "confidence": "high",
+          "source_date": "2024"
+        },
+        {
+          "fact": "ワンナイト人狼 for mobile: シリアルキラー勝利条件バグ報告『怪盗等がシリアルキラーと交換した場合に元のシリアルキラーに投票さえしてしまえば奪った側が必ず勝てる』 → ロジックバグへの執着的議論。",
+          "source": "https://appreview.jp/app/3c6d1bf8746be39a8db3f1787fba17bc",
+          "confidence": "high",
+          "source_date": "2024"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "競合の最大の不満は『広告／隠れサブスク／二重課金』に集中。Picoloは$5/週『Netflixより高い』、Do or Drinkは『premium払ったのにロックされ戻る』、VAVAは『広告消したい』。逆にどこパは『広告が少ない』が肯定要素。",
+          "evidence_ref": "Picolo Kyung22 / akwejfhlaskdch / Do or Drink BroadwayPunk1 / VAVA あやかたまやさまや / どこパ はひふへ夫",
+          "asobi_implication": "ASOBI ストア訴求の冒頭に『完全無料・広告ゼロ・サブスク無し・課金トラブル無し』を H1 で置く。スクショ1枚目を『広告ゼロ』訴求にする。これは ASOBI が無料な事実から低コストで取れる差別化軸で、競合の最大の不満集中点を真正面で突く。"
+        },
+        {
+          "insight": "Jackbox は『TVに繋いだコントローラ専用』『接続切れて戻れない』『2.2GBバッテリー消費』 → サーバ／TV／ネットワーク前提の構造的負債。完全オフラインの ASOBI はこの軸で構造優位。",
+          "evidence_ref": "Jackbox10 Thai-roc / Groundman / Mac版 HobieC913 / jloloew",
+          "asobi_implication": "App Store 説明文の2番目の訴求を『完全オフライン / WiFi 不要 / 1台でその場で開始』に統一。海外マーケでは『No internet required. No accounts. No subscriptions.』を Jackbox の対極として明示。ASOBI Privacy: Data Not Collected もここに乗せる。"
+        },
+        {
+          "insight": "どこパは『ルーム制で友達を呼ぶ一手間』が最大ボトルネック。VAVA・Most Likely To も『少人数だと機能しない』『集まらないと盛り上がらない』。ASOBI は『その場に集まった人で即開始』を強調すれば刺さる。",
+          "evidence_ref": "どこパ 初めてくん / はひふへ夫 / Most Likely To garfunkle!",
+          "asobi_implication": "シーン13軸（合コン/家族/オフィス/2人 etc.）の中で『2人〜3人でも遊べる』『集まった瞬間に開始可能』『連絡不要』を訴求。Picolo cashworth09 のカップル用途も拾える。シーン選択UIのスクショに『2人から』バッジを足す。"
+        },
+        {
+          "insight": "Picolo の最重要 UX 要望は『カテゴリ/強度フィルタ』『tutorial pack』『絶対値で何用か説明』。ワードウルフ決定版も『カテゴリーに沿ってないお題』で炎上→1400問見直し対応。ASOBI の13シーン×お題タグ構造はこの pain への直接の答え。",
+          "evidence_ref": "Picolo LetThat_HurtGo / ワードウルフ決定版 2023更新",
+          "asobi_implication": "13シーンの説明に『各シーンで安心して遊べるお題のみ』『下品ゼロのファミリーシーン、攻め強めの飲み会シーンを分離』と明示。スクショ2枚目を『シーン別お題サンプル比較』にし、Picolo が抱えた『absurd content for couples』の不安を先回り潰す。"
+        },
+        {
+          "insight": "お題の反復が共通の継続率キラー: Do or Drink『same cards over and over again』、Picolo Caliente『repetitive』、Jackbox Joke Boat『repeated prompts get old』、Balagan『same old cards』。ASOBI の256お題×1176ゲームの圧倒的物量はここで効くが、ユーザーには『1176』数字が伝わっていないと体験前に効かない。",
+          "evidence_ref": "Do or Drink Job seeker / Picolo Taycollinss / Jackbox各種 / Balagan Mandy Garrette",
+          "asobi_implication": "App Store 説明文・スクショに『1176 ゲーム × 256 お題 = 約30万通り』と巨大な数字で物量を明示。レビュー対策として『同じお題が連続で出ない疑似ランダム』を実装済みなら明記（未実装ならフォローアップ実装候補）。"
+        },
+        {
+          "insight": "Jackbox は $25-40 で『価格高すぎ』『公式サイトの方が安い』が頻出。一方 Bigasshonk のように『5時間遊んだ』高エンゲージメントもあり、価格＝高 LTV のトレードオフ。ASOBI は無料スタートで Jackbox の高価格層を取り込みつつ、将来の有料シーン解放/お題拡張パックで Jackbox の高 LTV を狙える。",
+          "evidence_ref": "Jackbox Afrancis77 / Why put / Bigasshonk",
+          "asobi_implication": "v1 は無料維持（前回 monetization research の結論と整合）。v2 で『プレミアムシーン解放（買切299円）』を検討するなら、Jackbox の『2 games are worth it』批判を回避するため『単発買切のお題パック』形式が安全。サブスクは Picolo の炎上事例から回避。"
+        },
+        {
+          "insight": "ワンナイト人狼/ワードウルフ系は『ロジックバグ／勝利条件議論』に熱量。ASOBI 1176 ゲームの中の人狼系・推理系は、コアファンが議論できる『ルールの厳密性』を担保する必要。逆に言えば人狼系のシーンを別建てにすれば、競合のロジックバグ批判をすり抜ける。",
+          "evidence_ref": "ワンナイト人狼 シリアルキラー勝利条件議論",
+          "asobi_implication": "ASOBI の1176 ゲーム内訳で人狼/推理系がどれだけあるか確認し、別シーンとして切り出すか検討。お題ベースのカジュアル層と、ロジック厳密系のコア層を混ぜない方が双方の評価が安定する。"
+        }
+      ],
+      "unable_to_verify": [
+        "App Store の星評価（★1-5）の正確な分布: WebFetch では星数が明示されないレビューが多く、全件分布が取れなかった。Sensor Tower / App Annie 等の有料データソース要。",
+        "Penalty（海外の特定タイトル）の本文レビュー: 検索結果が Penalty Challenge（サッカーゲーム）に流れてしまい、パーティーゲーム『Penalty』の固有レビューは直接取得不可。指示書の『Penalty』が具体的にどのアプリ ID を指すか不明。",
+        "ジャンル全体での総レビュー数とセンチメント比率: 個別レビューは取れたが、ポジ/ネガ比率の定量集計は手動取得の本数（30件超）では統計的に弱い。",
+        "30件以上の Picolo content complaint 専用レビュー: 候補サイト2つ（appgrooves, justuseapp）が403/ECONNREFUSED で取得不可。Apple 公式 see-all-reviews ページからは取れたが上位10件程度。",
+        "どこパの直近2026年レビュー（前回研究以降の追加分）: appreview.jp が要約のみで原文拒否、4gamer は0件、Apple ページは古いレビュー混在で2026年分は限定。"
+      ],
+      "contradicts_prior_analysis": [
+        "前回 monetization research が『パーティーゲームアプリは無料広告モデルが主流』としていたが、実レビューでは Picolo $5/週・Jackbox $25-40 買切・Do or Drink $7.99 等、有料モデルが市場に多数存在しユーザーは『高い』と不満を持ちながらも払っている。無料モデルが唯一解ではなく、買切型は高 LTV を取れる余地がある。",
+        "前回 breakout-gap analysis で『お題の物量＝差別化』としていたが、実レビューを読むと『物量』そのものよりも『カテゴリ/強度フィルタ』『絶対値で何用か説明』『同じお題が連続で出ない』の3点が刺さる。1176 という数字は補強要素であって主訴求ではない。主訴求は『13シーンで安心して使い分けられる』という構造側。",
+        "前回『Jackbox は海外で完全に支配的』と想定したが、実レビューでは『TV接続前提』『接続切れ』『バッテリー』『価格高すぎ』『2 games are worth it』と評価が割れており、海外も pain だらけ。ASOBI が海外で勝てる隙は前回想定より大きい。"
+      ]
+    },
+    {
+      "conclusion": "パーティーゲーム/ドリンキングゲームのトップ層は (1) Heads Up! — 50万件超のレビュー × $1.99 買い切り + IAP $1.99/pack の「買い切りハイブリッド」、(2) Picolo — 4.7★/45k評価 × $4.49–$45.99 サブスク + $3.99 個別パック、(3) Truth or Dare (Vanilla) — 1,000万DL × 週次サブ trial 型、の3パターンに収斂している。Sensor Tower 推計では Heads Up! ですら US iOS 月40k DL / $200k 売上 = ARPDL ~$5 で、Appodeal の party game ARPU $4.90 (LTV) と一致。retention は casual game 業界平均で D1 26-35%、D7 8-20%、D30 3-6% で、party game 特化値は公開されていないため casual 値を流用するしかない。ASOBI は買い切りも IAP もない無料モデルで、現状の monetization 設計だと業界平均の ARPU $0 になり、ARPU $4.90 (party game LTV) との差分が「機会損失額」になる。最低でも Heads Up!型の有料pack ($1.99) もしくは Picolo 型の最小サブスク ($4.49) を導入しないと収益化レンジに乗らない。",
+      "lens_label": "競合の DAU / 課金率 / ARPU / retention 公開数値",
+      "lens_number": 2,
+      "raw_data_collected": [
+        {
+          "fact": "Heads Up! (Warner Bros, by Ellen DeGeneres) は US App Store iOS で月間推計 40k DL / $200k 売上 (Sensor Tower 推計、March 2026 時点)",
+          "source": "https://sensortower.com/ios/us/warner-bros/app/heads-up/623592465/",
+          "source_date": "2026-03",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Heads Up! は US Google Play で月間推計 100k DL / $60-80k 売上",
+          "source": "https://sensortower.com/android/us/warner-bros-international-enterprises/app/heads-up-the-best-charades-game/com.wb.headsup/",
+          "source_date": "2026-03",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Heads Up! の US App Store 評価は 4.8★ / 287,000 評価。本体価格 $1.99、追加 deck IAP $1.99/pack (Adult Supervision, Happy Holidays, Food Fight 等)、無料 deck は Just For Kids / Mix It Up / The Ellen Show の3つ",
+          "source": "https://apps.apple.com/us/app/heads-up/id623592465",
+          "source_date": "2026-06",
+          "confidence": "high"
+        },
+        {
+          "fact": "Picolo (Picolo Inc, ドリンキングパーティ系) は US App Store 4.7★ / 45,000 評価。Free + IAP モデルで、Premium サブスク $4.49 / $7.99 / $8.99 / $13.99 / $45.99、個別 pack $3.99 (Getting Crazy, Caliente, Bar, War)",
+          "source": "https://apps.apple.com/us/app/picolo-party-game/id1001473964",
+          "source_date": "2026-06",
+          "confidence": "high"
+        },
+        {
+          "fact": "Picolo は累計 8 million DL 達成 (公式発表ベース)",
+          "source": "https://www.picoloapp.com/",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Truth or Dare (Vanilla b.v., 2012-) は累計 10 million players (公式), 週次サブスク + 3-day free trial、2,500+ truths/dares",
+          "source": "https://www.vanilla.nl/products/truth-or-dare/",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Appodeal Mobile Casual Benchmarks Report 2025: party game の LTV ARPU $4.90 (hyper-casual $0.86, match game $2.99 と比較して party game は monetization が最強カテゴリの一つ)",
+          "source": "https://appdevelopermagazine.com/mobile-casual-benchmarks-report-2025/",
+          "source_date": "2025",
+          "confidence": "medium"
+        },
+        {
+          "fact": "casual game 全体の retention 業界平均: D1 26-35.7%, D7 8-20%, D30 3-6% (iOS は Android より高く、D30 で iOS 5% vs Android 2.6%)",
+          "source": "https://maf.ad/en/blog/mobile-game-retention-benchmarks/",
+          "source_date": "2025",
+          "confidence": "medium"
+        },
+        {
+          "fact": "hyper-casual game の ARPDAU は 2-5 セント、casual game で 10 セント、mid-core で 30-40 セント (Juego Studio)",
+          "source": "https://www.juegostudio.com/blog/arpdau-benchmarks-by-game-genre",
+          "source_date": "2025",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Houseparty (Epic Games 買収後 2021 終了) は COVID 時 March 2020 に月 17.2M DL、月売上 $17k → $155k (912% jump) を記録した過去事例",
+          "source": "https://www.pocketgamer.biz/news/72989/houseparty-app-download-revenue-surge-coronavirus/",
+          "source_date": "2020",
+          "confidence": "high"
+        },
+        {
+          "fact": "Bunch (グループビデオチャット+パーティーゲーム) は 2023-02 Series A 以降、2024 年末時点で 3 人体制まで縮小。現存するが事実上の縮退モード (Mini Party にリブランド)",
+          "source": "https://tracxn.com/d/companies/bunch/",
+          "source_date": "2025",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Picolo monetization 構造: free + ads が基本、premium 月額~$4 でads除去 + 全 pack unlock (Drinkster と同型構造)",
+          "source": "https://drinkcountr.com/students/drinking-game-app/",
+          "source_date": "2026",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Truth or Dare (Chouic) は 1,000+ 質問、5 levels (Fun/Soft は無料、Hot/Hard/Extreme は IAP 課金)",
+          "source": "https://apps.apple.com/us/app/truth-or-dare-party-games/id898735886",
+          "source_date": "2026",
+          "confidence": "high"
+        },
+        {
+          "fact": "Jackbox Party Pack 4 (Steam版) 累計 gross 売上 $2,168,132、開発元 net $639,599 (single SKU $24.99 買い切り)。party game でも単発買い切りは「百万ドル単位の天井」がある",
+          "source": "https://thinkgaming.com/app-sales-data/193738/the-jackbox-party-pack-4/",
+          "source_date": "2025",
+          "confidence": "low"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "Heads Up! の US iOS ARPDL は推計 $200k/40k DL = $5/DL で、Appodeal の party game LTV ARPU $4.90 とほぼ一致する。これは party game カテゴリで実現可能な現実的天井値の参照点になる",
+          "evidence_ref": "fact #1, fact #7",
+          "asobi_implication": "ASOBI が月 1,000 DL でも monetization 設計が Heads Up! 型なら理論売上 $5,000/月 = 約75万円/月の上限が見える。逆に言うと完全無料モデルのままだと DAU が増えても売上ゼロが続くため、最低でも 1-2 つの有料 deck ($1.99 単発買い切り) を v1.1 以降に投入する設計判断が必要"
+        },
+        {
+          "insight": "App Store 上位 party game の monetization モデルは「Heads Up! 型 (本体 $1.99 + pack $1.99)」「Picolo 型 (Free + サブスク $4.49/$45.99)」「Truth or Dare 型 (week trial + auto-renew)」の3パターンで、純粋無料 + 広告だけのモデルは Bunch のように縮退している",
+          "evidence_ref": "fact #3, fact #4, fact #6, fact #11",
+          "asobi_implication": "ASOBI の「完全無料 / Data Not Collected」ポジショニングは差別化軸として強い (プライバシー重視層に刺さる) が、収益化の入口を完全に閉じている。Apple ATT 時代に「Data Not Collected」を保ったまま IAP だけ追加する構成 (オフライン買い切り pack) は技術的に互換性があり、最も着手しやすい改修ポイント"
+        },
+        {
+          "insight": "Picolo は accumulate 8M DL、Truth or Dare (Vanilla) は 10M player を達成するのに約 10 年かけている。party game ジャンルは『一発バズ』より『長期積み上げ』モデル",
+          "evidence_ref": "fact #5, fact #6",
+          "asobi_implication": "ASOBI を v1 リリース直後の DL 数で評価すべきでなく、最低 12-18 ヶ月の積み上げ前提で KPI 設計を組み直すべき。逆に短期で当たらないことを織り込み済みなら、撤退ライン (haruhi 3 ヶ月ライン) を ASOBI に流用するのは過剰に厳しい"
+        },
+        {
+          "insight": "party game 特化の retention 数値は公開されていない (casual game 全体の D1 26-35%, D7 8-20%, D30 3-6% しか取れない)。Heads Up! の DL/評価比 (40k/月 DL × 287k 累計評価) を逆算すると、累計 DL 数百万 → 評価到達率 ~5% で「平均的 retention」と推定される",
+          "evidence_ref": "fact #1, fact #3, fact #8",
+          "asobi_implication": "ASOBI の retention KPI を設定するなら、casual game の最低ラインを基準にする: D1 25%/D7 10%/D30 4% を「最低限のヘルスライン」、D1 35%/D7 20%/D30 6% を「Heads Up! 級ヘルス」として2段階で監視する設計が現実的"
+        },
+        {
+          "insight": "Heads Up! は『本体 $1.99 買い切り』を維持しながら IAP pack を追加販売するハイブリッドモデルで、無料 deck (Just For Kids / Mix It Up / The Ellen Show) を 3 つ確保して「入口の敷居を残す」設計",
+          "evidence_ref": "fact #3",
+          "asobi_implication": "ASOBI の 13 シーン × 1191 ゲームの構成は Heads Up! 型のハイブリッド化と相性が良い: 基本 3-5 シーンを無料維持、追加 8-10 シーンを $1.99 pack 化、もしくは全 deck $4.99 一括 unlock の二択提示が App Store 慣性に最も近い"
+        },
+        {
+          "insight": "Bunch のように『video chat + party game』に賭けた競合は 2024-2025 で事実上縮退しており、純粋なローカル多人数 party game は競合密度が下がっている",
+          "evidence_ref": "fact #10, fact #11",
+          "asobi_implication": "ASOBI の『完全オフライン × 同じ部屋で集まる』軸は競合 (Bunch / Houseparty) が消えた『勝てる窪み』に近い。LP / App Store description で『オフライン party game』『データ送信しない』を明示的に押し出すと検索流入で差別化できる"
+        }
+      ],
+      "unable_to_verify": [
+        "Heads Up! / Picolo / Truth or Dare の正確な DAU 数値 (Sensor Tower 無料閲覧範囲では月間 DL と売上のみ、DAU は paid plan 必須)",
+        "party game カテゴリ特化の retention rate (D1/D7/D30) — どのレポートも casual game 全体の数値しか公開しておらず party game subcategory の数値は paid 限定",
+        "競合各社の課金率 (paying user / DAU) — Sensor Tower / Data.ai 共に無料範囲では非公開",
+        "Picolo / Truth or Dare の月間売上推計 — Sensor Tower の app 個別ページ URL が WebSearch 結果に出てこず、直接 fetch も Sensor Tower の認証壁で取得不可",
+        "日本市場での party game カテゴリ特化数値 — 検索結果は US / グローバル中心、日本 (App Store JP) の party game 売上ランキングは取得不可"
+      ],
+      "contradicts_prior_analysis": [
+        "前回 monetization-research-2026-06-19 で『party game の ARPU は $1-3 想定』と推測した可能性があるが、Appodeal 2025 報告の実値 $4.90 (LTV) はそれより高い。ASOBI の収益化期待値を上方修正できる",
+        "前回 breakout-gap-analysis で『無料 + 広告で DAU を稼ぐべき』と推奨した可能性があるが、Bunch の縮退事例 / Heads Up! の買い切り維持から見て『最初から有料 pack を持つ』方が party game ジャンルでは生存率が高い。広告モデル一辺倒の推奨は危険"
+      ]
+    },
+    {
+      "conclusion": "Google Trends の生データには直接アクセスできなかった（trends.google.co.jp は WebFetch で HTTP 429）が、間接的な実数値で「飲み会・忘年会市場のキーワード需要は確実に存在し、12月にピーク」「ワードウルフ・人狼系は単体キーワードで巨大」「競合『ワードウルフ決定版』レビュー19万件・『どこパ』レビュー3.6万件＋ボードゲームカテゴリ1位という強力なベンチマーク」が判明。前回 15 lens 分析（breakout-gap）の「飲み会需要は推測値」を上書きする実数値が取れた。最大の発見は競合「どこパ」が App Store ボードゲーム1位＋4.6星・Word Wolf含む39ゲーム搭載という事実。ASOBI（1191ゲーム・13シーン）は数量で圧倒するが、Word Wolf 単一キーワードだけで19万レビュー級が獲れる事実から、ASOBI もシーン別ではなく「Word Wolf 級の単体ゲーム名」を ASO 主軸キーワードに据え直すべき。また忘年会実施率は 2019 年 78.4% → 2025 年 57.2% に縮小、20代の参加意欲は 71% で最多という二極化が確認できた点も戦略影響大。",
+      "lens_label": "キーワード検索ボリューム実数値（季節性・競合ベンチマーク）",
+      "lens_number": 3,
+      "raw_data_collected": [
+        {
+          "fact": "ワードウルフ決定版【新・人狼ゲーム】(Qdan Inc.) は App Store 日本で 19万件のレビュー、星 4.2/5.0、『単語』カテゴリ 5位、1,400 以上のお題搭載、無料＋月額¥240プレミアム",
+          "source": "https://apps.apple.com/jp/app/%E3%83%AF%E3%83%BC%E3%83%89%E3%82%A6%E3%83%AB%E3%83%95%E6%B1%BA%E5%AE%9A%E7%89%88-%E6%96%B0-%E4%BA%BA%E7%8B%BC%E3%82%B2%E3%83%BC%E3%83%A0-%E3%83%AF%E3%83%BC%E3%83%89%E4%BA%BA%E7%8B%BC%E3%82%A2%E3%83%97%E3%83%AA/id1222278363",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "どこでもパーティーゲーム『どこパ』(Qdan Inc.) は星 4.6/5.0、レビュー 3.6万件、App Store『ボードゲーム』カテゴリ 1位、39ゲーム搭載、2-111人対応、ファイルサイズ 236.1MB、9+",
+          "source": "https://apps.apple.com/jp/app/%E3%81%A9%E3%81%93%E3%81%A7%E3%82%82%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%83%BC%E3%82%B2%E3%83%BC%E3%83%A0-%E3%81%A9%E3%81%93%E3%83%91-%E3%83%AF%E3%83%BC%E3%83%89%E3%82%A6%E3%83%AB%E3%83%95%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3/id1529747588",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "東京商工リサーチ調査(2025/12/1-8 有効回答 6,196社)：忘・新年会実施率は 2019年 78.4%→2020年 5.6%→2023年 55.9%→2024年 59.6%→2025年 57.2%。コロナ後初の前年割れ。実施しない理由は『費用削減』21.7%(調査開始以来初20%超)。最高は沖縄 75.8%、最低は徳島 40.6%",
+          "source": "https://www.tsr-net.co.jp/data/detail/1202200_1527.html",
+          "confidence": "high",
+          "source_date": "2025-12"
+        },
+        {
+          "fact": "Job総研『2025年 忘年会意識調査』(2025/10/29-11/4 n=421)：実施率 69.1%、参加意欲 60.1%、年代別参加意欲は 20代 71.0% / 30代 57.8% / 40代 55.1% / 50代 48.3% で 20代が3年連続最多。不参加理由トップは『プライベート優先』56.5%、次いで『飲み会のノリについていけない』38.7%",
+          "source": "https://jobsoken.jp/info/20251117/",
+          "confidence": "high",
+          "source_date": "2025-11-17"
+        },
+        {
+          "fact": "ホットペッパー外食総研(2025/4/1-11 n=5,839)：職場飲み会の開催率は 2017年 約75%→2025年 約60% に減少。開催された場合の出席率は 87.9% で安定。期待トップ『コミュニケーション機会』は 10ポイント以上下落して 40.3%",
+          "source": "https://www.hotpepper.jp/ggs/research/article/column/20250529",
+          "confidence": "high",
+          "source_date": "2025-05-29"
+        },
+        {
+          "fact": "App Store 国産パーティーゲームアプリランキング(MSYゲームズ集計)で『どこパ』は国産ゲーム総合 7位、面白いスマホアプリ総合 11位にランクイン",
+          "source": "https://m-s-y.com/app/ranking/japanese-games/",
+          "confidence": "medium",
+          "source_date": "2026-06"
+        },
+        {
+          "fact": "競合『ワードウルフ(ワード人狼)』(Canvas soft) は 3,500問以上のお題、自作問題登録機能搭載。『みんなでワードウルフ』『どこパ』を含めワードウルフ系単体アプリだけで App Store 25以上が APPLION に掲載",
+          "source": "https://applion.jp/iphone/word/%E3%83%AF%E3%83%BC%E3%83%89%E3%82%A6%E3%83%AB%E3%83%95/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "Google Year in Search 2025 Japan 公式ランキング(エンタメ＋ゲーム枠)：モンハンワイルズ・Pokémon LEGENDS Z-A・マリオカートワールド等が上位。『飲み会』『忘年会』『家族ゲーム』『パーティーゲーム』はトップランクキーワードに出現せず",
+          "source": "https://trends.withgoogle.com/year-in-search/2025/jp/",
+          "confidence": "high",
+          "source_date": "2025-12"
+        },
+        {
+          "fact": "ホットペッパー調査：開催される飲み会のうち『忘年会』『歓送迎会』『新年会』が実施率・出席率ともにトップ3。すべて 2017 比で大幅減少",
+          "source": "https://www.hotpepper.jp/ggs/research/article/column/20250529",
+          "confidence": "high",
+          "source_date": "2025-05-29"
+        },
+        {
+          "fact": "競合『罰ゲームDX (PenaltyDX)』は 200種類以上の罰ゲーム搭載、『王様ゲーム!』『真実か挑戦か：18禁の大人の飲み会＆パーティーゲーム』が App Store の罰ゲーム系定番",
+          "source": "https://games.appmatch.jp/1642707366-4/",
+          "confidence": "medium",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "trends.google.co.jp は WebFetch でレート制限 (HTTP 429) によりアクセス不可。指定11キーワードの実数値・月別推移グラフは直接取得できなかった。間接的に検索結果メタデータ上で『忘年会・新年会・宴会』『ワードウルフ・山手線ゲーム・王様ゲーム』の比較 URL は実在を確認したが本体データは取得失敗",
+          "source": "https://trends.google.co.jp/trends/explore/TIMESERIES/1605010800?hl=ja&tz=-540&geo=JP&q=%E5%BF%98%E5%B9%B4%E4%BC%9A,%E6%96%B0%E5%B9%B4%E4%BC%9A,%E5%AE%B4%E4%BC%9A&sni=3",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "競合『どこパ』(レビュー 3.6万・ボードゲーム1位・39ゲーム搭載) と『ワードウルフ決定版』(レビュー 19万) が App Store パーティーゲーム市場を二強で押さえている。ASOBI(1191ゲーム・13シーン)は『ゲーム数』では桁違いに勝つが、どちらの競合も4.2〜4.6星と評価が高く、単純に量で殴る戦略は通らない",
+          "evidence_ref": "fact #1, #2",
+          "asobi_implication": "ASOBI のポジショニングを『1191ゲーム』ではなく『どこパ にあるけど面倒なルーム作成・通話依存が要らない、対面1台で即始まる』に切り替える。App Store サブタイトルで競合差分(オフライン1台・即起動)を訴求し、星評価獲得を ASO 1位 KPI に格上げ"
+        },
+        {
+          "insight": "ワードウルフ単体キーワードだけで App Store に25以上の競合・トップアプリ19万レビューが存在する=このキーワードは検索流入が桁違いに大きい。逆にいえばワードウルフを ASOBI に内蔵しているなら ASO で取りに行ける",
+          "evidence_ref": "fact #1, #7",
+          "asobi_implication": "ASOBI 内蔵ゲームのうちワードウルフ相当(あれば)を App Store のキーワード・スクショ・サブタイトルに明示。なければ次バージョンで『ワードウルフ風モード』を追加する優先度を最上位に。シーン軸より単体ゲーム名(ワードウルフ／山手線ゲーム／王様ゲーム)が検索流入の主戦場"
+        },
+        {
+          "insight": "忘年会実施率は 2019 年 78.4%→2025 年 57.2% と確実に縮小しているが、絶対消滅ではなく『2 社に 1 社は実施』。さらに 20 代の参加意欲は 71% で 3 年連続最多=Z世代は飲み会肯定派",
+          "evidence_ref": "fact #3, #4, #5",
+          "asobi_implication": "『飲み会・忘年会』を主戦場に据える戦略は依然成立する（市場は半分残っている）。ターゲットを『若手社員・幹事』に絞り、12月集中の ASO 強化(忘年会・新年会キーワードのバーストキャンペーン)を推奨。ただし市場縮小トレンドは事実なので、家族・カップル・同窓会への分散も並列で進める"
+        },
+        {
+          "insight": "Google Year in Search 2025 Japan の上位に『飲み会』『パーティーゲーム』系キーワードは出現せず、ゲームジャンルはモンハン/ポケモン等の AAA タイトルが占有。ASOBI はトップトレンド検索からの自然流入は期待できない",
+          "evidence_ref": "fact #8",
+          "asobi_implication": "Google 検索からの自然流入を当てにせず、App Store 内検索 ASO とシェア機能(SNS拡散)に投資集中。Year in Search 上位の AAA ゲーム名に乗っかる『◯◯ファンの待ち時間に』みたいなコンテンツ・コラボはピボット候補としては薄い"
+        },
+        {
+          "insight": "競合『どこパ』は通話アプリ(LINE/Zoom/Discord)と連動する設計＝オンラインパーティー軸。ASOBI が完全オフライン1台型なら、ここは明確な差別化軸として残っている。リモート飲み市場は縮小傾向だがオンラインゲーム化のトレンドはまだ続く",
+          "evidence_ref": "fact #2",
+          "asobi_implication": "ASOBI の完全オフライン・Data Not Collected を競合不在のポジショニング軸として App Store 概要文の冒頭に置く。逆に将来オンライン化はしない判断にコミット(やるとどこパに正面衝突)"
+        },
+        {
+          "insight": "忘年会不参加理由の 1 位は『プライベート優先』56.5%、2 位『ノリについていけない』38.7%＝参加してもアイスブレイクで救われたい層が市場のコア。罰ゲーム系・王様ゲーム系アプリ(PenaltyDX・真実か挑戦か)が一定のニッチを持つのもこの文脈",
+          "evidence_ref": "fact #4, #10",
+          "asobi_implication": "ASOBI の打ち出しを『盛り上がる』ではなく『場が持つ・気まずさを消す』に変える。スクショ1枚目を『沈黙を5秒で消す』のような問題解決型コピーに。罰ゲーム要素は18禁回避のため17+のままで弱め、家族・カップル軸にも転用可能な設計を維持"
+        },
+        {
+          "insight": "trends.google.co.jp の直接スクレイピングはレート制限で失敗。観点 3 の中核データ（月別相対値・8月お盆/12月忘年会ピーク検証）は実数値で取得できなかった",
+          "evidence_ref": "fact #11",
+          "asobi_implication": "次回は VPN/headless ブラウザ経由か Glimpse 等の Trends 可視化サービス API を使う。または Ubersuggest / Keyword Planner の絶対値で代替。本観点だけ未取得のままだと ASO の月別投資配分が推測ベースに留まるため、補完リサーチを 1 タスクとして別立てで起こす"
+        }
+      ],
+      "unable_to_verify": [
+        "Google Trends の月別相対値グラフ実数値（trends.google.co.jp が HTTP 429 で全パターン取得不可）",
+        "指定11キーワードそれぞれの 8月お盆ピーク／12月忘年会ピーク検証（一次データ取れず）",
+        "Ubersuggest / ahrefs Free Keyword Generator での絶対検索ボリューム（無料版は要ログインのため WebFetch ではアクセス不可）",
+        "『ワードウルフ決定版』『どこパ』の正確な累計ダウンロード数（App Store はレビュー数しか公開せず、Sensor Tower 等の有料データは未契約）",
+        "『リモート飲み会』検索量のコロナ前後推移（Trends 直接取得不可のため定量化失敗。記事ベースで『減少傾向』とは出るが数値不明）"
+      ],
+      "contradicts_prior_analysis": [
+        "前回 breakout-gap 分析の『飲み会需要は推測値』を上書き：実数値で『2 社に 1 社が忘年会実施・20代の 71% が参加意欲』が出たため、飲み会軸は推測でなく実証済み市場として再評価できる",
+        "前回『パーティーゲーム市場は分散していてリーダー不在』とした推測と矛盾：実際には『どこパ』が App Store ボードゲーム 1位＋3.6万レビュー、『ワードウルフ決定版』が 19万レビューと、明確な強競合がいた。リーダー不在は誤認識",
+        "前回『1191ゲームの量で差別化』を強気で打ち出したが、競合は 39 ゲームで 1 位を取れている。量より評価・ASO・通話依存の有無等の質的差別化が重要という結論に修正が必要"
+      ]
+    },
+    {
+      "conclusion": "「ゲームが決まらない」イベント発生頻度の実数値根拠は十分に確認できた。社会人 1-3 年目で 84.7% が月 1 回以上の飲み会、20 代は年 24 回（月 2 回）、大学生は月 1.7 回。日本のテーブルゲーム市場は 75.4 億円(2023)→78 億円見込(2024)で +3.4%/年成長。法人忘年会実施率は 2024 年 59.6%→2025 年 57.2% と減少に転じ、企業主催飲み会は縮小傾向。一方 Z 世代の 56% が飲酒習慣あり・場所は「自宅」64.3% が最多、家飲み「週1日以上」が女性で 53.9%・全体で 56.5% と、私的・小規模な集まりへのシフトが鮮明。これは ASOBI にとって追い風（公式会社飲み会は縮小だが、私的・宅飲み・気心知れた仲間との集まりは堅調〜微増）。最低でも「日本の 20-30 代社会人で月 1 回以上集まりが発生する」のは保守的に見て国民の 3-5 割。仮に該当人口を 1500 万人、うち 10% が「決め方に困ってアプリを試す」とすると 150 万人の潜在 TAM が見込まれる。ただし「ゲーム選びに困った」という具体的検索ボリュームや「アプリで解決したい人」の割合の一次データは取得できておらず、競合アプリ（ワードウルフ/どこパ/WePlay）の存在は「ニーズはあるが既に他社が部分的に押さえている」ことを示唆する。",
+      "lens_label": "「ゲームが決まらない」発生頻度・市場規模",
+      "lens_number": 4,
+      "raw_data_collected": [
+        {
+          "fact": "社会人 1-3 年目の 84.7% が月 1 回以上の飲み会を経験。月 1-2 回が 56%、3-4 回が 20.1%、5 回以上が 8.6%。サッポロビール調査",
+          "source": "https://www.sapporobeer.jp/news_release/0000008565/",
+          "confidence": "high"
+        },
+        {
+          "fact": "年代別の年間飲み会参加回数：20 代 24 回（最多、月 2 回）、30 代 19 回、50 代 11 回。1 カ月平均飲み代 6,002 円・1 回平均 4,237 円",
+          "source": "https://www.dai-kokuya.co.jp/article/money-investigation/drinking-party/",
+          "confidence": "high"
+        },
+        {
+          "fact": "20 代の 22.4% が毎週飲み会に参加（週 2 回以上 9.6% + 週 1 回 12.8%）",
+          "source": "https://www.dai-kokuya.co.jp/article/money-investigation/drinking-party/",
+          "confidence": "high"
+        },
+        {
+          "fact": "大学生の飲み会平均：月 1.7 回、1 回平均予算 3,167 円、居酒屋 97%・自宅飲み 16%・ファミレス飲み 8%。学校関連 76%/サークル 40%/バイト 24%。タウンワーク 500 人調査",
+          "source": "https://townwork.net/magazine/job_wpaper/st_trend/14724/",
+          "confidence": "high",
+          "source_date": "2014-03"
+        },
+        {
+          "fact": "Z 世代の 56% に飲酒習慣あり。飲む場所は「自宅」64.3% が最多、相手は「家族」42.9% が最多。MERY Z 世代研究所調査（2025-07、Z 世代男女 300 名）",
+          "source": "https://prtimes.jp/main/html/rd/p/000000131.000029212.html",
+          "confidence": "high",
+          "source_date": "2025-07"
+        },
+        {
+          "fact": "Z 世代の飲み会への印象：「必要性を感じない」37%（1 位）、「コミュニケーションのきっかけ」28.3%、「人間関係を深める場」25%。印象が二極化",
+          "source": "https://prtimes.jp/main/html/rd/p/000000131.000029212.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "23-35 歳女性の宅飲み頻度：「ほぼ毎日」25.2% + 「週に数回」31.3% で合計 56.5% が週 1 以上。マイナビ 2024-10 調査",
+          "source": "https://cm-marketinglab.mynavi.jp/column/research_alcohol-home/",
+          "confidence": "high",
+          "source_date": "2024-10"
+        },
+        {
+          "fact": "国内テーブルゲーム（アナログゲーム）市場規模：2023 年度 75.4 億円（前年比 +5%）、2024 年度 78 億円見込（+3.4%）。矢野経済研究所",
+          "source": "https://www.yano.co.jp/press-release/show/press_id/3706",
+          "confidence": "high"
+        },
+        {
+          "fact": "企業の忘・新年会実施率：コロナ前 78.4% → 2020 年 5.6% → 2023 年 50%超 → 2024 年 59.6%（コロナ後最高）→ 2025 年 57.2%（コロナ後初の前年割れ）。東京商工リサーチ",
+          "source": "https://www.tsr-net.co.jp/data/detail/1202200_1527.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "飲みニケーション「不要」64.5%、「参加は任意でも強制に近い」と感じる人 36.3%（2025 年版会社飲み会調査）",
+          "source": "https://yotteba.co.jp/column_22/",
+          "confidence": "high",
+          "source_date": "2025"
+        },
+        {
+          "fact": "幹事業務の負担軽減ニーズ顕在化：ぐるなびが「幹事ガンバレプロジェクト」を 2024 年開始、月間累計集客数で 3 ランク（ビギナー/上級/プロ）幹事認定とボーナスポイント還元",
+          "source": "https://corporate.gnavi.co.jp/release/2024/qzt88clqic/",
+          "confidence": "high"
+        },
+        {
+          "fact": "サークル所属大学生の飲み会頻度トップは「月 1 回」21.5%（マイナビ学生の窓口）",
+          "source": "https://gakumado.mynavi.jp/gmd/articles/51001",
+          "confidence": "medium"
+        },
+        {
+          "fact": "競合パーティーゲームアプリの存在：「どこパ（ワードウルフオンライン）」「WePlay」「VAVA」「ワードウルフ決定版」「みんなで早押しクイズ」「みんなで NG ワード」「人狼ゲーム」など複数が App Store/Google Play で配信中。2026 年最新ランキングで上位は BINGO BLITZ/ビンゴトレジャー/怒るおじさん",
+          "source": "https://smartlog.jp/178675",
+          "confidence": "high"
+        },
+        {
+          "fact": "理想の飲み会頻度：社会人 1-3 年目の 66.5% が「月 1-2 回」と回答、3-4 回含めると 87.6%。サッポロビール",
+          "source": "https://www.sapporobeer.jp/news_release/0000008565/",
+          "confidence": "high"
+        },
+        {
+          "fact": "内閣官房「人々のつながりに関する基礎調査（令和 5 年）」は 20,000 人対象、家族や友人とのコミュニケーション手段・頻度を含む。同調査は時系列（R3-R6）で実施",
+          "source": "https://www.cao.go.jp/kodoku_koritsu/torikumi/zenkokuchousa/r5/pdf/tyosakekka_gaiyo.pdf",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Z 世代でも飲酒頻度が低い理由 1 位は「特に理由はない」33.7%（明確な拒否ではなく、習慣の薄さ・代替娯楽の存在）",
+          "source": "https://prtimes.jp/main/html/rd/p/000000131.000029212.html",
+          "confidence": "high"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "公式会社飲み会は縮小フェーズに入った（2025 年 57.2%、コロナ後初の前年割れ）が、「気心知れた仲間」「家族」「Z 世代の宅飲み」など私的な集まりは 53-64% の頻度で発生・自宅シフトが鮮明。ASOBI の戦場は会社宴会ではなく『プライベートな小集団』である。",
+          "evidence_ref": "東京商工リサーチ 2025/57.2% + MERY Z 世代調査 64.3% 自宅 + マイナビ家飲み 56.5% 週 1 以上",
+          "asobi_implication": "App Store の紹介文/スクショ/キーワードを「会社の宴会」から「友達の家・宅飲み・親戚の集まり・友人パーティー」に振り替える。年末年始/帰省ピークに合わせた季節 ASO（10-1 月、4-5 月の歓送迎期）を狙う。"
+        },
+        {
+          "insight": "20 代社会人で月 2 回・大学生で月 1.7 回・全社会人 1-3 年目で月 1 回以上が 84.7% → 集まり 1 回当たり「何して遊ぶ？」イベントが日本全体で月数千万回オーダー発生している。仮に該当層を 20-30 代社会人 1500 万人 × 84.7% × 月 1.5 回 = 月約 1900 万回。",
+          "evidence_ref": "サッポロ 84.7% + 大黒屋 20 代月 2 回 + タウンワーク 月 1.7 回",
+          "asobi_implication": "TAM 議論を『DL 数』ではなく『集まりイベント数』ベースに切り替える。仮に 1900 万回 × アプリ起動率 1% = 月 19 万回起動 = 月 2-3 万アクティブユーザー水準が現実的な狙い目。控えめ目標で 1 万 MAU を最初の北極星に。"
+        },
+        {
+          "insight": "テーブルゲーム市場は 78 億円（2024）と小さいが +3.4% 成長、しかも『友達の家でやりたい』需要は宅飲みシフトで追い風。物理ボードゲームの代替として ASOBI（無料アプリ）はゼロコストの選択肢になり得る。",
+          "evidence_ref": "矢野経済 75.4→78 億円 +3.4%",
+          "asobi_implication": "競合は他のパーティーアプリだけでなく『物理ボードゲームを買うか/借りるか』。差別化メッセージは『買わない・準備しない・1191 ゲーム入っている』で、ボードゲーム購入検討者を捕まえる。Note やブログで『ボードゲームを買う前に試したい無料アプリ』軸の SEO 流入を狙える。"
+        },
+        {
+          "insight": "Z 世代の 37% が「飲み会の必要性を感じない」一方で 28.3%「コミュニケーションきっかけ」+ 25%「人間関係を深める」と肯定派も同等数存在 = 二極化。否定派は飲まないが集まらないわけではない（家族・友達と自宅で別の遊びをする）。",
+          "evidence_ref": "MERY Z 世代 37%/28.3%/25%",
+          "asobi_implication": "ASOBI はアルコール前提のゲーム（罰ゲーム飲酒系）を強調しない方が広いユーザーを取れる。13 シーンの中で『家族で』『友人と昼』『カフェで』など『ノンアル文脈』を前面に。17+ レーティングだが訴求は『お酒なくても盛り上がる』にする。"
+        },
+        {
+          "insight": "競合アプリ（どこパ、WePlay、VAVA、ワードウルフ決定版等）は既に App Store 上位ランクを獲得済み。ただし上位はビンゴ系/単機能特化が中心で、『1191 ゲーム × 13 シーン × お題選定不要』の網羅型ポジショニングは空いている可能性が高い。",
+          "evidence_ref": "smartlog.jp 2026 ランキング BINGO/ビンゴトレジャー/怒るおじさん上位",
+          "asobi_implication": "ASO 戦略は『パーティーゲーム』『飲み会ゲーム』の単キーワード勝負ではなく、『パーティーゲーム まとめ/網羅/たくさん』のロングテールを攻める。アプリ説明の差別化は『1 つ買って 1191 種類遊べる』を数値で押し出す。"
+        },
+        {
+          "insight": "幹事の負担は商業的に成立する課題（ぐるなびが 2024 年に幹事支援サービスを立ち上げる規模感）。「ゲーム選びの負担」も同種の幹事課題に分類でき、社会的可視化が進んでいる。",
+          "evidence_ref": "ぐるなび幹事ガンバレプロジェクト 2024",
+          "asobi_implication": "コンテンツマーケで『幹事の準備チェックリストに ASOBI を組み込む』『盛り上げ係を任された人向けガイド』など幹事ペルソナ向け note/ブログを継続発信する。ぐるなび等の幹事メディアへの寄稿/被リンク獲得が SEO 効きやすい。"
+        }
+      ],
+      "unable_to_verify": [
+        "「飲み会 ゲーム」「合コン ゲーム」「飲み会 何する」の Google 月間検索ボリュームの実数値（Google Keyword Planner/Ahrefs 等の有料ツール必要、WebSearch では取得不可）",
+        "Z 世代の「集まり全般」（飲酒を含まない友人集合）の月間頻度の一次データ（飲酒前提の調査は多いが、ノンアル集まりの頻度調査が見つからず）",
+        "競合パーティーゲームアプリ（どこパ、WePlay、VAVA 等）の具体的 DL 数・MAU・売上の一次データ",
+        "博報堂生活総合研究所「若者調査 30 年変化」PDF の友人交遊頻度の具体数値（PDF 添付資料未取得）",
+        "「ゲーム選びで困った経験率」の直接的な調査データ（間接的な『話題に困る』調査はあるが、『遊び方が決まらない』に絞ったものなし）"
+      ],
+      "contradicts_prior_analysis": [
+        "前回 15 lens（breakout-gap）では『会社の宴会復活＝ASOBI 需要拡大』を暗黙の前提に置いていた可能性があるが、本調査では会社飲み会は 2025 年に減少に転じている。むしろ私的・宅飲みシフトが本命。ターゲット文脈を会社宴会から『友達の家・家族の集まり』に再定義すべき。",
+        "前回 monetization-research で『パーティーゲーム市場は成長中』と一般化していたが、実数値ではテーブルゲーム市場 78 億円（+3.4%）と小規模・低成長。『大きな市場』ではなく『小さな安定市場のロングテール』として戦略を組み直す必要がある。",
+        "前回『Z 世代は飲み会離れ』を盛り上げ需要減退の根拠にしていた可能性があるが、実数値では Z 世代の 56% が飲酒習慣あり・印象は二極化（必要 25% vs 不要 37%）。離れたのは『公式飲み会』であって『集まり』ではない。"
+      ]
+    },
+    {
+      "lens_number": 5,
+      "lens_label": "Z世代「飲み会離れ・対面回帰」最新統計 (2025-2026)",
+      "raw_data_collected": [
+        {
+          "fact": "Job総研『2024年 忘年会意識調査』(社会人男女n=440)で、20代の忘年会参加意欲は68.8%で全世代トップ(2年連続)。40代51.9%、30代49.2%、50代40.3%を大きく上回る。実施率7割超でコロナ前水準を超え完全復活",
+          "source": "https://prtimes.jp/main/html/rd/p/000000225.000013597.html",
+          "confidence": "high",
+          "source_date": "2024-11"
+        },
+        {
+          "fact": "Job総研調査で参加したい理由トップは『同僚と親睦を深めたい』49.2%、『対面で話す機会が欲しい』47.1%、『上司との関係構築』36.1%。コロナ禍で社会人デビューしたZ世代は対面コミュニケーション不足を補いたい動機が強い",
+          "source": "https://www.nippon.com/ja/japan-topics/b11403/",
+          "confidence": "high",
+          "source_date": "2025"
+        },
+        {
+          "fact": "大黒屋2023年全国調査で職場飲み会を『好き』と答えた割合は20代46%、30代44%、40代37.6%、50代27.6%。若年層ほど職場飲み会への好感度が高い",
+          "source": "https://www.nippon.com/ja/japan-topics/b11403/",
+          "confidence": "medium",
+          "source_date": "2023"
+        },
+        {
+          "fact": "MERY Z世代研究所『お酒に関する調査』(2025年7月30日、20-29歳男女n=300、ネット調査)でZ世代の56%が飲酒習慣あり、44%が飲まない。飲む場所は『自宅』64.3%が最多、飲む相手は『家族』42.9%が最多",
+          "source": "https://prtimes.jp/main/html/rd/p/000000131.000029212.html",
+          "confidence": "high",
+          "source_date": "2025-07-30"
+        },
+        {
+          "fact": "MERY調査でZ世代の飲み会への印象は二極化:『必要性を感じない』37%、『コミュニケーションのきっかけ』28.3%、『人間関係を深める場』25%。飲酒強要経験『なし』70%、『あり』30%",
+          "source": "https://prtimes.jp/main/html/rd/p/000000131.000029212.html",
+          "confidence": "high",
+          "source_date": "2025-07-30"
+        },
+        {
+          "fact": "MERY調査で好まれる酒種はチューハイ・サワー59.5%がビール43.5%を上回る。飲みニケーション効果は『そう思う』31.7% vs『思わない』31.3%でほぼ拮抗・二分化",
+          "source": "https://prtimes.jp/main/html/rd/p/000000131.000029212.html",
+          "confidence": "high",
+          "source_date": "2025-07-30"
+        },
+        {
+          "fact": "ホットペッパーグルメ外食総研『職場の飲み会期待と参加実態調査』(2025年4月1-11日、首都/関西/東海圏20-69歳就業者n=5839)で、飲み会開催率は2017年75%→2025年60%に減少も、開催時の出席率は87.9%維持。期待『コミュニケーションの場』40.3%でトップ(2017年比-10pt超)",
+          "source": "https://www.hotpepper.jp/ggs/research/article/column/20250529",
+          "confidence": "high",
+          "source_date": "2025-04"
+        },
+        {
+          "fact": "リクルート忘・新年会2024-2025動向調査で、増加派12.7% vs 減少派3.2%で堅調回復。1回当たり平均予算4,896円(前年比+211円)で3年連続過去最高更新。参加相手は『会社・仕事関係』32.7%が最多、『友人・知人関係』24.5%",
+          "source": "https://www.recruit.co.jp/newsroom/pressrelease/2024/1213_15325.html",
+          "confidence": "high",
+          "source_date": "2024-12-13"
+        },
+        {
+          "fact": "博報堂生活総研『若者調査30年変化』(2024年1-2月、首都40km圏19-22歳未婚n=600+49-52歳n=200、計800人)で、『居心地のいい組み合わせ』『落ち込んだ時にそばにいて欲しい相手』ともに同性を選ぶ若者が-20pt以上で異性を逆転し過半数に。同性友人グループの重要性が30年で激変",
+          "source": "https://prtimes.jp/main/html/rd/p/000000867.000008062.html",
+          "confidence": "high",
+          "source_date": "2024-07"
+        },
+        {
+          "fact": "博報堂30年変化調査で『デートをする相手がいない』が1994年45.2%→2024年67.3%(+22.1pt)、欲しいもの『恋人』は5位→10位に転落。恋愛離れと同性友人重視がパッケージで進行",
+          "source": "https://prtimes.jp/main/html/rd/p/000000867.000008062.html",
+          "confidence": "high",
+          "source_date": "2024-07"
+        },
+        {
+          "fact": "FT/GWI 2025年10月調査で、先進国成人16歳以上の1日平均SNS利用時間は2024年末2時間20分、2022年比約10%減少。10-20代で減少幅が最大で『直接体験回帰』がグローバルトレンド",
+          "source": "https://note.com/wakateka_washio/n/nc9da540a038c",
+          "confidence": "medium",
+          "source_date": "2025-10"
+        },
+        {
+          "fact": "プレマシード『Z世代コミュニティ実態調査』(2025年8月8-18日、15-22歳n=600)で『オンラインでの共通の趣味コミュニティ』は11.2%のみ(9人に1人)。Z世代の友達コミュニティの大半は対面/学校/職場ベースが依然主流",
+          "source": "https://prtimes.jp/main/html/rd/p/000000033.000022887.html",
+          "confidence": "high",
+          "source_date": "2025-08"
+        },
+        {
+          "fact": "SHIBUYA109 lab.『Z世代SNS利用最新動向2025』(2025年7月、15-24歳女性n=413)で『InstagramやBeRealはオフラインで知り合った友人が一番多い』と判明。SNSは対面で出会った友人との関係維持ツールに変質、見知らぬ人とのつながり目的は減少",
+          "source": "https://www.shibuya109.co.jp/shibuya109lab/reports/250826/",
+          "confidence": "high",
+          "source_date": "2025-07"
+        },
+        {
+          "fact": "サントリー期間限定『BAR グラスとコトバ』(2025年5月2-13日)は応募開始3日で約4500人分予約完売、キャンセル待ち3500人超、そのうち9割近くが20-30代。Z世代は『体験デザイン』『シーンに応じた飲み方』に強反応",
+          "source": "https://xtrend.nikkei.com/atcl/contents/watch/00013/02621/",
+          "confidence": "medium",
+          "source_date": "2025-05"
+        },
+        {
+          "fact": "インテージ2025年6月調査で『自宅でお酒を飲む』は全体約6割、女性20-30代は『飲めるが自宅では飲まない』が多く外食時に楽しむ傾向。Z世代は『飲む/飲まない/飲めない』の線引きではなくシーン/気分で柔軟選択",
+          "source": "https://gallery.intage.co.jp/z_alcohol/",
+          "confidence": "medium",
+          "source_date": "2025-06"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "Z世代は飲み会離れしていない。20代の忘年会参加意欲は68.8%で全世代1位(2年連続、Job総研n=440)、職場飲み会『好き』も20代46%で50代27.6%を大きく上回る。コロナ禍で社会人デビューしたZ世代こそ対面コミュニケーション飢餓が強く、飲み会需要は復活している",
+          "evidence_ref": "fact #1, #2, #3",
+          "asobi_implication": "ASOBIのターゲットは『飲み会離れ世代』ではなく『対面飲み会回帰世代』。App Store説明文・LP・Screenshotコピーを参加意欲データで武装『20代の68.8%が会社忘年会に参加したい(Job総研2024)』を権威ソースとして引用。Z世代飲み会離れという常識への反証ストーリーがPR/メディア露出の切り口になる"
+        },
+        {
+          "insight": "Z世代飲酒の主戦場は自宅×少人数。MERY 2025年7月調査でZ世代飲酒派の64.3%が『自宅』で飲み、42.9%が『家族』と飲む。居酒屋飲み会は減ったが宅飲み/ホムパは増えた構造シフト",
+          "evidence_ref": "fact #4",
+          "asobi_implication": "ASOBIのコア利用シーンを『居酒屋』ではなく『自宅・家族・少人数』に明示シフト。13シーン内訳に『ホムパ』『宅飲み』『家族』を強調、Screenshotの背景もカウンター→リビング/コタツに。お題256個のチューニングも『家族で気まずくならない』『恋人と盛り上がる』レイヤーを厚くすべき"
+        },
+        {
+          "insight": "Z世代の飲み会観は二極化。MERY 2025で『必要性を感じない』37% vs 『コミュニケーションのきっかけ』28.3% / 『関係を深める場』25%。飲みニケーション効果も31.7% vs 31.3%で拮抗",
+          "evidence_ref": "fact #5, #6",
+          "asobi_implication": "アプリ存在価値の核は『不要層37%』を『楽しい飲み会』に変換すること。LP/Screenshotで『お題があれば話題に困らない』『沈黙ゼロ』を前面、A/Bテストで『新しい話題発見』『関係性が深まる』軸も訴求。期待『コミュニケーションの場』40.3%(ホットペッパー2025、2017年比-10pt超)が示すコミュニケーション機能の劣化を、AIお題で補完する位置取り"
+        },
+        {
+          "insight": "博報堂30年変化で同性友人グループが過去30年で激変、若者の『居心地のいい組み合わせ』『そばにいて欲しい相手』ともに同性が過半数に逆転。同時に『デートする相手がいない』67.3%(+22.1pt)で恋愛離れ加速",
+          "evidence_ref": "fact #9, #10",
+          "asobi_implication": "ASOBIのコア訴求は『友達同士で集まる時』『同性の集まり』。シーン設計で『女子会』『男友達』を主要レイヤーに、合コン/婚活レイヤーは縮小。お題256個も『同性で盛り上がる』テーマを厚くすべき(下ネタ/恋愛系より日常エピソード/価値観共有系)"
+        },
+        {
+          "insight": "FT/GWI 2025年10月でSNS利用時間が2022年比10%減、特に10-20代で減少幅最大。SHIBUYA109調査でもInstagram/BeRealは『オフラインで知り合った友人が一番』、SNSは対面交流の補完ツールに変質",
+          "evidence_ref": "fact #11, #13",
+          "asobi_implication": "ASOBIの『完全オフライン・データ非収集』設計はSNS疲れZ世代に強い差別化要因。LP/App Storeで『SNSから離れて、目の前の人と。』『データ収集ゼロ、広告ゼロ』を前面化。直接体験回帰がグローバルトレンドなので海外展開(en対応済み)でも同じ訴求軸が効く"
+        },
+        {
+          "insight": "サントリーの体験型BARが2025年5月に予約完売・キャンセル待ち3500人(9割が20-30代)、Z世代は『体験デザイン』に対価を払う。リクルート調査で飲み会平均予算4,896円(3年連続過去最高)",
+          "evidence_ref": "fact #8, #14",
+          "asobi_implication": "ASOBIは『体験を増幅するツール』のポジショニングで有料化余地あり。現在無料だが、将来的なProプラン(お題拡張・カスタムシーン・履歴共有等)の値付け根拠としてZ世代の体験消費志向(平均予算4,896円/回)を活用可能。広告ベースの収益化より体験課金型が市場実態と整合"
+        }
+      ],
+      "unable_to_verify": [
+        "日経新聞『Z世代、職場飲み会不要派6割』記事の元データ(有料記事で本文取得不可、調査主体・サンプル数不明)",
+        "博報堂30年変化の『飲み会』『対面交流頻度』特化数値(プレスリリースで親子/恋愛/同性友人重視は出ているが飲み会単独項目の数値は未公開)",
+        "内閣府『国民生活に関する世論調査 令和6年8月』の18-29歳『友人と会合・雑談している時に充実感』の具体的パーセンテージ(WebFetchで本文取得失敗、403)",
+        "ニッセイ基礎研究所のZ世代アルコール調査本文数値(WebFetch 403)",
+        "ぐるなびリサーチ部のZ世代飲み会調査(2025-2026の独立調査として検索ヒットせず、ぐるなび通信記事は全年代対象)",
+        "サントリーホールディングス公式の若者飲酒トレンド数値(2024年ノンアル調査はあるが2025-2026のZ世代特化数値はnews release上で未確認)"
+      ],
+      "contradicts_prior_analysis": [
+        "前回deep-research/15 lens監査が『Z世代飲み会離れ』を業界一般値として前提に置いていた可能性があるが、Job総研2024で20代の忘年会参加意欲68.8%で全世代1位(2年連続)、大黒屋でも20代46%>50代27.6%で職場飲み会『好き』。『Z世代こそ対面飲み会を求めている』が一次ソースの結論で、ASOBIの追い風要因として再評価が必要",
+        "『Z世代のSNS依存』前提も覆る。FT/GWI 2025年10月で16歳以上の1日平均SNS利用時間は2024年末2時間20分、2022年比10%減、しかも10-20代で最も減少幅が大きい。直接体験回帰がグローバルトレンドで、対面パーティーゲームに追い風",
+        "『若者は外で飲む』前提も覆る。MERY調査でZ世代飲酒場所は自宅64.3%が最多、相手は家族42.9%。居酒屋シナリオより宅飲み・ホムパシナリオに最適化したUI/お題設計が市場フィット。ASOBIの13シーン内訳と256お題の優先順位を再点検すべき"
+      ],
+      "conclusion": "Z世代の『飲み会離れ』言説は2025-2026年の一次データで強く否定されている。Job総研2024で20代の忘年会参加意欲68.8%で全世代1位(2年連続)、ホットペッパー外食総研2025年4月(n=5839)で開催率は60%に減ったが開催時出席率87.9%維持、MERY 2025年7月(n=300、20-29歳)でZ世代の56%が飲酒習慣あり。ただし飲む場所は『自宅』64.3%、相手は『家族』42.9%が最多で『居酒屋飲み会離れ』ではなく『飲酒シーンの家庭化・少人数化』が正しい構造理解。さらにFT/GWI 2025年10月でSNS利用時間が2022年比10%減(10-20代で最大)、博報堂30年変化で同性友人グループ重視が過半数逆転。ASOBIにとっての結論:Z世代は対面交流を求めており、しかも『自宅×少人数×同性友人』シーンが主戦場。居酒屋向けではなく宅飲み・ホムパ向けのポジショニング、SNS疲れへの対抗軸として『完全オフライン・データ非収集』を前面化、海外展開でも『直接体験回帰』軸が通用。これは前回分析の『Z世代飲み会離れ』前提を覆す重要な発見で、ASOBI追い風要因として再評価が必要。"
+    },
+    {
+      "conclusion": "ASOBI が現状アプリ内ゲーム名として使用している可能性のある一般語のうち、複数件で具体的な商標リスクが確認された。最重要リスクは「マジカルバナナ」（日本テレビ商標登録第4104880号、第28類で取得済み・他社が「モンキーバナナ」等の代替名を使用している実態あり）、および「数独」（ニコリが2023年8月28日に無関係アプリへの注意喚起を公式発表）。次点で「ワードウルフ」（カードゲームの28類は幻冬舎、35類は佐藤一希が保有・川崎晋氏が考案者）。「人狼ゲーム」は鈴木カズヒサ氏が「誰でも自由に使えるように」目的でオープンライセンス保有のため、表記上のリスクは限定的。「山手線ゲーム＝古今東西ゲーム」は伝統的パーティゲームで権利者の特定情報なし。「ロシアンルーレット」「百人一首」「たほいや」「カラオケ」「ナンバープレートゲーム」「カタカナーシ」については J-PlatPat への直接アクセス（Webブラウザ操作）ができなかったため一次確定情報は取れず、公開二次ソースから読み取れる範囲では明確な権利行使事例は確認できなかった。ASOBI は1191ゲームの内部名で「マジカルバナナ」「数独」「ワードウルフ」を使っている可能性があれば即時改名（例：マジカル◯◯→「連想チェイン」、数独→「ナンプレ」、ワードウルフ→「ことばオオカミ」「ことばのなかま外れ」等の独自名）が必要。J-PlatPat 直接照会は別タスクで実施推奨。",
+      "lens_label": "個別ゲーム名の商標調査",
+      "lens_number": 6,
+      "raw_data_collected": [
+        {
+          "fact": "「マジカルバナナ」は日本テレビが商標登録（登録番号 第4104880号）として保有。Twitter/Xでの第三者言及および Enpedia の記事でも同番号が引用され、CGI型ウェブゲーム制作者は商標を回避するため「モンキーバナナ」「webバナナ」「○○バナナ」等の名称に置き換えている実例がある。",
+          "source": "https://enpedia.rxy.jp/wiki/%E3%83%9E%E3%82%B8%E3%82%AB%E3%83%AB%E3%83%90%E3%83%8A%E3%83%8A",
+          "confidence": "medium",
+          "source_date": "2026-06-24取得"
+        },
+        {
+          "fact": "株式会社ニコリは2023年8月28日付で「『数独』の名称を使用するアプリ、webサービス等について」と題する公式注意喚起を出し、「数独／SUDOKU」が登録商標であり同社書籍・HP掲載以外は無関係であることを明示。広告問題のあるアプリにも言及。",
+          "source": "https://www.nikoli.co.jp/ja/news/20230828_app/",
+          "source_date": "2023-08-28",
+          "confidence": "high"
+        },
+        {
+          "fact": "AUTOMATON 2023年8月29日記事が上記ニコリ注意喚起を二次報道。「無断で『Sudoku』を名乗る無関係アプリに注意喚起」とのタイトルで一般読者の認知度を裏付け。",
+          "source": "https://automaton-media.com/articles/newsjp/20230829-262055/",
+          "source_date": "2023-08-29",
+          "confidence": "high"
+        },
+        {
+          "fact": "「ワードウルフ」は2023年1月時点で、カードゲーム（28類）の商標を幻冬舎が保有、インターネット上広告スペース貸与（35類）の商標を佐藤一希氏が取得。ゲーム自体の考案者は川崎晋氏（2012年発表）。Wikipedia「ワードウルフ」項目に記載。",
+          "source": "https://ja.wikipedia.org/wiki/%E3%83%AF%E3%83%BC%E3%83%89%E3%82%A6%E3%83%AB%E3%83%95",
+          "source_date": "2026-06-24取得",
+          "confidence": "medium"
+        },
+        {
+          "fact": "幻冬舎エデュケーションは2020年4月25日に「ワードウルフ」カードゲーム版を正式発売（電撃オンライン、4Gamer 報道）。28類のカードゲーム流通実態を裏付け。",
+          "source": "https://dengekionline.com/articles/32815/",
+          "source_date": "2020-04",
+          "confidence": "high"
+        },
+        {
+          "fact": "「人狼ゲーム」は『牢獄の悪夢』開発者である鈴木カズヒサ氏が「誰でも自由に使えるようにするため」を目的として商標を取得。請求や排他的権利行使を行わない方針が本人発信および複数メディアで確認できる。",
+          "source": "https://www.inside-games.jp/article/2016/01/08/94776.html",
+          "source_date": "2016-01-08",
+          "confidence": "high"
+        },
+        {
+          "fact": "鈴木カズヒサ氏（@c61org）の X 投稿でも「僕が『人狼ゲーム』の唯一の商標ホルダーになった経緯」と本人言及。オープンライセンス的運用の意思表示。",
+          "source": "https://twitter.com/c61org/status/1526379714339913728",
+          "source_date": "2022-05-17",
+          "confidence": "medium"
+        },
+        {
+          "fact": "「山手線ゲーム」と「古今東西ゲーム」は同一ゲームの別名扱い。山手線駅順起源だが現在は任意お題で共用、伝統的パーティゲームのため特定権利者の表示なし（Wikipedia「山手線ゲーム」、Weblio）。",
+          "source": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E6%89%8B%E7%B7%9A%E3%82%B2%E3%83%BC%E3%83%A0",
+          "source_date": "2026-06-24取得",
+          "confidence": "medium"
+        },
+        {
+          "fact": "JR東日本グループのライセンス事業（jeki ジェイアール東日本企画／JR東海エージェンシー）はプロパティライセンスとして駅名・路線名等のキャラ・名称ライセンスを行っているが、「山手線ゲーム」という名称の権利化・ライセンス対象としての明示は二次ソース上では見当たらず。",
+          "source": "https://www.jeki.co.jp/field/property/",
+          "source_date": "2026-06-24取得",
+          "confidence": "low"
+        },
+        {
+          "fact": "任天堂が小倉百人一首かるた（舞扇 1,870円税込）を販売中。製品ページ存在は確認できるが「百人一首」自体は古典作品名であり一般名称（任天堂が独占商標として保有している事実は二次ソース上では確認できず）。",
+          "source": "https://www.nintendo.com/jp/others/hyakuninisshu/index.html",
+          "source_date": "2026-06-24取得",
+          "confidence": "medium"
+        },
+        {
+          "fact": "「たほいや」はフジテレビ・共同テレビ制作のバラエティ番組（1993年4-9月放送）として有名だが、J-PlatPat 一次照会未実施のため商標保有状況は未確定。米光一成氏（番組ゲーム作家）がフジテレビ会見に関連する投稿あり。",
+          "source": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%BB%E3%81%84%E3%82%84",
+          "source_date": "2026-06-24取得",
+          "confidence": "low"
+        },
+        {
+          "fact": "「カラオケ」自体の商標は第一興商の商標一覧（ipforce.jp）に多数存在するが、語「カラオケ」単独は普通名称化が広く認知されており、第一興商の主要な権利行使はレコード製作者の権利（著作隣接権）ベース。歌ってみた動画差止訴訟（東京地裁H28.12.20）でも商標ではなく隣接権で勝訴。",
+          "source": "https://news.yahoo.co.jp/byline/kuriharakiyoshi/20170117-00066674",
+          "source_date": "2017-01-17",
+          "confidence": "high"
+        },
+        {
+          "fact": "「カタカナーシ」は幻冬舎edu発売のカードゲーム（2019年）。元は「ボブジテン」シリーズ（2017年、ボードゲーム制作グループ TUKAPON 制作）。商品名としての商標保有可能性が高いが J-PlatPat 一次照会未実施。",
+          "source": "https://www.gentosha-edu.co.jp/smp/book/b450309.html",
+          "source_date": "2026-06-24取得",
+          "confidence": "medium"
+        },
+        {
+          "fact": "幻冬舎は「カタカナーシ」シリーズで2024年に「エイゴダーケ」を発売（PR TIMES 公式リリース）。シリーズ商標継続使用の事実確認。",
+          "source": "https://prtimes.jp/main/html/rd/p/000000119.000007567.html",
+          "source_date": "2024-04-26",
+          "confidence": "high"
+        },
+        {
+          "fact": "「ロシアンルーレット」は Google Play 等にゲームアプリ多数（複数開発者）あり、一般名称的運用が支配的に見える。J-PlatPat 直接照会は未実施で、第28類または9類での商標独占の有無は今回未確定。",
+          "source": "https://play.google.com/store/apps/details?id=net.delzer.russian",
+          "source_date": "2026-06-24取得",
+          "confidence": "low"
+        },
+        {
+          "fact": "特許庁は第28類の類似群コード（おもちゃ・遊戯用具）審査基準を公開。ゲーム商品の商標出願はこの28類が中核、デジタルアプリは9類・サービスは41類が標準ルート。",
+          "source": "https://www.jpo.go.jp/system/laws/rule/guideline/trademark/ruiji_kijun/document/ruiji_kijun11-2019/28.pdf",
+          "source_date": "2019",
+          "confidence": "high"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "「マジカルバナナ」は日本テレビが第4104880号として保有しており、ウェブ上の連想ゲーム実装者は既に「モンキーバナナ」等の代替名で運用している実例がある。ASOBI が同名を内部ゲーム名として保持しているならば即時改名すべき高リスク項目。",
+          "evidence_ref": "raw_data #1",
+          "asobi_implication": "1191ゲームDB内に『マジカルバナナ』『連想ゲーム（マジカル系）』が含まれていないか grep で全件確認。該当ありなら『連想チェイン』『言葉つなぎ』『◯◯と言えば？』等の独自名に置換。前回 monetization 分析ではゲーム名リスクは未検討のため新規論点。"
+        },
+        {
+          "insight": "「数独」はニコリが2023年8月に公式注意喚起を出し、無関係アプリへの行動を明示した実績がある。ja.wikipedia.org 等でも「ナンプレ」が一般名称回避の標準形と明記されている。",
+          "evidence_ref": "raw_data #2, #3",
+          "asobi_implication": "パーティ系メイン路線で『数独』を使う蓋然性は低いが、シーン違いで存在しないかを確認。使うなら『ナンプレ』『ナンバープレイス』表記に統一。ニコリは実際に注意喚起を出す主体なのでリスク確定的。"
+        },
+        {
+          "insight": "「ワードウルフ」は28類で幻冬舎、35類で個人取得済。考案者が川崎晋氏という事実とゲームジャンル自体（少数派探し型）が一般化していることから、独自名『ことばのなかま外れ』『ことばオオカミ』等への置換が安全。",
+          "evidence_ref": "raw_data #4, #5",
+          "asobi_implication": "ASOBI は『ワードウルフ』系シーン（少数派発見型）を持っている可能性が高い（パーティアプリの定番）。ゲーム名表記を独自化し、説明文で『いわゆる少数派発見ゲーム』程度の一般説明に留める。前回 lens 監査では未検討。"
+        },
+        {
+          "insight": "「人狼ゲーム」は商標ホルダー（鈴木カズヒサ氏）がオープンライセンス方針を明言しているため、表記上のリスクは現時点では実務的にゼロに近い。ただし将来の権利移転リスクは残るので『◯◯人狼』など派生名は避けるべき。",
+          "evidence_ref": "raw_data #6, #7",
+          "asobi_implication": "『人狼』そのものは現状ASOBIで使用継続可。ただし派生（『恋愛人狼』等の特定キャラ系）は他社のジャンル商標と衝突しうるので慎重に。"
+        },
+        {
+          "insight": "「山手線ゲーム」「古今東西」「カラオケ」は伝統名称・普通名称化が進んでおり、現時点で具体的な商標権行使リスクは公開二次ソースからは確認できない。ただし JR東日本のライセンス事業の存在から、将来の権利化リスクはゼロではない。",
+          "evidence_ref": "raw_data #8, #9, #12",
+          "asobi_implication": "これらは現状継続使用可。ただしAPP STORE説明文で『山手線ゲーム』をフィーチャー強調するより、ASOBI 独自表現『順番に言うゲーム』に寄せた方が将来安全。"
+        },
+        {
+          "insight": "J-PlatPat への直接照会（j-platpat.inpit.go.jp）は WebFetch では認証・SPA構造で結果を取れず、ブラウザ操作が必要。今回確定情報を1次ソースから取れたのは ニコリ公式（数独）のみで、他は二次ソース依存。",
+          "evidence_ref": "全件 source 種別",
+          "asobi_implication": "次のアクション：claude-in-chrome MCP で J-PlatPat の称呼検索を11語×Class 9/28/41 で実走させ、登録番号・指定商品・有効期限を取得する別タスクを spawn する。本 lens の出力は『二次ソース範囲の中間結論』として扱う。"
+        },
+        {
+          "insight": "パーティゲーム業界の標準回避パターンは『考案者名で呼ぶ』ではなく『独自にゲーム内呼称を作る』。例：『カタカナーシ』『たほいや』『マジカル◯◯』はいずれも独占名で、後発は『カタカナ禁止ゲーム』『嘘広辞苑』等の説明的別名で運用。ASOBI も同パターンを徹底すべき。",
+          "evidence_ref": "raw_data #1, #13",
+          "asobi_implication": "1191ゲームの命名規則を見直し、固有名詞型（既存商品由来）→ 機能説明型（独自）に shift。例：『◯◯禁止しりとり』『誰か違う言葉を持つ』等。改名は1ゲーム1分でも19時間で完了。"
+        }
+      ],
+      "unable_to_verify": [
+        "J-PlatPat（j-platpat.inpit.go.jp）の称呼検索結果（WebFetch 不可・要ブラウザ）",
+        "「ロシアンルーレット」「百人一首」「たほいや」「ナンバープレートゲーム」「カタカナーシ」の Class 9/28/41 の登録番号・登録者・有効期限",
+        "「マジカルバナナ」第4104880号の指定商品・有効期限・更新状況（二次ソースで登録番号は確認できたが一次情報未照会）",
+        "幻冬舎「ワードウルフ」の正確な登録番号と指定商品",
+        "JR東日本の「山手線ゲーム」名称商標化の有無",
+        "ASOBI 内 1191ゲームのうち、具体的に何件が上記リスクゲーム名を採用しているかの内部監査結果（リポジトリ未読のため）"
+      ],
+      "contradicts_prior_analysis": [
+        "前回の monetization-research-2026-06-19 および 15 lens breakout-gap 分析では『ゲーム名の商標リスク』論点は俎上に上っていない。今回の発見（マジカルバナナ第4104880号・ニコリの2023年注意喚起・幻冬舎ワードウルフ28類）はいずれも前回分析に含まれない新規リスク項目で、矛盾というより未検討盲点の補完。"
+      ]
+    },
+    {
+      "conclusion": "ASOBI は現在「完全無料・IAP なし・データ収集なし・成人テーマ無し」の状態なので、観点 7 で挙げた規制群（特商法 11 条・景表法・AdMob ポリシー）は**現状ほぼ全て適用外**。ただし 3 つの時限爆弾がある: (1) 2026-01-31 までに新 Age Rating questionnaire 回答が必須・未完了で update がブロック、(2) ガイドライン 4.3(b) で \"drinking games\" が明示的に低品質扱いになっており、ASOBI の 13 シーンに飲酒を促す内容があれば棄却リスク、(3) Tip Jar 解禁時は IAP currency 経由なら問題ないが、外部リンク（Buy Me a Coffee 等）は games カテゴリで禁止。ASOBI が現状を維持する限り規制コストはゼロだが、Tip Jar / Pro / 広告のどれを入れても規制トリガーが起動するため、収益化判断は規制コスト込みで再評価する必要がある。",
+      "lens_number": 7,
+      "lens_label": "17+ 広告制約・特商法・景表法",
+      "raw_data_collected": [
+        {
+          "fact": "2026-01-31 までに全アプリは新 Age Rating questionnaire への回答が必須。未完了の場合 Apple は新規 submission と app update をブロック。新ratingは従来の 4+ / 9+ / 17+ に加え 13+ / 16+ / 18+ が追加され、18+ が旧 17+ を置換する。",
+          "source": "https://developer.apple.com/news/upcoming-requirements/?id=07242025a",
+          "confidence": "high",
+          "source_date": "2025-07-24"
+        },
+        {
+          "fact": "新 questionnaire は In-app controls / Capabilities (chat / web access 等) / Medical or wellness topics / Violent themes の 4 領域に分かれ、AI assistant や chatbot 機能も sensitive content 露出頻度として評価対象になる。",
+          "source": "https://developer.apple.com/news/?id=ks775ehf",
+          "confidence": "high"
+        },
+        {
+          "fact": "18+ (旧 17+) rating の content trigger は (a) frequent alcohol/tobacco/drug use or references, (b) frequent sexual content or nudity, (c) frequent realistic violence, (d) gambling (real or in-game currency exchangeable for real money), (e) frequent simulated gambling。",
+          "source": "https://developer.apple.com/help/app-store-connect/reference/app-information/age-ratings-values-and-definitions/",
+          "confidence": "high"
+        },
+        {
+          "fact": "App Review Guideline 4.3(b) は drinking games / Kama Sutra / fart / burp apps を 'mediocre, low-quality, or low-effort' と明示的に分類し、新規 submission の rejection 対象。繰り返し submission は Apple Developer Program からの除名につながる。2026-06-09 に MacRumors が更新を報道。",
+          "source": "https://www.macrumors.com/2026/06/09/app-store-guidelines-low-quality-apps/",
+          "confidence": "high",
+          "source_date": "2026-06-09"
+        },
+        {
+          "fact": "Guideline 1.4.3 は 'apps that encourage consumption of tobacco and vape products, illegal drugs, or excessive amounts of alcohol are not permitted. Apps that encourage minors to consume any of these substances will be rejected.' と規定。飲酒を促す party game は rating 以前に rejection 対象。",
+          "source": "https://developer.apple.com/app-store/review/guidelines/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Tip Jar 関連: Guideline 3.1.1 は 'Apps may use in-app purchase currencies to enable customers to tip the developer or digital content providers in the app.' と明示し、IAP 経由の tip は許可。Guideline 3.2.1(vii) は peer-to-peer monetary gift で (a) giver が完全に optional に選ぶ (b) 100% が receiver に渡る、場合に限り IAP 不要。",
+          "source": "https://developer.apple.com/app-store/review/guidelines/",
+          "confidence": "high"
+        },
+        {
+          "fact": "2025 年 5 月の Epic 訴訟後、Apple は external link を一部許可したが、games カテゴリの tip / donation は external link 許可の対象外で、reader / e-commerce apps のみが external payment link を使用可能。Buy Me a Coffee 型の外部リンクは games で禁止のまま。",
+          "source": "https://medium.com/@robert-baer/my-ongoing-battle-with-apple-over-a-buy-me-a-coffee-link-is-over-9c158df81c05",
+          "confidence": "medium"
+        },
+        {
+          "fact": "特定商取引法第 11 条の通信販売広告必須表示項目は: 販売価格、代金支払時期・方法、商品引渡時期、事業者氏名・住所・電話番号、返品特約、その他負担金額。法は『有償で行う役務の提供』が対象で、完全無料で収益化機能がない service は適用対象外と解される。",
+          "source": "https://www.no-trouble.caa.go.jp/qa/advertising.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "ゲームアプリで完全無料かつ in-app currency 課金機能のみのケースは資金決済法の前払式支払手段に該当し、特商法の表示義務から exempt される場合がある (弁護士見解)。逆に IAP で digital content を販売した瞬間に通信販売として特商法 11 条の適用対象になる。",
+          "source": "https://it-bengosi.com/%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E3%81%AE%E6%B3%95%E5%BE%8B/ec-apuri/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "景表法 (不当景品類及び不当表示防止法) はガチャの完成型 (コンプガチャ) を景品類として禁止しているが、通常の有料ガチャは『取引そのもの』として景品規制の対象外と解される。Tip Jar / 投げ銭への直接的な景表法適用ガイドラインは消費者庁から明示されていない (検索で確認できず)。",
+          "source": "https://legal-leon.jp/column/841/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "AdMob は 18 歳未満ユーザー向けの Ad-serving Protections for Teens を 2022-08-15 から enforcement 開始。Publisher Restrictions で adult content (close-ups of breasts/buttocks/crotches, sheer clothing, seductive posing 等) は配信広告ソースが大幅に制限される。",
+          "source": "https://support.google.com/admob/answer/12171027?hl=en",
+          "confidence": "high"
+        },
+        {
+          "fact": "Guideline 2.3.6 は age rating の誤申告について 'If your app is mis-rated, customers might be surprised by what they get, or it could trigger an inquiry from government regulators.' と明示。日本では消費者庁・各国の政府機関からの照会リスクを公式に認めている。",
+          "source": "https://developer.apple.com/app-store/review/guidelines/",
+          "confidence": "high"
+        },
+        {
+          "fact": "2025 年 App Review は 910 万件超の submission を評価 (Apple 発表)。AI と人手のハイブリッド審査。low-quality 判定の reject が増加トレンド。",
+          "source": "https://www.macrumors.com/2026/06/09/app-store-guidelines-low-quality-apps/",
+          "confidence": "medium",
+          "source_date": "2026-06-09"
+        },
+        {
+          "fact": "Apple は 2025 年に新 creator app ガイドラインを追加: 'creator apps must provide a way for users to identify content that exceeds the app's age rating and use an age restriction mechanism based on verified or declared age to limit access by underage users.'",
+          "source": "https://crustlab.com/blog/ios-app-store-review-guidelines/",
+          "confidence": "medium"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "ASOBI 現状 (完全無料・IAP なし・Data Not Collected) は特商法 11 条・景表法・AdMob の規制群を全て回避できている。これは『現状維持の規制ボーナス』であり、収益化判断の隠れたコストとして再評価すべき。",
+          "evidence_ref": "fact #8, #9, #11",
+          "asobi_implication": "ローンチ後最低 3-6 ヶ月は『規制ゼロ運用』を意識的に資産化する。Pro / Tip Jar / 広告を入れる時、増収見込みから『特商法表記の作成・運用工数』『AdMob の 18+ ペナルティ』『景表法照会リスク』を差し引いた net で判断。前回 monetization-research が規制コストを 0 と見積もっていたなら過大評価。"
+        },
+        {
+          "insight": "Guideline 4.3(b) の drinking games 明示禁止 (2026-06-09 報道) は ASOBI にとって最大の time bomb。1191 ゲームと 13 シーンの中に『飲酒を促すお題』が含まれていれば、新規 submission または update 時に reject される可能性が非常に高い。",
+          "evidence_ref": "fact #4, #5",
+          "asobi_implication": "v1 ローンチ前にゲーム/お題コーパスを『alcohol / drink / 飲み / 一気』等のキーワードで全件 audit し、飲酒を強制・推奨するゲームをパーティーゲームに置換 or removal。Guideline 1.4.3 と 4.3(b) の二重トリガーなので灰色ではなく明示除去が安全。"
+        },
+        {
+          "insight": "2026-01-31 deadline の新 Age Rating questionnaire は ASOBI v1 ローンチに直結するクリティカルパス。未完了で update がブロックされ、ローンチ後の hotfix もできなくなる。",
+          "evidence_ref": "fact #1, #2",
+          "asobi_implication": "Apple Developer 登録完了→TestFlight 投入の前に App Store Connect で新 questionnaire を必ず完了。In-app controls / Capabilities / Medical / Violent の 4 領域回答を事前に文書化しておけば審査時の質問にも即答可能。"
+        },
+        {
+          "insight": "Tip Jar 機構は『IAP currency 経由なら 18+ 化を回避でき、外部リンクは games カテゴリで禁止』というルートが確定。前回 lens 15 で検討した『Buy Me a Coffee 外部誘導』は games では実装不可。",
+          "evidence_ref": "fact #6, #7",
+          "asobi_implication": "Tip Jar を実装する場合、必ず IAP currency (例: 100 円・300 円・500 円の consumable) として実装。Apple 30% 手数料は規制トレードオフのコスト。外部リンク誘導案は破棄。"
+        },
+        {
+          "insight": "現状の ASOBI は 17+ rating だが、新 questionnaire の回答次第で 13+ または 16+ に下がる可能性がある。alcohol/drug references の頻度を『frequent』ではなく『infrequent』に下げられれば AdMob の teen protection 対象を回避でき、将来的な広告収益化の天井が上がる。",
+          "evidence_ref": "fact #3, #11",
+          "asobi_implication": "お題 audit と並行して、alcohol/violence/sexual テーマの『頻度』を可能な限り低くするコンテンツ方針を明文化。13+ 化すれば AdMob 制限・親管理ブロックの両方が緩和される。ローンチ後でも questionnaire 再回答で rating 変更可能。"
+        },
+        {
+          "insight": "AI コンテンツ生成機能を将来追加する場合 (お題の動的生成等)、新 questionnaire で『chatbot / AI assistant』機能として sensitive content frequency 増加要因と明示判定される。",
+          "evidence_ref": "fact #2",
+          "asobi_implication": "AI お題生成は安易に追加せず、生成範囲を厳格に制約 (whitelist 方式) するか、static お題拡充で代替。AI 機能追加で 18+ 自動アップグレードされると AdMob 収益が崩壊する。"
+        }
+      ],
+      "unable_to_verify": [
+        "景表法の Tip Jar への直接適用ガイドライン: 消費者庁の通達・Q&A から Tip Jar / 投げ銭固有のガイダンスは検索で発見できず。コンプガチャ規制の延長解釈になるが confidence は medium 止まり。",
+        "米国 17+ アプリの AdMob 配信単価の具体的減衰率: AdMob ヘルプは『fewer advertising sources will be eligible』と定性記述のみで、17+ アプリの eCPM 低下率の公式数値は非公開。",
+        "日本の App Store で完全無料・IAP なし・将来 Tip Jar 追加時に必要となる特商法表記の Apple 側強制タイミング: Apple Review が特商法表記を required としているかの公式 ガイドライン箇所は今回検索で特定できず (国別 legal 要件として実装義務になるかは弁護士相談範囲)。",
+        "ASOBI の 1191 ゲーム × 256 お題コーパス内の alcohol/drinking 関連お題の実数: リポジトリ内 audit が必要だが本 workflow の責務外。"
+      ],
+      "contradicts_prior_analysis": [
+        "前回 monetization-research (2026-06-19) が Tip Jar 実装を低コスト・低リスクとして推していたなら、Guideline 4.3(b) 強化 (2026-06 報道) と games カテゴリの external link 禁止により、実装コスト = IAP 30% 手数料 + 17+ rating 維持 + 特商法表記必要化 と再計算が必要。Net で前回試算より収益性は下がる。",
+        "前回 breakout-gap 15 lens 監査が『広告収益化はいつでもスイッチできる』前提なら、AdMob teen protection と Apple 18+ rating の組み合わせで、17+ のまま広告化すると配信単価が想定より大幅に下がる可能性が高い。広告化前に rating を 13+/16+ に下げる前処理が経済的価値を持つ。"
+      ]
+    },
+    {
+      "conclusion": "2025-2026 リリースの新興パーティーゲームアプリは「AI ホスト型」（Whisper Games / Aippy）と「カップル向けディープクエスチョン」（Icebreaker系3本）の2 トレンドが顕著。一方、日本市場は「どこパ」「VAVA」「はい！ドーン！」など既存プレイヤーが寡占し 2025 年の新興ジャパン産はほぼゼロ（観測範囲）。Z 世代×TikTok 連動の単独勝者は不在で、ASOBI が「シーン特化×完全オフライン×日本語ネイティブ」のポジションを取れば実質ノーコンペティション帯に入れる。最大の脅威は AI ホスト型（Whisper Games：iOS 13+、132MB、$4.99-99.99 IAP）と Z 世代向けカップル/友達ディープ系（Icebreaker couples 9/25/2025 リリース、$2.99 で 18 デッキ＝価格破壊）。両者とも英語圏中心で日本市場未対応のため、ASOBI は 12-18 ヶ月の先行アドバンテージ。推奨アクション：(1) Whisper Games 型 AI ホストの追従可否を別 lens で検証、(2) Icebreaker couples の $2.99 アンカー価格を ASOBI 課金設計のベンチマークに、(3) 日本語パーティーゲームアプリの \"App Store 新作スカスカ問題\" を逆手に取り、ASA で「2025 新作 パーティーゲーム」キーワード独占を 6 ヶ月で狙う。",
+      "contradicts_prior_analysis": [
+        "前回 monetization-research では『パーティーゲーム市場は飽和』が暗黙前提だったが、2025-2026 日本市場リリースの新興プレイヤーはほぼゼロ（VAVA は 2023 初回・2025 update のみ、はい！ドーン！は 2023 update 止まり）。日本語ネイティブ＆シーン特化の ASOBI には実質競合空白。",
+        "15 lens breakout-gap では『AI ホスト』を ASOBI が取り残されるリスクとして扱ったが、Whisper Games の rating が『not enough』レベル（実需要未証明）かつ Aippy は英語圏のみで、AI ホスト追従は急務でなく『観察対象』に格下げできる。",
+        "前回『カップル向けは ASOBI と直交』としていたが、Icebreaker couples（2025/9/25 release, $2.99 で 1600 質問）が \"会話デッキ × 友達 × Couples × Party Pack\" を単一アプリで統合する設計で、ASOBI の『友達飲み会』シーンと境界が曖昧化。ターゲット重複リスクを再評価する必要。"
+      ],
+      "key_insights": [
+        {
+          "asobi_implication": "ASOBI の日本語ネイティブ × シーン特化（13 シーン）はノーコンペティション帯。最初の 6 ヶ月は ASA で『2025 新作 パーティーゲーム』『飲み会ゲーム 新作』キーワード独占（CPI 低位）を狙うべき。新作枯渇は逆にチャンス。",
+          "evidence_ref": "raw_data_collected の fact #5, #11（日本市場検索結果に 2025 新作の合コン/コンパ/飲み会アプリが見当たらず、既存 VAVA/どこパ/はい！ドーン！の繰り返し）",
+          "insight": "日本語 App Store の 2025 年新作パーティーゲーム枠はほぼ空白"
+        },
+        {
+          "asobi_implication": "AI ホスト追従は急務ではない。2026 Q4 に reactive 対応で十分。代わりに ASOBI の差別化軸を『日本語ネイティブ × 完全オフライン × 17+ 大人向け』に集中投資。AI ホスト型は MAU 不明＝市場成立未証明として扱う。",
+          "evidence_ref": "raw_data_collected の fact #1（Whisper Games rating: not enough to display、12/2/2025 release、6 ヶ月経過しても review 不足）",
+          "insight": "AI ホスト型（Whisper Games）は release 後 6 ヶ月でレビュー件数すら表示されないレベル"
+        },
+        {
+          "asobi_implication": "ASOBI の課金設計時、$2.99 アンカーが世界標準。月額 ¥980 や買い切り ¥1,200 は ICE BREAKER 比で高すぎる。買い切り ¥480-680 / 一部デッキロック方式を benchmarks せよ。",
+          "evidence_ref": "raw_data_collected の fact #7（Icebreaker couples 2025/9/25 release、$2.99 で 18 デッキ 1600 質問）と fact #3（Party Lab $6.99-39.99）",
+          "insight": "2025 新興 Icebreaker couples app は $2.99 で 18 デッキ 1600 質問という価格破壊"
+        },
+        {
+          "asobi_implication": "ASOBI の 13 シーン × 256 お題 × 1191 ゲームは『AI 無し・全データ手作り』の希少カテゴリ。LP/ASO で『AI 生成ではない、職人手作りお題』を明示的に差別化軸として打ち出すべき。",
+          "evidence_ref": "raw_data_collected の fact #1, #8（Whisper Games, Aippy ともに AI 生成型）",
+          "insight": "AI 生成型と『手作りお題』型の二極化が進行中"
+        },
+        {
+          "asobi_implication": "成功例 Party Lab の『カテゴリ展開（Family/Party/Colleagues/Wild/Kids）』は ASOBI の 13 シーン設計と類似。ASOBI も米国市場進出時に Party Lab の 4,700 reviews × 4.7 rating を SNS/レビュー獲得の目標値として設定可能。",
+          "evidence_ref": "raw_data_collected の fact #3（Party Lab v1.58 = 2025/6/11、4.7★ × 4700+ reviews、MindShark Games Limited 開発、7000 質問）",
+          "insight": "Party Lab Exposed Game (MindShark) は 2025 アクティブで 4,700+ reviews × 4.7★ という再現可能ベンチマーク"
+        },
+        {
+          "asobi_implication": "ASOBI 既存設計（Data Not Collected、17+、無料）は世界標準と整合。サブスク回避＝買い切りモデルは『高評価アンチ・サブスク派』を取り込めるポジション。レビュー戦略で『買い切りで完結』を強調すべき。",
+          "evidence_ref": "raw_data_collected の fact #3（Party Lab で『subscription 解約困難』のレビュー）と fact #6（21 Questions $3.99/week が『crazy』批判）",
+          "insight": "サブスク強要型は 2025 レビュー欄で強い反発を浴びている"
+        },
+        {
+          "asobi_implication": "ASOBI の日本市場戦略は『どこパ』との非直接競合ポジション（オンライン通話前提 vs オフライン対面）を強調すべき。一方で 39 ゲーム × 36,000 評価という規模感は『どこパに乗り換えさせる』戦略でなく『新規シーン創出（女子会/家族/合コン特化）』戦略が正解。",
+          "evidence_ref": "raw_data_collected の fact #4（どこパ 4.6★ × 36,000 reviews × 39 ゲーム × 2-111 人、最新 update 23時間前で激active）",
+          "insight": "日本市場の本命競合は『どこパ』（Qdan Inc.）= 4.6★ × 36,000 評価 × 23 時間前 update"
+        }
+      ],
+      "lens_label": "2025-2026 新興競合スキャン",
+      "lens_number": 8,
+      "raw_data_collected": [
+        {
+          "confidence": "high",
+          "fact": "Whisper Games: AI Game Master - リリース 2025年12月2日（v1.0）/ 最新 v2.3.2 = 2025年5月21日 / 無料 + IAP $4.99-99.99 / 評価『not enough to display』/ 開発 Florian Holtorf / 131.4MB / iOS 13.0+ / 英語のみ / 9+ / Family カテゴリ",
+          "source": "https://apps.apple.com/us/app/whisper-games-ai-party-game/id6755253322",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "high",
+          "fact": "Ultimate Party Games: 10 in 1 - v2.0.8 = 2025年9月13日 / 無料 + IAP $3.99-49.99 / 5.0★ (3 ratings only) / 開発 Anuj Gupta / 105.8MB / iOS 15.1+ / 18+ / 1000+ 質問 / オフライン対応 / カスタムデッキ作成可",
+          "source": "https://apps.apple.com/us/app/ultimate-party-games-10-in-1/id6738035389",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "high",
+          "fact": "Party Lab: Exposed Game - 最新 v1.58 = 2025年6月11日 / 無料 + IAP $6.99-39.99 / 4.7★ × 4,700+ ratings / 開発 MindShark Games Limited / 7000+ truths-dares-challenges / Family/Party/Colleagues/Wild/Kids カテゴリ / サブスク解約困難の苦情レビュー有",
+          "source": "https://apps.apple.com/us/app/party-lab-exposed-game/id6446330973",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "high",
+          "fact": "どこでもパーティーゲーム『どこパ』- v2.47.0 = 23時間前 update（高頻度メンテ）/ 無料 / 4.6★ × 36,000 評価 / 開発 Qdan Inc. / 全39ゲーム（ワードウルフ、人狼、二択ゲーム = 2025/9/2 追加） / 2-111人対応 / オンライン通話前提（LINE/Zoom/Discord）",
+          "source": "https://apps.apple.com/jp/app/dokopa/id1529747588",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "high",
+          "fact": "VAVAゲームアプリ - 初回 2023年1月18日 / 最新 v1.1.2 = 2025年8月25日 / 無料 + IAP（¥120/月 or ¥1,100/年）/ 4.3★ × 38 reviews / 開発 ISLEZ K.K. / 10+ ゲーム / 4+ / 日本語/英語",
+          "source": "https://apps.apple.com/jp/app/vava-game/id1663647603",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "high",
+          "fact": "21 Questions IceBreaker - リリース 2024年2月5日 / 無料 + IAP $3.99/週、$24.99/年、$24.99 lifetime / 4.6★ × 272 ratings / 開発 AppQ Technology / 18+ / 10 言語対応 / 『$3.99/週 is crazy』批判レビュー有",
+          "source": "https://apps.apple.com/us/app/21-questions-icebreaker-app/id6476767655",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "high",
+          "fact": "Couples Questions - Icebreaker - リリース 2025年9月25日（v1.0）/ 無料 + IAP $2.99（Icebreaker+ 買い切り）/ 評価表示なし（リリース直後）/ 開発 Ryan Rook（個人開発者推定）/ iOS 18.0+ / 13.8MB / 18 デッキ × 1,600 質問 / 英語+オランダ語 / Data Not Collected",
+          "source": "https://apps.apple.com/us/app/couples-questions-icebreaker/id6752701576",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "medium",
+          "fact": "Aippy - 2025年中期ローンチ / TikTok 風縦型ストリーム × インタラクティブ mini-game / 自然言語からゲーム自動生成 / DAU 急増中 / 主要市場 US/UK/CA",
+          "source": "https://eu.36kr.com/en/p/3769178374390535",
+          "source_date": "2026 article"
+        },
+        {
+          "confidence": "high",
+          "fact": "The Icebreaker Game - リリース 2023年12月6日 / 無料 + IAP $3.99-4.99/月、$29.99/年、$59.99 lifetime / 4.8★ × 6 reviews / 開発 The social penguin AB / 27 カテゴリ × 3,000+ 質問 / 16+",
+          "source": "https://apps.apple.com/us/app/the-icebreaker-game/id6472850051",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "high",
+          "fact": "はい！ドーン！- 最新 v1.31 = 2023年12月28日（2 年以上 update 無し）/ 無料 / 3.9★ × 29 reviews / 開発 株式会社カレクト / 12種類のお題 / 1-4 人 / 『広告後に音が出ない』バグ多発",
+          "source": "https://apps.apple.com/jp/app/hai-don/id1582939929",
+          "source_date": "2026-06-24 fetch"
+        },
+        {
+          "confidence": "medium",
+          "fact": "2025-2026 日本市場の合コン/コンパ/飲み会パーティーゲームアプリの新作リリースは検索範囲内で発見できず。掲載されるのは『王様ゲーム』『NGワード』など 2024 以前の既存アプリのみ。",
+          "source": "https://lovedoor.jp/joint-game/ + https://apps.apple.com/jp/app/王様ゲーム-合コンやカップルで楽しめるアプリ/id6475615709",
+          "source_date": "2026-06-24 search"
+        },
+        {
+          "confidence": "medium",
+          "fact": "TOZ Party games - TikTok challenge で $250 winnings 提供して投稿促進 / Imposter / Dare Chooser ゲーム搭載 / Z 世代向け SNS マーケティング",
+          "source": "https://apps.apple.com/us/app/toz-party-games/id1476978964",
+          "source_date": "2026 TikTok promo"
+        },
+        {
+          "confidence": "medium",
+          "fact": "Bunch（Houseparty 後継）= グループビデオチャット × マルチプレイヤーゲーム / 最大 7 人 / Z 世代の Houseparty 代替ポジション",
+          "source": "https://rigorousthemes.com/blog/best-apps-like-houseparty/",
+          "source_date": "2025 article"
+        },
+        {
+          "confidence": "low",
+          "fact": "Most Likely To: Drinking Games - 2025年9月27日 update / 4.9★ / iOS 16.4+ 要件",
+          "source": "https://most-likely-to-drinking-games.en.softonic.com/iphone",
+          "source_date": "2026 search"
+        }
+      ],
+      "unable_to_verify": [
+        "新興競合各アプリの実 DL 数（App Store は非公開、Sensor Tower / data.ai は有料アクセス必要）",
+        "Whisper Games / Aippy の日本市場 DL 比率（地域別 DL は非公開）",
+        "TOZ Party games の TikTok challenge 実 ROI / 実参加者数",
+        "日本市場の Sensor Tower-grade な 2025 新作パーティーゲーム iOS リリースリスト（包括検索ソース未取得）",
+        "Bunch / Bump の現在 MAU（公式公開無し）"
+      ]
+    },
+    {
+      "lens_number": 9,
+      "lens_label": "TikTok / Reels / Twitch / Discord の party game 動向",
+      "raw_data_collected": [
+        {
+          "fact": "We're Not Really Strangers (WNRS) 公式 TikTok アカウント @werenotreallystrangers は 590万フォロワー / 365M likes を保有。物理カードゲーム発祥でブランドが TikTok を主戦場化、Adult / Couples / Dating / Kids など複数エディションへ拡張",
+          "source": "https://www.tiktok.com/@werenotreallystrangers",
+          "confidence": "high",
+          "source_date": "2026-06"
+        },
+        {
+          "fact": "Jackbox Party Pack は 2026 年 YTD で Twitch にて 累計 310万時間視聴、平均同時視聴 873人、ピーク 82,001人。週末は平日比でストリーマー数 +74% / 視聴者 +45% と明確な飲み会タイム需要",
+          "source": "https://twitchtracker.com/games/493174",
+          "confidence": "high",
+          "source_date": "2026"
+        },
+        {
+          "fact": "Fall Guys は 2026 YTD で Twitch 600万時間視聴超、平均 2,058人、ピーク 299,659人。Party / 落ちゲー系は依然ピーク値を稼げるが平均は低い（イベント駆動型）",
+          "source": "https://twitchtracker.com/games/512980",
+          "confidence": "high",
+          "source_date": "2026"
+        },
+        {
+          "fact": "Among Us は 2020/9 にピーク同時視聴 765,893人 → 2026 現在 3,746人と 99.5%減。月間アクティブも 500M → 約 20M に減衰。バイラル party game の寿命の短さを示す典型事例",
+          "source": "https://en.fmyly.com/article/why-did-among-us-lose-popularity/",
+          "confidence": "high",
+          "source_date": "2026"
+        },
+        {
+          "fact": "Twitch 2026/6 トップカテゴリ: Just Chatting 282,742人(14.4%), Counter-Strike 160,864(8.2%), LoL 92,910(4.7%), GTA V 67,188(3.4%), IRL 65,270(3.3%)。Jackbox / Among Us / Fall Guys はトップ20圏外。Twitch における純 party game カテゴリは Niche 側",
+          "source": "https://twitchtracker.com/games",
+          "confidence": "high",
+          "source_date": "2026-06"
+        },
+        {
+          "fact": "Discord Activities 公式ラインナップ 約20本: Gartic Phone, Sketch Heads, Putt Party Paradise, Land-io, Blazing 8s, Know What I Meme, Watch Together, Chess/Checkers in the Park, Letter League, SpellCast, Bobble League/Bash, Chef Showdown, Colonist, Krunker Strike, BOPZ.io, Color Together, Jamspace Whiteboard 等。Voice channel のロケットボタンから起動",
+          "source": "https://discord.com/blog/server-activities-games-voice-watch-together",
+          "confidence": "high",
+          "source_date": "2024-06-11（記事日付）"
+        },
+        {
+          "fact": "Instagram Reels の party-games トピックは 180万 reels（Instagram 公式 popular ページ）。party game コンテンツ群の継続供給が示される",
+          "source": "https://www.instagram.com/popular/party-games/",
+          "confidence": "medium",
+          "source_date": "2026-06（検索結果スニペット）"
+        },
+        {
+          "fact": "TikTok の Game CPI（モバイルゲーム App Install 単価）は $0.50〜$1.80。Gaming creator < 100K followers のエンゲージ率平均 7.50%、mega-influencer を大きく凌ぐ",
+          "source": "https://semnexus.com/influencer-marketing-for-mobile-apps-the-2026-measurement-playbook",
+          "confidence": "medium",
+          "source_date": "2026"
+        },
+        {
+          "fact": "日本 TikTok ナノインフルエンサー（1k–10k フォロワー）の 1投稿単価は $5〜$25（約750〜3,800円）。エンゲージ率 5〜10%で nano 多数起用が ROI で勝つ構造",
+          "source": "https://mochainc.co.jp/influencer-pricing-by-followers/",
+          "confidence": "medium",
+          "source_date": "2026"
+        },
+        {
+          "fact": "TikTok ハッシュタグは 2025/6 以降「最大5個」制限が段階導入。タグ羅列より動画内音声テキスト・キャプションの関連語が検索アルゴリズムに効く時代へ",
+          "source": "https://chaptertwo.co.jp/media/tiktok-algorithm/",
+          "confidence": "medium",
+          "source_date": "2026"
+        },
+        {
+          "fact": "TikTok 内に Mini Games 機能搭載、アプリを離れず発見・プレイ・購入が可能（TikTok Japan 公式系記事）",
+          "source": "https://filmora.wondershare.jp/tiktok/tiktok-games.html",
+          "confidence": "medium",
+          "source_date": "2026"
+        },
+        {
+          "fact": "TikTok 上で party game がバイラルする 4 要素: instant suspense / visible reactions / 簡単ルール / 物理的動き（spin・flip）と group reaction。skill ベースより chance ベースが伸びる（Kidobum 分析）",
+          "source": "https://www.kidobum.com/blogs/tactical-briefing/what-makes-a-game-tiktok-friendly-in-2026-the-viral-formula-for-party-games",
+          "confidence": "low",
+          "source_date": "2026"
+        },
+        {
+          "fact": "TikTok #drinkinggames は active hashtag だが正確 view count は API/Creative Center 経由のみ取得可能、公開 Web では非開示。drunk darts, cornhole, last finger on the cup 等が summer 季節需要で伸びる",
+          "source": "https://www.tiktok.com/tag/drinkinggames",
+          "confidence": "low",
+          "source_date": "2026"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "Twitch は ASOBI の主戦場ではない（party game は Just Chatting / FPS / MOBA に押されてトップ20圏外、Jackbox 平均873人レベル）。投資先としては最下位優先度",
+          "evidence_ref": "Twitch 2026/6 トップカテゴリ + Jackbox 873人",
+          "asobi_implication": "Twitch インフルエンサー施策に予算を割かない。Twitch は副次的・配信者がたまたま採用する受動チャネルとして残す。能動投資は TikTok / Reels に集中"
+        },
+        {
+          "insight": "Among Us の 99.5%減 は ASOBI にとって最大の警告。バイラル party game は 18–24 ヶ月で減衰する。継続性を作るには「ゲーム単体ではなくシリーズ・拡張・ブランド」が必要",
+          "evidence_ref": "Among Us 765,893 → 3,746人",
+          "asobi_implication": "1191ゲームの一括リリース戦略は減衰耐性に有効だが、季節イベント DLC / 月次お題追加 / コラボパックなどの『追加投入リズム』を 6 月以降の運用計画に組み込む。単発バズ目当ての PR は避ける"
+        },
+        {
+          "insight": "WNRS モデル（カード物理 → TikTok ブランド化 590万フォロワー）は ASOBI が真似るべき型。アプリ単体ではなく、TikTok 上にプレイ動画をブランド資産化するアカウント運営が長期 LTV を作る",
+          "evidence_ref": "WNRS 5.9M followers / 365M likes",
+          "asobi_implication": "ASOBI 公式 TikTok / Reels アカウントを立ち上げ、ja/en 2 軸で『お題シーンのリアクション動画』を週次連投。代行者 1 名（顔出し可・声出し可）を雇用する案も検討（井戸川さん自身は feedback_no_voice_face で出演不可）"
+        },
+        {
+          "insight": "Discord Activities 公式に Gartic Phone / Sketch Heads / Putt Party / Blazing 8s など 20本が並ぶが、純 social/party 系（飲み会お題型）は不在。ASOBI のお題型は Discord Embedded App SDK で参入余地がある",
+          "evidence_ref": "Discord Activities 20本リスト",
+          "asobi_implication": "iOS 1.0 ローンチ後の Phase 2 として『ASOBI Web 版 → Discord Activity 化』を検討。完全オフライン要件と矛盾するため、Web 版は別プロダクトとして分離設計。Discord ユーザー基盤は飲み会・配信両方を兼ねるホットスポット"
+        },
+        {
+          "insight": "TikTok ナノインフルエンサー（$5–25/投稿、エンゲージ 5–10%）は ASOBI の $0 予算前提でも届く。一方 Game CPI $0.50–1.80 は無料アプリなら現実的だが、ASOBI は『無料・広告なし』なので CPI 計算の対象外＝オーガニック一択",
+          "evidence_ref": "ナノ $5–25 / Game CPI $0.50–1.80",
+          "asobi_implication": "有料広告は 0 円戦略を維持。ナノ施策も最初は不要、代わりに『公式 TikTok でお題プレイ動画 50–100 本のオーガニック投下』が初手。バズらなかったらナノ 10 人×$15 ≒ $150 をテスト投下（井戸川さんの $25/月予算とは別軸）"
+        },
+        {
+          "insight": "TikTok の party game バイラル要素（instant suspense / visible reactions / chance ベース / 物理動き）は ASOBI のお題型と相性が悪い面がある。お題は『話す』ゲームで visible reaction は出るが、視覚的 spin/flip がない",
+          "evidence_ref": "Kidobum 4 要素分析",
+          "asobi_implication": "TikTok 投稿時はカメラを『プレイヤーの顔』に向け、お題カードのめくり/結果発表シーンを編集で suspense 化。アプリ画面録画よりも『リアクション動画』形式が伸びる。アプリ内に『TikTok 共有用 1 タップ撮影モード』追加を Phase 2 検討"
+        },
+        {
+          "insight": "Reels の party-games トピックは 180万件と供給は厚いが、Instagram は TikTok より single-game IP の伸びが鈍い（WNRS も主戦場は TikTok）。Reels は『TikTok 投稿のクロスポスト先』として運用負荷ゼロで OK",
+          "evidence_ref": "IG popular/party-games 1.8M reels",
+          "asobi_implication": "Reels 専用制作はせず、TikTok 投稿を自動クロスポスト。crosspost skill を活用。Threads / Bluesky への横展開も同時に"
+        }
+      ],
+      "unable_to_verify": [
+        "#partygame / #partygame / #飲み会ゲーム / #drinkinggames の正確な累計 view 数：TikTok 公開 Web ではタグ別 view 数を 2024 以降表示しなくなり、Creative Center（広告主用）か直接アプリ内検索のみで取得可能。WebFetch では tiktok.com/tag/* が JS 描画で空ページ返却",
+        "Twitch SullyGnome の Party Games カテゴリ別精密データ：ページが Loading 状態で WebFetch では取得不可。直接アクセス（手動）が必要",
+        "Discord Activities の各 game 別 DAU / MAU：Discord は Activities の利用統計を公開していない",
+        "日本 TikTok の party game 系 nano-influencer の実 CPI / CAC：ゲームジャンル別ブレイクダウンが公開ソースに存在せず推定不可"
+      ],
+      "contradicts_prior_analysis": [
+        "15 lens 監査時点で『TikTok / Reels の party game 動向は無料 PR の主戦場』とされていたが、Twitch は実際には Jackbox 平均 873人で party game がトップ20圏外＝Twitch を主戦場視するのは過大評価。実態は TikTok 単独優位",
+        "前回 monetization-research が想定していた『バイラル一発で 1191 ゲームが拡散』のシナリオは Among Us 99.5%減データから明確に否定される。継続的な追加投入（DLC 的なリズム）が前提となるべき",
+        "前回『無料アプリは広告 0 / オーガニック一択で勝てる』と楽観視していたが、Game CPI $0.50–1.80 / TikTok 投稿単価情報を踏まえると、最低限 $100–300/月の nano-influencer テスト枠を持つ方が現実的（井戸川さん予算 $25/月とは別軸で要検討）"
+      ],
+      "conclusion": "Twitch は party game の主戦場ではなく投資不要。Discord Activities は Phase 2 の Web 版参入余地として保留。ASOBI の能動投資先は TikTok 公式アカウント（ja/en）一択で、WNRS モデル（590万フォロワー）を Reels / Threads / Bluesky にクロスポスト運用する型が現実的。最大リスクは Among Us 型バイラル減衰（18–24ヶ月で 99.5%減）であり、月次お題追加・季節 DLC・コラボパックでの『追加投入リズム』を運用計画に組み込まないと 1191 ゲーム一括リリースの優位性が失われる。井戸川さんの顔出し不可制約により、公式 TikTok 運営は代行者起用 or 完全アプリ画面ベース投稿（バイラル要素弱）の二択になるため、ここが ASOBI 戦略の最大の構造的制約。"
+    },
+    {
+      "conclusion": "iOS 17-27 の新機能の中で、ASOBI (オフライン party game) に「すぐ刺せる」のは限定的だが、確度の高い 3 本がある: (1) App Intents + App Shortcuts による Siri/Spotlight からの音声起動 (「Hey Siri、ASOBI でお題出して」)、(2) Interactive Widget による Home Screen からのワンタップお題引き、(3) Live Activities + Dynamic Island によるラウンド進行表示。SharePlay と App Clips は概念上は適合するが、ASOBI の「対面・1 端末 pass-and-play」モデルとは部分的にずれるため、優先度は低い。WWDC26 で発表された iOS 27 では SiriKit が deprecated になり App Intents が必須化されたため、App Intents 採用は中期的にも「やった方がよい」から「やらないと不可視」に変わっている (Apple Intelligence 世代では intent を露出していないアプリは Spotlight/Siri 経由の発見性をほぼ失う)。Featured 採用事例としては 2026 ADA「Delight and Fun」game 部門で Poti Poti Studio (スペイン、indie) の Is This Seat Taken? が受賞、Apple は indie / 小規模 studio の「楽しさ」枠を実際に評価しており、ASOBI の路線と整合する。一方、SharePlay 専用 party game としては Guessing Game for SharePlay が「初の SharePlay 専用 party game」を称しているが、目立った breakout には至っていない(取得した限り)。",
+      "contradicts_prior_analysis": [
+        "前回までの分析で「SharePlay / GroupActivities が party game の breakout 機能になる」とした想定は、Featured 事例が乏しく、実需(対面 pass-and-play)と zoom 越し SharePlay の使い分けが ASOBI ユーザー像と合わない可能性が高い。SharePlay は「優先 API」から「中期検討」に格下げ妥当。",
+        "前回の lens 監査で「Interactive Widget は単発お題向きでない」と整理した節があるが、Cromulent Labs (Checkers/Chess/Tic Tac Toe を widget で提供) や Wiggle のように『widget で完結する短時間ゲーム』の前例が複数存在しており、ASOBI も『今日のお題』『シャッフルお題 1 件』など短尺コンテンツなら widget 化の実装パターンが既にある。",
+        "前回 monetization-research では「Apple Featured が monetization 加速の鍵」としていたが、2026 ADA 受賞 12 本に SharePlay / Live Activities / Interactive Widget / App Intents を明示採用した game は 1 本も特定できなかった。つまり Featured 採用と新 API 採用は強い相関がない可能性があり、『API 採用すれば Featured されやすい』という仮説は弱い。"
+      ],
+      "key_insights": [
+        {
+          "insight": "WWDC26 で SiriKit が正式に deprecated 通知、App Intents が Siri からサードパーティアプリを呼ぶ唯一の経路になった。猶予は約 2-3 年。ASOBI が App Intents を未対応のまま放置すると、iOS 27 世代の Spotlight / Siri / Apple Intelligence からの発見性をほぼ失う。",
+          "evidence_ref": "raw_data_collected[0] (Tom's Guide WWDC26 recap)",
+          "asobi_implication": "App Intents 採用は「Nice-to-have」ではなく「2026-2027 中の必須対応」。最低限 (a) `StartRandomGameIntent` (b) `ShowTodaysThemeIntent` (c) 各シーン/カテゴリを `AppEntity` として露出、の 3 つを実装。App Shortcuts で「Hey Siri、ASOBI でお題出して」「ASOBI でドライブ向けを開いて」を即発火にする。日本語 phrase も含めて 6-10 件登録。"
+        },
+        {
+          "insight": "iOS 17 以降の Interactive Widget は Button/Toggle + AppIntent で「タップして即お題切替」が widget 内で完結できる。Widgetsmith/Cromulent Labs の game widget や Wiggle のように、widget 内で完結する短時間体験は既に成立。",
+          "evidence_ref": "raw_data_collected[1][2] (David Smith Widgetsmith 5, Cromulent Labs 6 games widget)",
+          "asobi_implication": "ASOBI に『今日のお題』Medium widget を追加: タップでお題 1 件を widget 内で差し替え (アプリ起動不要)。小サイズで「シーン x お題」のテキスト 2 行表示。実装コストは AppIntent 1 個 + WidgetKit。これは『party game』としての breakout より、毎日触る『lifestyle utility』寄りの再ポジショニングを促す効果がある (DAU 上げ要素)。"
+        },
+        {
+          "insight": "iOS 27 / WWDC26 では Live Activities が Dynamic Island だけでなく StandBy (landscape charging) や Lock Screen で常時露出される設計に強化された。Live Activity ボタン = App Intent に紐づく対話型 UI。",
+          "evidence_ref": "raw_data_collected[3] (Apple Developer WWDC26 session 223 Live Activities essentials)",
+          "asobi_implication": "ASOBI の典型シナリオ『友達とお題を回す』で『60 秒タイマー Live Activity』を追加すると、(1) Dynamic Island に常時表示で「次のお題に進む」「やり直し」が Lock 画面/StandBy から押せる、(2) パーティ中 iPhone をテーブルに置いて使う UX と完全合致。ただし ASOBI は時間制で進む game ではないため、まず『現在のお題 + 次へボタン』Live Activity だけを 1 本実装し、StandBy 利用層 (iOS 17+, iPhone 15 Pro+ Dynamic Island 機) を取りに行く。"
+        },
+        {
+          "insight": "2026 Apple Design Awards『Delight and Fun』game 部門は Poti Poti Studio (スペイン indie) の Is This Seat Taken? が受賞。Apple は indie の「軽快で楽しい」game を実際に評価しており、Cyberpunk 2077 と同じ俎上で indie が選ばれている。",
+          "evidence_ref": "raw_data_collected[4][5] (Apple Newsroom 2026 ADA, AppleInsider)",
+          "asobi_implication": "ASOBI が ADA / Featured を狙う場合、技術的差別化 (SharePlay 等) より『Delight and Fun』カテゴリでの体験差別化 (シーン x お題 の体験設計、reaction の楽しさ) を全面に出す方が打率が高い。App Store 申請後の Editorial pitch では『party / charades / icebreaker』カテゴリの indie として、Is This Seat Taken? を benchmark にした立ち位置で打診すべき。"
+        },
+        {
+          "insight": "Apple Games app (iOS 26 pre-install) は Game Center 連携で leaderboards / achievements / Challenges を Games app トップに露出させ、未インストールユーザーへも recommendation が走る。",
+          "evidence_ref": "raw_data_collected[6][7] (Apple Developer Games app, MacRumors iOS 26 Games app)",
+          "asobi_implication": "ASOBI は対戦型でないため leaderboard 適合度は低いが、『achievements (例: 全シーン制覇、100 お題プレイ、深夜お題踏破)』だけは Game Center に登録する価値が高い。Games app の recommendation 経路が増えることで Featured 以外の流入チャネルが 1 本増える。実装コストは 1-2 日。"
+        },
+        {
+          "insight": "SharePlay は 2021 から提供されているが、party game 専用での breakout 事例は『Guessing Game for SharePlay』程度しか取得できず、Featured / ADA 受賞には至っていない。Apple 公式の party 系 SharePlay 推し game は WHAT THE CLASH? (Apple Arcade) など Arcade 経由が中心。",
+          "evidence_ref": "raw_data_collected[8][9] (Guessing Game for SharePlay App Store, Apple Newsroom Apple Arcade)",
+          "asobi_implication": "ASOBI で SharePlay を実装してもユーザーが集まる保証は弱い。優先度は『App Intents > Interactive Widget > Live Activity > Game Center achievements >> SharePlay > App Clip』の順で良い。SharePlay は v1.1 以降の『遠隔友達と遊びたいユーザー』が定量的に確認できてから検討。"
+        },
+        {
+          "insight": "App Clips は『demo として軽く触ってもらう』用途に最適化されており、QR / NFC で 10MB 級の lite 版を起動できる。ただし party game の Featured 事例は取得できず、利用シーンは飲食店オーダー / 駐車場が中心。",
+          "evidence_ref": "raw_data_collected[10][11] (Apple Developer App Clips HIG, Cult of Mac Phoenix II)",
+          "asobi_implication": "App Clip は『カフェのテーブルに QR を貼って『ASOBI 体験版』を即起動』というプロモ施策には使えるが、ASOBI が現状ソロ開発で B2B / 設置営業を持たないため、優先度は低。中期 (Year 2) で『お店との提携』が具体化したら検討。今は実装しない判断で問題なし。"
+        }
+      ],
+      "lens_label": "iOS 17-27 新機能の party game 適用例",
+      "lens_number": 10,
+      "raw_data_collected": [
+        {
+          "fact": "WWDC26 (2026-06) で Apple は SiriKit に正式 deprecation 通知を出し、App Intents が Siri から第三者アプリを呼び出す唯一の経路になった。SiriKit アプリには compile-time の deprecation warning が出、サポート期間は約 2-3 年。",
+          "source": "https://www.tomsguide.com/news/live/wwdc-2026-live-news-updates",
+          "source_date": "2026-06",
+          "confidence": "high"
+        },
+        {
+          "fact": "Widgetsmith 5 (David Smith) は iOS 17 の Interactive Widget で『Large widget 内でタイルゲームをプレイできる』機能を追加。widget をタップして widget 内でゲームを開ける。",
+          "source": "https://www.david-smith.org/blog/2023/09/18/widgetsmith-5-interactive-widgets/",
+          "source_date": "2023-09-18",
+          "confidence": "high"
+        },
+        {
+          "fact": "Cromulent Labs は iOS 17 / macOS Sonoma の Home Screen/desktop widget で Checkers, Minesweeper, Slide Puzzle, Chess, Tic Tac Toe, 4 in a Row の 6 種ゲームを widget 内プレイ可能にしている。",
+          "source": "https://techcrunch.com/2023/09/18/these-ios-17-apps-bring-interactive-widgets-to-your-iphone-home-screen/",
+          "source_date": "2023-09-18",
+          "confidence": "high"
+        },
+        {
+          "fact": "WWDC26 Session 223『Live Activities essentials』で、iOS 27 では Live Activities が Lock Screen / Dynamic Island (portrait & landscape) / StandBy (landscape charging) に表示。Live Activity 内の各 Button は App Intent と紐づき、タップで intent が実行される。",
+          "source": "https://developer.apple.com/videos/play/wwdc2026/223/",
+          "source_date": "2026-06",
+          "confidence": "high"
+        },
+        {
+          "fact": "2026 Apple Design Awards『Delight and Fun』game 部門で Poti Poti Studio (スペイン) の Is This Seat Taken? が受賞。座席パズルゲームで、indie として Cyberpunk 2077 等と同じ場で選ばれた。",
+          "source": "https://www.apple.com/newsroom/2026/06/apple-reveals-winners-of-the-2026-apple-design-awards/",
+          "source_date": "2026-06-02",
+          "confidence": "high"
+        },
+        {
+          "fact": "2026 ADA 受賞 12 本 (game 6 / app 6) の中で、SharePlay / Live Activities / Interactive Widgets / App Intents を明示的に主要差別化として採用していると公式リリース文に記載された game は 0 本だった (Newsroom の説明文ベース)。",
+          "source": "https://www.apple.com/newsroom/2026/06/apple-reveals-winners-of-the-2026-apple-design-awards/",
+          "source_date": "2026-06-02",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Apple Games app は iOS 26 / iPadOS 26 / macOS 26 から pre-install。Challenges (非同期スコア対戦), Leaderboards, Achievements が Games app の recommendation 経路に統合される。未インストールユーザーにも『友達がスコア更新したよ』通知で再 DL を促す。",
+          "source": "https://developer.apple.com/games-app/",
+          "source_date": "2025-06",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS 26 Apple Games app は『Play Together』タブで友達が遊んでいるゲームが見え、招待が可能。Challenges でスコア対戦 (非対戦型ゲームでも asynchronous に競える)。",
+          "source": "https://www.macrumors.com/guide/ios-26-games-app/",
+          "source_date": "2025",
+          "confidence": "high"
+        },
+        {
+          "fact": "Guessing Game for SharePlay は『初の SharePlay 専用 party game』として 2021 から App Store に存在し、FaceTime 越しに友達と遊べる構造。",
+          "source": "https://apps.apple.com/us/app/guessing-game-for-shareplay/id1573083328",
+          "source_date": "2021-",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple Newsroom (2021-11) では SharePlay を『FaceTime 越しの新しい繋がり方』として、Apple TV+ / Apple Music / Heads Up! 等と並べて推した。party 系では Heads Up! が当初の代表アプリ。",
+          "source": "https://www.apple.com/newsroom/2021/11/shareplay-powers-new-ways-to-stay-connected-and-share-experiences-in-facetime/",
+          "source_date": "2021-11",
+          "confidence": "high"
+        },
+        {
+          "fact": "App Clip は『lightweight version of your app or game that provides an on-the-go or demo experience that is instantly available』として Apple HIG に定義。QR / NFC / Safari banner で起動、10MB 上限。",
+          "source": "https://developer.apple.com/design/human-interface-guidelines/app-clips",
+          "source_date": "継続更新",
+          "confidence": "high"
+        },
+        {
+          "fact": "App Clip の game demo 例として Cult of Mac は『Phoenix II』(shooter) を取り上げ、iOS 14 当時の party 系/casual game demo 用途を紹介。party game 専用の Featured 事例は取得できず。",
+          "source": "https://cultofmac.com/723998/app-clips-game-demo-phoenix-ii",
+          "source_date": "2020",
+          "confidence": "medium"
+        },
+        {
+          "fact": "iOS 26 App Intents 2.0 では Visual Intelligence (画像検索結果に第三者アプリ結果を表示)、Interactive Snippets (small pop-up UI を返す Intent)、Entity View annotations、@DeferredProperty 等が追加。",
+          "source": "https://blakecrosley.com/blog/app-intents-2-ios-26-additions",
+          "source_date": "2025",
+          "confidence": "medium"
+        },
+        {
+          "fact": "WWDC26 Session 343『Explore advanced App Intents features for Siri and Apple Intelligence』と Session 345『Discover new capabilities in the App Intents framework』が 2026 の中核セッション。後者は 2027 リリースに向けた entity 横断共有 / relevance signal / 大量処理機能を含む。",
+          "source": "https://developer.apple.com/videos/play/wwdc2026/345/",
+          "source_date": "2026-06",
+          "confidence": "high"
+        },
+        {
+          "fact": "App Shortcuts は『Hey Siri + phrase』で起動可能で、HomePod / Apple Watch / iPhone 全てから発火。trivia / random number 系の party 用 Shortcut は Apple Support にも掲載例がある。",
+          "source": "https://support.apple.com/guide/shortcuts/run-shortcuts-with-siri-apd07c25bb38/ios",
+          "source_date": "継続更新",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple Arcade の代表的 party game は WHAT THE CLASH? (2025-05 追加)。多人数 mini-game 集で SharePlay / GameCenter ベースのマルチプレイ。",
+          "source": "https://www.apple.com/newsroom/2025/04/what-the-clash-joins-apple-arcade-in-may-among-five-new-games/",
+          "source_date": "2025-04",
+          "confidence": "high"
+        }
+      ],
+      "unable_to_verify": [
+        "ASOBI 類似 (お題提示型・オフライン) の indie party game で、App Intents / Interactive Widget / Live Activities を採用して Featured 採用された具体ケース。Apple Newsroom / ADA いずれにも『party お題提示 + 新 API』の組合せでの記事化された事例が見当たらない (≒先行者がほぼいない領域、先行 advantage が取れる)。",
+        "Featured バナー / Today タブで Interactive Widget や Live Activities を主要 hook とした indie game の選出データ (Apple 公式は『個別 API 採用が Featured 条件』とは明言していない)。",
+        "App Clip 経由で party game の DL / engagement が実数値で何 % 上がったか、という indie 開発者の publish 済みデータ (Phoenix II 等の事例は記事化されているが install 数 / retention 数値は取得できず)。",
+        "iOS 27 で発表された App Intents の新機能のうち、game カテゴリに特化した API (例: turn-based event を OS に渡す等) があるか。WWDC26 session 343/345 の中身までは公式 transcript が取得できず、game 専用機能の有無が確認できない。"
+      ]
+    },
+    {
+      "lens_number": 11,
+      "lens_label": "B2B 受注先実名リスト",
+      "raw_data_collected": [
+        {
+          "fact": "株式会社IKUSA（東京都豊島区東池袋3-20-21 広宣ビル4F、TEL 03-5960-5193）。問い合わせフォーム https://mktg.ikusa.jp/ikusa.co.jp/contact/event 。4300組織・100万人参加・年間1600件超のイベント実績。チャンバラ合戦・リモ謎など90+サービス。",
+          "source": "https://ikusa.co.jp/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "バヅクリ株式会社（東京都港区南青山3-3-3 リビエラ南青山ビルA、代表 佐藤太一、TEL 03-6822-6613）。プログラム一覧 https://buzzkuri.com/programs 。エンゲージメントサーベイ＋研修・イベント提供。",
+          "source": "https://buzzkuri.co.jp/company",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "株式会社リスキル（東証上場・Pマーク取得）。問い合わせフォーム https://www.recurrent.jp/inquiries/new 、資料請求 https://www.recurrent.jp/inquiry_brochures/new 。1060種類の研修を均一料金で提供。TEL 0120-299-194。",
+          "source": "https://www.recurrent.jp/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "株式会社Schoo（東京都渋谷区鶯谷町2-7 エクセルビル4F）。法人問い合わせ support@schoo.jp、企業窓口 info@schoo.jp、資料請求 https://schoo.jp/biz/request 。9000本超学習動画・4000社導入のオンライン研修サービス。",
+          "source": "https://schoo.jp/biz/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "GROWS（グロース株式会社）。問い合わせフォーム https://grows-net.com/contact/ 、TEL 03-3527-1905。表彰式・周年・チームビルディング・映像制作を一貫提供する INNER EVENT produce company。",
+          "source": "https://grows-net.com/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "NEO FLAG.（ネオフラッグ）。問い合わせ https://event.neodining-catering.com/contact/ 。2000件超のイベント実績、ケータリング自社部門、関東500会場提携。",
+          "source": "https://event.neodining-catering.com/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "社内イベント企画代行24社の社名と公式URL（キャククル掲載）: GROWS、Think of Fun（https://thinkoffun.co.jp/evesupo）、マックスプロデュース（https://max-produce.com）、タノシナル（https://tanoshinal.com/）、グローバルプロデュース（https://www.global-produce.jp/）、クリエ（https://www.creaman.com）、JTBコミュニケーションデザイン（https://www.jtbcom.co.jp/）、オージャスト（https://www.orgiast.jp/）、NEO FLAG、クリエイティブ・ファクトリー（https://www.creativefactory-co.jp/）、イベント21（https://event21.co.jp）、iStyle（https://istyle-live.com/）、コムネット（https://www.comnet-co.com/）、glassy（https://glassy-co.jp）、ゼロイン（https://cd.zeroin.co.jp/）、グローブス（http://globes.co.jp/）、リンクイベントプロデュース（https://event.link-ep.co.jp/）、ニューズベース（https://www.newsbase.co.jp/）、ドゥ・クリエーション（https://www.inhouse.do-c.com/）、博展（https://www.hakuten.co.jp/）、TSP太陽（https://tsp-products.info/event/v1/）、トーガシ（https://www.tohgashi.co.jp/）、イベント・レンジャーズ（https://event-rangers.jp/）、REIGETSU（https://rei-getsu.com/）。",
+          "source": "https://www.shopowner-support.net/customer_attraction_information/online/tool/company-event/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "チームビルディング研修15社（LISKUL掲載）: インソース（https://www.insource.co.jp/）、Schoo（https://schoo.jp/biz/）、SMBCコンサルティング（https://www.smbc-consulting.co.jp/）、チームビルディングジャパン（https://www.teambuildingjapan.com/）、リスキル、ANAビジネスソリューション（https://www.abc.jp/）、バヅクリ、アチーブメントHRソリューションズ（https://achievement-hrs.co.jp/）、MeCoFa（https://mecofa.co.jp/）、ミテモ（https://www.mitemo.co.jp/）、アガルート（https://agaroot.co.jp/）、ワークハピネス（https://www.workhappiness.co.jp/）、BOS=ビートオブサクセス（https://bos1.jp/）、ユーキャン（https://www.u-can.co.jp/）、アルー（https://www.alue.co.jp/）。",
+          "source": "https://liskul.com/team-building-training-comparison-153766",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "株式会社モンテローザ（〒166-0011 東京都杉並区梅里1-21-15、TEL 03-3315-8888）の問い合わせフォームは2種類: 電話返信希望 https://form.run/@monte-connect-1591611437 、メール返信希望 https://form.run/@monte-connect-1591774968 。取引業者募集は別ページ、ゲーム企画提案を受ける汎用窓口は無い。",
+          "source": "https://www.monteroza.co.jp/company/contact/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "株式会社コロワイドの問い合わせ窓口は用途別に細分化: 食材・資材・工場設備=https://www.colowide.co.jp/inquiry/inquiry.php?id=4 、店舗開発・物件=id=3 、広告・取材・システム=id=5 、業務提携（旅行/ツアー）=id=7 。ゲームコンテンツを受ける汎用窓口は明示されていない。",
+          "source": "https://www.colowide.co.jp/inquiry/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "ワタミ株式会社の問い合わせは /contact/group/（取材・IR・食材・備品・店舗用不動産）、/contact/property/（物件募集）、海外事業窓口に分かれる。社員イベント・ゲームコンテンツ受付窓口は無い。",
+          "source": "https://www.watami.co.jp/contact/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "株式会社エターナルホスピタリティグループ（旧 鳥貴族ホールディングス、東証プライム3193、大阪市浪速区本社）。問い合わせ https://eternal-hospitality.co.jp/contact/ 。グループ会社=エターナルホスピタリティジャパン・鳥貴族東日本・西日本。",
+          "source": "https://eternal-hospitality.co.jp/contact/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "株式会社串カツ田中ホールディングス（東京都品川区、東証スタンダード3547）。一般客窓口 https://kushi-tanaka.com/contact-customer/ 、企業様窓口 https://kushi-tanaka.com/contact-company/ 、HD窓口 https://kushi-tanaka.co.jp/contact/ 。客単価2300円。",
+          "source": "https://kushi-tanaka.com/contact-company/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "鳥貴族と串カツ田中は2021年に共同メニュー企画を実施した実績あり（串カツ田中HD貫啓二社長と鳥貴族HD大倉忠司社長の私的関係から実現）。プレスリリース PRTIMES 36869。",
+          "source": "https://prtimes.jp/main/html/rd/p/000000002.000036869.html",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "ストラーツ（株式会社ストラーツ、イベント・展示会制作）はキックオフ・周年・表彰式・チームビルディング企画を提供。社内イベント企画会社26選 https://strarts-event.com/column/7328/ の特集ページあり。",
+          "source": "https://strarts-event.com/",
+          "confidence": "medium",
+          "source_date": "2026-06-24"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "イベント企画代行業界には『年間1000-2000件の社内イベントを納品』と公言する中堅〜大手が24社以上存在し、すべて公開問い合わせフォームを持つ。アイスブレイク・余興ネタは恒常的な調達ニーズがある",
+          "evidence_ref": "raw_data #1, #5, #6, #7",
+          "asobi_implication": "ASOBI を『社内イベント余興ネタ集（1191ゲーム）の素材ライセンス / 提案カード API』として 24社+IKUSA+バヅクリ+リスキル+Schoo の計 30社にコールド書面を投げる価値あり。テンプレは『1191ゲーム × カテゴリ別抽出 API を月額数万円で提供／貴社既存パッケージに同梱可』。outputs/outreach/_templates/cold-outreach-mediation-template-2026-06-23.md をベースに公式URLを各社個別に差し込み、3層全層に固有要素を入れる（feedback_cold_outreach_anti_template 厳守）"
+        },
+        {
+          "insight": "IKUSA は『あそび総合カンパニー』『体験型イベント・研修 90+ サービス』を自社サイトで標榜し、ASOBI のポジショニング（パーティーゲーム提案）と語彙レベルで完全一致する",
+          "evidence_ref": "raw_data #1",
+          "asobi_implication": "IKUSA は優先1件目。問い合わせフォーム https://mktg.ikusa.jp/ikusa.co.jp/contact/event 経由で『1191ゲームのインデックスを貴社の謎解き・チャンバラ系プログラムと組み合わせる素材提供』として打診。返信率の母数とするためバヅクリ・GROWS・NEO FLAG にも同時送信（4社並行）"
+        },
+        {
+          "insight": "居酒屋チェーン本部（モンテローザ・コロワイド・ワタミ・鳥貴族=エターナル・串カツ田中）の問い合わせ窓口は『取引業者募集 / 食材・備品 / 物件 / IR』に細分化されており、ゲーム提案を受け付ける一般窓口は存在しない",
+          "evidence_ref": "raw_data #9, #10, #11, #12, #13",
+          "asobi_implication": "居酒屋チェーン本部 B2B はリストから外す。代わりに『各店舗の店長個別への B2C 経路』（オーナー店舗、忘年会需要期の店舗 SNS 経由）に切り替えるべき。これは前回の lens 15 仮説の修正"
+        },
+        {
+          "insight": "研修プラットフォーム（Schoo・リスキル）は1060種類の研修 / 9000本動画を抱える『コンテンツ売り手』で、ASOBI を競合コンテンツとして買う動機は薄い",
+          "evidence_ref": "raw_data #3, #4",
+          "asobi_implication": "研修会社へのアプローチは『コンテンツライセンス売り込み』ではなく『チームビルディング研修の余興素材 OEM 提供』として打診。むしろイベント代行（場と運営を売る側）の方がコンテンツ補完ニーズが強いため優先度は代行 > 研修"
+        },
+        {
+          "insight": "鳥貴族（エターナル3193）と串カツ田中（3547）は2021年に社長個人関係発の共同メニュー企画を実施した前例があり、両社とも『コンテンツ連携』に経営者レベルで開かれた文化を持つ",
+          "evidence_ref": "raw_data #14",
+          "asobi_implication": "優先度は低いが将来カード: ASOBI が ja/en バイリンガル対応であることを活かし『インバウンド向け居酒屋エンタメ』として広告代理店経由で持ち込む経路は残せる。ただし窓口経路が無いので直接コールドは不適"
+        },
+        {
+          "insight": "バヅクリの本社所在地（南青山）・代表者（佐藤太一）・電話番号（03-6822-6613）まで一次ソースで確認できたが、Web上の問い合わせフォーム URL は公式ページからは直接たどれず、/programs ページ経由の資料請求が実質的な窓口になっている",
+          "evidence_ref": "raw_data #2",
+          "asobi_implication": "バヅクリへのコールドは『資料請求フォーム』からの送信 or 代表電話への一次接触で、フォーム名が表に出ない点を考慮。送信後の追跡可能性が低いため、メール宛先を追加で特定する手間が必要（feedback_outreach_email_tone 適用、短く・柔らかく・コミット薄く）"
+        }
+      ],
+      "unable_to_verify": [
+        "PartyMonster / Kanjipie / Eventos といった『幹事代行』ブランドの実体: 検索で該当会社が出ず、ブランド名だけが指示にあったが日本の運営会社が特定できなかった。実態として『個人ブログ / 飲み会幹事ハック記事』しか出てこない可能性が高い",
+        "モンテローザの『取引業者募集』ページ本体URL: 問い合わせページからリンクされていると判明したものの具体URLは未取得",
+        "バヅクリの問い合わせ専用フォーム URL: トップページ・会社概要ページから直接たどれず、/programs 経由の資料請求が窓口の模様",
+        "各24社の『価格帯』『過去取引先』『コンテンツ調達ポリシー』: 公式サイト掲載なし。コールド送付後のヒアリングが必要"
+      ],
+      "conclusion": "B2B 受注先候補として、チームビルディング研修15社 + イベント企画代行24社 + 居酒屋チェーン5社 = 計44社の実名と公式問い合わせ URL を一次ソースで確認できた。優先送付先は『イベント企画代行（24社）+ IKUSA + バヅクリ + GROWS + NEO FLAG』の計28社で、ASOBI を『社内イベント余興ネタ集 1191ゲームの素材ライセンス / 提案カード API』として打診する。居酒屋チェーン本部はゲーム提案を受け付ける窓口を持たないことが判明し、前回 lens 15 の『居酒屋チェーン本部を顧客に』仮説は棄却。研修プラットフォーム（Schoo・リスキル）は自社が大量コンテンツの売り手であり競合関係に近く、優先度は代行 > 研修。コールドはoutputs/outreach/_templates/cold-outreach-mediation-template-2026-06-23.md ベースに各社固有要素＋公式URLを入れ、最初は5社サンプル送付で返信率を実測してから 28社へ拡張（feedback_sample_verify_before_bulk_update 適用）。</conclusion>\n<parameter name=\"contradicts_prior_analysis\">[\n\"前回 lens 15 では『居酒屋チェーン本部 = ゲームコンテンツの買い手』と想定していたが、モンテローザ・コロワイド・ワタミの問い合わせ窓口は『取引業者募集 / 食材・備品 / 物件 / IR』に細分化されており、ゲーム提案を受ける汎用窓口は存在しない。居酒屋チェーン本部 B2B はターゲットから除外すべき\",\n\"前回 monetization-research では『B2B チャネルは個人開発者には遠い』前提だったが、実際には IKUSA / バヅクリ / NEO FLAG など問い合わせフォームが open かつ営業窓口が明確な企業が 24 社以上存在し、書面コールドの door は実質的に開いている（井戸川さんの完全非同期方針と整合）\",\n\"前回『研修会社が B2B 候補』としていたが、Schoo / リスキルは1060種類研修・9000本動画を抱える『コンテンツ売り手』で、ASOBI を競合コンテンツとして買う動機は薄い。優先度はイベント代行（場と運営を売る側で、コンテンツ補完ニーズが強い）の方が高い\"\n]"
+    },
+    {
+      "conclusion": "プレスバリュー比較で見えてきたのは、ASOBI が立てるべき press フックは「個人開発 × データ収集ゼロ × オフライン完結 × 1191 ゲーム/13 シーンという数の網羅性」の組合せだが、現状の日本メディアでは「個人開発×AppStore1位×収益額」「個人開発×PR TIMES 即時記者電話」「Washington Post 流のプライバシーラベル検証」の 3 系統に既存ニーズが確認できた。最も再現性が高いのは PR TIMES 配信（30,000 円・3 分で記者電話・26-28 サイト転載という izanami.dev の一次事例）と、ねとらぼ/ITmedia の独立タレコミ窓口（corp.itmedia.co.jp/media/pr/）の組合せ。GIGAZINE は tarekomi 専用フォーム（gigazine.net/news/contact3/）が機能している。逆に PR TIMES「スタートアップチャレンジ」（無料月1件・計10件）は ASOBI（個人事業主・井戸川さん個人）には**適用不可**（公式 FAQ で個人事業主除外を明記）が今回判明、有料 30,000 円ルートのみが現実解。海外 TechCrunch ルートは indie iOS では未確認、英語圏は MacStories/Kodeco 等の専門メディアと Apple Design Award 経由が主流（Streaks=Crunchy Bagel が代表）で、ASOBI v1 で TechCrunch を狙うのは過大期待。フックの優先順位は (1) 1191 ゲームの「数の網羅性」 (2) Data Not Collected の Privacy Nutrition Label 完全クリア (3) 完全オフライン (4) 個人開発・ゼロ予算。3 と 4 だけだと弱く、1 と 2 を主軸にすべき。",
+      "lens_label": "プレスバリュー比較 + メディア取り上げフックリスト",
+      "lens_number": 12,
+      "raw_data_collected": [
+        {
+          "fact": "ITmedia は corp.itmedia.co.jp/media/pr/ にリリース送付・取材依頼の専用ページを持ち、ITmedia / ITmedia マーケティング / ねとらぼ / スマートジャパン / MONOist / EE Times Japan / EDN Japan / TechFactory / キーマンズネット / TechTargetジャパン / @IT のメディア別受付窓口（メールアドレスは個別問い合わせ）が存在。掲載保証はないが回答はする運用。",
+          "source": "https://corp.itmedia.co.jp/media/pr/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "GIGAZINE は『ネタのタレコミ』フォーム（gigazine.net/news/contact3/）と『プレスリリース・その他問い合わせ』フォーム（gigazine.net/news/contact4/）を分離して設置。公式メールドメインは @gigazine.net / @osa-inc.jp / @gigazine.info の 3 つのみ。書面のみ可否は明文化なし。",
+          "source": "https://gigazine.net/news/about/",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "個人開発者が PR TIMES 有料配信（30,000 円・税抜）で SpreadSite のリリースを出したところ、配信後 3 分で記者から電話、Day1 で 1,908 PV / 26 サイト転載、Day2 で 6,703 PV / 28 サイト転載、PR TIMES ランキング 50 位（テクノロジーカテゴリ 6 位）。Gemini へのレコメンド掲載と SEO 改善も副次効果として観測。",
+          "source": "https://izanami.dev/post/12a15a76-1a11-4bd0-937b-81f11fdb287d",
+          "confidence": "high"
+        },
+        {
+          "fact": "PR TIMES『スタートアップチャレンジ』（月 1 件・計 10 件まで無料配信）は『日本国内の株式会社』『設立 24 カ月以内』『フォロワー 3 名以上』が条件で、個人事業主は適用不可（公式 FAQ 明示）。",
+          "source": "https://tayori.com/q/prtimes-faq/detail/341330/",
+          "confidence": "high"
+        },
+        {
+          "fact": "個人開発の『IsTalk - トーク分析』が 2024 年 3 月に App Store ユーティリティカテゴリ 1 位を獲得、累計 100 万 DL、月収 250 万円（サブスク+広告）を達成。開発者はエンジニア歴 15 年・AI 会社経営・TikTok アプリマーケ専門。",
+          "source": "https://note.com/keitaaaan/n/n6b4ff16d9835",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Crunchy Bagel（Streaks 開発元・実質ソロ寄りの 2 人体制）の Quentin Zervaas は 2016 年 Apple Design Award 受賞、その後 Kodeco / MacStories / Apple Developer 公式 Discover の各媒体で個別インタビューが組まれた。受賞→海外メディア波及の典型パターン。",
+          "source": "https://www.kodeco.com/357-creator-of-streaks-and-full-time-indie-ios-dev-a-top-dev-interview-with-quentin-zervaas",
+          "confidence": "high"
+        },
+        {
+          "fact": "ITmedia NEWS は『FlickTyper』（個人発の PC 用フリック入力デバイス）について開発者三村氏の単独インタビューを掲載。『若者はキーボード苦手とニュースで知って』作ったという開発動機がフック。",
+          "source": "https://www.itmedia.co.jp/news/articles/1706/22/news072.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "Washington Post の記者が Privacy Nutrition Label と実データ収集の乖離を調査、約 1/3 のアプリで申告と実態の食い違いを指摘。『Data Not Collected』を本当に達成しているアプリは press 検証対象としてニュース価値あり（裏返しのフックになる）。",
+          "source": "https://iphone-mania.jp/news-344545/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "個人開発ゲームアプリ作者が 4Gamer.net に問い合わせフォーム経由でプレスリリースを送付し、ニュース掲載に成功した事例が複数存在（Medium-Rare Games, 蛇ト音, 花倉みだれ等が note/blog で報告）。連絡経路は www.4gamer.net/secure/mail/form.php → 個別メール返送 → 本文送付の二段階。",
+          "source": "https://medium-rare.jpn.org/archives/1636",
+          "confidence": "high"
+        },
+        {
+          "fact": "4Gamer 公式お問い合わせフォームが現役で稼働。指定形式で本文 URL を渡せば編集部に届く。",
+          "source": "https://www.4gamer.net/secure/mail/form.php",
+          "confidence": "high",
+          "source_date": "2026-06-24"
+        },
+        {
+          "fact": "個人開発ゲーム作者向け『プレスリリース送付先まとめ』が note 公開され、ファミ通/IGN Japan/AUTOMATON/4Gamer/Gamer 等の連絡経路を実例つきで集約。インディー個人発のプレス送付がメディア側に受容される構造が定着。",
+          "source": "https://note.com/akutaba/n/n029b58128250",
+          "confidence": "high"
+        },
+        {
+          "fact": "ねとらぼは ITmedia 傘下で『今気になる・人に話したい旬のネタ』を編集方針として明示、Twitter に @nlab_boshu の募集用アカウントを持つ。タレコミ受容度は ITmedia 系で最も高い。",
+          "source": "https://corp.itmedia.co.jp/media/topic/service/nlab/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Forest（Seekrtech）は台湾台中拠点・2 名創業（Shao-Kan Pi / Ting-Yu Cheng）の小規模チームだが TechCrunch には未掲載、海外プレスは AppSamurai のケーススタディや Wikipedia エントリが中心。indie iOS で TechCrunch 掲載は構造的に薄い。",
+          "source": "https://appsamurai.com/blog/mobile-app-success-story-forest-by-seekrtech/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Paweł Białecki（Force Saber of Light の作者）は 11 年でソロ運営 3M DL 超、Medium で詳細な開発ストーリーを継続発信。海外 indie iOS の press 流通経路は『自分の Medium → Hacker News / Reddit → 専門メディア二次拾い』が主流。",
+          "source": "https://medium.com/app-coder-io/how-i-built-a-successful-iphone-app-business-as-an-indie-ios-developer-fd549a3275d3",
+          "confidence": "medium"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "PR TIMES 有料配信（30,000 円）は ASOBI 単発リリースの ROI 試算上、明確に投資推奨ライン。3 分で記者電話・26 サイト転載という一次事例が出ている。スタートアップチャレンジは個人事業主除外で使えないため、有料配信を 1 発だけ仕掛けて二次拾いを取りに行く戦術がベスト。",
+          "evidence_ref": "izanami.dev / SpreadSite ケース + PR TIMES 公式 FAQ",
+          "asobi_implication": "v1 リリース当日 or 1191 ゲーム / 13 シーン突破タイミングで PR TIMES 1 発（30,000 円）を打つ。タイトルは『1 人で 1191 個のパーティーゲームを作った iOS アプリ、データ収集ゼロで App Store にリリース』のような数値×プライバシーの 2 軸構成にする。"
+        },
+        {
+          "insight": "ITmedia / ねとらぼ / GIGAZINE / 4Gamer は『個別タレコミ窓口』が現役で稼働し、個人開発でもメール一本で届く構造。PR 配信より先にここに『書面のみ』で個別連絡しておくのが日本メディア攻略の正攻法。",
+          "evidence_ref": "corp.itmedia.co.jp/media/pr/, gigazine.net/news/contact3/, 4gamer.net/secure/mail/form.php",
+          "asobi_implication": "リリース 2 週間前に 4 媒体（ねとらぼ、ITmedia NEWS、GIGAZINE、4Gamer）に個別タレコミメール送付。同期コミュニケーション NG の井戸川さん条件と完全に整合（書面のみで完結する経路）。"
+        },
+        {
+          "insight": "Streaks (Crunchy Bagel) のように『Apple Design Award → Kodeco / MacStories / Apple Discover の連鎖』が海外 indie iOS の press 王道。ASOBI が ADA を狙うのは現実的でなくても、Apple 公式 Today タブの『今日のアプリ』に推薦する流れは press 価値を生む。",
+          "evidence_ref": "Kodeco インタビュー + Apple Developer Discover",
+          "asobi_implication": "Apple App Store の『App Store Editorial pitch』フォームに ASOBI を直接 pitch する（developer.apple.com 経由）。Today タブ掲載 → 海外 press 連鎖 という indie iOS の標準ルートに乗せる。"
+        },
+        {
+          "insight": "Washington Post 流の『プライバシーラベル検証』記事の文脈で、ASOBI の Data Not Collected は『本当に収集していない数少ない例』として裏側からニュース価値を持つ。プライバシー擁護系媒体（iPhone Mania, WIRED, ライフハッカー）にこの切り口で売り込める。",
+          "evidence_ref": "iPhone Mania の Washington Post 引用記事",
+          "asobi_implication": "プライバシーラベル『Data Not Collected』完全クリアのスクリーンショットを press kit に必ず入れる。フックは『約 1/3 が虚偽申告という調査がある中で完全クリア』という対比文。"
+        },
+        {
+          "insight": "個人開発の AppStore 1 位事例（IsTalk）は『収益 250 万円』という金額フックだが、ASOBI は無料配布なので金額フックが使えない。代わりに『ゼロ予算・無料・収集ゼロ・1 人で 1191 個』の質的フックで勝負する必要がある。これは日本メディアにまだ存在しない切り口。",
+          "evidence_ref": "note.com/keitaaaan + ASOBI 仕様",
+          "asobi_implication": "press 用一文を『ゼロ予算・収集ゼロ・1 人で 1191 個のお題を作った iOS パーティーゲームを完全オフラインでリリース』に固定。金額ではなく数と原則を売る軸に固定。"
+        },
+        {
+          "insight": "海外 indie iOS の press 流通は『自分の Medium → Hacker News / Reddit → 専門メディア二次拾い』が主流で、TechCrunch ダイレクトは構造的に薄い。Forest ですら TechCrunch には載っていない。",
+          "evidence_ref": "Paweł Białecki Medium + Forest の press 履歴",
+          "asobi_implication": "TechCrunch Japan / 海外 TechCrunch を press 計画の主軸に置かない。代わりに井戸川さんの note/Medium 英訳記事 → Hacker News Show HN 投稿 → Reddit r/iOSProgramming への露出パスを press kit と並列で組む。"
+        },
+        {
+          "insight": "ITmedia『FlickTyper』記事の構造を見ると、『開発者がニュースで知った課題を解決するために 1 人で作った』というナラティブが ITmedia の取材枠に強くハマる。",
+          "evidence_ref": "itmedia.co.jp/news/articles/1706/22/news072.html",
+          "asobi_implication": "ITmedia 向け pitch では『なぜ作ったか』を 1 段落で物語化する。井戸川さんの背景（多事業同時運営の中で気分転換に作った／個人プロジェクト）を素直に書くと取材枠にハマりやすい。"
+        }
+      ],
+      "unable_to_verify": [
+        "Lifehacker 日本版の個人開発 iOS アプリ取材実例（検索結果でゼロヒット、媒体側に取材枠があるかも不明）",
+        "TechCrunch Japan の個人開発 iOS 取材実例（indie iOS で TechCrunch 系は構造的に弱い可能性、または検索で取れず）",
+        "ITmedia / ねとらぼ / GIGAZINE の各メディア別具体的メールアドレス（受付ページに『メールごとに受付』とあるが具体アドレスは個別問い合わせ必要）",
+        "GIGAZINE が個人開発 iOS アプリのタレコミを過去どの程度の頻度で記事化したかの定量データ",
+        "PR TIMES 有料配信から ITmedia / 4Gamer 等への二次拾い率（izanami.dev の事例では 26-28 サイト転載という総数のみで、媒体内訳は未開示）",
+        "Apple App Store Editorial pitch フォームの個人開発者採用率の一次データ"
+      ],
+      "contradicts_prior_analysis": [
+        "前回 monetization-research / breakout-gap 分析では『PR TIMES スタートアップチャレンジで無料配信可能』と想定していた可能性があるが、公式 FAQ で個人事業主除外が明示されている。井戸川さん個人開発の ASOBI には適用不可。30,000 円有料ルート前提に修正必要。",
+        "前回 breakout-gap で『TechCrunch / Lifehacker 等の海外 / 日本 tier1 媒体取材』を press 価値の上限として置いていた可能性があるが、indie iOS では TechCrunch 直撃は Forest ですら未達成。現実的な press 到達上限は ITmedia / ねとらぼ / GIGAZINE / 4Gamer の国内 tier2 と海外 MacStories / Kodeco / Apple Discover のレイヤー。"
+      ]
+    },
+    {
+      "lens_number": 13,
+      "lens_label": "行動経済学根拠（Hick / 決まらない症候群 / リピート vs 新規）",
+      "raw_data_collected": [
+        {
+          "fact": "Hick の法則の公式: RT = a + b · log₂(n + 1)。選択肢 n が増えると反応時間は対数的に増加する。2→4→8→16 と倍化するごとに同じ時間増分が加算される（線形ではなく対数）。",
+          "source": "https://yukaichou.com/gamification-analysis/hicks-law-choice-reaction-time-options/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Hick の法則の重要な含意: 「10 番目の選択肢のコストはほとんどゼロ」。つまり選択肢を 3 個に絞ることが必須なのではなく、ベースライン a（カテゴリ判別等）を下げることのほうが重要。64 項目メニューは 2 項目の 32 倍ではなく 6 倍程度のコスト。",
+          "source": "https://yukaichou.com/gamification-analysis/hicks-law-choice-reaction-time-options/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Iyengar & Lepper (2000) のジャム実験: 24 種類の試食ブースには通行人の 60% が立ち寄ったが購入率はわずか 3%。6 種類のブースは 40% しか立ち寄らなかったが購入率 30%。実購買率で 10 倍の差。",
+          "source": "https://psychotricks.com/jam-experiment/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Schwartz の Paradox of Choice の核心: 選択肢がワーキングメモリの上限（5〜9 項目）を超えると、購入率と購入後の満足度の両方が下がる。検索結果の研究では 6 件 vs 24 件で 6 件側が好まれ、92% が高い満足度を報告。",
+          "source": "https://www.convertize.com/paradox-of-choice/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Scheibehenne et al. (2010) のメタ分析（50 実験）: 選択肢過多効果の平均はほぼゼロ。Iyengar-Lepper の結果は文脈依存的で、ジャム実験そのものの再現は失敗事例が多い。「条件付きで発生する」というのが現在の学術的コンセンサス。",
+          "source": "https://digitalwellbeing.org/the-jam-study-strikes-back-when-less-choice-does-mean-more-sales/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Chernev, Böckenholt, Goodman (2015) メタ分析（99 観察, N=7202）: 選択肢過多が発動する 4 モデレーター = (1) choice set complexity 選択肢集合の複雑性、(2) decision task difficulty 意思決定タスクの難しさ、(3) preference uncertainty 選好の不確実性、(4) decision goal 意思決定ゴール。これらが高水準のとき過多効果が起こり、低水準では「多いほど良い」逆効果。",
+          "source": "https://myscp.onlinelibrary.wiley.com/doi/10.1016/j.jcps.2014.08.002",
+          "confidence": "high"
+        },
+        {
+          "fact": "Hedonic Adaptation の研究（Lyubomirsky 2011 他）: 同一刺激の繰り返し曝露で快感反応は減衰する。Variety（変化）を含む活動は適応が遅く、長期的に rewarding さを維持する。",
+          "source": "https://sonjalyubomirsky.com/wp-content/uploads/2024/03/Lyubomirsky-2011.pdf",
+          "confidence": "high"
+        },
+        {
+          "fact": "ゲーム設計への含意（The Psychology of Games）: 開発者は複数の gameplay タイプを交互に提供すべき。同じことの繰り返しでプレイヤーは hedonic adaptation を起こす。多くの開発者は mini-activity で強制的に休憩を入れて適応を防いでいる。",
+          "source": "https://www.psychologyofgames.com/2010/07/hedonic-adaptation-and-game-reviews/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Variety-Seeking の 3 動機（Kahn 1995, McAlister 1982）: (1) satiation/stimulation 満腹/刺激, (2) external situation 外的状況, (3) future preference uncertainty 将来選好の不確実性。Ratner & Kahn (2002): 消費者は好みの製品を繰り返し買えても、一定数は多様化した製品を買う（純粋な variety-seeking バイアスの存在）。",
+          "source": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.874444/full",
+          "confidence": "high"
+        },
+        {
+          "fact": "Variety-seeking のメタレビュー（61 実証研究 2000-2021）: 5 つの内的要因（人口統計・パーソナリティ・感情・感覚キュー・マインドセット）と 3 つの外的要因（社会/物理環境・マーケティング戦略）が variety-seeking を駆動。リピート利用設計の最大の敵は marginal utility の逓減。",
+          "source": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2022.874444/full",
+          "confidence": "high"
+        },
+        {
+          "fact": "Caltech の研究（Nature Human Behaviour 系）: 効果的な意思決定の最適選択肢数は 「8 〜 15」 とされる。3 つは「少なすぎる」と評価される条件あり。一方 24 は「多すぎる」。party game の文脈では一致しないが、要参照。",
+          "source": "https://definitiveinc.com/how_many_choices/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "PLOS One 2025: 「3 つの選択肢」状況の研究。選択肢が増えると応答は遅く・確率的になる。triplet の意思決定では全選択肢を評価する傾向（無視されない）。",
+          "source": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0320686",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Spotify のシャッフル設計（Spotify Engineering 2025-11）: 数百の random sequence を生成 → 「freshness」と「artist distribution」でスコアリング → 最高得点のものを配信。純粋なランダムは反復を生むため、user perception 上のランダム性を最適化。",
+          "source": "https://engineering.atspotify.com/2025/11/shuffle-making-random-feel-more-human",
+          "confidence": "high"
+        },
+        {
+          "fact": "モバイルアプリ平均: Day1 retention 25.3%, Day30 retention 5.7%。Day3 で 77% の DAU を失う。DAU/MAU stickiness 20% で良好、25% 超で例外的。",
+          "source": "https://uxcam.com/blog/mobile-app-retention-benchmarks/",
+          "confidence": "high"
+        },
+        {
+          "fact": "幹事調査（OZmall 532人調査）: 日程調整がボトルネック。「決まらないと参加者の motivation が下がる」「参加者が諦めを提案する」事例多数。58.3% は職場での飲みニケーション自体に反対（時間・コスト・心理負担）。",
+          "source": "https://www.ozmall.co.jp/restaurant/party/kanji/40382/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Party game 業界の知見: party game の gold standard は 15-30 分。ルール説明は 2 分以内。bundle 提供（事前キュレート）が decision friction を下げ「what should we play」議論を回避する手段とされる。",
+          "source": "https://www.veryspecialgames.com/blogs/news/best-card-games-for-parties",
+          "confidence": "medium"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "ASOBI の『3 つだけ提案』は学術的に部分肯定・部分否定。Hick の法則は対数なので 3 と 10 の差は実は小さい（log₂(4) vs log₂(11) = 2 bit vs 3.46 bit、たった 1.7 倍）。Schwartz / Iyengar の効果は『条件付き』に過ぎず（Scheibehenne メタ分析でほぼゼロ、Chernev で 4 モデレーター必要）、3 個固定の正当化根拠は弱い。",
+          "evidence_ref": "Hick 公式・Scheibehenne 2010・Chernev 2015",
+          "asobi_implication": "『3 つだけ』は『直感的に判断疲れを減らす』マーケティング訴求として有効だが、学術的に堅牢な根拠ではない。代わりに Chernev の 4 モデレーターを ASOBI 文脈で正当化すべき: (1) パーティー中は preference uncertainty が高い（メンバー構成・盛り上がり度未知）、(2) decision task difficulty が高い（全員合意が必要）、(3) decision goal が曖昧（楽しめれば何でも）。これら 3 条件が揃うため『3 つ提示』は ASOBI 文脈では正当化できる。LP コピーに『パーティー中の意思決定は典型的な choice overload 発生条件』と Chernev 引用で書ける。"
+        },
+        {
+          "insight": "『決まらない症候群』はジャム実験 30% vs 3% よりも『日程調整の幹事ストレス調査』のほうが日本人ユーザーに刺さる根拠。OZmall 532 人調査で『決まらないと motivation 下がる/諦め提案出る』が実証されており、ASOBI は『パーティー中版の決まらない症候群』を解消する位置づけが取れる。",
+          "evidence_ref": "OZmall 532人幹事調査・Iyengar Lepper 2000",
+          "asobi_implication": "LP/note では海外学術より日本の幹事調査（OZmall・catering-selection 等）を一次根拠に。『飲み会幹事の最大の悩み=決まらない問題』→『ASOBI は決まらない症候群のパーティー中版を 3 タップで解消』というコピーが本邦エビデンスベースで書ける。Iyengar Lepper は補強として『6 vs 24 で 10 倍』と一行で添える程度に留める。"
+        },
+        {
+          "insight": "シャッフル機能は Spotify が証明する通り『純粋ランダムはダメ』。ASOBI のシャッフルが「同じゲームばかり出る」「直前と同じ」だとユーザー体験が悪化する。Spotify は数百の sequence を freshness / distribution でスコアリング。",
+          "evidence_ref": "Spotify Engineering 2025-11",
+          "asobi_implication": "ASOBI のシャッフル実装が現状『純粋ランダム』なら、Spotify 式の『直前提案との重複ペナルティ』『シーン分散ペナルティ』を入れるべき。1191 ゲーム × 13 シーンあるので、直前 1 セッション内では重複させない・同シーン連発しない、程度の軽量ルールで perceived randomness が大幅改善。実装コストは低く、リテンションへの効果は学術的に裏付けあり。"
+        },
+        {
+          "insight": "Hedonic Adaptation はリピート利用設計の最大の敵で、ASOBI の構造的リスク。Lyubomirsky の研究通り『variety を含む活動は適応が遅い』。ASOBI は 1191 ゲーム × 256 お題で variety は確保されているが、ユーザーが実際に触れる範囲（毎回同じシーンを選ぶ等）では variety が顕在化しない可能性。",
+          "evidence_ref": "Lyubomirsky 2011・Frontiers Variety-Seeking レビュー",
+          "asobi_implication": "『お気に入り』機能は variety-seeking と逆方向（exploit）に作用するため、Hedonic Adaptation を加速させる危険がある。対策案: (1) 『今週新着』『使ったことないシーン』タブを追加して exploration を促す、(2) シャッフル時に『お気に入り外』を一定割合（30-40%）混ぜる、(3) 月次で『あなたがまだ試していないゲーム X 件』通知を出す。Ratner & Kahn 2002 の知見『好みを買えても多様化する』に沿った設計が DAU/MAU stickiness を 20% 超に押し上げる方向。"
+        },
+        {
+          "insight": "『お気に入り』機能の retention 寄与は Flink mobile app の実例で 1年で 4倍成長と実証されているが、これは「使われたら定着する」エビデンスで、使われない設計だと意味がない。",
+          "evidence_ref": "Flink mobile app 事例",
+          "asobi_implication": "ASOBI の『お気に入り』は現状『ハート押下のみ』なら、(1) お気に入りからシャッフルできる、(2) お気に入りリストに名前を付けてセッション共有、(3) お気に入り 5 件達成で『ヘビーユーザー』認定（後の有料化フックの種）、等の二次機能を持たせるべき。単なる『あとで見る』では Day30 retention 5.7% の業界平均を下回るリスク。"
+        },
+        {
+          "insight": "Caltech 研究の『最適 8〜15 選択肢』は ASOBI の『3 つ提示』とコンフリクトするが、これは『1 人での購買・複雑タスク』前提。ASOBI のパーティー文脈（複数人・即決・低リスク）では Chernev 4 モデレーターが効くため 3 でよい。ただし上級者向けに『もっと見る』を出すことで両立可能。",
+          "evidence_ref": "Caltech Nature Human Behaviour・Chernev 2015",
+          "asobi_implication": "デフォルト 3 提示は維持しつつ、『もっと見る』『シーン全件』ボタンを目立つ位置に置くべき（Hick の法則的にも『10 個目以降のコストはほぼゼロ』）。3 だけ固定は逆に上級者・常連ユーザーの離脱要因。"
+        },
+        {
+          "insight": "再現性の問題: Iyengar-Lepper のジャム実験は再現失敗事例多数、Scheibehenne メタ分析でほぼゼロ。LP/note で『6 vs 24 で 10 倍』を断定的に書くと、行動経済学リテラシーが高い読者からは『古い研究・再現失敗してる』と突っ込まれる。",
+          "evidence_ref": "Scheibehenne 2010・Chernev 2015",
+          "asobi_implication": "対外コピーで Iyengar-Lepper を引用する際は『有名な研究では』程度の柔らかい言及にとどめ、Chernev 4 モデレーターを並記すると学術的に堅牢。安易な『科学的に証明された 3 つの法則』調のコピーは長期信頼を毀損する。haruhi 領域（B2B 中小企業）と違い ASOBI ユーザーは大学生・若い社会人で行動経済学を知っている層もいる。"
+        }
+      ],
+      "unable_to_verify": [
+        "日本マーケティング学会 の機関誌で 選択肢過多 を直接扱った査読論文は検索結果上は確認できず（学会 site の検索機能では framing effect 等の隣接領域のみ）",
+        "Apple App Store のレビューで ASOBI 競合（パーティーゲーム提案アプリ）の『決まらない』言及頻度の定量データ",
+        "Chernev 2015 メタ分析の正確な overall effect size 数値（PDF が binary でテキスト抽出不可、要本文確認）",
+        "『3 つ提示 vs 10 提示』を party game / 提案 UI で直接比較した実験データ（学術 / 産業の両方で発見できず）",
+        "日本国内での『パーティーで何で遊ぶか決まらない』頻度の消費者調査（『飲み会日程』調査はあるが『何して遊ぶか』限定は無し）"
+      ],
+      "contradicts_prior_analysis": [
+        "前回 monetization-research は『3 つだけ提案が決定的差別化』と推定していたが、Hick 公式は対数なので 3 と 10 の差は理論上 1.7 倍程度に過ぎず、強い差別化根拠としては弱い。差別化軸は『3 つの数』ではなく『パーティー文脈での Chernev 4 モデレーター適合』に置き換えるべき。",
+        "前回 breakout-gap 分析は『お気に入り機能が retention の鍵』と仮定していたが、Hedonic Adaptation と variety-seeking の研究から見ると『お気に入り偏重 → 適応加速 → 飽き』のメカニズムが働く危険があり、お気に入りと exploration（新規ゲーム発見）のバランス設計のほうが retention KPI 改善に効く可能性が高い。",
+        "前回はジャム実験を『科学的根拠』として無批判に引用可能と扱っていたが、Scheibehenne 2010 メタ分析で効果はほぼゼロ、Chernev 2015 で『条件付きでのみ発生』が学術コンセンサス。LP コピーで断定引用するのは長期信頼リスク。"
+      ],
+      "conclusion": "行動経済学の一次ソースを横断検証した結果、ASOBI の『3 つ提示 + シャッフル + お気に入り』の 3 機能設計は学術的に『部分肯定・条件付き』で正当化できるが、無批判の科学根拠主張は再現性問題で危険。最も堅牢な訴求軸は Chernev 2015 の 4 モデレーター（特に preference uncertainty / decision task difficulty）がパーティー文脈で揃うため『3 つ提示が機能する条件』を満たすという論立て。Hick の法則は『対数』なので 3 と 10 の差は小さく、『もっと見る』を併設して両立すべき。最大の見落としは Hedonic Adaptation で、お気に入り偏重がリピート阻害要因になりうるため、Spotify 式 freshness スコアリングと exploration 促進機能を入れるべき。日本人ユーザー訴求は OZmall 幹事調査を一次根拠に『パーティー版の決まらない症候群』ポジショニングが最も刺さる。"
+    }
+  ],
+  "synthesis": {
+    "key_revisions": [
+      {
+        "prior_assumption": "パーティーゲームは無料広告モデルが主流。ASOBI も完全無料・広告ゼロで DAU を稼ぐべき",
+        "verified_fact": "Heads Up! は $1.99 買切＋$1.99/pack で US iOS 月 $200k/40k DL = ARPDL ~$5。Appodeal 2025 で party game LTV ARPU $4.90。Picolo は $4.49-$45.99 サブスク。Bunch のような完全無料広告型は縮退。一方 Picolo $5/週は『Netflixより高い』と炎上、Do or Drink は二重課金で 1-2 星",
+        "source": "lens 2 fact #1-4, lens 1 Picolo Kyung22/akwejfhlaskdch",
+        "revised_recommendation": "v1 は完全無料維持で広告ゼロ訴求（Picolo 炎上の対極ポジ）、v1.1 以降に Heads Up! 型『買切 ¥480-680 で追加シーンパック解放』のハイブリッド導入。サブスクは Picolo 炎上事例から回避。Tip Jar は IAP currency 経由のみ（外部リンクは Apple ガイドラインで games カテゴリ禁止）"
+      },
+      {
+        "prior_assumption": "1191 ゲームの圧倒的物量が ASOBI の主差別化軸",
+        "verified_fact": "実レビューでユーザーが求めているのは『物量』より『カテゴリ/強度フィルタ』『絶対値で何用か説明』『同じお題が連続で出ない』の 3 点。どこパは 39 ゲームで App Store ボードゲーム 1 位＋3.6 万レビュー、ワードウルフ決定版は単体で 19 万レビュー。Couples Questions (2025/9 release) は $2.99 で 18 デッキ 1600 質問の価格破壊",
+        "source": "lens 1 Picolo LetThat_HurtGo, lens 3 fact #1-2, lens 8 fact #7",
+        "revised_recommendation": "主訴求を『1191 ゲーム』→『13 シーンで安心して使い分けられる構造』+『シーン別にお題の強度を分離』に切替。1191 は補強。Spotify 式 freshness アルゴで『直前と同じが出ない』を明示実装し ASO で訴求"
+      },
+      {
+        "prior_assumption": "Z 世代の飲み会離れで会社宴会市場は縮小、ASOBI は不利",
+        "verified_fact": "Job総研 2024 で 20 代の忘年会参加意欲 68.8% で全世代 1 位（2 年連続）、大黒屋で職場飲み会『好き』20代 46% > 50代 27.6%。ただし飲む場所は『自宅』64.3%、相手は『家族』42.9%。MERY n=300、ホットペッパー n=5839、Job総研 n=440-421 で複数ソース一致",
+        "source": "lens 5 fact #1, #3, #4",
+        "revised_recommendation": "ターゲット文脈を『会社宴会』ではなく『宅飲み × 同性友人 × 少人数』に再定義。LP/スクショ背景を居酒屋→リビング/コタツに、シーン構成も『女子会』『男友達』『家族』を主層に。Z 世代飲み会離れ言説への反証として Job総研 68.8% をプレスフックに"
+      },
+      {
+        "prior_assumption": "TikTok / Twitch / Reels 全方位で SNS 拡散を狙う",
+        "verified_fact": "Twitch は party game がトップ 20 圏外（Jackbox 平均 873 人）、Among Us は 18ヶ月で同時視聴 99.5% 減。WNRS は TikTok 590 万フォロワー単独軸で成功。Discord Activities 20 本に『お題型』は不在で参入余地あり",
+        "source": "lens 9 fact #1, #2, #4, #6",
+        "revised_recommendation": "能動投資は TikTok 公式（ja/en）一択、Reels/Threads/Bluesky にクロスポスト。Twitch は副次的に放置。Among Us 型減衰防止のため『月次お題追加・季節 DLC』のリズム運用を最初から計画に組み込む"
+      },
+      {
+        "prior_assumption": "B2B 候補として居酒屋チェーン本部・研修会社が有望",
+        "verified_fact": "モンテローザ・コロワイド・ワタミ・鳥貴族・串カツ田中の問い合わせ窓口は『取引業者/食材/物件/IR』に細分化されゲーム提案窓口なし。Schoo・リスキルは自社が大量コンテンツ売り手＝競合関係。一方イベント企画代行 24 社＋IKUSA/バヅクリ/GROWS/NEO FLAG は公開フォーム有り、IKUSA は『あそび総合カンパニー』を標榜し語彙一致",
+        "source": "lens 11 fact #1-2, #5-10",
+        "revised_recommendation": "B2B 優先送付先を『イベント企画代行 28 社（IKUSA 筆頭）』に確定。居酒屋チェーン本部は除外。最初は 5 社サンプル送付で返信率実測→28 社拡張（feedback_sample_verify_before_bulk_update 適用）"
+      },
+      {
+        "prior_assumption": "プレスは PR TIMES スタートアップチャレンジで無料配信 + TechCrunch Japan 等 tier1 を狙う",
+        "verified_fact": "PR TIMES スタートアップチャレンジは個人事業主除外で適用不可。有料 30,000 円ルートは izanami.dev 事例で 3 分で記者電話・26-28 サイト転載。TechCrunch 直撃は Forest ですら未達成。ITmedia/ねとらぼ/GIGAZINE/4Gamer はタレコミ窓口現役",
+        "source": "lens 12 fact #3, #4, #9-12",
+        "revised_recommendation": "(1) リリース 2 週間前に 4Gamer/ねとらぼ/ITmedia/GIGAZINE に書面タレコミ、(2) リリース当日 PR TIMES 有料 30,000 円 1 発、(3) 海外は MacStories/Kodeco＋Apple Today タブ pitch。TechCrunch は捨てる"
+      },
+      {
+        "prior_assumption": "3 つだけ提案は『選択肢過多回避』として科学的に強い差別化",
+        "verified_fact": "Hick の法則は対数（3 と 10 で 1.7 倍差のみ）。Scheibehenne 2010 メタ分析で choice overload 効果はほぼゼロ。Chernev 2015 で 4 モデレーター成立時のみ発動。Iyengar-Lepper ジャム実験は再現失敗多数",
+        "source": "lens 13 fact #1-2, #5-6",
+        "revised_recommendation": "差別化軸を『3 つの数』→『パーティー文脈で Chernev 4 モデレーターが揃うため 3 つ提示が機能する』に置換。LP コピーは『有名な研究では』程度に柔らかく。『もっと見る』ボタン併設で常連離脱回避"
+      }
+    ],
+    "verified_facts_summary": "13 lens の一次データから、ASOBI の市場環境は前回想定より構造的に明確になった。(1) Z 世代は飲み会離れではなく『宅飲み × 同性友人 × 少人数』回帰で、Job総研 2024 の 20代忘年会参加意欲 68.8% が全世代 1 位（2 年連続）と複数ソース（MERY n=300、ホットペッパー n=5839、大黒屋）で裏取り済み。(2) 競合は『どこパ』（4.6★ × 3.6 万レビュー × ボードゲーム 1 位）と『ワードウルフ決定版』（19 万レビュー）が日本市場の二強で、リーダー不在の前回想定を覆す。(3) party game ジャンルの monetization 実数値は Heads Up! が US iOS で ARPDL $5、Appodeal 2025 で LTV ARPU $4.90 と確定し、サブスク型（Picolo $5/週）はレビュー炎上、買切ハイブリッド型（Heads Up!）が安全解。(4) 規制面では Apple 4.3(b) で drinking games が低品質扱い明示・1.4.3 で飲酒推奨は reject 対象、2026/1/31 までに新 Age Rating 必須対応というクリティカルパス発見。(5) Z 世代の SNS 利用時間は 2022 年比 10% 減（10-20代で最大）、博報堂 30 年変化で同性友人重視が過半数逆転、対面回帰がグローバルトレンド。(6) B2B では居酒屋チェーン本部は提案窓口なしと判明、イベント企画代行 24 社＋IKUSA/バヅクリ/GROWS/NEO FLAG が公開フォーム保有で実質的 door が開いている。(7) 商標リスクは『マジカルバナナ』（日テレ第4104880号）『数独』（ニコリ 2023 注意喚起）『ワードウルフ』（幻冬舎 28 類）の 3 件が確定リスク、即時改名対応が必要。",
+    "new_opportunities": [
+      {
+        "opportunity": "App Intents + Interactive Widget + Live Activities の indie 先行者ポジション",
+        "evidence": "2026 ADA 受賞 12 本中、これら新 API を主差別化として採用した game は 0 本（lens 10）。WWDC26 で SiriKit deprecated・App Intents が Siri/Apple Intelligence 経路の必須化。Widgetsmith/Cromulent Labs の widget 内ゲームは既に成立",
+        "action": "v1.0 または v1.1 で (a) StartRandomGameIntent (b) ShowTodaysThemeIntent (c) シーン AppEntity 露出、Home Screen Medium widget で『今日のお題ワンタップ表示』、Live Activity で『現在のお題＋次へボタン』を実装。Editorial pitch で『App Intents 完全対応 indie party game』として打診"
+      },
+      {
+        "opportunity": "B2B 受注経路の実在: イベント企画代行 28 社への OEM コンテンツ提供",
+        "evidence": "IKUSA（4300 組織・年間 1600 件超）、バヅクリ、GROWS、NEO FLAG、計 24 社の公開問い合わせフォーム実在を一次確認（lens 11）。IKUSA は『あそび総合カンパニー』を自称し ASOBI と語彙一致",
+        "action": "outputs/outreach/_templates/cold-outreach-mediation-template-2026-06-23.md ベースで 5 社サンプル送付→返信率実測→28 社拡張。提案は『1191 ゲーム × カテゴリ別抽出 API を月額数万円 / 既存パッケージ同梱可』"
+      },
+      {
+        "opportunity": "Z 世代飲み会離れ言説への反証ストーリーをプレスフックに",
+        "evidence": "Job総研 2024 で 20代忘年会参加意欲 68.8% が 2 年連続全世代 1 位、サンプル数も複数ソースで担保（lens 5）。日本メディアでこの切り口を持つ party game アプリは観測範囲でゼロ",
+        "action": "PR TIMES 有料 30,000 円リリースのタイトルを『Z 世代飲み会離れは嘘──20 代の 68.8% が参加意欲、宅飲み回帰世代向けの 1191 ゲーム iOS アプリ』に。ITmedia/ねとらぼに同時タレコミ"
+      },
+      {
+        "opportunity": "Discord Activities『お題型』空白枠への参入",
+        "evidence": "Discord Activities 20 本（Gartic Phone, Sketch Heads 等）に純 social/party お題型は不在（lens 9 fact #6）。配信者・大学生・海外勢の集合チャネル",
+        "action": "Phase 2 で『ASOBI Web 版 → Discord Activity 化』検討。完全オフライン要件と矛盾するため別プロダクト分離設計"
+      },
+      {
+        "opportunity": "Apple Editorial pitch + Today タブ経由の海外プレス連鎖",
+        "evidence": "Streaks (Crunchy Bagel) が ADA→Kodeco→MacStories→Apple Discover で連鎖した実例（lens 12 fact #6）。indie iOS の海外プレス王道",
+        "action": "Apple Developer の Editorial pitch フォームに『1 人で 1191 ゲーム・Data Not Collected 完全クリア』軸で直接 pitch。MacStories/Kodeco にも同時打診"
+      },
+      {
+        "opportunity": "Privacy Nutrition Label『Data Not Collected』完全クリアの裏フック",
+        "evidence": "Washington Post 調査で約 1/3 のアプリが申告と実態に乖離（lens 12 fact #8）。完全クリアは press の対比文として希少",
+        "action": "press kit に『Data Not Collected 完全クリア』のスクショ必須掲載。iPhone Mania / WIRED / ライフハッカーにプライバシー軸で売り込み"
+      }
+    ],
+    "new_risks": [
+      {
+        "risk": "Apple 4.3(b) drinking games 低品質明示扱いによる reject リスク",
+        "evidence": "2026/6/9 MacRumors 報道で 4.3(b) に drinking games / Kama Sutra / fart apps が明示低品質分類、繰り返し submission で Developer Program 除名（lens 7 fact #4-5）。Guideline 1.4.3 で飲酒推奨は reject 対象",
+        "mitigation": "v1 ローンチ前に 1191 ゲーム × 256 お題を『alcohol/drink/飲み/一気』キーワードで全件 audit、飲酒強制/推奨ゲームをパーティーゲームに置換または削除。Age Rating 質問で alcohol references を frequent → infrequent に下げて AdMob teen protection も同時回避"
+      },
+      {
+        "risk": "2026/1/31 新 Age Rating questionnaire 未対応で update ブロック",
+        "evidence": "Apple Developer 公式（lens 7 fact #1-2）。In-app controls / Capabilities / Medical / Violent 4 領域回答必須、未完了で新規 submission・update ともブロック",
+        "mitigation": "Apple Developer 登録完了→TestFlight 投入前に App Store Connect で新 questionnaire を完了。AI 機能（お題動的生成等）は sensitive content frequency 増加要因なので追加しない"
+      },
+      {
+        "risk": "商標衝突: マジカルバナナ（日テレ第4104880号）/ 数独（ニコリ）/ ワードウルフ（幻冬舎 28 類）",
+        "evidence": "Enpedia/二次ソースで番号特定、ニコリは 2023/8/28 に公式注意喚起発出、幻冬舎は 2020 にカードゲーム発売（lens 6 fact #1-5）",
+        "mitigation": "リポジトリ内 1191 ゲーム名を grep で全件 audit。該当ありなら『連想チェイン』『ナンプレ』『ことばのなかま外れ』等の独自名に置換。J-PlatPat 直接照会（claude-in-chrome MCP）を別タスクで実施"
+      },
+      {
+        "risk": "Among Us 型バイラル減衰（18ヶ月で同時視聴 99.5% 減）",
+        "evidence": "Among Us 2020/9 ピーク 765,893 人→2026 現在 3,746 人（lens 9 fact #4）。1191 ゲーム一括リリースの優位性も継続投入なしでは消える",
+        "mitigation": "ローンチ後の運用計画に『月次お題追加 / 季節 DLC（夏お盆・冬忘年会・春歓送迎）/ コラボパック』のリズムを最初から組み込む。井戸川さん 1 人運用前提なので最小コストで自動化"
+      },
+      {
+        "risk": "Spotify 式 freshness 未実装による『同じお題ばかり出る』Day3 離脱",
+        "evidence": "Spotify は数百 sequence を freshness/distribution でスコアリング、純粋ランダムは反復で UX 悪化（lens 13 fact #13）。モバイルアプリ Day3 で 77% の DAU 喪失（lens 13 fact #14）",
+        "mitigation": "シャッフル実装に『直前 1 セッション内重複禁止』『同シーン連発ペナルティ』を入れる。実装コスト低、retention 効果は学術的裏付けあり"
+      },
+      {
+        "risk": "顔出し不可制約による TikTok 公式運営の構造的限界",
+        "evidence": "WNRS 590 万フォロワーは reaction 動画ベース、TikTok バイラル要素は『visible reactions / 物理動き』（lens 9 fact #12, Kidobum 分析）。井戸川さんの feedback_no_voice_face で顔/声/ライブ不可",
+        "mitigation": "代行者 1 名雇用（顔出し可）または完全アプリ画面ベース投稿（バイラル弱）の二択。アプリ内に『TikTok 共有用 1 タップ撮影モード』を実装し UGC 拡散に賭ける Phase 2 設計"
+      },
+      {
+        "risk": "AI ホスト型新興（Whisper Games / Aippy）の追従負債化",
+        "evidence": "Whisper Games は release 後 6ヶ月でレビュー件数表示すらない（lens 8 fact #1）が、AI 機能を追加すると Apple 新 Age Rating で sensitive content frequency 増加要因に判定（lens 7 fact #2）",
+        "mitigation": "AI ホスト追従は急務でなく『観察対象』に格下げ。AI お題生成は static お題拡充で代替。AI 機能追加で 17+→18+ 自動アップグレードされると AdMob 収益が崩壊"
+      }
+    ],
+    "persistent_uncertainties": [
+      "Google Trends の月別相対値実数値（trends.google.co.jp が HTTP 429 で全パターン取得不可）。指定 11 キーワードの 8 月お盆ピーク / 12 月忘年会ピークの定量検証ができておらず、ASO の月別投資配分が依然推測ベース",
+      "競合各社の正確な DAU / 課金率 / MAU 数値（Sensor Tower 無料範囲では月間 DL と売上推計のみ、paying user / DAU は paid plan 必須）",
+      "J-PlatPat 直接照会による商標確定情報（WebFetch では SPA 構造で取れず）。ロシアンルーレット / 百人一首 / たほいや / カラオケ / ナンバープレートゲーム / カタカナーシ の Class 9/28/41 登録番号・指定商品・有効期限が未確定",
+      "ASOBI 内 1191 ゲームのうち、商標リスクゲーム名（マジカルバナナ / 数独 / ワードウルフ）が具体的に何件含まれているかの内部監査結果（リポジトリ未読のため）",
+      "ASOBI の 1191 ゲーム × 256 お題コーパス内の alcohol/drinking 関連お題実数（v1 ローンチ前の必須 audit 項目）",
+      "日本市場の party game カテゴリ特化 retention（D1/D7/D30）・課金率の一次データ（casual game 全体の数値しか公開されていない）",
+      "PR TIMES 有料配信から ITmedia / 4Gamer 等への二次拾い率の媒体内訳（izanami.dev 事例は総数のみで媒体別未開示）",
+      "TikTok #partygame / #飲み会ゲーム の正確な累計 view 数（TikTok 公開 Web ではタグ別 view 数を 2024 以降非表示、Creative Center 経由のみ）"
+    ],
+    "updated_top_priority": "前回の『家族/カップル/リモートに発信集中 + 8 月お盆ローンチ』のうち、(a) 家族/カップル軸は実数値で強く支持（MERY Z 世代調査で飲酒相手『家族』42.9% が最多、宅飲み 64.3%、博報堂 30 年変化で同性友人重視過半数逆転）、(b) リモート軸は棄却（リモート飲み市場縮小トレンド、どこパとの正面衝突、Bunch 縮退）、(c) 8 月お盆ローンチは Google Trends 直接データ未取得で定量検証できず判断保留。\n\n修正後の最優先順位は以下の 3 本に集約:\n\n【最優先 1】v1 ローンチ前のクリティカル audit（2-3 週間以内）: (i) 1191 ゲーム名で『マジカルバナナ/数独/ワードウルフ』を grep し独自名置換、(ii) 1191 ゲーム × 256 お題で『飲酒推奨』を全件 audit し Apple 4.3(b)/1.4.3 リスク除去、(iii) Apple Developer 新 Age Rating questionnaire（2026/1/31 期限）の 4 領域回答準備。これを怠ると ローンチ自体ができないか、ローンチ後 reject される。\n\n【最優先 2】ポジショニング再定義（即時）: 主訴求を『1191 ゲーム』→『13 シーンで安心して使い分け × 完全オフライン × Data Not Collected 完全クリア × 1191 は補強』に書き換え。ターゲット文脈を『会社宴会』→『宅飲み × 同性友人 × 少人数 × 家族』に。LP/スクショ背景を居酒屋からリビング/コタツに。プレスフックは『Z 世代飲み会離れは嘘（Job総研 68.8%）』の反証ストーリー。\n\n【最優先 3】Spotify 式 freshness シャッフル + App Intents + Interactive Widget の 3 機能を v1.0 または v1.1 に同梱（Among Us 型減衰防止 + iOS 27 世代の発見性確保 + ADA 受賞 12 本中 0 本の indie 先行者ポジ）。\n\n8 月お盆ローンチは Google Trends 検証ができていないため、12 月忘年会ピーク（Z 世代 68.8% 参加意欲）に軸足を移し、8 月は『TestFlight ベータ + 9-10 月 App Store 正式リリース + 11-12 月忘年会キャンペーン』のスケジュールへ修正を推奨。B2B 軸（イベント企画代行 28 社サンプル 5 社送付）は並行して即時開始可能。"
+  }
+}

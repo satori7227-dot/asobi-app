@@ -1,0 +1,1218 @@
+{
+  "research_results": [
+    {
+      "conclusion": "WWDC26 (2026/06/08) confirmed iOS 27 ships ~2026/09/15 with three concrete ASOBI-relevant levers: (1) Foundation Models framework expanded to multimodal + third-party LLM protocol — on-device $0 generation of party game content/お題 becomes architecturally clean (~3B Apple model + Claude/Gemini swap-in), (2) App Intents is now the ONLY Siri integration path (SiriKit deprecated, 2-3yr window) — voice-driven game start (\"Hey Siri, ASOBIで宴会ゲーム\") becomes a moat vs Heads Up!/どこパ if implemented before iOS 27 GM, (3) App Store gets Featuring Nominations + Personalized Collections + live-updatable creative assets — the editorial window between 7月 public beta and 9/15 GA is the highest-ROI submission timing. Image Playground/Genmoji APIs exist (iOS 26-since) but party game fit is weak (お題カード装飾には使えるが本体価値ではない). Live Activities/Interactive Widget の party game 公式事例は取得不可 — スポーツ実況・配送・タイマー系のみで、宴会場での\"次のお題\"プッシュは前例なき空白＝差別化候補。iOS 27 互換は iPhone 11 以降全機種（Apple Intelligence 機能は iPhone 15 Pro / 16 系以降に限定）で、ASOBI のオフライン×低スペック互換戦略と整合。最優先アクション: 7月 public beta 期に App Intents (\"ゲーム開始\" voice intent) + Live Activity (\"現在のお題\" lock screen) を実装し、8月 Featuring Nomination 提出、9/15 GA 当日 Editorial 枠を狙う。",
+      "lens_number": 1,
+      "lens_label": "iOS 27 / WWDC26 Apple Intelligence × party game 適用",
+      "raw_data_collected": [
+        {
+          "fact": "WWDC 2026 開催 2026/06/08、Apple 公式 newsroom にて Apple Intelligence・Siri AI 次世代版を発表。Siri AI は Apple Foundation Models + Google Gemini で構築、OS レベルで Messages/Mail/Photos/オンスクリーンコンテンツへリアルタイムアクセス。",
+          "source": "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS 27 public beta は 2026/07、正式リリースは 2026/09/14 ないし 09/15 前後（iPhone 18 / iPhone Fold ローンチイベント同期）。",
+          "source": "https://www.macworld.com/article/2986799/ios-27-new-iphone-features-release-date-beta-compatiblity-apple-intelligence-siri.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS 27 互換機種は iPhone 11 以降全機種。Apple Intelligence 機能は iPhone 16 系 / iPhone 15 Pro・Pro Max / iPad mini (A17 Pro) / iPad M1+ / Mac M1+ / Apple Vision Pro / Apple Watch Series 9+ に限定。",
+          "source": "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS 27 は 'Snow Leopard moment' とされ、アプリ起動 +30%、写真ロード +70%、AirDrop +80% 高速化。",
+          "source": "https://en.wikipedia.org/wiki/IOS_27",
+          "confidence": "high"
+        },
+        {
+          "fact": "WWDC26 で SiriKit が正式 deprecated、App Intents が Siri 経由サードパーティアプリ呼び出しの唯一の経路に。サポート窓は 2-3 年。",
+          "source": "https://medium.com/macoclock/ios-27-for-developers-siri-ai-apple-intelligence-app-intents-foundation-models-and-the-future-665b1cf49577",
+          "confidence": "high"
+        },
+        {
+          "fact": "Foundation Models framework は iOS 26 で導入され、Swift API で Apple の ~3B on-device LLM に API key・ネット・課金なしで直接アクセス可。@Generable マクロで型安全な構造化出力。",
+          "source": "https://developer.apple.com/documentation/FoundationModels",
+          "confidence": "high"
+        },
+        {
+          "fact": "WWDC26 Session 339 で Foundation Models framework が multimodal 画像入力対応 + LanguageModel protocol 公開、Apple on-device モデル/Claude/Gemini/セルフホスト LLM をコード変更なしで差し替え可能に。",
+          "source": "https://dev.to/arshtechpro/wwdc-2026-apple-just-opened-the-foundation-models-framework-to-any-llm-provider-5ejn",
+          "confidence": "high"
+        },
+        {
+          "fact": "WWDC26 で Apple Games アプリ向け Featuring Nominations ツール（editorial 枠 pitch）が独立 curation pipeline として運用。Personalized Collections + App Notes は on-device AI レコメンド。Creative assets を Asset Library で live 更新可（アプリ更新不要）。",
+          "source": "https://phiture.com/blog/wwdc26-updates/",
+          "confidence": "high"
+        },
+        {
+          "fact": "App Store の新機能群は WWDC26 (2026/06/08) で発表、developer beta 中、2026 秋（9月、iOS 27 GA 同期）公開予定。Game special offers は 2026 夏、米国 Games アプリから先行。",
+          "source": "https://developer.apple.com/wwdc26/guides/app-store/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Image Playground API はサードパーティアプリ採用可。Genmoji は system text controls 使用時自動でステッカー対応、カスタムテキストエンジン向け API も提供。iOS 26 では emoji 合成による新規 Genmoji 生成も可。",
+          "source": "https://developer.apple.com/apple-intelligence/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Live Activities は iOS 16 で導入、iOS 17/18 で interactive widget 化。iOS 18 で更新頻度は 5-15 秒毎（iOS 17 の毎秒から変更）。Interactive widget は標準 widget 比 3x エンゲージメント。",
+          "source": "https://www.pushwoosh.com/blog/ios-live-activities/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Live Activities 公式 use case 例は delivery / ride / workout / timer / live score（MLB・FotMob 等スポーツ実況）。party game / multiplayer game の公式採用事例は検索範囲内に存在せず。",
+          "source": "https://developer.apple.com/design/human-interface-guidelines/live-activities/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Siri AI ベータは 2026 年内に英語対応デバイス向け提供開始予定。日本語対応時期は公式アナウンスなし。",
+          "source": "https://www.apple.com/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more/",
+          "confidence": "medium"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "Foundation Models framework の multimodal + third-party LLM protocol 解禁は、ASOBI のお題生成・ゲームバリエーション増殖を $0/月で実装する道を開く。現在 1191 ゲーム × 256 お題が固定アセットだが、iOS 27 で「ユーザーの参加人数・関係性・場面に応じた動的お題生成」を on-device 完全オフラインで実現可能。Apple モデル不足時は Claude API に同じコードで切替可能 → ASOBI のオフライン 17+ 完全レーティング維持と将来的な有料 AI 拡張の両立が architectural に成立。",
+          "evidence_ref": "WWDC26 Session 339 / Foundation Models framework multimodal + LanguageModel protocol（raw_data #6, #7）",
+          "asobi_implication": "v1.1 で FoundationModels import + @Generable で 'お題' 構造体定義 → iPhone 15 Pro 以降のみ '無限お題モード' 追加課金可能性。非対応端末は固定 256 お題のフォールバック維持で互換性温存。"
+        },
+        {
+          "insight": "SiriKit deprecation により App Intents は単なる nice-to-have から '今やらないと 2-3 年後に死ぬ' 必須実装に格上げ。Heads Up! も どこパも現状 Siri 統合は確認できず、ASOBI が先に「Hey Siri, ASOBIで宴会ゲーム始めて」「Hey Siri, 次のお題」を実装すれば voice-first での体験差別化 + Siri AI 経由の Editorial 露出が取れる。",
+          "evidence_ref": "SiriKit deprecation 2-3yr window（raw_data #5）",
+          "asobi_implication": "iOS 27 GA (2026/09/15) までに最低 3 つの AppIntent を実装: StartGameIntent / NextPromptIntent / RandomGameIntent。7月 public beta で Siri AI 動作確認、9月 GA 当日に App Store 説明文に 'Hey Siri 対応' 明記で Editorial アピール強化。"
+        },
+        {
+          "insight": "WWDC26 で発表された Featuring Nominations + 創作 Asset Library + Personalized Collections の組み合わせは、ASOBI の 9/15 GA 当日 Editorial 露出狙いに完璧に噛み合う。creative assets が live 更新可になったため、A/B テストで日本市場向けの宴会シーズン訴求を週次差替え可能。Apple Games アプリ独立 curation pipeline は party game カテゴリへの editorial 枠割当を意味し、'宴会・忘年会' 文脈の日本ローカル枠が獲得しやすい。",
+          "evidence_ref": "WWDC26 App Store guide / Featuring Nominations（raw_data #8, #9）",
+          "asobi_implication": "提出スケジュール: 7月 public beta = TestFlight + 第1回 Featuring Nomination 提出 / 8月 = 9月 GA 向け asset 入稿 / 9/15 GA 当日 = 忘年会シーズン (11-12月) 向け asset live 差替えで第二波。"
+        },
+        {
+          "insight": "Live Activities の party game 公式事例が空白 = ASOBI が世界初級事例を作れるニッチ。lock screen に '現在のお題' 表示・interactive button で '次のお題' / 'スキップ' は、宴会場のスマホ机置きシーンに完全フィット。iOS 18 で interactive widget が標準比 3x エンゲージメントという数値も追い風。",
+          "evidence_ref": "Live Activities 公式事例 + interactive widget 3x engagement（raw_data #10, #11）",
+          "asobi_implication": "v1.2 候補機能: ゲーム進行中に Live Activity 起動 → Dynamic Island に現在のお題と '次へ' ボタン。Apple Developer Blog や WWDC 個別事例として取り上げられれば 0 円 PR 価値 ¥数百万級。ただし v1 ready 状態を崩さないため v1.0 では実装せず v1.1/1.2 で追加。"
+        },
+        {
+          "insight": "Image Playground / Genmoji API は ASOBI 本体価値 (1176 ゲーム × お題) に対しては装飾レイヤーで、無理に組み込むと Apple のレビュー観点で '機能の薄さ' を露呈するリスク。むしろ App Store スクリーンショット用の Genmoji 風プロモアートに使い、本体機能としてはお題カードの結果共有（'今夜の優勝者' ステッカー生成）など限定的に利用する方が安全。",
+          "evidence_ref": "Image Playground API third party + Genmoji ステッカー自動対応（raw_data #10）",
+          "asobi_implication": "本体実装優先度は低。マーケ素材としての利用と、将来 v2 で「結果シェア用 Genmoji カード生成」をオプションとして検討。"
+        }
+      ],
+      "unable_to_verify": [
+        "Siri AI 日本語対応の正式時期（英語ベータ 2026年内のみ確認、日本語アナウンスなし）",
+        "Live Activities / Dynamic Island の party game / multiplayer game 採用事例（スポーツ実況・配送・タイマー系のみで partygame 公式事例ゼロ）",
+        "Apple Editorial が iOS 27 GA に合わせて指定するキャンペーン枠の正確なテーマと提出締切日（Featuring Nominations 制度導入は確認、個別枠の詳細は未公開）",
+        "Foundation Models framework on-device モデル (Apple AFM 3 ~3B / 20B) が日本語パーティーゲームお題生成で許容できる品質か（実機ベンチ未取得）",
+        "WWDC26 で言及された 'iOS 27 = Snow Leopard moment' のバッテリー改善が ASOBI の長時間連続セッション利用 (宴会 2-3 時間) にどれだけ効くか（数値未公開）",
+        "Heads Up! / どこパが iOS 27 / App Intents / Foundation Models 対応のロードマップを公表しているか（両社 dev blog 等での公表なし、競合の動きは不明）"
+      ]
+    },
+    {
+      "lens_number": 2,
+      "lens_label": "App Store Today / Editor's Choice 採択 process 実例",
+      "raw_data_collected": [
+        {
+          "fact": "Apple は Featuring Nominations を App Store Connect 内に提供しており、これが唯一の公式申請チャネル。最低 2 週間前、推奨は 3 か月前までの申請。Account Holder / Admin / App Manager / Marketing ロールのみ申請可",
+          "source": "https://developer.apple.com/app-store/getting-featured/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple の編集チームが評価する 7 軸: User Experience / UI Design / Innovation / Uniqueness / Accessibility / Localization / App Store Product Page",
+          "source": "https://developer.apple.com/app-store/getting-featured/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Featuring の placement 種別: App/Game of the Day（毎日 1 件 handpick・全アプリ年齢問わず対象）/ Editor's Choice（best-in-class badge が product page に表示・storefront ごとに curated）/ Stories & Collections / In-App Events / Lists / Pre-orders / Personalized Recommendations",
+          "source": "https://developer.apple.com/app-store/getting-featured/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Nomination 種別は 3 つ: New Content / App Enhancements / App Launch。Supplemental URL は最大 5 件、Related Apps は最大 10 件まで添付可",
+          "source": "https://developer.apple.com/help/app-store-connect/manage-featuring-nominations/nominate-your-app-for-featuring/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple 公式の indie 向けメッセージ: 'Whether you're an indie developer or a household name, you have an opportunity to be featured on the App Store.' すべての App/Game of the Day は indie かどうかを問わず eligible、selection は localized・regionally curated",
+          "source": "https://developer.apple.com/app-store/getting-featured/",
+          "confidence": "high"
+        },
+        {
+          "fact": "2024 App Store Award で 'Lumy' (Apple Watch App of the Year, 開発者 Raja V.) が solo developer として受賞",
+          "source": "https://www.apple.com/newsroom/2024/12/apple-honors-2024-app-store-award-winners/",
+          "confidence": "high"
+        },
+        {
+          "fact": "2024 App Store Award の Cultural Impact 部門で 'DailyArt' (Zuzanna Stanska) が solo creator として受賞",
+          "source": "https://www.apple.com/newsroom/2024/12/apple-honors-2024-app-store-award-winners/",
+          "confidence": "high"
+        },
+        {
+          "fact": "2024 Cultural Impact 部門で 'Do You Really Want to Know 2' (Gamtropy Co., Ltd.) が受賞。社名と co., ltd. から日本の小規模スタジオの可能性高い（要二次確認）",
+          "source": "https://www.apple.com/newsroom/2024/12/apple-honors-2024-app-store-award-winners/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "2025 App Store Award finalists（45 件）に Apple Arcade Game of the Year として 'Katamari Damacy Rolling LIVE' と 'WHAT THE CLASH?' が選出。後者は 'hundreds of silly but memorable mini games' を提供する party 寄りタイトル",
+          "source": "https://www.apple.com/newsroom/2025/11/apple-announces-finalists-for-the-2025-app-store-awards/",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS 11 以降の App of the Day feature の DL 影響: アプリ平均 +1,747% / ゲーム +792%、最大値はアプリ +2,172% / ゲーム +963%。19 アプリが unranked から overall chart に登場（1,000 位以上の上昇）",
+          "source": "https://techcrunch.com/2017/10/24/apples-app-of-the-day-featuring-boosts-downloads-by-1747-games-by-792/",
+          "confidence": "high"
+        },
+        {
+          "fact": "ただし featuring 前にカテゴリ top 20 入りしていたアプリは平均 +44%、ゲームは +37% に留まる。indie/無名側の方が absolute lift は大きい構造",
+          "source": "https://techcrunch.com/2017/10/24/apples-app-of-the-day-featuring-boosts-downloads-by-1747-games-by-792/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple は indie game 専用 dedicated showcase section を App Store 内に開設、placement は Apple が curate し毎日新規 indie タイトルを追加",
+          "source": "https://www.gamedeveloper.com/game-platforms/apple-kicks-off-a-dedicated-indie-game-showcase-on-app-store-storefront",
+          "confidence": "high"
+        },
+        {
+          "fact": "Today タブ featured の 2/3 は paid apps もしくは IAP 搭載アプリ。完全無料・広告ナシ・買い切りなしは比較的選ばれにくい構造",
+          "source": "https://medium.com/free-code-camp/how-to-get-featured-on-the-app-store-c056e62a7e7a",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Featuring 申請の実務 tips: nomination は major release ごとに 1 件、自己検閲せず提出（編集側が filter）。Description には変更点・優先度・目的を具体的に書く。supplemental URL に trailer / press kit / one-page deck を明記して link",
+          "source": "https://www.gummicube.com/blog/featuring-nominations-live-in-app-store-connect",
+          "confidence": "high"
+        },
+        {
+          "fact": "Stories（developer story 形式の featuring）は iPhone/iPad の Today タブ、Mac の Discover タブ、Apple Vision Pro の Apps & Games タブに掲載される。artwork・video・developer quote を使って Apple 視点で物語化される枠",
+          "source": "https://developer.apple.com/app-store/getting-featured/",
+          "confidence": "high"
+        },
+        {
+          "fact": "2025 App Store Awards 全 45 finalists のリストは公開済み。iPhone Game of the Year は Capybara Go! / Pokémon TCG Pocket / Thronefall。日本起源 IP として Katamari Damacy Rolling LIVE と Pokémon TCG Pocket が finalist 入り（パブリッシャは Bandai Namco / The Pokémon Company で個人開発ではない）",
+          "source": "https://www.apple.com/newsroom/2025/11/apple-announces-finalists-for-the-2025-app-store-awards/",
+          "confidence": "high"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "ASOBI の Featuring 申請は Apple Developer Program 登録（メモリ#9 完了済み）直後から submit 可能。リリース後ではなく、ローンチ 6-8 週間前（推奨 3 か月前）に第 1 弾 nomination を 'App Launch' 種別で出すのが最大効率。今のタイミング（v1 ready, Apple Developer 登録待ち）で nomination draft を準備しておく",
+          "evidence_ref": "developer.apple.com/app-store/getting-featured/ ＋ App Store Connect help",
+          "asobi_implication": "Apple Developer 承認直後の最初のタスクに 'Featuring Nomination 第1弾 draft 作成' を組み込む。supplemental URL 5 枠を frontload する（プロモ動画 / LP / press kit / regionBlocklist 設計 note / 監修ポリシー note）"
+        },
+        {
+          "insight": "ASOBI は 7 軸のうち Localization（ja/en 両対応）/ Accessibility / Uniqueness（パーティーアプリで完全オフライン×Widget×Deep Link の組み合わせは希少）/ UI Design で訴求できるが、'Innovation' 軸は新 iOS API（Widget・Deep Link 以上の何か）を 1 つ刺さないと弱い。例: iOS 26 の新 API（Live Activity / App Intents / Apple Intelligence integration 等）対応を 1 つ含めると Editor's Choice 軸の点数が上がる",
+          "evidence_ref": "Apple 7-criteria framework（Innovation = 'meaningful use of new iOS APIs'）",
+          "asobi_implication": "v1.1 で iOS 最新 API 1 つを 'feature flag 的に' 追加し、それを nomination の hook に使う設計を入れる。完全オフラインを謳いつつも Apple Intelligence の on-device 機能なら整合"
+        },
+        {
+          "insight": "App of the Day 平均 lift は indie/無名で +1,747%（アプリ）/ +792%（ゲーム）。ASOBI は category 上 'Entertainment' or 'Games > Casual / Party' のどちらに置くかで lift 期待値が変わる。Heads Up! や Picolo は Entertainment カテゴリ。Apple Editor は完全無料アプリより paid/IAP 搭載を 2/3 優先するため、Heads Up! 型 buy-out モデル ($4.99) を採用するなら featuring 採択率も同時に上がる",
+          "evidence_ref": "TechCrunch 9to5Mac 2017 + Marie Denis Medium",
+          "asobi_implication": "前回確定の '買い切りハイブリッド推奨' は featuring 採択率と DL lift の両面で合理。完全無料リリースは Apple Editor から 'IAP/paid 優先' フィルタで弾かれる可能性を memo 化"
+        },
+        {
+          "insight": "日本人 solo developer の App Store Award 受賞は 2024 では確定例なし。Lumy（Raja V.）DailyArt（Stanska）など欧州/その他地域の solo 受賞があるため pattern としては成立しているが、日本では Solo Apple Watch / Cultural Impact 系の指標が空席に近い。ASOBI は 'Japanese solo developer × party app' という珍しい組み合わせを Stories 枠（developer story 形式の featuring）でピッチできる",
+          "evidence_ref": "Apple Newsroom 2024 winners list",
+          "asobi_implication": "Featuring Nomination とは別に developer story 枠を狙うピッチ素材を作る。'宮崎在住の solo developer が完全オフライン×1176 ゲームの飲み会アプリを 1 人で開発、規制配慮で 17+ 厳守' のストーリーは Apple Editor が好む narrative 型"
+        },
+        {
+          "insight": "Apple Arcade の WHAT THE CLASH? が 2025 finalist。これは 'hundreds of silly but memorable mini games' = ASOBI と同じ大量ミニゲーム集合体パターン。ASOBI は Apple Arcade と直接競合せず、'オフライン free + 1176 games' で唯一性は維持できる。WHAT THE CLASH? を競合分析と編集評価の reference として詳細調査する価値あり",
+          "evidence_ref": "Apple Newsroom 2025 finalists",
+          "asobi_implication": "次レンズで WHAT THE CLASH? の Apple App Store ページ・スクショ構成・Today 掲載履歴を解析し、ASOBI の product page と nomination description の参考に使う"
+        }
+      ],
+      "unable_to_verify": [
+        "日本 App Store の Today タブで過去 3 年に掲載された日本人 solo 開発者の具体的アプリ名 10-15 件: 公開検索では region-specific Today 履歴 archive が見当たらず、Apple 公式の過去 Today storyfront は内側に潜って閲覧する必要あり。App Annie / data.ai / Apptweak の有料 'Today tab tracker' でないと網羅取得できない（Apptweak が ja 対応で過去掲載アプリを query 可能との情報あり、要購読確認）",
+        "日本 Apple 編集チームの個別連絡先 / promote form の日本向け窓口: developer.apple.com/contact/app-store/promote/ は global で、JP region 個別チームへの直接 pitch チャネルは公式公開されていない（Featuring Nominations の Countries/Regions 指定で JP を明示することで JP 編集チームに振り分けられる構造）",
+        "Gamtropy Co., Ltd.（2024 Cultural Impact 受賞元）が日本企業か韓国企業かの確証: '株式会社' か '주식회사' かの判別ができておらず、現時点では日本企業の可能性ありレベル",
+        "Apple Editorial pitch フォーム（developer.apple.com/contact/app-store/promote/）の現在の記入実例: 該当ページの実 form 内容は今回 fetch せず、Featuring Nominations と並列で存在するか統合されたか未確認",
+        "WHAT THE CLASH? の開発元と Apple 編集評価コメント（日本展開時のローカライズ品質含む）: finalist 一覧では言及のみで詳細未取得、次レンズで深掘り要"
+      ],
+      "conclusion": "App Store Today / Editor's Choice の採択 process は、Apple Developer Program 承認後すぐ App Store Connect 内 Featuring Nominations から submit する一本道で、indie か否かの形式的区別はない。評価は 7 軸（UX/UI/Innovation/Uniqueness/Accessibility/Localization/Product Page）で行われ、ASOBI は ja/en ローカライズと Uniqueness で強く戦えるが Innovation 軸は新 iOS API 対応を 1 つ刺さないと弱い。Featuring 採択時の indie 平均 DL lift は +792〜+1,747%（無名側ほど大）で、ASOBI のような未ランクアプリには破壊力が大きい。一方で Today featured の 2/3 は paid/IAP 搭載という統計があり、前回確定の Heads Up! 型買い切りハイブリッドは featuring 採択率の面でも合理。日本人 solo developer の Award 受賞は 2024 では確定例ゼロ、'Japanese solo × party app' は Stories 枠（developer story 形式）で希少 narrative として pitch 可能。アクション: (1) Apple Developer 承認直後に Featuring Nomination 第1弾 draft を作成、(2) supplemental URL 5 枠（promo 動画 / LP / press kit / regionBlocklist 設計 note / 監修方針 note）を frontload、(3) v1.1 で iOS 最新 API を 1 つ追加し Innovation 軸の hook を作る、(4) 日本 Today 掲載アプリの過去履歴は Apptweak 等の有料ツールが必要、現時点では取得不可。"
+    },
+    {
+      "lens_number": 3,
+      "lens_label": "失敗事例の構造分析 (Bunch / Among Us / 縮退 partygame)",
+      "raw_data_collected": [
+        {
+          "fact": "Houseparty は 2019 年に Epic Games が $35M で買収、2021 年 10 月に shutdown。総調達 $70.2M（Sequoia $50M 含む 36 投資家、7 ラウンド）、ピーク 5,000 万 DL/82 ヶ国 #1 まで到達。shutdown の 3 理由 = パンデミック終了 / 資金不足 / Epic が metaverse 方向に注力",
+          "source": "https://www.failory.com/cemetery/houseparty",
+          "confidence": "high"
+        },
+        {
+          "fact": "Houseparty は 2021 年 1〜8 月で 800 万 DL、前年同期比 83% 減。Epic は『投資対効果の低下』を理由に明示",
+          "source": "https://techcrunch.com/2021/09/09/epic-games-to-shut-down-houseparty-in-october-including-the-video-chat-fortnite-mode-feature/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Bunch（ゲーム×ビデオチャット）は 2017 年創業、シードで $3.8M、2020 年 9 月時点で総調達約 $28M（General Catalyst リード、EA / Riot / Ubisoft / Supercell / Krafton 戦略投資）",
+          "source": "https://news.crunchbase.com/startups/group-video-chat-app-startup-bunch-raises-3-8m/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Bunch は Houseparty shutdown 時に Houseparty コミュニティの受け皿として乗り換え誘導を実施した",
+          "source": "https://medium.com/@bunchlive/welcoming-the-houseparty-community-to-bunch-1d208f5faeb8",
+          "confidence": "high"
+        },
+        {
+          "fact": "Bunch は 2024 年頃に Mini Party へリブランド・有料サブスク化（旧無料機能をペイウォール化）。App Store レビューは『バグ多発 / 頻繁なラグ / クラッシュ / 旧版復活要求』で圧倒的にネガティブ",
+          "source": "https://apps.apple.com/us/app/bunch-is-miniparty/id1294869021",
+          "confidence": "high"
+        },
+        {
+          "fact": "Among Us は 2020 年 9 月 Twitch ピーク同接 765,893 人、月平均 204,634 人。2021 年 1 月には月平均 42,100 人（約 80% 減）",
+          "source": "https://twitchtracker.com/games/510218",
+          "confidence": "high"
+        },
+        {
+          "fact": "Among Us 売上は 2021 年 $86M から 2025 年は約 $1.5M へ縮小（98% 減）。MAU は 2020 年 11 月ピーク 5 億 → 2025 年は約 2,000 万",
+          "source": "https://www.businessofapps.com/data/among-us-statistics/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Innersloth は『maintenance + reactivation』フェーズに移行。新ロール / Cosmicubes / Stardew Valley・Pusheen・Like a Dragon コラボなど IP コラボとコスメで文化的可視性を維持",
+          "source": "https://prioridata.com/data/among-us-statistics/",
+          "confidence": "high"
+        },
+        {
+          "fact": "TBH（10 代向け匿名コンプリメント）は 2017 年 10 月 Facebook が約 $1 億で買収、わずか 9 ヶ月後の 2018 年 7 月『low usage』で shutdown。ピーク 500 万 DL → 累計 640 万止まりで失速",
+          "source": "https://techcrunch.com/2018/07/02/facebook-is-shutting-down-hello-moves-and-the-anonymous-teen-app-tbh-due-to-low-usage/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Marco Polo はパンデミック中 sign-up 1,147% 増、2020 年 4 月の 1 日で 2,000 万 polo。しかし全無料機能を Premium 化した update でユーザー大反発、★1 レビュー殺到",
+          "source": "https://techxplore.com/news/2020-05-marco-polo-botched-app-star.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "Jackbox Party Pack は 2014 年から毎年新パックを年次リリース。2022/12 以降の累計プレイ回数は 8.26 億回。社員数は過去 5 年で 2 倍（90 名）。Pack 11 は初めて『全新作・既存続編なし』",
+          "source": "https://gamesbeat.com/publishing-streaming-and-standalone-games-inside-jackbox-games-strategic-shift-in-2026/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Jackbox は 2026 年に Netflix Games 向け『Jackbox Party Essentials』（Fibbage 4 / Drawful 2 / Quiplash 3）配信、Trivia Murder Party 3 を初のスタンドアロン化と、配信チャネルを多角化",
+          "source": "https://www.whats-on-netflix.com/news/netflix-games/jackbox-games-heading-to-netflix-with-the-jackbox-party-essentials/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Heads Up! は 2013 年ローンチで $0.99 売切型、2013-2015 年連続 App Store トップセラー、累計 24M DL / 10 億プレイ。今も Harry Potter / Friends / Marvel など IP カテゴリを追加し続けている",
+          "source": "https://appsamurai.com/blog/mobile-app-success-story-heads-up/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Psych!（Ellen × Warner Bros、2015 年ローンチ）は shutdown されておらず、2025 年 10 月にも v10.10.161 update を継続出荷",
+          "source": "https://apps.apple.com/us/app/psych-outwit-your-friends/id1005765746",
+          "confidence": "medium"
+        },
+        {
+          "fact": "モバイルゲーム全般で、single player は『finite content / 飽き』で短期離脱、multiplayer + social feature が長期 retention 最大要因（特に最高レベル到達後の社会的接続が longevity 予測因子）",
+          "source": "https://www.gamedeveloper.com/business/how-multiplayer-and-events-unlock-higher-retention-and-monetization-in-mobile-games",
+          "confidence": "medium"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "縮退 partygame の最大公約数は『外部イベント駆動の急成長 → イベント終了で需要蒸発』。Houseparty(パンデミック)・Among Us(2020 ストリーマー爆発)・TBH(10 代バイラル)・Marco Polo(パンデミック)すべて同じ。内発的・年中無休の使う動機を作れなかった",
+          "evidence_ref": "Houseparty 83% YoY 減 / Among Us Twitch 80% 減 / TBH 9 ヶ月で死亡",
+          "asobi_implication": "ASOBI は『忘年会・歓送迎会・家族集まり』など年中ある日本のリアルイベントに張り付くべき。バイラルピーク狙いより、忘年会(12月)→新年会(1月)→歓送迎会(3-4月)→お盆(8月)の季節カレンダーに連動した『今夜使えるお題セット』配信で需要を定期化する"
+        },
+        {
+          "insight": "ビデオチャット依存は致命的脆弱性。Houseparty / Bunch / Marco Polo は『リモート前提』で設計 → 対面復活で構造的に縁が切れた。ASOBI が『対面・同じ部屋で iPhone 1 台パス』設計なのは構造的優位。リモート機能は誘惑だが追加するな",
+          "evidence_ref": "Houseparty shutdown 3 理由のトップが pandemic end / Marco Polo は pandemic 1,147% 増のリバウンドで Premium 化",
+          "asobi_implication": "ASOBI の設計判断『完全オフライン / 1 台パス』は守り抜く。リモートマルチプレイ・ボイチャ・WebRTC は実装しない。対面しかないという制約は逆に Apple 審査・data not collected・17+ の貫徹コストを下げる"
+        },
+        {
+          "insight": "10 年生存組（Heads Up! / Jackbox / Psych!）の共通防御メカニズム = 『定常的な追加コンテンツ + IP コラボ + 売切またはパック販売』。Heads Up! は Harry Potter / Friends / Marvel カテゴリで縦深、Jackbox は年次新 Pack + Netflix / スタンドアロン展開、Psych! は 10 年継続 update",
+          "evidence_ref": "Jackbox 累計 8.26 億プレイ / Heads Up! 10 億プレイ・10 年連続 update / Psych! 2025 年 10 月 v10.10.161",
+          "asobi_implication": "ASOBI 256 お題は v1 体力だが、生存組のベンチマークは『IP コラボ × 季節 deck × 年次大型 update』。短期は売切 + 季節無料追加で Heads Up! 型、中期は『×アニメ / ×お笑い芸人 / ×地方文化』などライセンス deck を $1.99 ずつ売る Heads Up! 型 IAP モデル"
+        },
+        {
+          "insight": "Bunch の失敗パターン = 『無料機能を後付けで有料化』は最強のユーザー離反トリガー。Marco Polo も同じ轍。Picolo $5/週炎上と一致。価格戦略の地雷は『最初有料』ではなく『後から有料化』",
+          "evidence_ref": "Bunch→Mini Party リブランドで AppStore レビュー圧倒的ネガティブ / Marco Polo Premium 化で ★1 殺到",
+          "asobi_implication": "ASOBI の課金は『最初から透明な売切 or 売切 + 追加 deck』で固定。後から無料機能をペイウォール化する設計を絶対に避ける。逆に『最初無料、後から有料化』しないという約束を App Store 説明文に明記して差別化材料化"
+        },
+        {
+          "insight": "Among Us の『maintenance + reactivation』戦略（コスメ + IP コラボ + 季節イベント）は、ピーク後の partygame が取りうる現実的な縮退抑制パターン。完全消滅は避けられ、文化的可視性は維持できる",
+          "evidence_ref": "Innersloth Stardew/Pusheen/Like a Dragon コラボで MAU 2,000 万を維持",
+          "asobi_implication": "ASOBI v2 以降のロードマップに『季節 deck（クリスマス・ハロウィン・お正月）+ IP コラボ deck（公式アニメ・お笑い芸人）+ プレイヤー作成 deck』を明示。バイラルピーク後の 5 年生存戦略として、Jackbox の年次 Pack ではなく Among Us 型『軽量で頻繁な追加』が個人開発に適合"
+        },
+        {
+          "insight": "TBH の死因（買収 9 ヶ月で『low usage』shutdown）は『中毒性のあるバイラル機能だが日常使用動機が無い』典型。10 代向けバイラルは 1 シーズン経つと完全に飽きられる構造で、ASOBI が同じ罠を踏まないためには『パーティ』という日常イベントを軸にすべき",
+          "evidence_ref": "TBH 5M DL → 640 万止まり / Facebook が $1 億で 9 ヶ月後 shutdown",
+          "asobi_implication": "ASOBI は『TikTok でバズる』を主軸にしてはならない。バイラル流入を 10 代×バカウケ系で取りに行くと TBH パターン。Z 世代の『忘年会参加意欲 68.8%』（既存発見）を踏まえ、流入は SNS でも core 体験は『リアル飲み会の必携アプリ』として日常使用を担保"
+        }
+      ],
+      "unable_to_verify": [
+        "Bunch の正確な ARR・MAU 推移（PitchBook 有料 / 公開数値なし）",
+        "Bunch の総調達額（$28M 報道はあるが、その後 Mini Party リブランド時点の累計は非公開）",
+        "Houseparty のピーク MAU と shutdown 直前 MAU の実数値（DL 数のみ公開、MAU 非開示）",
+        "Among Us モバイル単体の MAU 推移（クロスプラットフォーム合算のみ）",
+        "Psych! の現在の DAU / 売上規模（Warner Bros 内部数値で非公開）",
+        "Marco Polo の 2023〜2025 年の MAU 推移（Premium 化後の流出規模が定量化されていない）",
+        "Jackbox Party Pack の各タイトルあたり売上分解（Pack 単位の売上は非公開）",
+        "Heads Up! の 2024 年売上ランキング（前述指示の検証値は取得不可）"
+      ],
+      "conclusion": "縮退 partygame の構造死因は 3 つに収束する: (1) 外部イベント依存（パンデミック・バイラル）で内発的需要を作り損ねた, (2) ビデオチャット / リモート前提でリアル対面復活に轢かれた, (3) 後付けペイウォール化で既存ユーザーを敵に回した。生存組（Heads Up! 10 年 / Jackbox 11 Pack / Psych! 10 年継続）の防御メカニズムは『日常イベント(パーティ)接続 + 定常コンテンツ追加 + IP コラボ + 透明な価格』の組み合わせ。ASOBI は構造的に正しい設計（対面 1 台 / オフライン / 売切想定）を選んでおり、生存組の遺伝子に近い。リスクは『TikTok バイラル一発依存』に振れること。守るべきは『季節カレンダー連動 deck 追加 + 後付け値上げ禁止の約束 + 中期 IP コラボ』。具体的アクション: (a) 12 月忘年会 deck 無料追加を v1.0 直後にコミット, (b) App Store 説明文に『買い切り後の機能ペイウォール化はしません』明記で Bunch / Marco Polo / Picolo の信頼貯金を吸い上げる, (c) v2 ロードマップに『年 4 deck（春夏秋冬）+ 年 1 IP コラボ』を Among Us 型軽量 reactivation で計画。重要原則: ASOBI を Houseparty にするな、Heads Up! にしろ。"
+    },
+    {
+      "lens_number": 4,
+      "lens_label": "3世代家族・親子・祖父母同居の party game ニーズ",
+      "raw_data_collected": [
+        {
+          "fact": "児童のいる世帯における三世代世帯は110万5千世帯（11.2%）。最多は『夫婦と未婚の子のみの世帯』で746万5千世帯（75.9%）。同居型三世代は少数派",
+          "source": "https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa23/index.html (2023年国民生活基礎調査)",
+          "confidence": "high"
+        },
+        {
+          "fact": "65歳以上の家族形態は『夫婦のみ』40.3%、『子と同居』33.8%、『単独』21.6%。祖父母世代の約6割は子と別居",
+          "source": "https://www.mhlw.go.jp/toukei/saikin/hw/k-tyosa/k-tyosa23/index.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "コロナ前は年末年始に約8割が家族集合・お盆は約5割。2020年末は40%まで低下、その後段階的に回復",
+          "source": "https://goods.jccu.coop/prdnews/20230417_web-6.html (コープ 6,191-6,427名)",
+          "confidence": "high"
+        },
+        {
+          "fact": "シニア65.3%に帰省してくる子や孫がいる。44.4%が交通費負担、平均29,700円、滞在中支援額43,700円",
+          "source": "https://serai.jp/living/376348 (サライ調査)",
+          "confidence": "high"
+        },
+        {
+          "fact": "祖父母167人調査で58.7%が孫の定期的訪問あり、年末訪問予定72.4%。健康なうちに会いたい欲求が強い",
+          "source": "https://kufura.jp/family/childcare/262589 (kufura 2022/11 167名)",
+          "confidence": "high"
+        },
+        {
+          "fact": "スマホ所有率：60代94%、70代84%、80代前半68%。70代まではスマホ環境ほぼ前提にできる",
+          "source": "https://www.moba-ken.jp/project/seniors/seniors20250828.html (NTTドコモモバイル社会研究所)",
+          "confidence": "high"
+        },
+        {
+          "fact": "アプリのダウンロード/削除ができるのは60代前半は8割強、70代後半以上は4割未満。インストール障壁が高世代で急増",
+          "source": "https://www.cross-m.co.jp/column/marketing/mkc20240816 / MMD研究所 2024シニア調査",
+          "confidence": "medium"
+        },
+        {
+          "fact": "ICTサービス利用数：60代8.2個、70代5.9個、80代前半3.9個（15サービス中）。年齢が上がるほど狭く使う",
+          "source": "https://www.moba-ken.jp/project/seniors/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "祖父母が孫と一緒にやる活動：『屋内遊び』69.5%（祖父）が最頻。室内・テーブル遊びが主戦場",
+          "source": "https://www.lisalisa50.com/research20160808_18.html (UR都市機構)",
+          "confidence": "high"
+        },
+        {
+          "fact": "孫と会うことが『自分の若返りにつながる』76.2%。心理的便益が強く、頻度より体験の質を重視する余地",
+          "source": "https://www.lisalisa50.com/research20160808_18.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "スーパーマリオパーティ ジャンボリー（2024発売）累計617万本・2024年国内年間ソフト1位（95万本）。Switch国内3,500万台ベース。家族向け据置パーティが圧倒的に占有",
+          "source": "https://www.famitsu.com/article/202501/30691 / https://automaton-media.com/articles/newsjp/super-mario-party-jamboree-20250204-327308/",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS HIG：Dynamic Type対応必須、最小フォント11pt、タッチターゲット最低44×44pt、最大300%以上のテキスト拡大に耐える設計が推奨",
+          "source": "https://developer.apple.com/design/human-interface-guidelines/accessibility / https://developer.apple.com/help/app-store-connect/manage-app-accessibility/larger-text-evaluation-criteria/",
+          "confidence": "high"
+        },
+        {
+          "fact": "App Storeのファミリーゲーム既存枠：『どこパ』（ワードウルフ等39ゲーム、★4.6）、Eggy Party（NetEase、グローバル6億・日本2024/7参入）、2-4 Player Party Mini Gamesなどが既に占有",
+          "source": "https://apps.apple.com/jp/app/id1529747588 / https://apps.apple.com/jp/iphone/story/id1520181535",
+          "confidence": "high"
+        },
+        {
+          "fact": "三世代外食調査では祖父母世代の本音として『気を遣わない店』『子どもが騒いでも気にならない場』を選好。長時間滞在型の場（自宅・実家）が三世代密度の最大化ポイント",
+          "source": "https://kufura.jp/family/human-relations-family/446007",
+          "confidence": "medium"
+        },
+        {
+          "fact": "正月の伝統遊び（百人一首・かるた・トランプ）は江戸後期以来の家庭定番。坊主めくり等の超低難度ルールが3世代適合の確立パターン",
+          "source": "https://crd.ndl.go.jp/reference/entry/index.php?id=1000224083 (国会図書館レファレンス) / https://feature.cozre.jp/37537",
+          "confidence": "high"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "三世代『同居』は児童世帯の11.2%しかないが、年末年始の三世代『集合』は約8割（コロナ前）。ASOBIの真の市場は同居家族でなく、年2回の帰省イベント時に祖父母宅・実家で集合する一時的3世代",
+          "evidence_ref": "2023年国民生活基礎調査 / コープ年末年始調査",
+          "asobi_implication": "課金UI/オンボーディングを正月・お盆ピーク前後で最適化（12月・8月にUA集中）。常用アプリでなく『集まる時にしか開かない』前提のリテンション設計（D30=7%でも経済が回る正月特化型）。お題に『正月』『お盆』『帰省』『おばあちゃん家』タグを追加し、その時期のApp Storeフィーチャー狙う"
+        },
+        {
+          "insight": "70代までスマホ所有率84%だが、アプリインストール可能率は70代後半で4割未満。祖父母『自身』にDLさせる戦略は破綻、孫・子世代（30-50代）が持参するスマホで全員プレイする集合体験が現実解",
+          "evidence_ref": "NTTドコモモバイル社会研究所 / MMD研究所2024",
+          "asobi_implication": "ASOBIは1台のスマホを真ん中に置いて全員が見る『回し読みUI』が正解。祖父母世代のDLは捨てる。代わりに30-40代『孫の親』をターゲットとし、『実家に帰る前にDLしておこう』を訴求軸に。AirDrop/QRコードでその場共有できる導線が高ROI"
+        },
+        {
+          "insight": "祖父母と孫の主活動は『屋内遊び』69.5%で既に確立、76.2%が『若返りにつながる』と心理便益を実感。ただし既存遊び（かるた・トランプ・百人一首）は世代によって難易度・読み上げ負担に差。ASOBIは祖父母が読み手不要・体力不要・知識不要で参加できる『新かるた』ポジションを取れる",
+          "evidence_ref": "UR都市機構育孫調査 / 国会図書館レファレンス",
+          "asobi_implication": "シーン分けで『3世代向け』カテゴリを新設（256お題のサブセット）。文字最大級（Dynamic Type 300%対応・最小11pt死守）、操作は『タップ1回でお題めくり』のみ、お題の難易度は小学校低学年が理解できるレベル、読み上げ機能（VoiceOver自動対応）必須。Apple Larger Text評価基準を満たしApp Store Accessibility枠でフィーチャー狙い"
+        },
+        {
+          "insight": "競合構造は据置（マリオパーティジャンボリー617万本）が3世代家族の本命を完全占有。スマホ側の3世代特化枠は実質空白で、Eggy Partyは『同世代』狙い、どこパは『酒の席』寄り。Switch非保有家庭・帰省先に持っていけない場面の『代替品』ポジションが空いている",
+          "evidence_ref": "ファミ通2024年間1位 / Eggy Party日本ローンチ / どこパApp Store",
+          "asobi_implication": "App Store ASOで『マリオパーティ』『Switch 持って帰れない』『帰省 ゲーム』のキーワードを狙う。LP/ストアコピーでは『Switchがなくても全員のスマホで遊べる』を核訴求に。価格も買切¥490-980で『手土産経済圏』を作る（祖父母が孫に1本買ってあげる文化と整合）"
+        },
+        {
+          "insight": "祖父母世代の経済力は実数値で確認可能（帰省支援平均73,400円＝交通費29,700+滞在費43,700）。決済者は祖父母世代でもあり得るが、スマホ決済リテラシーは低い",
+          "evidence_ref": "サライ調査",
+          "asobi_implication": "祖父母にギフトカード/iTunesカードで贈ってもらうルートは現実的でない。Family Sharing（最大6名）で30-50代の親世代が買って祖父母を含めた家族で共有する設計が正解。Apple Family Sharing対応を明示し、ストア説明に『1回購入で実家のおじいちゃんおばあちゃんも遊べます』を入れる"
+        }
+      ],
+      "unable_to_verify": [
+        "祖父母世代の帰省時平均滞在日数（2-3泊と推測されるが一次ソース未取得）",
+        "60-80代のスマホアプリ内パーティーゲーム実プレイ実態（DL率は出るがプレイ習慣の調査未発見）",
+        "マリオパーティジャンボリー購入者の年齢構成・3世代プレイ率（任天堂は公開せず）",
+        "どこパ・Eggy Partyの日本国内シニア層DAU・年齢別レビュー分布",
+        "2024-2025年（コロナ後）の正月お盆三世代集合率の最新更新値（コープ調査は2023年で停止）"
+      ],
+      "conclusion": "3世代家族のparty gameニーズは『同居型11.2%』でなく『年2回帰省時の集合8割』が実質市場。スマホは70代まで普及（84%）するがアプリDLは70代後半で破綻するため、祖父母自身にDLさせる戦略は不可。30-50代の孫の親世代がDLし、1台のスマホを囲んで全員プレイする『デジタルかるた』ポジションが空白かつ実現可能。競合（マリオパーティ）は据置占有のため、Switch非持参・帰省先での代替品としてASOBIは差別化できる。実装的にはDynamic Type 300%・最小タップ44pt・VoiceOver・Family Sharing対応・正月/お盆/帰省タグ付けが必須。UA投下は12月・8月に集中、買切¥490-980で祖父母世代の心理便益（76.2%が若返り効果）を訴求軸に据えるのが筋。ただし正月・お盆ピーク以外のリテンションは構造的に低く、D30=7%前提のビジネスモデル設計が要る。\""
+    },
+    {
+      "conclusion": "個人開発iOSアプリで月¥1-3万円到達は「ASO+IAP/サブスク+継続更新」がほぼ必須条件で、所要期間は早くて5ヶ月（Qiita事例）、平均は12-18ヶ月（のすけ/Shira事例）。広告単独・1個リリースで月¥1万円は事実上不可能、IAP実装で初めて到達した事例が複数。撤退判断の業界相場は「6ヶ月で月収0」がIndie Hackers界隈で最頻値（\"most indie hackers pivoting or quitting by month 6\"）。ASOBIは1176ゲーム×完全オフライン×無料配布の構成で、Heads Up!型買切¥600-980 IAP（飲み会向け追加デッキ等）を1点だけ載せ、3-6ヶ月で月¥1万円未達なら追加投資せず単一リリース継続のミニマム維持に切り替えるのが業界相場と整合する。顔出し・音声なしでもnote/Qiita/Zenn記事＋X運用で十分到達可能なことは複数事例で確認済み（のすけ・hal1986・dancingpandor全員テキスト中心運営）。",
+      "key_insights": [
+        {
+          "insight": "広告単独で月¥1万円は到達不可、IAP/サブスク実装が分岐点",
+          "evidence_ref": "のすけ事例: 2020/4リリース→2020/12にIAP実装で初めて月¥1万円到達（広告は月¥22スタート）",
+          "asobi_implication": "ASOBIは無料完全オフラインだが、Heads Up!型の追加デッキ買切IAP（¥600-980/パック）を最低1点投入する設計が必須。広告0方針でも到達可能性を残せる"
+        },
+        {
+          "insight": "月¥1万円到達の所要期間は5ヶ月〜18ヶ月のレンジ、中央値は約12ヶ月",
+          "evidence_ref": "Qiita初月0円→2ヶ月目155円→5ヶ月目1万円突破→翌月4313円の事例、のすけは18ヶ月、Shiraは4年で81万円(月平均¥17000)",
+          "asobi_implication": "撤退ラインは「6ヶ月で月収0継続」をトリガーに。早期到達(5ヶ月)も可能だが、12ヶ月までは継続前提のスケジューリングが妥当"
+        },
+        {
+          "insight": "顔出し・音声なしのテキスト運営で月¥1-3万円到達事例が複数存在",
+          "evidence_ref": "のすけ(note+X @nosuke926)、hal1986(Zenn)、dancingpandor(note)、Shira(ブログ)全員テキスト中心、顔出しなし",
+          "asobi_implication": "井戸川さんの「顔出し・音声なし」制約は個人開発界隈では標準的で、月¥1-3万円帯では不利にならない。note/Zenn/Xでの開発記事化が主要マーケ手段"
+        },
+        {
+          "insight": "複数アプリポートフォリオ戦略 vs 1本集中の収益差は10倍以上",
+          "evidence_ref": "dancingpandor: 68本リリース・200万DL・東京都平均給与超 vs hal1986: 13本リリース・21.7K DL・月収¥7900",
+          "asobi_implication": "ASOBI単体で月¥1-3万円ライン狙いなら1本集中で十分、ただし月¥10万円超を狙うなら2-3本の派生アプリ（例: ASOBI Kids版、ASOBI 旅行版）を半年〜1年スパンで追加する想定が必要"
+        },
+        {
+          "insight": "撤退判断の業界相場は「月6ヶ月で売上0」がピボット/撤退の最頻値",
+          "evidence_ref": "Indie Hackers記事: 'most indie hackers pivoting or quitting by month 6' / Shira記事: '稼ぐだけが目的なら個人アプリ開発は止めておいたほうがよい'（7年で時給200円）",
+          "asobi_implication": "ASOBIの撤退ラインは「リリース6ヶ月時点で月収¥0継続なら追加投資停止・最小メンテのみ」が業界整合。3ヶ月で判断すると早すぎ、12ヶ月だと損切り遅すぎ"
+        },
+        {
+          "insight": "DL数より「継続利用率×IAP導線」が収益を支配",
+          "evidence_ref": "Shira(Staca): MAU 15000人・7年65万円(時給200円) / hal1986: DAU 250-270人で月¥7900安定",
+          "asobi_implication": "ASOBIはパーティーゲームで利用頻度が宴会タイミング限定=低頻度、なのでDL数稼ぎより「1回の宴会セッションでIAP誘導する瞬間最大化UI」設計が収益直結"
+        }
+      ],
+      "lens_label": "個人開発 iOS アプリの月収¥1-3万モデル成功事例",
+      "lens_number": 5,
+      "raw_data_collected": [
+        {
+          "fact": "のすけ氏: 2019/10最初のサービス開始→2020/4 Subsuku（サブスク管理アプリ）リリース→2020/12にIAP実装で月¥1万円到達。所要約14ヶ月。広告初収益¥22。顔出しなし、X @nosuke926で発信",
+          "source": "https://note.com/nosuke0926/n/ncb074b5d01f7",
+          "confidence": "high"
+        },
+        {
+          "fact": "hal1986氏: 4年半で13アプリリリース、総DL 21.7K（メインアプリiOS 10.1K + Android 174）、Admob広告¥1800-2000/月、サブスク月平均約¥5900、合計月¥7900安定。DAU 250-270人/MAU 780-850人。Zennで運営記事公開、顔出しなし",
+          "source": "https://zenn.dev/hal1986/articles/20240408-app-4-and-a-harf-year",
+          "confidence": "high"
+        },
+        {
+          "fact": "dancingpandor氏: 10年間で68本リリース・iOS/Android合計200万DL（最初9年で100万、2021年1年で100万）。最高DLアプリは10万超。2020年下期にゲーム→ツール系へ転換しDL/収益改善。東京都平均給与より若干高い水準。note発信、顔出しなし",
+          "source": "https://note.com/dancingpandor/n/n28fbc6ffc4a5",
+          "confidence": "high"
+        },
+        {
+          "fact": "Shira氏: 5年間で6つのツール系アプリ、総DL 87万件、4年間総収入¥813,277（月平均¥17000）。本人「時給換算では可哀そうな金額」「サラリーマンの収入くらい稼ぐのは相当難しい」と評価。広告メイン",
+          "source": "https://sastd.com/developer1/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Staca（スタンプカードアプリ）: 7年運用・MAU 15000人・総収入約65万円（広告38万+IAP27万）。時給換算約200円。MAU高くてもエンゲージメント低いと収益化困難の典型例",
+          "source": "https://nyumon-info.com/apdev/makemoney.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "匿名事例: 初月¥0→2ヶ月目¥155→5ヶ月目に月¥1万円初突破→翌月¥4313に落ちた。早期到達も可能だが安定化に時間必要",
+          "source": "https://qiita.com/sakes9/items/d8a94271f994ab3c26d1（記事内引用ベース）",
+          "confidence": "medium"
+        },
+        {
+          "fact": "月額¥280サブスクで月¥20万円稼ぐには1000人の有料ユーザー必要（理論計算）。逆算で月¥1万円なら有料ユーザー50人",
+          "source": "https://qiita.com/sakes9/items/d8a94271f994ab3c26d1",
+          "confidence": "high"
+        },
+        {
+          "fact": "Indie Hackers業界相場: 'most indie hackers pivoting or quitting by month 6'（6ヶ月時点で大半がピボット/撤退）。$10K MRRまで2.5年が成功事例の平均",
+          "source": "https://fungies.io/the-indie-hackers-dilemma-choosing-your-path-to-10k-mrr-and-beyond/ (検索経由)",
+          "confidence": "medium"
+        },
+        {
+          "fact": "ソロ開発者の中央値は月収$1000未満、現実的なトップ25%でも$3000-$15000/月に12-18ヶ月かかる",
+          "source": "https://medium.com/@1qazster/can-indie-developers-still-make-money-i-tested-it-with-my-own-app-3340251320dd (検索経由要約)",
+          "confidence": "medium"
+        },
+        {
+          "fact": "DevUtilsケース: 6ヶ月かけたmacOSアプリは失敗、次の2週間で作ったDevUtilsは初日$1K・7日で$22K。短期MVP+ピボット戦略の成功例",
+          "source": "https://www.indiehackers.com/ (検索経由)",
+          "confidence": "medium"
+        },
+        {
+          "fact": "30アプリポートフォリオで$22K/月達成事例: 失敗1アプリから1年以内に到達。複数アプリ戦略の有効性",
+          "source": "https://www.indiehackers.com/post/tech/from-failed-app-to-30-app-portfolio-making-22k-mo-in-less-than-a-year-myy3U7K9evxGOVOHti8s",
+          "confidence": "medium"
+        },
+        {
+          "fact": "複数アプリポートフォリオで$185K MRR達成事例: サブスクモバイルアプリ中心",
+          "source": "https://www.indiehackers.com/post/tech/growing-a-portfolio-of-mobile-apps-to-185k-mo-hZ4hqICtByIljkiJECQv",
+          "confidence": "medium"
+        }
+      ],
+      "unable_to_verify": [
+        "@thom4parisotの月収公開事例の一次ソース（プロフィール特定不可）",
+        "ASOBI類似の純パーティーゲーム個人開発の月収公開事例（パーティー特化の個人開発はほぼ存在せず、ツール/サブスク系が市場の大多数）",
+        "「DL 1000 / 月収¥0で何ヶ月で撤退」の業界調査統計（Indie Hackersの体感値=6ヶ月以外に定量データなし）",
+        "Qiita dokozon0記事の月¥1万円到達までの具体的所要月数（記事本文に定量データなし、ASO戦略論のみ）",
+        "日本人個人開発者の月収公開事例の網羅的リスト（散発的な個別ブログのみで集約データなし）"
+      ]
+    },
+    {
+      "lens_number": 6,
+      "lens_label": "AI ホスト追従戦略の費用試算",
+      "raw_data_collected": [
+        {
+          "fact": "GPT-4o-mini API 価格は $0.15/M input・$0.60/M output（Batch API なら $0.075/M input・$0.30/M output で 50% 引き）。",
+          "source": "https://developers.openai.com/api/docs/pricing",
+          "confidence": "high"
+        },
+        {
+          "fact": "Claude Haiku 3.5 は $0.80/M input・$4.00/M output（標準価格）。",
+          "source": "https://platform.claude.com/docs/en/about-claude/pricing",
+          "confidence": "high"
+        },
+        {
+          "fact": "Claude Haiku 4.5 は $1.00/M input・$5.00/M output。プロンプトキャッシュで最大 90% 削減、Batch で 50% 削減が可能。",
+          "source": "https://www.anthropic.com/news/claude-haiku-4-5",
+          "confidence": "high"
+        },
+        {
+          "fact": "Gemini 2.0 Flash は $0.10/M input・$0.40/M output。ただし 2026/6/1 にデプリケート、後継 Gemini 2.5 Flash-Lite は同一料金 ($0.10/$0.40)。",
+          "source": "https://ai.google.dev/gemini-api/docs/pricing",
+          "confidence": "high"
+        },
+        {
+          "fact": "Anthropic プロンプトキャッシュは cache read で標準 input の 10% コスト、cache write は 5分 TTL で 1.25倍・1時間 TTL で 2.0倍。共通の system prompt/お題 list を持つゲームと相性が良い。",
+          "source": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+          "confidence": "high"
+        },
+        {
+          "fact": "Whisper Games AI（com.whispergames.ai）は AI Game Master が Never Have I Ever、Truth or Dare、Black Stories、Escape Rooms 等 50+ ゲームをホストする無料 iOS/Android アプリで、AI ホスト型 party game の同種事例として稼働中。",
+          "source": "https://apps.apple.com/us/app/party-games-whisper-games-ai/id6755253322",
+          "confidence": "high"
+        },
+        {
+          "fact": "AI Dungeon 初代は OpenAI API コストで $10,000/日 発生（DAU 数万規模での非制限生成時）。生成尺と DAU が直結する。",
+          "source": "https://techcrunch.com/2021/02/04/latitude-seed-funding/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "AI Dungeon 現行はサブスク + Credit 制（Adventurer 480 / Champion 760 / Legend 1,650 / Mythic 2,750 credits/月）に移行、無料無制限 AI 生成は維持不能と判定された前例。",
+          "source": "https://play.aidungeon.com/pricing",
+          "confidence": "high"
+        },
+        {
+          "fact": "Party AI（id6448139181）は月 $0.99 / 年 $9.99 の自動更新サブスクで AI party game を提供。AI ホスト機能を有料化する一実例。",
+          "source": "https://apps.apple.com/us/app/party-ai/id6448139181",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple App Store は 2026/1/31 までに新 Age Rating 質問票回答必須。AI assistant・chatbot 機能が sensitive content の頻度評価に含まれ、回答内容で 13+/16+/18+ に振り分けられる。",
+          "source": "https://developer.apple.com/news/?id=ks775ehf",
+          "confidence": "high"
+        },
+        {
+          "fact": "18+ 評価アプリは豪州・ブラジル・シンガポールで Apple の年齢確認が完了しないとダウンロード不可（2026 開始）。",
+          "source": "https://www.msn.com/en-in/money/topstories/apple-overhauls-app-store-age-ratings-adds-new-13-16-and-18-categories/ar-AA1Jq7jo",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple Guideline 5.1.2(i)（2025/11/13 改訂）は第三者 AI へのデータ送信を明示開示・名指し（OpenAI / Anthropic / Google 等）と explicit permission を要求。プライバシーポリシー埋め込みは不可。",
+          "source": "https://techcrunch.com/2025/11/13/apples-new-app-review-guidelines-clamp-down-on-apps-sharing-personal-data-with-third-party-ai/",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS アプリ 282 件で LLM API クレデンシャル流出が報告。48% が JWT 流出、33% は認証なし backend、19% は plaintext API key を埋め込み。",
+          "source": "https://www.helpnetsecurity.com/2026/06/22/llm-api-credential-leakage-ios-apps/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Anthropic 公式は「mobile / browser に API key を直接埋め込まない」「環境変数 + KMS / 認証済 backend proxy 経由」を best practice として明示。",
+          "source": "https://support.claude.com/en/articles/9767949-api-key-best-practices-keeping-your-keys-safe-and-secure",
+          "confidence": "high"
+        },
+        {
+          "fact": "推奨実装は Node.js/Express 等の proxy backend で JWT 短寿命 + rate limit + certificate pinning。client から直接 LLM API は叩かない。",
+          "source": "https://medium.com/@terminalsandcoffee/i-built-a-security-proxy-for-llm-apis-8c44f7c26730",
+          "confidence": "high"
+        },
+        {
+          "fact": "Claude tokenizer は BPE。英語は 1 token ≈ 4 char だが非ラテン（日本語含む）は 2-4× tokens/char になる傾向。",
+          "source": "https://simonwillison.net/2026/apr/20/claude-token-counts/",
+          "confidence": "medium"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "ASOBI が動的お題生成を入れる場合の月コスト試算（1 ユーザー = 1 セッション 10 ラウンド・1 ラウンド ≈ 500 input + 200 output token、日本語のため 2× 補正で実効 1000 input + 400 output）：Gemini 2.5 Flash-Lite は 1 ユーザー/月 ≈ $0.00026、Claude Haiku 4.5 は ≈ $0.0030、GPT-4o-mini は ≈ $0.00039。プロンプトキャッシュ（system prompt + お題テンプレ共有）を効かせれば Haiku でも $0.001 前後まで圧縮可能。",
+          "evidence_ref": "GPT-4o-mini $0.15/$0.60、Haiku 4.5 $1/$5、Gemini Flash-Lite $0.10/$0.40、日本語 2× 補正",
+          "asobi_implication": "DAU 100 = 月 $0.03〜$0.30、DAU 1,000 = $0.3〜$3、DAU 10,000 = $3〜$30 が下限レンジ。1 セッションあたりの生成尺を 10 ラウンド/日に制限する限り、Anthropic Max5x の $25/月 サブスクではなく従量キーで張っても DAU 1 万までは $30/月 で収まる。問題はコスト本体ではなく、悪意ある周回 / 自動化攻撃（1 ユーザーで 1 日 1 万 req）で破綻する点。"
+        },
+        {
+          "insight": "Anthropic Max5x の Workspace API キーを iOS アプリから直接叩く設計は技術的にも規約的にも不可。①Anthropic 公式が mobile 埋め込み禁止を明示、②2026/6 報告で 282 アプリが流出済、③Apple 5.1.2(i) で第三者 AI 利用は名指し開示 + 明示同意が必須。さらに Max5x はサブスク枠であり、外部キー流出時に「料金請求」ではなく「アカウントロック / プラン剥奪」が起きる。",
+          "evidence_ref": "Anthropic API key best practices、helpnetsecurity 282 アプリ流出、TechCrunch Apple 5.1.2(i) 改訂",
+          "asobi_implication": "AI ホスト化する場合の必須構成は『ASOBI iOS → Cloudflare Workers / Vercel Edge の認証 proxy → Anthropic 従量 API（Max5x ではない）』。proxy 側で①レシート検証ベースのユーザー識別、②1 ユーザー 1 日 N ラウンド上限、③月予算 hard cap（例: $50/月で全停止）を持つ。井戸川さんの haruhi-api-key を流用するのは厳禁（haruhi の課金構造メモ参照、 Max5x と従量キーは別物）。"
+        },
+        {
+          "insight": "Age Rating への影響は『AI 機能の出力フィルタ次第』で 17+ 据え置きも可能。Apple 新質問票では AI assistant 機能が sensitive content の頻度評価に組み込まれるため、未制御の自由生成（Picolo 系の挑発お題）を AI に作らせると 18+ 行きで、豪州/ブラジル/シンガポールは年齢確認なしで DL 不可になる。事前定義カテゴリ内（『お題のバリエーション増し』程度）に限定し、blocklist filter を通せば 17+ 維持可能。",
+          "evidence_ref": "Apple Age Rating 2026/1/31 更新、18+ DL ブロック国",
+          "asobi_implication": "戦略選択肢は二択：(A) AI は『1176 ゲームの語彙バリエーション拡張』に限定使用、出力は server 側で内部 audit と同じ NG list（飲酒強制 17 件 + 商標 13 件）通してから返す → 17+ 据え置き・AdMob eCPM 維持。(B) フル AI ホスト（Whisper Games 路線）→ 18+ 確実、3 ヵ国で年齢確認壁、AdMob 在庫激減。1176 ゲーム × 13 シーン × 256 お題の静的資産を活かす ASOBI の強みからすれば (A) が論理一貫。"
+        },
+        {
+          "insight": "費用ではなく『収益化の壁』が決め手。AI Dungeon は無料無制限を維持できず Credit 制に移行、Party AI は最初から $0.99/$9.99 サブスク、Whisper Games は無料表面だがマネタイズ未確認。Picolo $5/週炎上の前例と合わせ、『AI 機能をフリーミアム壁の向こうに置く』のが標準解になりつつある。",
+          "evidence_ref": "AI Dungeon Credit 制移行、Party AI $0.99/月サブスク",
+          "asobi_implication": "ASOBI が AI を入れるなら『無料 = 静的 1176 ゲーム + AdMob、有料 = AI お題ジェネレータ + 広告除去』の二層が正解。AI 部分の限界費用（DAU 10,000 で $30/月レンジ）は十分小さく、買切 ¥600 or サブスク ¥250/月のどちらでも余裕で黒字化する。Heads Up! 買切ハイブリッドモデルと整合。"
+        },
+        {
+          "insight": "コスト試算は『日本語 2× token 倍率』と『キャッシュヒット率』で 1 桁ぶれる。ASOBI のように同一 system prompt（『家族向け、飲酒強制禁止、マジカルバナナ語句禁止』等）を全リクエストで使うケースは cache hit 90%+ が現実的で、Haiku でも実効 input コストは $0.10/M 相当まで落ちる。",
+          "evidence_ref": "Anthropic prompt caching: cache read = 10% of input, 日本語 2-4× token",
+          "asobi_implication": "コスト最小化スタックは『Gemini 2.5 Flash-Lite（最安）→ Claude Haiku 4.5 + cache（品質）→ GPT-4o-mini（汎用）』の順で評価。井戸川さんの Anthropic 既存契約とノウハウ的に Haiku 4.5 + cache が運用負荷最小。Gemini は 2026/6 にデプリケート騒ぎがあり後継移行リスクが見える。"
+        }
+      ],
+      "unable_to_verify": [
+        "Whisper Games AI の実 DAU・実 LLM コスト（公表なし、外部観測値も取得できず）",
+        "Aippy の実コスト構造（無料表記のみで OpenAI/Anthropic どちらを使用かも非開示）",
+        "17+ → 18+ 変更が AdMob eCPM に与える定量的影響（公的ベンチマーク非公開、AdMob コミュニティに具体数値なし）",
+        "Anthropic Max5x の Workspace API キーをアプリから叩いた場合の TOS 違反扱い詳細（Anthropic からの公式 statement は見つからず、best practice ドキュメントから禁止と推論）",
+        "ASOBI の現状 DAU 想定（v1 ready 段階で実測なし、上記試算は仮定）"
+      ],
+      "conclusion": "AI ホスト追従は『コスト』ではなく『3 つの壁』で意思決定すべき。(1) セキュリティ壁：Max5x キーの直叩き不可、必ず認証 proxy + 従量 API + 月予算 hard cap で構築する。(2) Age Rating 壁：自由生成は 18+ 直行で 3 ヵ国 DL 不可、ASOBI は『静的 1176 ゲームの語彙拡張』に AI 用途を限定して 17+ を死守する。(3) 収益化壁：AI Dungeon・Party AI ともフリー無制限を諦め有料壁を立てている。ASOBI は『無料 = 静的 + AdMob、有料 = AI お題ジェネレータ + 広告除去』の Heads Up! ハイブリッドが整合。実コストは Gemini 2.5 Flash-Lite または Claude Haiku 4.5 + prompt caching で DAU 1 万でも $3〜$30/月レンジ、Anthropic Max5x の $25/月予算とは別軸で従量キーを切るのが正解（haruhi-api-key 流用は厳禁）。撤退ラインの判断としては『AI 機能は v2 以降に分離、v1 は静的アセットで投入』が安全。"
+    },
+    {
+      "conclusion": "パーティーゲーム市場では「最初の楽しさ」到達は10〜30秒が事実上のベンチマーク。Heads Up! は4ステップ（インストール→デッキ選択→額にあてる→チルト）、Picolo は3ステップ（名前入力→モード選択→指示遂行）、どこパは「起動して3分で2-50人プレイ可」が公式売り文句。ハイパーカジュアル業界の通説では最初の30-60秒でstay/churnが決まり、20-30秒で「先のジャーニーまで見せる」のが推奨。App Store のゲームカテゴリ平均CVRは3-5%（ボードゲーム1.2% / トリビア5.2% / カジノ7.6%）と全カテゴリ平均（US 8.56%）より低いため、ASOBI はストアページで「秒で遊べる」を訴求しないと埋もれる。オンボーディング完了率はゲームで70-80%が目標、D1リテンション40-60%を狙うなら設定画面を最小化する必要がある。ASOBI は1191ゲーム × 13シーン × 256お題という選択肢の豊富さが逆にTTV を遅らせるリスクがあり、「起動→おすすめ1本即プレイ」のショートカット導線が必須。",
+      "key_insights": [
+        {
+          "insight": "Heads Up! の TTV は実質4ステップ（デッキ選択→額に当てる→ジェスチャー説明→開始）。デッキ選択画面に来た時点で「何が楽しいか」が即理解できる構造（celebrity/movies/animals 等の絵カード）。ASOBI も1191ゲームの中から「今夜の3-5人向けトップ5」のような秒で選べる導線が必要。",
+          "evidence_ref": "screenwiseapp.com / theecards.com / playpartygame.com の Heads Up! 説明",
+          "asobi_implication": "起動後トップ画面に「シーン×人数で1タップおすすめ」セクション必須。1191の選択肢を見せる前に1本即プレイ可能にする"
+        },
+        {
+          "insight": "ハイパーカジュアル業界の現場知では「最初の30-60秒でstay/churnが決まる」「20-30秒で全ジャーニーを見せる」のが標準。ゲームアプリのオンボーディング完了率は70-80%が目標値。",
+          "evidence_ref": "appsamurai.com Hybrid-Casual UA Playbook 2025 / linkrunner.io 2025 onboarding metrics",
+          "asobi_implication": "初回起動チュートリアルは20秒以内、最初のお題表示までは10秒以内（Heads Up! と同等）を目標KPIに設定すべき"
+        },
+        {
+          "insight": "App Store ゲーム平均CVR は3-5%、ボードゲームは1.2%と最低クラス。Apptweak 2025 によれば全カテゴリUS平均8.56%。ASOBI は「パーティーゲーム」カテゴリで競合密度が高く、ストアスクショの最初の1枚で「秒で遊べる」「飲酒不要」「1191ゲーム」を伝えないと埋もれる。",
+          "evidence_ref": "apptweak.com Average App Conversion Rate per Category 2025 / adapty.io 2026 benchmarks",
+          "asobi_implication": "スクショ1枚目は「3秒で次のお題が出る」ショットに。最初の5秒で価値伝達できないと業界平均CVR以下に落ちる"
+        },
+        {
+          "insight": "Picolo は名前入力という1段階の摩擦がある（プレイヤー名登録）が「Getting Started モード」で初心者導線を別途用意。ASOBI のシーン13個は初心者には情報過多になるリスクがあり、「とりあえず3分」のクイックスタートボタンが推奨される。",
+          "evidence_ref": "psycatgames.com Picolo / picoloapp.com / depositgenius.com Picolo rules",
+          "asobi_implication": "「クイックスタート」ボタンで人数だけ聞いて即お題表示。シーン選択は2回目以降に表示する段階的開示を採用"
+        },
+        {
+          "insight": "どこパは公式で「起動して3分で2-50人プレイ可」を明示。30+ゲーム搭載で「ワードウルフ・全員一致・100の質問」が主軸。ASOBI の1191ゲームは数で勝るが、「最初の1本」推奨が無いとどこパのシンプルさに負ける。",
+          "evidence_ref": "dokopa.com / qdan.co.jp/dokopa-release / 4gamer.net どこパまとめ",
+          "asobi_implication": "ストア説明文の冒頭に「起動から1タップで遊べる」「3分で全員参加」を必須記載。ゲーム数の多さは2行目以降の差別化要素"
+        },
+        {
+          "insight": "オンボーディング品質はD1リテンションの最強予測因子。強い onboarding を持つアプリは D1=40-60% / D30=20-30%。ASOBI の iOS top 25% benchmark（D1=30% / D30=7%）を超えるには、設定画面の最小化と「smart defaults」が必要。",
+          "evidence_ref": "linkrunner.io 2025 onboarding metrics / wezom.com 2025 retention",
+          "asobi_implication": "初回起動時の言語・地域設定は端末設定から自動継承（regionBlocklist 既実装と整合）。アカウント登録を持たないASOBIの強みを onboarding skip の形で活かす"
+        }
+      ],
+      "lens_label": "アプリ time-to-value 業界数値",
+      "lens_number": 7,
+      "raw_data_collected": [
+        {
+          "fact": "Heads Up! のプレイフロー: アプリ起動→デッキ選択（A-List Celebrities / Movies / Animals 等）→額に当てる→チルト下=正解/チルト上=パスで即ゲーム開始。チュートリアルなし、絵カードで直感理解。",
+          "source": "https://screenwiseapp.com/guides/heads-up-app",
+          "confidence": "high"
+        },
+        {
+          "fact": "Heads Up! は「The game is designed to be quick and fun, making it perfect for parties or casual gatherings」と公式ガイド系で説明。デッキ選択以外の設定ステップは存在しない。",
+          "source": "https://theecards.com/en/articles/heads-up-game-office-party-guide",
+          "confidence": "high"
+        },
+        {
+          "fact": "ゲームアプリのオンボーディング推奨時間: 「Gaming app onboarding should get users playing within 10-15 seconds maximum. The best gaming apps use progressive disclosure—they teach players one mechanic at a time through actual gameplay rather than static screens.」",
+          "source": "https://linkrunner.io/blog/top-10-mobile-app-onboarding-metrics-that-predict-long-term-retention",
+          "confidence": "high"
+        },
+        {
+          "fact": "ゲーム/コンテンツ消費/ソーシャル等のシンプルアプリのオンボーディング完了率目標値は70-80%。チュートリアルが短く直感的なため。",
+          "source": "https://linkrunner.io/blog/top-10-mobile-app-onboarding-metrics-that-predict-long-term-retention",
+          "confidence": "high"
+        },
+        {
+          "fact": "App startup performance benchmark: cold start 5秒以内、warm start 2秒以内、hot start 1.5秒以内（Google 推奨）。",
+          "source": "https://linkrunner.io/blog/top-10-mobile-app-onboarding-metrics-that-predict-long-term-retention",
+          "confidence": "high"
+        },
+        {
+          "fact": "App Store ゲームカテゴリ平均CVR は3-5%、全カテゴリ平均より低い。racing 20.6%、board games 1.2%、Trivia 5.2%、Strategy（Google Play）6.6%、Casino 7.6%、Board 18.6%（Google Play）。",
+          "source": "https://www.apptweak.com/en/aso-blog/average-app-conversion-rate-per-category",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apptweak 2025: US 平均CVR は App Store 8.56%、Google Play 16.15%。ゲームはこれを下回る。低CVR要因は「ユーザーが多数のオプションを browse するため」。",
+          "source": "https://www.apptweak.com/en/aso-blog/aso-app-store-trends-benchmarks-report",
+          "confidence": "high"
+        },
+        {
+          "fact": "Picolo フロー: 「open the app and enter the names of all the people in your group（最低3人、上限なし）→ Let's get drunk ボタン → Game Mode 選択（Getting Started が初心者向け）→ ランダムプレイヤーに指示が表示」。",
+          "source": "https://psycatgames.com/magazine/party-games/picolo/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Picolo の Getting Started モードは「Perfect way to start your evening of drinking. This mode is recommended for beginners.」と明示。初心者導線を別モードで提供。",
+          "source": "https://depositgenius.com/picolo-drinking-game-rules/",
+          "confidence": "high"
+        },
+        {
+          "fact": "どこパは「起動して2-50人で約3分で遊べる」アプリ。30+ パーティーゲーム搭載、133+ 国で配信、無料。Qdan Inc. が2022年11月にリリース。",
+          "source": "https://dokopa.com/en/",
+          "confidence": "high"
+        },
+        {
+          "fact": "どこパの主要ゲーム: ワードウルフ、全員一致、100の質問、NGワード、リバーシ、クイズいいセン行きまSHOW! 等。「人気カードゲームがどこパ流に進化『アメリカンページワン』」など継続的に追加。",
+          "source": "https://prtimes.jp/main/html/rd/p/000000005.000108704.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "ハイパーカジュアル/ハイブリッドカジュアルの first session 設計: 「Within the first 30–60 seconds, players make a critical decision to stay or churn」「show the full journey from first session to advanced progression in 20–30 seconds」。",
+          "source": "https://appsamurai.com/blog/hybrid-casual-games-ua-playbook-how-to-acquire-and-retain-users/",
+          "confidence": "high"
+        },
+        {
+          "fact": "強いオンボーディングを持つアプリのリテンション: D1=40-60%、D30=20-30%。D1 は long-term retention の最強の単一予測因子。D1 40%+ のアプリは D7=25-30%、D30=15-20% に到達。",
+          "source": "https://linkrunner.io/blog/top-10-mobile-app-onboarding-metrics-that-predict-long-term-retention",
+          "confidence": "high"
+        },
+        {
+          "fact": "オンボーディング失敗パターン: 「requiring too much setup before value delivery」「showing generic content instead of personalized recommendations」。改善策は「smart defaults to show useful content immediately」「progressive disclosure」。",
+          "source": "https://www.amraandelma.com/mobile-app-retention-statistics/",
+          "confidence": "high"
+        },
+        {
+          "fact": "ハイパーカジュアルのプロトタイピング基準: 「visuals must have high readability to ensure they are understandable in about two seconds」。初回タップは即時報酬で「次のアクションが natural に感じる」設計が必要。",
+          "source": "https://www.tap-nation.io/blog/tapnation-playbook-a-complete-guide-to-developing-a-profitable-mobile-game-2/",
+          "confidence": "high"
+        },
+        {
+          "fact": "ハイブリッドカジュアル: D7=20%前後、D30=10%前後（純ハイパーカジュアルのD30 near-zero より大幅改善）。エンゲージメント要素（base building / progression / collection）は最初の3-5セッション以内に導入推奨、10+セッション後では遅すぎる。",
+          "source": "https://www.gamigion.com/2025-hybridcasual-market-overview-with-real-data/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "Jackbox は「once a game is started from the in-pack menu, players simply connect to the jackbox.tv web address on their device and then enter the on-screen room code」。コードルーム経由のセッション設計でモバイル単体起動とは性質が異なる。",
+          "source": "https://www.jackboxgames.com/how-to-play",
+          "confidence": "high"
+        }
+      ],
+      "unable_to_verify": [
+        "Sensor Tower / Data.ai の有料データに含まれる Heads Up! / Picolo / どこパの実測オンボーディング秒数・タップ数（無料公開範囲では未公開）",
+        "Adjust / Liftoff の 2025年版 party game / カジュアル特化の onboarding completion rate 数値（Liftoff 2025 Casual Gaming Apps Report は retention/CPI/ARPU 中心で onboarding 完了率の項は無し）",
+        "Heads Up! の D1/D7/D30 リテンション実数（Ellen / Warner Bros 非開示）",
+        "どこパの D1/D7/D30 リテンション実数（Qdan Inc. 非開示）",
+        "Picolo の onboarding 完了率実数（Marmelapp 非開示）"
+      ]
+    },
+    {
+      "conclusion": "Phase α の ★4.5 / 50 件目標は構造的に DL 数依存。業界の経験則は「prompt 表示 → 評価 13.5%」「prompt 実装で日次評価数 32x」「prompt 表示当たり★平均 4.7」。これを ASOBI Phase α に当てはめると：DL 1,500 シナリオでは評価獲得 50 件は実装ベスト + Day7+セッション3+ お題完走後トリガで「ギリギリ届く」レベル。DL 5,000 で「★4.5 / 50 件は安全圏」、DL 10,000 で「★4.5 / 150-200 件規模」に到達可能。前提：(a) requestReview を Apple ガイドライン準拠で配置（達成イベント直後・Day7+・セッション3+）、(b) 日本ユーザーは★を辛口に付ける文化があるため、prompt 文言で過度なポジティブ誘導を避け、自然な達成感の余韻に流すこと（一気/飲み干し除去・お題達成後の静かな promptが噛み合う）、(c) Apple の年3回上限は自動エンフォースなのでクライアント側でカウント実装不要。最大リスクは prompt の出し過ぎでなく「日本ユーザーの★3=ふつう文化」による平均★沈下。観点 8 の確度：prompt→評価 13.5% と 32x ボリューム増は外部ソースで確定、日本 iOS の category 別「評価/DL 比率」生数値は一次ソース未取得（Sensor Tower/AppTweak は API/有料ゲート）。",
+      "key_insights": [
+        {
+          "insight": "iOS rating prompt の評価コンバージョン率は 13.5%（prompt 表示者ベース）。Keepsafe の実測。書面レビューは 0.07%（表示当たり≒1000 impressions で 7 件レビュー）",
+          "evidence_ref": "Phiture/Keepsafe Fake Prompt 実験",
+          "asobi_implication": "ASOBI Phase α で「★4.5 / 50 件」を取るには prompt 表示数 ≒ 370 セッション以上が必要。DL 1,500 × prompt 到達率（Day7+起動・セッション3+・お題完走者）約 25% = 375 prompt → 13.5% 換算で 50 評価。DL 5,000 なら余裕で達成、DL 1,500 は prompt トリガ設計次第のギリギリ線"
+        },
+        {
+          "insight": "rating prompt 実装で日次評価数 32x、90% のアプリが平均★+20% 上昇",
+          "evidence_ref": "Phiture（業界研究引用）",
+          "asobi_implication": "ASOBI は Phase α からネイティブ prompt 必須。LP 誘導や設定画面リンクは捨てて requestReview 一本化。Phase α 期間中の評価数 50 件目標は prompt 不実装なら 1-2 件レベルに沈むので、ローンチ Day1 時点で実装済みであることが KGI"
+        },
+        {
+          "insight": "Apple 公式：prompt は 365 日中ユーザー1人につき最大3回まで（SDK 側で自動エンフォース）",
+          "evidence_ref": "Apple Developer Forums / SwiftLee / SKStoreReviewController docs",
+          "asobi_implication": "ASOBI 側でカウント実装不要。逆に「同じバージョンで複数回呼ばない」を守る必要があるので、呼び出し条件は「Day7+ かつ セッション3+ かつ 1ゲーム完走 かつ このバージョンで未呼出」の AND 4 条件で 1 回だけ呼ぶのが業界標準"
+        },
+        {
+          "insight": "★1 を付けたユーザーは 12.2% が書面レビューに転化、★5 ユーザーは 0.05% しか書面化しない（244倍の差）",
+          "evidence_ref": "AppReply / Keepsafe",
+          "asobi_implication": "Phase α で書面レビューが目立つ場合、多くは★1-2 のネガティブ。レビュー対応 SLA を 48h 以内に設計しないと検索結果上位の「最新レビュー」がネガで埋まる。Apple は console 経由でレビュー返信可能、Phase α 開始 Day1 からモニタ運用必須"
+        },
+        {
+          "insight": "日本ユーザーは★3=「ふつう、悪くない」、★5 は「期待を全方位で超えた時のみ」という文化。★4 でも US 比で控えめ",
+          "evidence_ref": "JapanDecoded substack / Wayfinder Japan NPS 分析",
+          "asobi_implication": "ASOBI ★4.5 目標は日本市場では US の★4.7-4.8 相当の難度。prompt 文言は『楽しんでいただけたら★で応援』のような自然誘導が望ましく、英語圏で常用の『Love ASOBI? Rate 5 stars!』直訳は逆効果（馴れ馴れしさが★1 を誘発）。i18n で ja/en 別文言を用意"
+        },
+        {
+          "insight": "達成イベント直後の prompt は受動的 prompt 比 3-5x のレビュー率、ただし「成功画面が消える前に被せると逆効果」=  少し余韻を残してから出すのが正解",
+          "evidence_ref": "Apple Developer guidelines / ExtensionBooster 2026 playbook",
+          "asobi_implication": "ASOBI なら『お題1セット（5-10 お題）完走 → リザルト画面表示 → 1.5-2 秒間（リザルトの拍手 SE が鳴り終わるタイミング）→ requestReview』が最適。シーン切替直後やゲーム選択中（ユーザーが次の選択フローに入っている瞬間）は禁止"
+        },
+        {
+          "insight": "App Store でユーザーの 79% が DL 前に評価をチェック。★3.0→4.0 で install conversion +89%、★4.0→4.5 で tap-through +8-15%",
+          "evidence_ref": "AppReply 2026 / WhixFrame ASO 2026",
+          "asobi_implication": "★4.5 は単なる虚栄数値でなく Phase β 以降の DL コスト効率に直結。Phase α で★4.0 を切ると DL CAC が約 1.9x に悪化。逆に★4.5 維持できれば PR TIMES ¥30,000 の有料配信 ROI が成立する"
+        }
+      ],
+      "lens_label": "日本 App Store 評価/DL 比率と review prompt best practice",
+      "lens_number": 8,
+      "raw_data_collected": [
+        {
+          "fact": "iOS rating prompt 表示ユーザーの 13.5% が評価提出、うち大半が★5、結果平均★4.7（Keepsafe Photo Vault 実測）",
+          "source": "https://phiture.com/asostack/unlocking-the-data-behind-the-ios-rating-prompt-8e942bfe9134/",
+          "confidence": "high"
+        },
+        {
+          "fact": "iOS rating prompt 表示者の 0.07% のみが書面レビュー提出（1000 impressions ≒ 7 reviews）",
+          "source": "https://phiture.com/asostack/unlocking-the-data-behind-the-ios-rating-prompt-8e942bfe9134/",
+          "confidence": "high"
+        },
+        {
+          "fact": "rating prompt 実装で日次評価数 32x、90% のアプリで平均★+20%",
+          "source": "https://phiture.com/asostack/unlocking-the-data-behind-the-ios-rating-prompt-8e942bfe9134/",
+          "confidence": "high"
+        },
+        {
+          "fact": "★1 ユーザーは 12.2% が書面レビュー、★5 ユーザーは 0.05% のみ書面化",
+          "source": "https://phiture.com/asostack/unlocking-the-data-behind-the-ios-rating-prompt-8e942bfe9134/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple 公式：rating prompt は 365 日中ユーザー 1 人に最大 3 回まで（SDK 自動エンフォース）",
+          "source": "https://developer.apple.com/documentation/storekit/skstorereviewcontroller",
+          "confidence": "high"
+        },
+        {
+          "fact": "best practice：installed 7 日以上、セッション複数、ユーザーがコア機能に触れた後にトリガ",
+          "source": "https://www.avanderlee.com/swift/skstorereviewcontroller-app-ratings/",
+          "confidence": "high"
+        },
+        {
+          "fact": "Apple 公式ガイドライン：『ユーザーが満足を感じる瞬間（タスク・レベル完了直後）に prompt を出す』、フロー中断中は禁止",
+          "source": "https://developer.apple.com/documentation/storekit/skstorereviewcontroller",
+          "confidence": "high"
+        },
+        {
+          "fact": "1 アプリバージョンにつき prompt は 1 回が推奨ベストプラクティス",
+          "source": "https://www.avanderlee.com/swift/skstorereviewcontroller-app-ratings/",
+          "confidence": "high"
+        },
+        {
+          "fact": "達成イベント直後トリガの contextual prompt は passive prompt 比 3-5x のレビュー率",
+          "source": "https://extensionbooster.net/blog/how-to-increase-android-app-reviews-in-app-review-api-playbook-2026/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "成功状態が画面に出ている間は被せず、余韻を置いてから prompt を出す（『Don't interrupt the success state - let it land, then layer the prompt』）",
+          "source": "https://extensionbooster.net/blog/how-to-increase-android-app-reviews-in-app-review-api-playbook-2026/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "AppTweak 2025：US App Store 全カテゴリ平均 conversion rate 8.56%、Japan は YoY +6% で iOS シェア・consumer spend が世界最高水準（gaming 特に）",
+          "source": "https://www.apptweak.com/en/aso-blog/average-app-conversion-rate-per-category",
+          "confidence": "high"
+        },
+        {
+          "fact": "Japan + US は CPP（Custom Product Pages）の最頻利用国",
+          "source": "https://www.apptweak.com/en/reports/app-downloads-by-country",
+          "confidence": "high"
+        },
+        {
+          "fact": "日本文化では★3=『悪くない／ふつう』、★4=『とても良い』、★5=『全方位で期待超え』。US の★4-5 ジェネラス文化と非対称",
+          "source": "https://japandecoded.substack.com/p/why-are-japanese-online-reviews-so",
+          "confidence": "medium"
+        },
+        {
+          "fact": "日本ユーザーは NPS/評価アンケートで自分を peer 集団の『ふつう』に置く傾向（謙抑バイアス）、満足度低いのでなく回答スケールが違う",
+          "source": "https://www.wayfinderjapan.com/blog/low-nps-survey-ratings-in-japan",
+          "confidence": "medium"
+        },
+        {
+          "fact": "US でワーク する直接的な『★5 をお願い』訴求は日本市場では『forward すぎる』と評価される",
+          "source": "https://japandecoded.substack.com/p/why-are-japanese-online-reviews-so",
+          "confidence": "medium"
+        },
+        {
+          "fact": "App Store ユーザーの 79% は DL 前に評価をチェック。★3→4 で install conv +89%、★4→4.5 で tap-through +8-15%",
+          "source": "https://appreply.co/blog/app-store-reviews-101",
+          "confidence": "high"
+        },
+        {
+          "fact": "Instagram は rating prompt 実装で 1 週間で評価数 2 倍、170 万評価を獲得",
+          "source": "https://www.apptweak.com/en/aso-blog/how-to-increase-ratings-reviews-with-the-ios-ratings-prompt",
+          "confidence": "high"
+        },
+        {
+          "fact": "ユーザーは App Store 設定で全アプリの review prompt を OFF にできる。OFF ユーザーには requestReview を呼んでも何も表示されず、検知 API もない",
+          "source": "https://developer.apple.com/forums/thread/115193",
+          "confidence": "high"
+        }
+      ],
+      "unable_to_verify": [
+        "Sensor Tower / Apptopia による『日本 iOS Game カテゴリの累計評価数 / 累計 DL』の生比率（無料公開レポートに categry × country の cross-cut 数値なし、API は有料ゲート）",
+        "Japan vs US vs CN の rating prompt conversion 率の country 別比較数値（Keepsafe 実験は global aggregate）",
+        "Party / Casual カテゴリ特化の prompt conversion 率（業界レポートは Game 全体止まり）",
+        "App Store Connect Analytics で 2026 年現在開示される impression→rating の official conversion 数値（Apple 公式が個社データのみで業界平均は非公開）",
+        "日本 iOS で「Day1 開封率」「Day7 起動率」を Game/Party カテゴリで切った数値（Adjust/Appsflyer の 2025-2026 ベンチマークが Japan separate cut を提供しているか未確認）"
+      ]
+    },
+    {
+      "lens_number": 9,
+      "lens_label": "商標候補13件のJ-PlatPat確定照会",
+      "raw_data_collected": [
+        {
+          "fact": "ジェンガ（Jenga）は登録商標であり、商標権者は Pokonobe Associates。ハズブロ（Hasbro）はライセンスを受けて使用。日本では2018年3月31日までタカラトミーが販売、以後はハズブロジャパンが流通している",
+          "source": "https://ja.wikipedia.org/wiki/%E3%82%B8%E3%82%A7%E3%83%B3%E3%82%AC",
+          "confidence": "high"
+        },
+        {
+          "fact": "ハズブロ公式（Hasbro Games）は日本市場で「ジェンガ クラシック」「ジェンガでブロック!」「ジェンガ パスチャレンジ」「ジェンガ ミニ」などのライセンス商品を販売",
+          "source": "https://shop.hasbro.com/ja-jp/product/classic-jenga/",
+          "confidence": "high"
+        },
+        {
+          "fact": "文字商標「カラオケ」には特許庁公報ベースで38件の出願・登録商標が存在。識別力が低い単独「カラオケ」は登録されず、複合語（例: カラオケバンバン=登録6923893/シン・コーポレーション 第9/35/41/43類、カラオケノマドグチ=登録6602744/第一興商 第41類）として登録されている",
+          "source": "https://patent-i.com/tm/mark/0001500/",
+          "confidence": "high"
+        },
+        {
+          "fact": "第一興商が9件、シン・コーポレーションが7件と最多保有。指定役務は「カラオケ施設の提供」18件・「飲食物の提供」14件・「カラオケ機械器具の貸与」9件が主軸",
+          "source": "https://patent-i.com/tm/mark/0001500/",
+          "confidence": "high"
+        },
+        {
+          "fact": "商標の普通名称化（trademark genericization）は識別力喪失で商標として機能しなくなる現象。登録前なら拒絶事由、登録後なら権利行使不可となる。エスカレーター、正露丸等が代表例（カラオケは明示的な普通名称化判例は未取得）",
+          "source": "https://ja.wikipedia.org/wiki/%E5%95%86%E6%A8%99%E3%81%AE%E6%99%AE%E9%80%9A%E5%90%8D%E7%A7%B0%E5%8C%96",
+          "confidence": "high"
+        },
+        {
+          "fact": "百人一首は「歌がるた」として第28類の例示商品に列挙されている。任天堂は「小倉百人一首」を商品ラインとして販売し公式サイトを運営。任天堂は商標2500件超を保有するが、汎用語「百人一首」単独の独占登録は確認できず（普通名称扱いの可能性が高い）",
+          "source": "https://www.nintendo.com/jp/others/hyakuninisshu/index.html",
+          "confidence": "medium"
+        },
+        {
+          "fact": "任天堂は「小倉百人一首」を含む百人一首関連商品の販売者であり、第28類の歌がるた区分で商品展開している",
+          "source": "https://ipforce.jp/shohyo/apview?idDLAp=849",
+          "confidence": "high"
+        },
+        {
+          "fact": "たほいやは欧米ゲーム「Fictionary」の日本版。1993年4月-9月にフジテレビ系列『JOCX-TV2』枠で同名深夜番組が放送された経緯あり。商標登録の有無は明示情報なし",
+          "source": "https://ja.wikipedia.org/wiki/%E3%81%9F%E3%81%BB%E3%81%84%E3%82%84",
+          "confidence": "medium"
+        },
+        {
+          "fact": "マシュマロチャレンジは Peter Skillman 考案、Tom Wujec 普及の世界的ワークショップ。日本では「日本マシュマロチャレンジ協会」が公式キット貸出・講師派遣を運営。同協会は名称の独自運用主体だが商標登録の事実は確認できず",
+          "source": "http://www.marshmallow-challenge-japan.org/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "ロシアンルーレットは菓子商品として明治・ロッテ・中山製菓・ロイズ等から「ロシアンルーレット」を冠した商品が並列販売されており、菓子分野では識別力が低く普通名称的に運用されている",
+          "source": "https://search.rakuten.co.jp/search/mall/%E3%83%AD%E3%82%B7%E3%82%A2%E3%83%B3%E3%83%AB%E3%83%BC%E3%83%AC%E3%83%83%E3%83%88+%E3%81%8A%E8%8F%93%E5%AD%90/",
+          "confidence": "medium"
+        },
+        {
+          "fact": "七並べは任天堂公式「トランプの歴史・遊びかた」ページで普通名称的に紹介。SDIN・トランプスタジアム・cattama等が同名Web/アプリを並列提供しており独占運用なし",
+          "source": "https://www.nintendo.com/jp/others/playing_cards/howtoplay/index.html",
+          "confidence": "high"
+        },
+        {
+          "fact": "ババ抜きはトランプ普通名称扱い。NPO法人や教育系サイトが普通名称として紹介、アプリ「トランプ ババ抜きアプリ」が複数同名で並存",
+          "source": "https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%90%E6%8A%9C%E3%81%8D",
+          "confidence": "high"
+        },
+        {
+          "fact": "キングスカップ（King's Cup, 別名Ring of Fire/Circle of Death）はトランプ系飲みゲーム。App Storeに「キングスカップ〜トランプ引いて罰ゲーム！〜」が既存。商標登録の有無は明示情報なし、複数版のアプリが並列存在",
+          "source": "https://apps.apple.com/jp/app/%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%B9%E3%82%AB%E3%83%83%E3%83%97-%E3%83%88%E3%83%A9%E3%83%B3%E3%83%97%E5%BC%95%E3%81%84%E3%81%A6%E7%BD%B0%E3%82%B2%E3%83%BC%E3%83%A0/id6446199813",
+          "confidence": "medium"
+        },
+        {
+          "fact": "フリップカップは海外発祥の飲みゲーム。Gift Republic製キット（Amazon.co.jp流通）が並列販売される普通名称運用。アプリ名としては「ボトルフリップ3D」等の派生はあるが「フリップカップ」固有ブランドの単独商標は確認できず",
+          "source": "https://www.amazon.co.jp/-/en/Flip-Cup-Drinking-Game/dp/B07W8Y5M92",
+          "confidence": "medium"
+        },
+        {
+          "fact": "山手線ゲーム（別名:古今東西ゲーム）はWikipediaで普通名称的レクリエーションとして紹介。商標登録出願の確認情報は取得できず",
+          "source": "https://ja.wikipedia.org/wiki/%E5%B1%B1%E6%89%8B%E7%B7%9A%E3%82%B2%E3%83%BC%E3%83%A0",
+          "confidence": "medium"
+        },
+        {
+          "fact": "NGワード・ナンバープレートゲームに関する商標登録/出願情報は J-PlatPat 直接照会できず（WebFetch 不可）、第三者ソースでも個別案件は取得不可",
+          "source": "https://www.jpo.go.jp/support/startup/shohyo_search.html",
+          "confidence": "low"
+        }
+      ],
+      "key_insights": [
+        {
+          "insight": "ジェンガは Pokonobe Associates が真正商標権者、ハズブロは日本流通ライセンシー。ASOBI 内でゲーム名として「ジェンガ」を使用するのは、第28類玩具と概念的にゲーム名で識別可能であり、商標的使用と捉えられるリスクが高い。書き換え必須",
+          "evidence_ref": "Wikipedia ジェンガ / Hasbro公式",
+          "asobi_implication": "「ジェンガ」を「タワー崩し」「ブロックタワー」等の普通名称に書き換える。リテンションでは『パーティーゲーム』カテゴリ訴求は変えず、第三者標章を回避"
+        },
+        {
+          "insight": "カラオケは第41類で第一興商9件・シン・コーポレーション7件など38件超の登録が並存。単独「カラオケ」は識別力欠如で登録不能。ASOBI 内で「カラオケ」をお題語として使うのはアプリ機能ではなく単なる遊技指示なので商標的使用には当たらず、リスク低",
+          "evidence_ref": "patent-i.com 文字商標カラオケ",
+          "asobi_implication": "ゲーム名として「カラオケしりとり」等の組合せ語を採用する場合のみ要警戒。お題内の単純語として登場するなら問題なし"
+        },
+        {
+          "insight": "百人一首・七並べ・ババ抜きは古典トランプ/かるた系の普通名称で、任天堂・SDIN等が同名コンテンツを並列運用。識別力欠如により単独商標化は困難でリスク極低。そのままゲーム名採用可",
+          "evidence_ref": "Nintendo公式 playing_cards / Wikipedia ババ抜き",
+          "asobi_implication": "百人一首/七並べ/ババ抜きの3件はゲーム名として継続使用可。Apple審査でも普通名称扱いされ、商標衝突を理由にした reject はほぼない"
+        },
+        {
+          "insight": "ロシアンルーレット・キングスカップ・フリップカップ・マシュマロチャレンジ・山手線ゲーム・たほいやは複数事業者の並列運用が確認でき、いずれも独占商標化された証拠なし。ただし J-PlatPat 直接照会未達でゼロ証明はできず confidence=medium",
+          "evidence_ref": "App Store/Amazon並列商品 / Wikipedia",
+          "asobi_implication": "使用可能性は高いが、有償公開前に弁理士1時間スポット相談で J-PlatPat 全件確認が安全。費用5,000-15,000円で7-8件まとめ照会できる"
+        },
+        {
+          "insight": "NGワード・ナンバープレートゲームの2件は外部一次ソースで商標状態を確定できず。J-PlatPat 直接照会が必須。WebFetch では j-platpat.inpit.go.jp が読み込めない以上、人手照会 or キャッシュ調査が次のアクション",
+          "evidence_ref": "取得不可",
+          "asobi_implication": "App Store 提出前に最低この2件は J-PlatPat 手動照会必須。NGワードは一般語でハイパーロボット等別商品例があるため複合語化で回避が無難"
+        },
+        {
+          "insight": "たほいやはフジテレビ系列の同名番組（1993年）が存在。フジサンケイ系商標保有の可能性があり、独自要確認。同様にマシュマロチャレンジは「日本マシュマロチャレンジ協会」が公式キット運営という意味で名称の運用主体が明確に存在",
+          "evidence_ref": "Wikipedia たほいや / marshmallow-challenge-japan.org",
+          "asobi_implication": "たほいや・マシュマロチャレンジは「権利者候補が特定済み」のためリスク区分=要照会。J-PlatPat確定までは別名候補（『偽辞書ゲーム』『パスタタワー』等）を併走させる"
+        }
+      ],
+      "unable_to_verify": [
+        "J-PlatPat (j-platpat.inpit.go.jp) のリアルタイム検索結果。WebFetch でアクセスできず動的検索を実行不能。13件全件の登録番号・出願人・指定商品・存続期間の確定数値が取得できない",
+        "NGワード / ナンバープレートゲーム / 山手線ゲーム / フリップカップ / キングスカップ / ロシアンルーレット / マシュマロチャレンジ / たほいや の8件について、日本での具体的な登録番号と権利者の有無",
+        "カラオケ・百人一首が法律上「普通名称化した商標」として確定された判例の有無",
+        "ジェンガの日本における Pokonobe Associates の商標登録番号・指定区分・存続期限の具体値"
+      ],
+      "conclusion": "13件のJ-PlatPat確定照会は WebFetch がブロックされ全件登録番号レベルの確定はできなかったが、外部一次/二次ソースから3階層に分類できた。【リスク低（普通名称扱いで使用継続可）】百人一首/七並べ/ババ抜き/山手線ゲーム/カラオケ＝古典遊戯名で複数事業者並列運用、識別力欠如により独占商標化困難。【リスク中（並列運用だがJ-PlatPat確定要）】ロシアンルーレット/キングスカップ/フリップカップ/マシュマロチャレンジ/たほいや＝複数の名乗りが並存するが特定団体（フジテレビ・日本マシュマロチャレンジ協会等）の保有可能性、最終照会必須。【リスク高（書換推奨）】ジェンガ＝Pokonobe Associates の登録商標、ハズブロライセンス運用が確定済み。同名でアプリ内ゲーム名にする場合は商標的使用と判断されうるため「タワー崩し」等への書換が安全。NGワード/ナンバープレートゲームは外部ソース不足で確定不能。次アクションは弁理士1時間スポット（5,000-15,000円）で残10件の J-PlatPat 全件確定照会 + ジェンガの代替名確定。Apple 1.4.3/4.3(b) と独立した法的リスクとして、有償リリース前の必須ステップ。"
+    }
+  ],
+  "synthesis": {
+    "convergent_conclusion": "3回のworkflowを統合した結論：ASOBIは「個人開発iOS partygameで生存しうる構造的に正しい設計」（対面1台パス・完全オフライン・17+厳守・1191ゲーム静的アセット）を既に持っているが、爆発的ヒットを狙うなら「ローンチ単発勝負」ではなく「2026/09/15 iOS 27 GA + 2026/12 忘年会シーズン」の2段階イベント張り付き戦略しか勝ち筋がない。具体的には：(1) Apple Developer承認直後にFeaturing Nomination第1弾を3ヶ月前提出し、9/15 GA当日のEditorial枠を狙う、(2) v1.0は静的1176ゲーム＋買切ハイブリッド（広告除去/追加デッキ¥600-980）でローンチ、AIホスト追従はv1.1以降に分離、(3) v1.1でApp Intents+Foundation Models（iOS 27の新API）を1つ刺してInnovation軸の点数を取り、Stories枠で「宮崎在住solo×完全オフライン×17+厳守」narrativeをピッチ、(4) 12月忘年会deck無料追加を約束しBunch/Marco Polo/Picoloの「後付けペイウォール化」失敗の信頼貯金を吸収、(5) 撤退ラインは業界相場通り「6ヶ月で月収¥0継続」をトリガとし、3ヶ月は早すぎ・12ヶ月は遅すぎ。最大リスクはTikTokバイラル一発依存に振れること（TBHパターン死）、最大の構造優位は対面1台×オフライン×データ未収集の組み合わせがHouseparty/Bunch/Marco Poloの全死因を構造的に回避していること。「ASOBIをHousepartyにするな、Heads Up!にしろ」が3回統合の中核命題。",
+    "final_remaining_uncertainties": [
+      "J-PlatPat直接照会未達の10件（ロシアンルーレット/キングスカップ/フリップカップ/マシュマロチャレンジ/たほいや/山手線ゲーム/NGワード/ナンバープレートゲーム/カラオケ複合語/百人一首独占権の最終確認）の登録番号レベル確定。弁理士1時間スポット5,000-15,000円が必要",
+      "Siri AI日本語対応の正式時期（英語ベータ2026年内のみ確認）。App Intents実装の「Hey Siri 対応」訴求が9/15 GA時点で日本市場に効くか不明",
+      "Foundation Models on-device LLM（Apple AFM 3B/20B）の日本語パーティーゲームお題生成品質（実機ベンチ未取得）。v1.1でAI機能をハイブリッド有料化する際の品質基準が立てられない",
+      "日本App StoreのToday/Editor's Choice過去3年掲載日本人solo開発者リスト（Apptweak等の有料Today tab trackerが必要、無料公開範囲では取得不可）",
+      "Heads Up!/どこパ/Picoloの実D1/D7/D30リテンション数値（Sensor Tower/Apptopia有料ゲート）。ASOBIのKPI目標値を業界中央値で立てる根拠が弱い",
+      "日本iOS Game/Partyカテゴリの「累計評価数/累計DL」生比率（Phase α ★4.5/50件目標の現実性を country×category cross-cutで検証できず）",
+      "Live Activities/Dynamic Islandのparty game公式採用事例（スポーツ実況/配送/タイマー系のみで前例ゼロ）。v1.2実装時のApple審査・UX観点のリファレンスが存在しない",
+      "Apple Featuring Nominations のJP region編集チーム個別pitch窓口（global form のみ、JP個別チャネル公式非公開）"
+    ],
+    "immediate_actionable_items": [
+      {
+        "action": "Featuring Nomination第1弾draft作成（Apple Developer承認到着前に骨格完成）",
+        "first_step": "outputs/asobi/featuring-nomination-v1-draft.md を作成。7軸（UX/UI/Innovation/Uniqueness/Accessibility/Localization/Product Page）ごとにASOBIの主張を箇条書き、supplemental URL 5枠（promo動画/LP/press kit/regionBlocklist設計note/監修方針note）の必要素材リスト化",
+        "why_now": "Apple Developer承認直後にすぐ提出するには素材が必要。推奨3ヶ月前ルールから逆算すると9/15 GA狙いは6月中旬draft完了が望ましい。今週着手で7月public beta時の第1弾提出に間に合う"
+      },
+      {
+        "action": "App Store説明文に「後付けペイウォール化禁止」誓約を明記",
+        "first_step": "outputs/asobi/store-description-ja.md と -en.md に「ASOBIは買い切り後の機能を有料化しません」の1文を冒頭近くに追加。Bunch/Marco Polo/Picoloの失敗事例を反転して差別化材料化",
+        "why_now": "ストア説明文はAppleレビュー前に確定が必要。今書いておけばv1.0提出時にそのまま使える。Phase αの★4.5達成にも信頼貯金として効く"
+      },
+      {
+        "action": "「クイックスタート」ボタン仕様の追加実装（TTV 10秒以内目標）",
+        "first_step": "起動後トップ画面の最上段に「クイックスタート」ボタン配置。人数だけ聞いて即お題表示する導線をdesign。1191ゲーム選択は2回目以降に表示する段階的開示パターンに変更",
+        "why_now": "業界TTVベンチマーク（Heads Up! 4ステップ・どこパ3分・onboarding 10-15秒）に対しASOBIの13シーン×1191ゲームは選択肢過多リスク。v1.0凍結前に最終UI調整可能な今が最後のタイミング"
+      },
+      {
+        "action": "弁理士1時間スポット相談予約（残10件の商標J-PlatPat確定照会）",
+        "first_step": "outputs/asobi/legal/trademark-check-list.md に10件（ロシアンルーレット/キングスカップ/フリップカップ/マシュマロチャレンジ/たほいや/山手線ゲーム/NGワード/ナンバープレートゲーム+ジェンガ代替名候補3つ）をまとめ、JIIIまたは地元宮崎/福岡の弁理士に1時間スポット5,000-15,000円で依頼",
+        "why_now": "App Store審査前必須。ジェンガはPokonobe Associatesが真正商標権者で書換確定、他10件はリスク中以上のものが含まれる。費用も小さく今週中に予約可能"
+      },
+      {
+        "action": "12月忘年会deck無料追加コミットの公開化",
+        "first_step": "outputs/asobi/note/2026-q4-roadmap.md にローンチ後の季節deckロードマップ（12月忘年会・1月新年会・3月歓送迎会・8月お盆）を明文化。LP/note/Xで告知（メモリfeedback_publish_includes_announcement準拠）",
+        "why_now": "ローンチ前に「定期コンテンツ追加」をコミット化することでHeads Up!/Jackbox型の生存パターンに位置取り。Bunch/TBH型の「バイラル一発→死」を避ける構造的予防"
+      },
+      {
+        "action": "requestReview 4条件AND実装（Day7+/セッション3+/ゲーム完走/このバージョン未呼出）",
+        "first_step": "ASOBI内のreview prompt呼出ロジックをApple SDK仕様に合わせて1バージョン1回・お題1セット完走後リザルト画面表示1.5-2秒後にトリガする実装。日本語prompt文言は「楽しんでいただけたら★で応援」など過度なポジティブ誘導を避ける",
+        "why_now": "Phase α ★4.5/50件目標達成にprompt実装は構造必須（不実装で日次評価1-2件レベル沈下）。v1.0リリース時点で完成していないと立ち上がりに間に合わない"
+      },
+      {
+        "action": "Anthropic Max5x key流用禁止のセキュリティ境界明文化",
+        "first_step": "outputs/asobi/security/api-key-policy.md にharuhi-api-key（Max5x）はASOBIで使用禁止、AI機能を入れる場合はASOBI専用従量keyを別契約しCloudflare Workers/Vercel Edge proxy経由でのみ呼出する原則を記録。月予算hard cap $50/月の閾値も併記",
+        "why_now": "AIホスト追従検討の前段として境界を引いておく。haruhi $4.55スパイク事案（メモリ参照）を踏まえ、ASOBI v1.1でAI機能を入れる前に方針確定が必要"
+      },
+      {
+        "action": "Family Sharing対応の明示と「祖父母にも遊んでもらえる」訴求追加",
+        "first_step": "App Store説明文と LP に「Apple Family Sharing対応、1回購入で実家のおじいちゃんおばあちゃんも遊べます」を記載。Dynamic Type 300%・最小タップ44pt・VoiceOver対応はAccessibility軸でFeaturing Nominationにも転用",
+        "why_now": "3世代帰省市場（年末年始8割集合）は12月UAピークと噛み合う隠れた大市場。70代後半でアプリDL率4割未満なので孫の親世代をターゲット化する設計が今のうちに必要"
+      },
+      {
+        "action": "App Intents（StartGameIntent/NextPromptIntent/RandomGameIntent）の3つを v1.1 ロードマップに正式登録",
+        "first_step": "outputs/asobi/roadmap/v1.1-spec.md にSiriKit廃止2-3年窓を踏まえた App Intents 3点実装を必須項目化。7月 public beta で Siri AI 動作確認、9/15 GA当日に「Hey Siri対応」を説明文追加するスケジュール記載",
+        "why_now": "Heads Up!/どこパは現状Siri統合確認できず、ASOBIが先行すれば voice-first 差別化＋Innovation軸の Featuring 点数獲得。v1.0は静的維持しv1.1で1機能だけ刺すのが業界整合"
+      },
+      {
+        "action": "撤退ライン文書化（6ヶ月で月収¥0継続トリガ）",
+        "first_step": "outputs/asobi/business/retirement-line.md に「リリース6ヶ月時点で月収¥0継続なら追加投資停止・最小メンテのみ」のIndie Hackers業界相場ベースの撤退ライン明記。3ヶ月で判断は早すぎ・12ヶ月は遅すぎの根拠も記録",
+        "why_now": "Anthropic月$25予算の haruhi 撤退ライン3ヶ月とは別軸でASOBI個別ラインが必要。意思決定基準を事前に文書化しておかないと感情判断になる"
+      }
+    ],
+    "integrated_strategy_updates": [
+      {
+        "area": "ローンチタイミング戦略",
+        "finding": "iOS 27 GA（2026/09/15）+ 忘年会12月+ 帰省8割8月の3イベントが2026年下半期に集中。WWDC26で発表されたFeaturing Nominations + Asset Library live更新 + Personalized Collectionsが揃い、Editorial枠狙いに最適環境",
+        "source": "lens1 iOS 27/WWDC26 + lens2 App Store Today + lens4 3世代帰省",
+        "updated_action": "前2回の「即ローンチ・年内回収」から「9/15 GA当日Editorial狙い + 12月忘年会第2波 + 2027年3月歓送迎会第3波」の3波打ち戦略へ更新。Apple Developer承認直後に Featuring Nomination 第1弾draft準備"
+      },
+      {
+        "area": "課金モデル",
+        "finding": "Today featured の2/3がpaid/IAP搭載アプリで完全無料は構造的に弾かれやすい。Bunch/Marco Pol/Picoloは「後付けペイウォール化」で全員失敗、Heads Up!は買切+IAPカテゴリ追加で10年生存",
+        "source": "lens2 App Store Today + lens3 失敗事例 + lens5 個人開発月収",
+        "updated_action": "前2回確定の「Heads Up!型買切ハイブリッド」をさらに強化。買切¥490-980+追加デッキ¥600-980/パック、後付けペイウォール化禁止をストア説明文で明文化し信頼貯金化"
+      },
+      {
+        "area": "AI機能の扱い",
+        "finding": "Foundation Models multimodal + third-party LLM protocol解禁でon-device $0生成が架構上クリーンに。ただしAge Rating 18+リスク、Anthropic Max5xキー直叩き不可、AI Dungeon/Party AIともフリー無制限を諦め有料壁化",
+        "source": "lens1 WWDC26 + lens6 AIホスト費用試算",
+        "updated_action": "AIホスト追従はv1.0には入れず v1.1で「静的1176ゲームの語彙バリエーション拡張」に限定使用、17+据え置き死守。実装時はASOBI専用Cloudflare Workers proxy + 月予算hard cap $50/月、haruhi-api-key流用厳禁"
+      },
+      {
+        "area": "ターゲット市場",
+        "finding": "3世代『同居』は11.2%だが『年2回帰省集合』は8割。70代後半でアプリDL率4割未満のため祖父母自身DL戦略は破綻、30-50代の孫の親世代+Family Sharingが現実解。Switch非保有・帰省先での代替品ポジションが空白",
+        "source": "lens4 3世代家族ニーズ",
+        "updated_action": "前2回の「飲み会・宴会・パーティ」軸に加え「実家帰省・3世代家族」軸を追加。App Store ASO で『マリオパーティ』『Switch持って帰れない』『帰省ゲーム』を狙い、Dynamic Type 300%/VoiceOver/Family Sharing対応をFeaturing Accessibility軸の弾にする"
+      },
+      {
+        "area": "TTV/オンボーディング",
+        "finding": "Heads Up! 4ステップ・どこパ3分・業界10-15秒目標に対しASOBI 1191ゲーム×13シーンは選択肢過多リスク。D1=40-60%狙うならsmart defaults+progressive disclosure必須",
+        "source": "lens7 TTV業界数値",
+        "updated_action": "v1.0 UI に「クイックスタート」ボタン追加し人数だけ聞いて即お題表示。13シーン・1191ゲーム選択は2回目以降に段階的開示。ストアスクショ1枚目は「3秒で次のお題が出る」ショットに統一"
+      },
+      {
+        "area": "レビュー/評価戦略",
+        "finding": "iOS rating prompt 表示者の13.5%が評価提出・prompt実装で日次評価数32x、日本ユーザーは★3=ふつう文化で★4.5はUS★4.7-4.8相当の難度。お題完走後リザルト1.5-2秒後トリガが最適",
+        "source": "lens8 日本評価/DL比率",
+        "updated_action": "前2回の Phase α ★4.5/50件目標を維持しつつ、prompt実装の4条件AND（Day7+/セッション3+/ゲーム完走/このバージョン未呼出）を v1.0必須に。日本語prompt文言は『楽しんでいただけたら★で応援』など過度誘導回避。レビュー返信SLA 48h以内"
+      },
+      {
+        "area": "商標・法務",
+        "finding": "ジェンガはPokonobe Associates登録商標で書換必須、百人一首/七並べ/ババ抜き/山手線ゲーム/カラオケは普通名称扱いで継続使用可、残10件はJ-PlatPat直接照会未達でリスク中以上",
+        "source": "lens9 商標13件J-PlatPat照会",
+        "updated_action": "前2回未着手の「ジェンガ→タワー崩し書換」を v1.0 提出前確定。弁理士1時間スポット5,000-15,000円で残10件J-PlatPat照会を今週予約。NGワード/ナンバープレートゲームは複合語化で回避案も並走"
+      },
+      {
+        "area": "失敗回避・防御",
+        "finding": "縮退partygameの3死因（外部イベント依存・リモート前提・後付けペイウォール）にASOBIは構造的に該当しない。生存組（Heads Up!/Jackbox/Psych!）の遺伝子に近い",
+        "source": "lens3 失敗事例構造分析",
+        "updated_action": "前2回の「TikTokバイラル狙い」を トーンダウン。バイラル流入は10代×バカウケでTBHパターン死リスクのため、流入経路は『忘年会の必携アプリ』『帰省ゲーム』『家族で遊べる』の日常使用narrativeに統一。リモート/ボイチャ/WebRTC実装は絶対しない"
+      },
+      {
+        "area": "撤退ライン",
+        "finding": "Indie Hackers業界相場は『6ヶ月で月収¥0継続でピボット/撤退』が最頻値。3ヶ月は早すぎ・12ヶ月は遅すぎ。広告単独で月¥1万円は事実上不可能でIAP/サブスク実装が分岐点",
+        "source": "lens5 個人開発月収",
+        "updated_action": "前2回の haruhi 撤退ライン3ヶ月（Anthropic $25軸）とは別軸で、ASOBI撤退ラインは『リリース6ヶ月時点で月収¥0継続なら追加投資停止・最小メンテのみ』を文書化。Heads Up!型買切IAP最低1点投入で広告単独の落とし穴回避"
+      }
+    ],
+    "verified_facts_summary": "9 lens の外部リサーチで一次データ確定したのは主に次の塊：(1) iOS 27 GA は 2026/09/15 前後、WWDC26で Foundation Models multimodal + third-party LLM protocol 解禁・SiriKit deprecated（2-3年窓）・App Store Featuring Nominations + Asset Library live更新が発表済。(2) Featuring Nomination は Apple Developer Program 承認後 App Store Connect から submit する一本道で7軸評価、indie 平均 DL lift は +792-1,747%。(3) 縮退partygame（Houseparty/Bunch/Among Us/TBH/Marco Polo）の死因は『外部イベント依存・リモート前提・後付けペイウォール』の3つに収束、生存組（Heads Up! 10年・Jackbox 11 Pack・Psych! 10年）は『季節connectedコンテンツ追加+IPコラボ+透明価格』で防御。(4) 3世代同居は児童世帯11.2%だが年末年始集合は8割、70代アプリDL率4割未満のためFamily Sharing+孫の親世代設計が現実解。(5) 個人開発iOSで月¥1-3万到達はIAP/サブスク必須で5-18ヶ月、Indie Hackers業界相場は『6ヶ月で月収¥0継続でピボット/撤退』が最頻。(6) AI APIコストはGemini 2.5 Flash-Lite/Claude Haiku 4.5+cache でDAU 1万でも$3-30/月レンジ、ただしAnthropic Max5xキーをアプリ直叩き不可・Apple 5.1.2(i)で第三者AI開示+同意必須・Age Rating 18+リスク。(7) TTVは Heads Up! 4ステップ・どこパ3分・業界10-15秒目標、ゲームカテゴリ平均CVR 3-5%（全カテゴリ8.56%より低い）。(8) iOS rating prompt 表示者の13.5%が評価提出・prompt実装で日次評価数32x、日本ユーザーは★3=ふつう文化で★4.5はUS★4.7-4.8相当の難度。(9) 商標13件のうちジェンガは Pokonobe Associates 登録確定で書換必須、百人一首/七並べ/ババ抜き/山手線ゲーム/カラオケは普通名称扱いで継続使用可、残10件は J-PlatPat 直接照会未達で弁理士スポット相談（5,000-15,000円）が必要。"
+  }
+}
